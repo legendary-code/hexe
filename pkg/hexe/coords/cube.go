@@ -1,8 +1,20 @@
 package coords
 
-import "github.com/legendary-code/hexe/internal/hexe/check"
+import (
+	"github.com/legendary-code/hexe/internal/hexe/check"
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
+)
 
 type cube [3]int
+
+var cubeNeighborCoords = [consts.Sides][3]int{
+	{1, 0, -1},
+	{-1, 0, 1},
+	{1, -1, 0},
+	{-1, 1, 0},
+	{0, -1, 1},
+	{0, 1, -1},
+}
 
 func Cube(q int, r int, s int) CoordQRS {
 	check.That(q+r+s == 0, "cube coordinates (q + r + s) must equal 0")
@@ -55,4 +67,12 @@ func (c cube) S() int {
 
 func (c cube) Unpack() (int, int, int) {
 	return c[0], c[1], c[2]
+}
+
+func (c cube) Neighbors() [consts.Sides]CoordQRS {
+	neighbors := [consts.Sides]CoordQRS{}
+	for i, neighborCoord := range cubeNeighborCoords {
+		neighbors[i] = Cube(c[0]+neighborCoord[0], c[1]+neighborCoord[1], c[2]+neighborCoord[2])
+	}
+	return neighbors
 }

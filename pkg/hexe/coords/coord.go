@@ -16,6 +16,7 @@ type CoordQR interface {
 	Q() int
 	R() int
 	Unpack() (int, int)
+	Neighbors() [6]CoordQR
 }
 
 type CoordQRS interface {
@@ -24,4 +25,5 @@ type CoordQRS interface {
 	R() int
 	S() int
 	Unpack() (int, int, int)
+	Neighbors() [6]CoordQRS
 }

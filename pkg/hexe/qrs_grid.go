@@ -1,6 +1,8 @@
 package hexe
 
-type QRSGrid[T any, C any] interface {
+import "github.com/legendary-code/hexe/pkg/hexe/coords"
+
+type QRSGrid[T any, C coords.CoordQRS] interface {
 	Grid[T]
 	Get(q int, r int, s int) T
 	Index(q int, r int, s int) (T, bool)
@@ -36,5 +38,15 @@ func (g *qrsGrid[T, C]) Delete(q int, r int, s int) {
 }
 
 func (g *qrsGrid[T, C]) Neighbors(q int, r int, s int) []Item[T, C] {
-	return nil
+	neighbors := make([]Item[T, C], 0)
+	neighborCoords := coords.Cube(q, r, s).Neighbors()
+
+	for _, neighborCoord := range neighborCoords {
+		value, ok := g.grid.index(neighborCoord.Q(), neighborCoord.R())
+		if ok {
+			neighbors = append(neighbors, newItem[T, C](neighborCoord.(C), value))
+		}
+	}
+
+	return neighbors
 }

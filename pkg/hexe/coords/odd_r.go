@@ -1,9 +1,11 @@
 package coords
 
+import "github.com/legendary-code/hexe/pkg/hexe/consts"
+
 type oddR [2]int
 
 func OddR(q int, r int) CoordQR {
-	return &oddR{q, r}
+	return oddR{q, r}
 }
 
 func (o oddR) Axial() CoordQR {
@@ -48,4 +50,12 @@ func (o oddR) R() int {
 
 func (o oddR) Unpack() (int, int) {
 	return o[0], o[1]
+}
+
+func (o oddR) Neighbors() [consts.Sides]CoordQR {
+	neighbors := o.Axial().Neighbors()
+	for i, neighbor := range neighbors {
+		neighbors[i] = neighbor.OddR()
+	}
+	return neighbors
 }

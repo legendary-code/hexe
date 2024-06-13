@@ -1,5 +1,7 @@
 package coords
 
+import "github.com/legendary-code/hexe/pkg/hexe/consts"
+
 type doubleWidth [2]int
 
 func DoubleWidth(q int, r int) CoordQR {
@@ -48,4 +50,12 @@ func (d doubleWidth) R() int {
 
 func (d doubleWidth) Unpack() (int, int) {
 	return d[0], d[1]
+}
+
+func (d doubleWidth) Neighbors() [consts.Sides]CoordQR {
+	neighbors := d.Axial().Neighbors()
+	for i, neighbor := range neighbors {
+		neighbors[i] = neighbor.DoubleWidth()
+	}
+	return neighbors
 }

@@ -1,5 +1,7 @@
 package coords
 
+import "github.com/legendary-code/hexe/pkg/hexe/consts"
+
 type evenQ [2]int
 
 func EvenQ(q int, r int) CoordQR {
@@ -48,4 +50,12 @@ func (e evenQ) R() int {
 
 func (e evenQ) Unpack() (int, int) {
 	return e[0], e[1]
+}
+
+func (e evenQ) Neighbors() [consts.Sides]CoordQR {
+	neighbors := e.Axial().Neighbors()
+	for i, neighbor := range neighbors {
+		neighbors[i] = neighbor.EvenQ()
+	}
+	return neighbors
 }

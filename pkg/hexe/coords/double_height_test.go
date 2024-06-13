@@ -1,6 +1,7 @@
 package coords
 
 import (
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -38,4 +39,19 @@ func TestDoubleHeight_EvenQ(t *testing.T) {
 func TestDoubleHeight_DoubleWidth(t *testing.T) {
 	assert.Equal(t, DoubleWidth(0, 0), DoubleHeight(0, 0).DoubleWidth())
 	assert.Equal(t, DoubleWidth(5, 1), DoubleHeight(2, 4).DoubleWidth())
+}
+
+func TestDoubleHeight_Neighbors(t *testing.T) {
+	assert.Equal(
+		t,
+		[consts.Sides]CoordQR{
+			DoubleHeight(2, 2),
+			DoubleHeight(0, 0),
+			DoubleHeight(2, 0),
+			DoubleHeight(0, 2),
+			DoubleHeight(1, -1),
+			DoubleHeight(1, 3),
+		},
+		DoubleHeight(1, 1).Neighbors(),
+	)
 }
