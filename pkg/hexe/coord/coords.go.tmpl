@@ -1,0 +1,75 @@
+package coord
+
+import (
+    "github.com/legendary-code/hexe/pkg/hexe/consts"
+)
+
+// GCoords represents an ordered set of coordinates in the gCoord coordinate system
+type GCoords struct {
+    *orderedSet[GCoord, *GCoords]
+}
+
+// NewGCoords returns a new ordered set of coordinates with the given initial set of coordinates
+func NewGCoords(values ...GCoord) *GCoords {
+    return &GCoords{
+        orderedSet: newOrderedSet[GCoord, *GCoords](func() *GCoords {
+            return NewGCoords()
+        }, values...),
+    }
+}
+
+func (g *GCoords) Type() consts.CoordType {
+    return consts.GCoord
+}
+
+func (g *GCoords) Convert(typ consts.CoordType) Coords {
+    return convertCoords(g, typ)
+}
+
+func (g *GCoords) Axials() *Axials {
+    return castAs[GCoord, *GCoords, Axial, *Axials](g, GCoord.Axial, NewAxials)
+}
+
+func (g *GCoords) Cubes() *Cubes {
+    return castAs[GCoord, *GCoords, Cube, *Cubes](g, GCoord.Cube, NewCubes)
+}
+
+func (g *GCoords) DoubleWidths() *DoubleWidths {
+    return castAs[GCoord, *GCoords, DoubleWidth, *DoubleWidths](g, GCoord.DoubleWidth, NewDoubleWidths)
+}
+
+func (g *GCoords) DoubleHeights() *DoubleHeights {
+    return castAs[GCoord, *GCoords, DoubleHeight, *DoubleHeights](g, GCoord.DoubleHeight, NewDoubleHeights)
+}
+
+func (g *GCoords) EvenQs() *EvenQs {
+    return castAs[GCoord, *GCoords, EvenQ, *EvenQs](g, GCoord.EvenQ, NewEvenQs)
+}
+
+func (g *GCoords) EvenRs() *EvenRs {
+    return castAs[GCoord, *GCoords, EvenR, *EvenRs](g, GCoord.EvenR, NewEvenRs)
+}
+
+func (g *GCoords) OddQs() *OddQs {
+    return castAs[GCoord, *GCoords, OddQ, *OddQs](g, GCoord.OddQ, NewOddQs)
+}
+
+func (g *GCoords) OddRs() *OddRs {
+    return castAs[GCoord, *GCoords, OddR, *OddRs](g, GCoord.OddR, NewOddRs)
+}
+
+func (g *GCoords) Rotate(center GCoord, angle int) *GCoords {
+    return g.Cubes().Rotate(center.Cube(), angle).GCoords()
+}
+
+func (g *GCoords) ReflectQ() *GCoords {
+    return g.Cubes().ReflectQ().GCoords()
+}
+
+func (g *GCoords) ReflectR() *GCoords {
+    return g.Cubes().ReflectR().GCoords()
+}
+
+func (g *GCoords) ReflectS() *GCoords {
+    return g.Cubes().ReflectS().GCoords()
+}

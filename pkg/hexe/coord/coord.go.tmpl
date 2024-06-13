@@ -1,0 +1,119 @@
+package coord
+
+import (
+    "fmt"
+    "github.com/legendary-code/hexe/pkg/hexe/consts"
+)
+
+// GCoord represents a hex coordinate in the gCoord coordinate system
+type GCoord [2]int
+
+// NewGCoord creates a new gCoord coordinate with the given component values
+func NewGCoord(q int, r int) GCoord {
+    return GCoord{q, r}
+}
+
+// ZeroGCoord creates a new gCoord coordinate with the all zero component values
+func ZeroGCoord() GCoord {
+    return GCoord{0, 0}
+}
+
+func (g GCoord) Type() consts.CoordType {
+    return consts.GCoord
+}
+
+func (g GCoord) Convert(typ consts.CoordType) Coord {
+    return convertCoord(g, typ)
+}
+
+func (g GCoord) Q() int {
+    return g[0]
+}
+
+func (g GCoord) R() int {
+    return g[1]
+}
+
+func (g GCoord) Unpack() (int, int) {
+    return g[0], g[1]
+}
+
+func (g GCoord) Neighbor(angle int) GCoord {
+	return g.Cube().Neighbor(angle).GCoord()
+}
+
+func (g GCoord) Add(other GCoord) GCoord {
+    return g.Cube().Add(other.Cube()).GCoord()
+}
+
+func (g GCoord) Scale(factor int) GCoord {
+    return g.Cube().Scale(factor).GCoord()
+}
+
+func (g GCoord) Neighbors() *GCoords {
+    return g.Cube().Neighbors().GCoords()
+}
+
+func (g GCoord) DiagonalNeighbors() *GCoords {
+    return g.Cube().DiagonalNeighbors().GCoords()
+}
+
+func (g GCoord) DistanceTo(other GCoord) int {
+    return g.Cube().DistanceTo(other.Cube())
+}
+
+func (g GCoord) LineTo(other GCoord) *GCoords {
+    return g.Cube().LineTo(other.Cube()).GCoords()
+}
+
+func (g GCoord) TraceTo(other GCoord, blocked Predicate[GCoord]) *GCoords {
+	return g.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
+        return blocked(coord.GCoord())
+    }).GCoords()
+}
+
+func (g GCoord) MovementRange(n int) *GCoords {
+    return g.Cube().MovementRange(n).GCoords()
+}
+
+func (g GCoord) FloodFill(n int, blocked Predicate[GCoord]) *GCoords {
+    return g.Cube().FloodFill(n, func(coord Cube) bool {
+        return blocked(coord.GCoord())
+    }).GCoords()
+}
+
+func (g GCoord) Rotate(center GCoord, angle int) GCoord {
+    return g.Cube().Rotate(center.Cube(), angle).GCoord()
+}
+
+func (g GCoord) ReflectQ() GCoord {
+    return g.Cube().ReflectQ().GCoord()
+}
+
+func (g GCoord) ReflectR() GCoord {
+    return g.Cube().ReflectR().GCoord()
+}
+
+func (g GCoord) ReflectS() GCoord {
+    return g.Cube().ReflectS().GCoord()
+}
+
+func (g GCoord) Ring(radius int) *GCoords {
+	return g.Cube().Ring(radius).GCoords()
+}
+
+func (g GCoord) FieldOfView(radius int, blocked Predicate[GCoord]) *GCoords {
+    return g.Cube().FieldOfView(radius, func(coord Cube) bool {
+        return blocked(coord.GCoord())
+    }).GCoords()
+}
+
+func (g GCoord) FindPathBFS(target GCoord, maxDistance int, blocked Predicate[GCoord]) *GCoords {
+    return g.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
+        return blocked(coord.GCoord())
+    }).GCoords()
+}
+
+func (g GCoord) String() string {
+    return fmt.Sprintf("GCoord(%d,%d)", g[0], g[1])
+}

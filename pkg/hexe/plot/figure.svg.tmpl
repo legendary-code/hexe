@@ -1,0 +1,75 @@
+{{- define "styleClass" -}}
+{{- if . -}}class="{{.Class}}"{{- end -}}
+{{- end -}}
+{{- define "transform" -}}
+{{- if .PointyTop -}}
+transform="translate({{- .X -}},{{- .Y -}}),rotate(-30)"
+{{- else -}}
+transform="translate({{- .X -}},{{- .Y -}})"
+{{- end -}}
+{{- end -}}
+{{- define "hexagon" -}}
+<g {{template "styleClass" .Style}} {{template "transform" .}}>
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    {{- if .PointyTop }}
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">{{ .Q }}</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">{{ .R }}</text>
+    {{- if .Triplet }}
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">{{ .S }}</text>
+    {{- end }}
+    {{- if .Text }}
+    <text transform="rotate(30)" {{template "styleClass" .Style}}>{{ .Text }}</text>
+    {{- end }}
+    {{- else }}
+    <text transform="rotate(-90) translate(60, 0) rotate(90) translate(0,10)" class="q">{{ .Q }}</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) translate(0,10)" class="r">{{ .R }}</text>
+    {{- if .Triplet }}
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) translate(0,10)" class="s">{{ .S }}</text>
+    {{- end }}
+    {{- if .Text }}
+    <text {{template "styleClass" .Style}}>{{ .Text }}</text>
+    {{- end }}
+    {{- end }}
+</g>
+{{- end -}}
+
+<svg version="1.1" viewBox="{{ .ViewBox.MinX }} {{ .ViewBox.MinY }} {{ .ViewBox.Width }} {{ .ViewBox.Height }}"
+     width="{{ .ViewBox.Width }}" height="{{ .ViewBox.Height }}" preserveAspectRatio="xMidYMin meet"
+     xmlns="http://www.w3.org/2000/svg">
+<style>
+    svg {
+        stroke-width: 2px;
+        stroke: {{ .Theme.BorderColor | hex }};
+        fill: {{ .Theme.CellColor | hex }};
+        background-color: {{ .Theme.BackgroundColor | hex }};
+    }
+    text {
+        font-weight: bold;
+        stroke: none;
+        fill: black;
+        text-anchor: middle;
+        font-size: 20px;
+    }
+    .q {
+        fill: {{ .Theme.CoordQColor | hex }};
+    }
+    .r {
+        fill: {{ .Theme.CoordRColor | hex }};
+    }
+    .s {
+        fill: {{ .Theme.CoordSColor | hex }};
+    }
+    {{- range $style := .Styles }}
+    .{{ $style.Class }} {
+        fill: {{ $style.Color | hex }};
+        {{- if $style.FontSize }}
+        font-size: {{ $style.FontSize }}px;
+        {{- end }}
+    }
+    {{- end }}
+</style>
+{{- range $cell := .Cells }}
+{{- template "hexagon" $cell}}
+{{- end }}
+</svg>

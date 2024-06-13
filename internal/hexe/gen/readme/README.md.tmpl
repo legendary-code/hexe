@@ -1,0 +1,212 @@
+<!-- Back to Top -->
+{{ topAnchor }}
+
+<!-- Shields -->
+[![][tests-shield]][tests-url]
+[![Go Reference][go-ref-shield]][go-ref-url]
+
+
+<!-- Logo -->
+<br/>
+<div align="center">
+    {{ logo }}
+    <h3>Hexe</h3>
+    <p>
+    An easy-to-use golang library for working with hexagonal grids.
+    <br/>
+    <a href="https://pkg.go.dev/legendary-code/hexe"><strong>Explore the docs »</strong></a>
+    </p>
+</div>
+
+<!-- Table of Contents -->
+{{ tableOfContents }}
+
+## About The Project
+As part of a side-project, I needed a robust library for working with hexagonal grids in Go, but didn't find
+anything great, so, I decided to implement my own.  I stumbled on this [great guide](https://www.redblobgames.com/grids/hexagons)
+that covers just about everything you could want to know about hexagonal grids and algorithms for them.  This project is
+an implementation of that guide as an easy-to-use Go library. 
+
+{{ backToTop }}
+
+## Getting Started
+
+### Prerequisites
+This library was written with heavy use of generics and some experimental go modules.  Your project will require at 
+least Go 1.22.3 installed.
+
+### Installation
+The library can be installed the usual way with go modules:
+```sh
+go get -u github.com/legendary-code/hexe
+```
+
+{{ backToTop }}
+
+## Features
+These are the features currently supported by this library:
+- Coordinate systems
+  - axial
+  - cube
+  - double-height
+  - double-width
+  - even-q
+  - even-r
+  - odd-q
+  - odd-r
+- Orientations
+  - pointy-top
+  - flat-top
+- Cube coordinate math functions
+- Coordinate functions
+  - Neighbors
+  - Movement Range
+  - Set Operations
+  - Lines
+  - Rings
+  - Tracing
+  - Field of View
+  - Path Finding
+- Grid with load/save functionality
+
+{{ backToTop }}
+
+## Math Functions
+This library provides basic math functions for cubic coordinates, which are then used by the rest of the library.  This
+is a less common use-case, but, is available if needed.
+
+Example:
+
+{{ example "math_functions" }}
+
+{{ backToTop }}
+
+## Coordinates
+This is the most common usage of this library, working directly with coordinates and sets of coordinates.
+
+### Instantiation
+
+{{ example "instantiation" }}
+
+### Sets
+Some functions return a set of coordinates, which you can easily work with
+
+{{ example "sets" }}
+
+{{ backToTop }}
+
+### Visualization
+To help visualize hex grids generated in code, simple plotting functionality
+is provided for drawing hex grid coordinates and styling the cells.
+
+{{ example "plot" }}
+
+### Neighbors
+You can calculate neighbors of a coordinate
+
+{{ example "neighbors" }}
+
+### Diagonal Neighbors
+This library also supports diagonal neighbors of a coordinate
+
+{{ example "diagonal_neighbors" }}
+
+### Movement Range
+Using the movement range on a coord returns all the coordinates that can be reached into a given number of steps
+
+{{ example "movement_range" }}
+
+### Line
+Drawing lines is supported as well
+
+{{ example "line_to" }}
+
+### Trace
+Trace draws a line but with collision detection
+
+{{ example "trace_to" }}
+
+### Flood Fill
+Flood fill tries to fill an area up to a maximum radius, taking into account blocked areas
+
+{{ example "flood_fill" }}
+
+### Rotate
+You can rotate single coordinates or a set of coordinates around a center in 60-degree increments
+
+{{ example "rotate" }}
+
+### Reflect
+You can reflect a coordinate or set of coordinates across the Q, R, or S axis
+
+{{ example "reflect" }}
+
+### Ring
+You can generate rings of various radii
+
+{{ example "ring" }}
+
+### Field Of View
+Field of view casts out rays in all directions from a given coordinate to generate the cells visible from the location
+
+{{ example "field_of_view" }}
+
+### Find Path - Breadth First Search
+You can perform basic pathfinding with the breadth first search functionality
+
+{{ example "find_path_bfs" }}
+
+{{ backToTop }}
+
+## Grid
+The library also provides a basic `Grid[C coords.Coord]` collection type for storing and querying values by coordinates.
+
+### Grid Operations
+{{ example "grid" }}
+
+### Grid Persistence
+You can also persist and load grids to any `io.Writer`/`io.Reader`
+
+{{ example "grid_persistence" }}
+
+{{ backToTop }}
+
+## More Examples
+For more examples of various features, check out [./examples](./examples)
+
+{{ backToTop }}
+
+## License
+This library uses the [MIT License](./LICENSE).
+
+{{ backToTop }}
+
+## Contributing
+Any contributions you make are greatly appreciated.
+
+If you have a suggestion that would make this library better, please fork the repo and create a pull request.
+You can also file a [feature request issue](https://github.com/legendary-code/hexe/issues/new?assignees=heindor0&labels=enhancement&projects=&template=feature_request.md&title=%5BFeature%5D%3A+) if you don't feel comfortable contributing the solution yourself.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -am 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+{{ backToTop }}
+
+## Contact
+Gene Heinrich<br/>
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+## Acknowledgements
+[Hexagonal Grids](https://www.redblobgames.com/grids/hexagons)<br/>
+[Best README.md Template](https://github.com/othneildrew/Best-README-Template)
+
+<!-- Links & Images -->
+[tests-shield]: https://img.shields.io/github/actions/workflow/status/legendary-code/hexe/audit.yaml?branch=main&longCache=true&label=Tests&logo=github%20actions&logoColor=fff
+[tests-url]: https://github.com/legendary-code/hexe/actions?query=workflow%3AAudit
+[go-ref-shield]: https://pkg.go.dev/badge/github.com/legendary-code/hexe.svg
+[go-ref-url]: https://pkg.go.dev/github.com/legendary-code/hexe
+[linkedin-shield]: https://img.shields.io/badge/LinkedIn-blue?style=social&logo=linkedin
+[linkedin-url]: https://www.linkedin.com/in/gene-heinrich-6192064/
