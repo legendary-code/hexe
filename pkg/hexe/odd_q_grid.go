@@ -1,21 +1,19 @@
 package hexe
 
-import "github.com/legendary-code/hexe/pkg/hexe/coords"
-
-type OddQ coords.CoordQR
+import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
 type OddQGrid[T any] interface {
-	QRGrid[T, OddQ]
+	QRGrid[T, coord.OddQ]
 }
 
 func newOddQ[T any](grid *grid[T]) OddQGrid[T] {
-	return &qrGrid[T, OddQ]{
+	return &qrGrid[T, coord.OddQ]{
 		grid: grid,
 		toAxial: func(q int, r int) (int, int) {
-			return coords.OddQ(q, r).Axial().Unpack()
+			return coord.NewOddQ(q, r).Axial().Unpack()
 		},
-		fromAxial: func(q int, r int) (int, int) {
-			return coords.Axial(q, r).OddQ().Unpack()
+		fromAxial: func(q int, r int) coord.OddQ {
+			return coord.NewAxial(q, r).OddQ()
 		},
 	}
 }

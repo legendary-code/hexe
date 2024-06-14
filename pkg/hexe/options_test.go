@@ -1,6 +1,7 @@
 package hexe
 
 import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -11,7 +12,7 @@ func TestNewGridOptions(t *testing.T) {
 		WithDecoder[string](&testDecoder{}),
 	)
 
-	if gg, ok := g.(*qrGrid[string, Axial]); !ok {
+	if gg, ok := g.(*qrGrid[string, coord.Axial]); !ok {
 		assert.Fail(t, "failed to cast")
 	} else {
 		assert.NotNil(t, gg.encoder)

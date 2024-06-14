@@ -69,3 +69,26 @@ func CalculateCorners[T constraints.Float](center [2]T, size T, startRadians T, 
 
 	return corners
 }
+
+func max(values ...int) int {
+	m := values[0]
+
+	for i := 1; i < len(values); i++ {
+		if values[i] > m {
+			m = values[i]
+		}
+	}
+
+	return m
+}
+
+func abs(v int) int {
+	if v < 0 {
+		return -v
+	}
+	return v
+}
+
+func CubeDistance(aq int, ar int, as int, bq int, br int, bs int) int {
+	return max(abs(aq-bq), abs(ar-br), abs(as-bs))
+}

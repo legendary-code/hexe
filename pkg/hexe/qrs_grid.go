@@ -1,20 +1,21 @@
 package hexe
 
-import "github.com/legendary-code/hexe/pkg/hexe/coords"
+import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
-type QRSGrid[T any, C coords.CoordQRS] interface {
+type QRSGrid[T any, C coord.QRS[C]] interface {
 	Grid[T]
 	Get(q int, r int, s int) T
 	Index(q int, r int, s int) (T, bool)
 	Set(q int, r int, s int, value T)
 	Delete(q int, r int, s int)
 	Neighbors(q int, r int, s int) []Item[T, C]
+	DiagonalNeighbors(q int, r int, s int) []Item[T, C]
 }
 
-type qrsGrid[T any, C any] struct {
+type qrsGrid[T any, C coord.QRS[C]] struct {
 	*grid[T]
 	toAxial   func(q int, r int, s int) (int, int)
-	fromAxial func(q int, r int) (int, int, int)
+	fromAxial func(q int, r int) C
 }
 
 func (g *qrsGrid[T, C]) Get(q int, r int, s int) T {
@@ -39,12 +40,30 @@ func (g *qrsGrid[T, C]) Delete(q int, r int, s int) {
 
 func (g *qrsGrid[T, C]) Neighbors(q int, r int, s int) []Item[T, C] {
 	neighbors := make([]Item[T, C], 0)
-	neighborCoords := coords.Cube(q, r, s).Neighbors()
+	q, r = g.toAxial(q, r, s)
+	neighborCoords := coord.NewAxial(q, r).Neighbors()
 
 	for _, neighborCoord := range neighborCoords {
 		value, ok := g.grid.index(neighborCoord.Q(), neighborCoord.R())
 		if ok {
-			neighbors = append(neighbors, newItem[T, C](neighborCoord.(C), value))
+			typedCoord := g.fromAxial(neighborCoord.Q(), neighborCoord.R())
+			neighbors = append(neighbors, newItem[T, C](typedCoord, value))
+		}
+	}
+
+	return neighbors
+}
+
+func (g *qrsGrid[T, C]) DiagonalNeighbors(q int, r int, s int) []Item[T, C] {
+	neighbors := make([]Item[T, C], 0)
+	q, r = g.toAxial(q, r, s)
+	neighborCoords := coord.NewAxial(q, r).DiagonalNeighbors()
+
+	for _, neighborCoord := range neighborCoords {
+		value, ok := g.grid.index(neighborCoord.Q(), neighborCoord.R())
+		if ok {
+			typedCoord := g.fromAxial(neighborCoord.Q(), neighborCoord.R())
+			neighbors = append(neighbors, newItem[T, C](typedCoord, value))
 		}
 	}
 

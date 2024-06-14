@@ -1,23 +1,19 @@
 package hexe
 
-import (
-	"github.com/legendary-code/hexe/pkg/hexe/coords"
-)
-
-type Cube coords.CoordQRS
+import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
 type CubeGrid[T any] interface {
-	QRSGrid[T, Cube]
+	QRSGrid[T, coord.Cube]
 }
 
 func newCubeGrid[T any](grid *grid[T]) CubeGrid[T] {
-	return &qrsGrid[T, Cube]{
+	return &qrsGrid[T, coord.Cube]{
 		grid: grid,
 		toAxial: func(q int, r int, s int) (int, int) {
-			return coords.Cube(q, r, s).Axial().Unpack()
+			return coord.NewCube(q, r, s).Axial().Unpack()
 		},
-		fromAxial: func(q int, r int) (int, int, int) {
-			return coords.Axial(q, r).Cube().Unpack()
+		fromAxial: func(q int, r int) coord.Cube {
+			return coord.NewAxial(q, r).Cube()
 		},
 	}
 }

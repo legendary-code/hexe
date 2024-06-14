@@ -52,7 +52,7 @@ func TestGrid_Neighbors(t *testing.T) {
 
 	assert.Equal(
 		t,
-		[]string{"baz", "qux", "bar"},
+		[]string{"baz", "bar", "qux"},
 		names,
 	)
 
@@ -60,8 +60,44 @@ func TestGrid_Neighbors(t *testing.T) {
 		t,
 		[][]int{
 			{1, 0},
-			{1, -1},
 			{0, 1},
+			{1, -1},
+		},
+		coords,
+	)
+}
+
+func TestGrid_DiagonalNeighbors(t *testing.T) {
+	g := NewGrid[string]()
+	g.Set(0, 0, "foo")
+	g.Set(-1, -1, "bar")
+	g.Set(-1, 2, "baz")
+	g.Set(2, -1, "qux")
+	g.Set(-1, -2, "quux")
+	g.Set(2, 2, "quuux")
+
+	neighbors := g.DiagonalNeighbors(0, 0)
+	names := make([]string, 0)
+	coords := make([][]int, 0)
+	for _, neighbor := range neighbors {
+		names = append(names, neighbor.Value())
+
+		q, r := neighbor.Index().Unpack()
+		coords = append(coords, []int{q, r})
+	}
+
+	assert.Equal(
+		t,
+		[]string{"baz", "bar", "qux"},
+		names,
+	)
+
+	assert.Equal(
+		t,
+		[][]int{
+			{-1, 2},
+			{-1, -1},
+			{2, -1},
 		},
 		coords,
 	)
