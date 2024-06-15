@@ -53,4 +53,4 @@ func main() {
 ```
 
 #### Output:
-![](images/example.svg)
+![Example](images/example.svg)

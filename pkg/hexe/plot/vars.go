@@ -174,15 +174,20 @@ func (r *renderVarsBuilder) build() *renderVars {
 		cells = append(cells, c)
 	}
 
+	minX = minX - int(math.CalculateHorizontalSpacing[float64](r.orientation, viewBoxPadding))
+	maxX = maxX + int(math.CalculateHorizontalSpacing[float64](r.orientation, viewBoxPadding))
+	minY = minY - int(math.CalculateVerticalSpacing[float64](r.orientation, viewBoxPadding))
+	maxY = maxY + int(math.CalculateVerticalSpacing[float64](r.orientation, viewBoxPadding))
+
 	return &renderVars{
 		Theme:  r.theme,
 		Cells:  cells,
 		Styles: maps.Values(styles),
 		ViewBox: &svgViewBox{
-			MinX:   minX - viewBoxPadding,
-			MinY:   minY - viewBoxPadding,
-			Width:  maxX - minX + 2*viewBoxPadding,
-			Height: maxY - minY + 2*viewBoxPadding,
+			MinX:   minX,
+			MinY:   minY,
+			Width:  maxX - minX,
+			Height: maxY - minY,
 		},
 	}
 }

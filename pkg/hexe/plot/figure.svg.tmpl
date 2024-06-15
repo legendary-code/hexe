@@ -35,10 +35,10 @@ transform="translate({{- .X -}},{{- .Y -}})"
 {{- end -}}
 
 <svg version="1.1" viewBox="{{ .ViewBox.MinX }} {{ .ViewBox.MinY }} {{ .ViewBox.Width }} {{ .ViewBox.Height }}"
+     width="{{ .ViewBox.Width }}" height="{{ .ViewBox.Height }}" preserveAspectRatio="xMidYMin meet"
      xmlns="http://www.w3.org/2000/svg">
 <style>
     svg {
-        padding: 50px;
         stroke-width: 1px;
         stroke: {{ .Theme.BorderColor | hex }};
         fill: {{ .Theme.CellColor | hex }};
