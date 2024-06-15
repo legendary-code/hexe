@@ -2,8 +2,9 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
-	"github.com/legendary-code/hexe/pkg/hexe/math"
 )
+
+type OddQ [2]int
 
 func NewOddQ(q int, r int) OddQ {
 	return OddQ{q, r}
@@ -53,16 +54,16 @@ func (o OddQ) Unpack() (int, int) {
 	return o[0], o[1]
 }
 
-func (o OddQ) Neighbors() [consts.Sides]OddQ {
-	neighbors := [consts.Sides]OddQ{}
+func (o OddQ) Neighbors() OddQs {
+	neighbors := make(OddQs, consts.Sides)
 	for i, neighbor := range o.Axial().Neighbors() {
 		neighbors[i] = neighbor.OddQ()
 	}
 	return neighbors
 }
 
-func (o OddQ) DiagonalNeighbors() [consts.Sides]OddQ {
-	neighbors := [consts.Sides]OddQ{}
+func (o OddQ) DiagonalNeighbors() OddQs {
+	neighbors := make(OddQs, consts.Sides)
 	for i, neighbor := range o.Axial().DiagonalNeighbors() {
 		neighbors[i] = neighbor.OddQ()
 	}
@@ -70,7 +71,13 @@ func (o OddQ) DiagonalNeighbors() [consts.Sides]OddQ {
 }
 
 func (o OddQ) DistanceTo(other OddQ) int {
-	aq, ar, as := o.Cube().Unpack()
-	bq, br, bs := other.Cube().Unpack()
-	return math.CubeDistance(aq, ar, as, bq, br, bs)
+	return o.Cube().DistanceTo(other.Cube())
+}
+
+func (o OddQ) LineTo(other OddQ) OddQs {
+	return o.Cube().LineTo(other.Cube()).OddQs()
+}
+
+func (o OddQ) MovementRange(n int) OddQs {
+	return o.Cube().MovementRange(n).OddQs()
 }

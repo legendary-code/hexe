@@ -3,11 +3,11 @@ package hexe
 import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
 type DoubleWidthGrid[T any] interface {
-	QRGrid[T, coord.DoubleWidth]
+	QRGrid[T, coord.DoubleWidth, coord.DoubleWidths]
 }
 
 func newDoubleWidth[T any](grid *grid[T]) DoubleWidthGrid[T] {
-	return &qrGrid[T, coord.DoubleWidth]{
+	return &qrGrid[T, coord.DoubleWidth, coord.DoubleWidths]{
 		grid: grid,
 		toAxial: func(q int, r int) (int, int) {
 			return coord.NewDoubleWidth(q, r).Axial().Unpack()

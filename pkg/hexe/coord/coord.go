@@ -1,7 +1,5 @@
 package coord
 
-import "github.com/legendary-code/hexe/pkg/hexe/consts"
-
 type Coord interface {
 	Axial() Axial
 	Cube() Cube
@@ -13,32 +11,47 @@ type Coord interface {
 	DoubleHeight() DoubleHeight
 }
 
-type QR[T Coord] interface {
+type Coords[T Coord] interface {
+	~[]T
+	Axials() Axials
+	Cubes() Cubes
+	OddRs() OddRs
+	EvenRs() EvenRs
+	OddQs() OddQs
+	EvenQs() EvenQs
+	DoubleWidths() DoubleWidths
+	DoubleHeights() DoubleHeights
+}
+
+type QR[T Coord, TS Coords[T]] interface {
 	Coord
 	Q() int
 	R() int
 	Unpack() (int, int)
-	Neighbors() [consts.Sides]T
-	DiagonalNeighbors() [consts.Sides]T
+	Neighbors() TS
+	DiagonalNeighbors() TS
 	DistanceTo(other T) int
+	LineTo(other T) TS
+	MovementRange(n int) TS
 }
 
-type QRS[T Coord] interface {
+type QRS[T Coord, TS Coords[T]] interface {
 	Coord
 	Q() int
 	R() int
 	S() int
 	Unpack() (int, int, int)
-	Neighbors() [consts.Sides]T
-	DiagonalNeighbors() [consts.Sides]T
+	Neighbors() TS
+	DiagonalNeighbors() TS
 	DistanceTo(other T) int
+	LineTo(other T) TS
+	MovementRange(n int) TS
 }
 
-type Axial [2]int
-type Cube [3]int
-type DoubleWidth [2]int
-type DoubleHeight [2]int
-type EvenQ [2]int
-type EvenR [2]int
-type OddQ [2]int
-type OddR [2]int
+func castAs[F Coord, T Coord](values []F, convertFunc func(F) T) []T {
+	result := make([]T, len(values))
+	for i := 0; i < len(values); i++ {
+		result[i] = convertFunc(values[i])
+	}
+	return result
+}

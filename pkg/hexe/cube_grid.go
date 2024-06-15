@@ -3,11 +3,11 @@ package hexe
 import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
 type CubeGrid[T any] interface {
-	QRSGrid[T, coord.Cube]
+	QRSGrid[T, coord.Cube, coord.Cubes]
 }
 
 func newCubeGrid[T any](grid *grid[T]) CubeGrid[T] {
-	return &qrsGrid[T, coord.Cube]{
+	return &qrsGrid[T, coord.Cube, coord.Cubes]{
 		grid: grid,
 		toAxial: func(q int, r int, s int) (int, int) {
 			return coord.NewCube(q, r, s).Axial().Unpack()

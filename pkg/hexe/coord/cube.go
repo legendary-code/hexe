@@ -2,9 +2,12 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/internal/hexe/check"
+	hm "github.com/legendary-code/hexe/internal/hexe/math"
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"github.com/legendary-code/hexe/pkg/hexe/math"
 )
+
+type Cube [3]int
 
 var cubeNeighborCoords = [consts.Sides][3]int{
 	{1, 0, -1},
@@ -77,16 +80,16 @@ func (c Cube) Unpack() (int, int, int) {
 	return c[0], c[1], c[2]
 }
 
-func (c Cube) Neighbors() [consts.Sides]Cube {
-	neighbors := [consts.Sides]Cube{}
+func (c Cube) Neighbors() Cubes {
+	neighbors := make(Cubes, consts.Sides)
 	for i, neighborCoord := range cubeNeighborCoords {
 		neighbors[i] = NewCube(c[0]+neighborCoord[0], c[1]+neighborCoord[1], c[2]+neighborCoord[2])
 	}
 	return neighbors
 }
 
-func (c Cube) DiagonalNeighbors() [consts.Sides]Cube {
-	neighbors := [consts.Sides]Cube{}
+func (c Cube) DiagonalNeighbors() Cubes {
+	neighbors := make(Cubes, consts.Sides)
 	for i, neighborCoord := range cubeDiagonalNeighborCoords {
 		neighbors[i] = NewCube(c[0]+neighborCoord[0], c[1]+neighborCoord[1], c[2]+neighborCoord[2])
 	}
@@ -97,4 +100,23 @@ func (c Cube) DistanceTo(other Cube) int {
 	aq, ar, as := c.Unpack()
 	bq, br, bs := other.Unpack()
 	return math.CubeDistance(aq, ar, as, bq, br, bs)
+}
+
+func (c Cube) LineTo(other Cube) Cubes {
+	coords := make([]Cube, 0)
+	for _, coord := range math.CubeLineDraw(c.Q(), c.R(), c.S(), other.Q(), other.R(), other.S()) {
+		coords = append(coords, NewCube(coord[0], coord[1], coord[2]))
+	}
+	return coords
+}
+
+func (c Cube) MovementRange(n int) Cubes {
+	results := make(Cubes, 0)
+	for q := -n; q < n; q++ {
+		for r := hm.Maxi(-n, -q-n); r < hm.Mini(n, -q+n); r++ {
+			s := -q - r
+			results = append(results, NewCube(c.Q()+q, c.R()+r, c.S()+s))
+		}
+	}
+	return results
 }

@@ -2,8 +2,9 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
-	"github.com/legendary-code/hexe/pkg/hexe/math"
 )
+
+type DoubleWidth [2]int
 
 func NewDoubleWidth(q int, r int) DoubleWidth {
 	return DoubleWidth{q, r}
@@ -53,16 +54,16 @@ func (d DoubleWidth) Unpack() (int, int) {
 	return d[0], d[1]
 }
 
-func (d DoubleWidth) Neighbors() [consts.Sides]DoubleWidth {
-	neighbors := [consts.Sides]DoubleWidth{}
+func (d DoubleWidth) Neighbors() DoubleWidths {
+	neighbors := make(DoubleWidths, consts.Sides)
 	for i, neighbor := range d.Axial().Neighbors() {
 		neighbors[i] = neighbor.DoubleWidth()
 	}
 	return neighbors
 }
 
-func (d DoubleWidth) DiagonalNeighbors() [consts.Sides]DoubleWidth {
-	neighbors := [consts.Sides]DoubleWidth{}
+func (d DoubleWidth) DiagonalNeighbors() DoubleWidths {
+	neighbors := make(DoubleWidths, consts.Sides)
 	for i, neighbor := range d.Axial().DiagonalNeighbors() {
 		neighbors[i] = neighbor.DoubleWidth()
 	}
@@ -70,7 +71,13 @@ func (d DoubleWidth) DiagonalNeighbors() [consts.Sides]DoubleWidth {
 }
 
 func (d DoubleWidth) DistanceTo(other DoubleWidth) int {
-	aq, ar, as := d.Cube().Unpack()
-	bq, br, bs := other.Cube().Unpack()
-	return math.CubeDistance(aq, ar, as, bq, br, bs)
+	return d.Cube().DistanceTo(other.Cube())
+}
+
+func (d DoubleWidth) LineTo(other DoubleWidth) DoubleWidths {
+	return d.Cube().LineTo(other.Cube()).DoubleWidths()
+}
+
+func (d DoubleWidth) MovementRange(n int) DoubleWidths {
+	return d.Cube().MovementRange(n).DoubleWidths()
 }

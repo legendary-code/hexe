@@ -1,7 +1,6 @@
 package coord
 
 import (
-	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -44,7 +43,7 @@ func TestAxial_DoubleHeight(t *testing.T) {
 func TestAxial_Neighbors(t *testing.T) {
 	assert.Equal(
 		t,
-		[consts.Sides]Axial{
+		Axials{
 			NewAxial(2, 1),
 			NewAxial(1, 2),
 			NewAxial(0, 2),

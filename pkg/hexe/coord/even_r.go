@@ -2,8 +2,9 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
-	"github.com/legendary-code/hexe/pkg/hexe/math"
 )
+
+type EvenR [2]int
 
 func NewEvenR(q int, r int) EvenR {
 	return EvenR{q, r}
@@ -53,16 +54,16 @@ func (e EvenR) Unpack() (int, int) {
 	return e[0], e[1]
 }
 
-func (e EvenR) Neighbors() [consts.Sides]EvenR {
-	neighbors := [consts.Sides]EvenR{}
+func (e EvenR) Neighbors() EvenRs {
+	neighbors := make(EvenRs, consts.Sides)
 	for i, neighbor := range e.Axial().Neighbors() {
 		neighbors[i] = neighbor.EvenR()
 	}
 	return neighbors
 }
 
-func (e EvenR) DiagonalNeighbors() [consts.Sides]EvenR {
-	neighbors := [consts.Sides]EvenR{}
+func (e EvenR) DiagonalNeighbors() EvenRs {
+	neighbors := make(EvenRs, consts.Sides)
 	for i, neighbor := range e.Axial().DiagonalNeighbors() {
 		neighbors[i] = neighbor.EvenR()
 	}
@@ -70,7 +71,13 @@ func (e EvenR) DiagonalNeighbors() [consts.Sides]EvenR {
 }
 
 func (e EvenR) DistanceTo(other EvenR) int {
-	aq, ar, as := e.Cube().Unpack()
-	bq, br, bs := other.Cube().Unpack()
-	return math.CubeDistance(aq, ar, as, bq, br, bs)
+	return e.Cube().DistanceTo(other.Cube())
+}
+
+func (e EvenR) LineTo(other EvenR) EvenRs {
+	return e.Cube().LineTo(other.Cube()).EvenRs()
+}
+
+func (e EvenR) MovementRange(n int) EvenRs {
+	return e.Cube().MovementRange(n).EvenRs()
 }

@@ -1,7 +1,6 @@
 package coord
 
 import (
-	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -44,7 +43,7 @@ func TestCube_DoubleHeight(t *testing.T) {
 func TestCube_Neighbors(t *testing.T) {
 	assert.Equal(
 		t,
-		[consts.Sides]Cube{
+		Cubes{
 			NewCube(2, 1, -3),
 			NewCube(1, 2, -3),
 			NewCube(0, 2, -2),

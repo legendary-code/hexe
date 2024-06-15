@@ -5,6 +5,7 @@ import "github.com/legendary-code/hexe/pkg/hexe/coord"
 type Item[T any, C coord.Coord] interface {
 	Index() C
 	Value() T
+	DistanceTo(other Item[T, C]) int
 }
 
 type item[T any, C coord.Coord] struct {
@@ -25,4 +26,8 @@ func (i *item[T, C]) Index() C {
 
 func (i *item[T, C]) Value() T {
 	return i.value
+}
+
+func (i *item[T, C]) DistanceTo(other Item[T, C]) int {
+	return i.index.Cube().DistanceTo(other.Index().Cube())
 }

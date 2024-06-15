@@ -1,6 +1,7 @@
 package math
 
 import (
+	hm "github.com/legendary-code/hexe/internal/hexe/math"
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"golang.org/x/exp/constraints"
 	"math"
@@ -70,25 +71,51 @@ func CalculateCorners[T constraints.Float](center [2]T, size T, startRadians T, 
 	return corners
 }
 
-func max(values ...int) int {
-	m := values[0]
-
-	for i := 1; i < len(values); i++ {
-		if values[i] > m {
-			m = values[i]
-		}
-	}
-
-	return m
-}
-
-func abs(v int) int {
-	if v < 0 {
-		return -v
-	}
-	return v
-}
-
 func CubeDistance(aq int, ar int, as int, bq int, br int, bs int) int {
-	return max(abs(aq-bq), abs(ar-br), abs(as-bs))
+	return hm.Maxi(hm.Absi(aq-bq), hm.Absi(ar-br), hm.Absi(as-bs))
+}
+
+func CubeRound(q float64, r float64, s float64) (int, int, int) {
+	qr := math.Round(q)
+	rr := math.Round(r)
+	sr := math.Round(s)
+
+	qDiff := math.Abs(qr - q)
+	rDiff := math.Abs(rr - r)
+	sDiff := math.Abs(sr - s)
+
+	if qDiff > rDiff && qDiff > sDiff {
+		qr = -rr - sr
+	} else if rDiff > sDiff {
+		rr = -qr - sr
+	} else {
+		sr = -qr - rr
+	}
+
+	return int(qr), int(rr), int(sr)
+}
+
+func lerp(a float64, b float64, t float64) float64 {
+	return a + (b-a)*t
+}
+
+func CubeLerp(aq float64, ar float64, as float64, bq float64, br float64, bs float64, t float64) (float64, float64, float64) {
+	q := lerp(aq, bq, t)
+	r := lerp(ar, br, t)
+	s := lerp(as, bs, t)
+	return q, r, s
+}
+
+func CubeLineDraw(aq int, ar int, as int, bq int, br int, bs int) [][3]int {
+	n := CubeDistance(aq, ar, as, bq, br, bs)
+	coords := make([][3]int, 0)
+
+	for i := 0; i < n; i++ {
+		tn := 1.0 / float64(n) * float64(i)
+		q, r, s := CubeLerp(float64(aq), float64(ar), float64(as), float64(bq), float64(br), float64(bs), tn)
+		qr, rr, sr := CubeRound(q, r, s)
+		coords = append(coords, [3]int{qr, rr, sr})
+	}
+
+	return coords
 }

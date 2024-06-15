@@ -102,3 +102,76 @@ func TestGrid_DiagonalNeighbors(t *testing.T) {
 		coords,
 	)
 }
+
+func TestGrid_IndexLine(t *testing.T) {
+	g := NewGrid[string]()
+	g.Set(0, 0, "foo")
+	g.Set(-1, -1, "bar")
+	g.Set(-1, 2, "baz")
+	g.Set(2, -1, "qux")
+	g.Set(-1, -2, "quux")
+	g.Set(2, 2, "quuux")
+
+	is := g.IndexLine(-1, -1, 2, 1)
+	names := make([]string, 0)
+	coords := make([][]int, 0)
+
+	for _, i := range is {
+		names = append(names, i.Value())
+
+		q, r := i.Index().Unpack()
+		coords = append(coords, []int{q, r})
+	}
+
+	assert.Equal(
+		t,
+		[]string{"bar", "foo"},
+		names,
+	)
+
+	assert.Equal(
+		t,
+		[][]int{
+			{-1, -1},
+			{0, 0},
+		},
+		coords,
+	)
+}
+
+func TestQrGrid_IndexMovementRange(t *testing.T) {
+	g := NewGrid[string]()
+	g.Set(0, 0, "foo")
+	g.Set(-1, -1, "bar")
+	g.Set(-1, 2, "baz")
+	g.Set(2, -1, "qux")
+	g.Set(-1, -2, "quux")
+	g.Set(2, 2, "quuux")
+
+	is := g.IndexMovementRange(1, 1, 2)
+	names := make([]string, 0)
+	coords := make([][]int, 0)
+
+	for _, i := range is {
+		names = append(names, i.Value())
+
+		q, r := i.Index().Unpack()
+		coords = append(coords, []int{q, r})
+	}
+
+	assert.Equal(
+		t,
+		[]string{"baz", "foo", "qux"},
+		names,
+	)
+
+	assert.Equal(
+		t,
+		[][]int{
+			{-1, 2},
+			{0, 0},
+			{2, -1},
+		},
+		coords,
+	)
+}

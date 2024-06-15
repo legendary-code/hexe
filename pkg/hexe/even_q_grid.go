@@ -3,11 +3,11 @@ package hexe
 import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
 type EvenQGrid[T any] interface {
-	QRGrid[T, coord.EvenQ]
+	QRGrid[T, coord.EvenQ, coord.EvenQs]
 }
 
 func newEvenQ[T any](grid *grid[T]) EvenQGrid[T] {
-	return &qrGrid[T, coord.EvenQ]{
+	return &qrGrid[T, coord.EvenQ, coord.EvenQs]{
 		grid: grid,
 		toAxial: func(q int, r int) (int, int) {
 			return coord.NewEvenQ(q, r).Axial().Unpack()

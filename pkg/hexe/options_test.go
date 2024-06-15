@@ -12,7 +12,7 @@ func TestNewGridOptions(t *testing.T) {
 		WithDecoder[string](&testDecoder{}),
 	)
 
-	if gg, ok := g.(*qrGrid[string, coord.Axial]); !ok {
+	if gg, ok := g.(*qrGrid[string, coord.Axial, coord.Axials]); !ok {
 		assert.Fail(t, "failed to cast")
 	} else {
 		assert.NotNil(t, gg.encoder)

@@ -1,7 +1,6 @@
 package coord
 
 import (
-	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -44,7 +43,7 @@ func TestOddQ_DoubleHeight(t *testing.T) {
 func TestOddQ_Neighbors(t *testing.T) {
 	assert.Equal(
 		t,
-		[consts.Sides]OddQ{
+		OddQs{
 			NewOddQ(2, 2),
 			NewOddQ(1, 2),
 			NewOddQ(0, 2),

@@ -2,7 +2,6 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
-	"github.com/legendary-code/hexe/pkg/hexe/math"
 )
 
 var axialNeighborCoords = [consts.Sides][2]int{
@@ -22,6 +21,8 @@ var axialDiagonalNeighborCoords = [consts.Sides][2]int{
 	{1, -2},
 	{2, -1},
 }
+
+type Axial [2]int
 
 func NewAxial(q int, r int) Axial {
 	return Axial{q, r}
@@ -71,16 +72,16 @@ func (a Axial) Unpack() (int, int) {
 	return a[0], a[1]
 }
 
-func (a Axial) Neighbors() [consts.Sides]Axial {
-	neighbors := [consts.Sides]Axial{}
+func (a Axial) Neighbors() Axials {
+	neighbors := make(Axials, consts.Sides)
 	for i, neighborCoord := range axialNeighborCoords {
 		neighbors[i] = NewAxial(a[0]+neighborCoord[0], a[1]+neighborCoord[1])
 	}
 	return neighbors
 }
 
-func (a Axial) DiagonalNeighbors() [consts.Sides]Axial {
-	neighbors := [consts.Sides]Axial{}
+func (a Axial) DiagonalNeighbors() Axials {
+	neighbors := make(Axials, consts.Sides)
 	for i, neighborCoord := range axialDiagonalNeighborCoords {
 		neighbors[i] = NewAxial(a[0]+neighborCoord[0], a[1]+neighborCoord[1])
 	}
@@ -88,7 +89,13 @@ func (a Axial) DiagonalNeighbors() [consts.Sides]Axial {
 }
 
 func (a Axial) DistanceTo(other Axial) int {
-	aq, ar, as := a.Cube().Unpack()
-	bq, br, bs := other.Cube().Unpack()
-	return math.CubeDistance(aq, ar, as, bq, br, bs)
+	return a.Cube().DistanceTo(other.Cube())
+}
+
+func (a Axial) LineTo(other Axial) Axials {
+	return a.Cube().LineTo(other.Cube()).Axials()
+}
+
+func (a Axial) MovementRange(n int) Axials {
+	return a.Cube().MovementRange(n).Axials()
 }
