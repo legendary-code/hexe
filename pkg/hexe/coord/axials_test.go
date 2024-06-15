@@ -49,11 +49,11 @@ func TestAxials_UnionWith(t *testing.T) {
 		NewAxial(1, 1),
 	}
 
-	c := a.UnionWith(b)
+	c := a.UnionWith(b).Sorted()
 	expected := Axials{
 		NewAxial(0, 0),
-		NewAxial(1, 0),
 		NewAxial(0, 1),
+		NewAxial(1, 0),
 		NewAxial(1, 1),
 	}
 
