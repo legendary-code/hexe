@@ -1,6 +1,7 @@
 package hexe
 
 import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -40,7 +41,7 @@ func TestGrid_Neighbors(t *testing.T) {
 	g.Set(-1, -1, "quux")
 	g.Set(2, 2, "quuux")
 
-	neighbors := g.Neighbors(0, 0)
+	neighbors := g.IndexCoords(coord.NewAxial(0, 0).Neighbors())
 	names := make([]string, 0)
 	coords := make([][]int, 0)
 	for _, neighbor := range neighbors {
@@ -76,7 +77,7 @@ func TestGrid_DiagonalNeighbors(t *testing.T) {
 	g.Set(-1, -2, "quux")
 	g.Set(2, 2, "quuux")
 
-	neighbors := g.DiagonalNeighbors(0, 0)
+	neighbors := g.IndexCoords(coord.NewAxial(0, 0).DiagonalNeighbors())
 	names := make([]string, 0)
 	coords := make([][]int, 0)
 	for _, neighbor := range neighbors {
@@ -112,7 +113,7 @@ func TestGrid_IndexLine(t *testing.T) {
 	g.Set(-1, -2, "quux")
 	g.Set(2, 2, "quuux")
 
-	is := g.IndexLine(-1, -1, 2, 1)
+	is := g.IndexCoords(coord.NewAxial(-1, -1).LineTo(coord.NewAxial(2, 1)))
 	names := make([]string, 0)
 	coords := make([][]int, 0)
 
@@ -148,7 +149,7 @@ func TestQrGrid_IndexMovementRange(t *testing.T) {
 	g.Set(-1, -2, "quux")
 	g.Set(2, 2, "quuux")
 
-	is := g.IndexMovementRange(1, 1, 2)
+	is := g.IndexCoords(coord.NewAxial(1, 1).MovementRange(2))
 	names := make([]string, 0)
 	coords := make([][]int, 0)
 

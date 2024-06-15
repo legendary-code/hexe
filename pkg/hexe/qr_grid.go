@@ -17,20 +17,8 @@ type QRGrid[T any, C coord.QR[C, CS], CS coord.Coords[C, CS]] interface {
 	// Delete deletes an item at the given coordinate
 	Delete(q int, r int)
 
-	// Neighbors returns items that neighbor the given coordinate
-	Neighbors(q int, r int) Items[T, C, CS]
-
-	// DiagonalNeighbors returns items that diagonally neighbor the given coordinate
-	DiagonalNeighbors(q int, r int) Items[T, C, CS]
-
 	// IndexCoords returns items at the given coordinates
 	IndexCoords(coords CS) Items[T, C, CS]
-
-	// IndexLine returns items that fall on the line between the two coordinates
-	IndexLine(aq int, ar int, bq int, br int) Items[T, C, CS]
-
-	// IndexMovementRange returns items within the given radius and the given coordinates
-	IndexMovementRange(q int, r int, n int) Items[T, C, CS]
 }
 
 type qrGrid[T any, C coord.QR[C, CS], CS coord.Coords[C, CS]] struct {
