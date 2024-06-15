@@ -2,7 +2,7 @@ package hexe
 
 import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
-type QRSGrid[T any, C coord.QRS[C, CS], CS coord.Coords[C]] interface {
+type QRSGrid[T any, C coord.QRS[C, CS], CS coord.Coords[C, CS]] interface {
 	Grid[T]
 
 	// Get returns item at given coordinate
@@ -23,6 +23,9 @@ type QRSGrid[T any, C coord.QRS[C, CS], CS coord.Coords[C]] interface {
 	// DiagonalNeighbors returns items that diagonally neighbor the given coordinate
 	DiagonalNeighbors(q int, r int, s int) Items[T, C, CS]
 
+	// IndexCoords returns items at the given coordinates
+	IndexCoords(coords CS) Items[T, C, CS]
+
 	// IndexLine returns items that fall on the line between the two coordinates
 	IndexLine(aq int, ar int, as int, bq int, br int, bs int) Items[T, C, CS]
 
@@ -30,7 +33,7 @@ type QRSGrid[T any, C coord.QRS[C, CS], CS coord.Coords[C]] interface {
 	IndexMovementRange(aq int, ar int, as int, n int) Items[T, C, CS]
 }
 
-type qrsGrid[T any, C coord.QRS[C, CS], CS coord.Coords[C]] struct {
+type qrsGrid[T any, C coord.QRS[C, CS], CS coord.Coords[C, CS]] struct {
 	*grid[T]
 	toAxial   func(q int, r int, s int) (int, int)
 	fromAxial func(q int, r int) C
@@ -63,6 +66,18 @@ func (g *qrsGrid[T, C, CS]) indexCoords(coords coord.Axials) Items[T, C, CS] {
 		if ok {
 			typedCoord := g.fromAxial(c.Q(), c.R())
 			items = append(items, newItem[T, C](typedCoord, value))
+		}
+	}
+
+	return items
+}
+
+func (g *qrsGrid[T, C, CS]) IndexCoords(coords CS) Items[T, C, CS] {
+	items := make(Items[T, C, CS], 0)
+	for _, c := range coords {
+		value, ok := g.Index(c.Q(), c.R(), c.S())
+		if ok {
+			items = append(items, newItem[T, C](c, value))
 		}
 	}
 

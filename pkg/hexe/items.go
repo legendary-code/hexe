@@ -2,7 +2,7 @@ package hexe
 
 import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
-type Items[T any, C coord.Coord, CS coord.Coords[C]] []Item[T, C]
+type Items[T any, C coord.Coord, CS coord.Coords[C, CS]] []Item[T, C]
 
 func (i Items[T, C, CS]) Values() []T {
 	items := make([]T, len(i))
@@ -20,7 +20,7 @@ func (i Items[T, C, CS]) Indices() CS {
 	return items
 }
 
-func castAs[T any, FC coord.Coord, FCS coord.Coords[FC], TC coord.Coord, TCS coord.Coords[TC]](
+func castAs[T any, FC coord.Coord, FCS coord.Coords[FC, FCS], TC coord.Coord, TCS coord.Coords[TC, TCS]](
 	items Items[T, FC, FCS],
 	castFunc func(c FC) TC,
 ) Items[T, TC, TCS] {

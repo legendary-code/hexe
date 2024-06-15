@@ -1,5 +1,7 @@
 package coord
 
+import "slices"
+
 type DoubleWidths []DoubleWidth
 
 func (d DoubleWidths) Axials() Axials {
@@ -32,4 +34,24 @@ func (d DoubleWidths) OddQs() OddQs {
 
 func (d DoubleWidths) OddRs() OddRs {
 	return castAs(d, DoubleWidth.OddR)
+}
+
+func (d DoubleWidths) Copy() DoubleWidths {
+	return slices.Clone(d)
+}
+
+func (d DoubleWidths) Sorted() DoubleWidths {
+	return d.Axials().Sorted().DoubleWidths()
+}
+
+func (d DoubleWidths) UnionWith(other DoubleWidths) DoubleWidths {
+	return d.Axials().UnionWith(other.Axials()).DoubleWidths()
+}
+
+func (d DoubleWidths) IntersectWith(other DoubleWidths) DoubleWidths {
+	return d.Axials().IntersectWith(other.Axials()).DoubleWidths()
+}
+
+func (d DoubleWidths) DifferenceWith(other DoubleWidths) DoubleWidths {
+	return d.Axials().DifferenceWith(other.Axials()).DoubleWidths()
 }

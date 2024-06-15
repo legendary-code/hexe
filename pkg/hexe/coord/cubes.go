@@ -1,5 +1,7 @@
 package coord
 
+import "slices"
+
 type Cubes []Cube
 
 func (c Cubes) Axials() Axials {
@@ -32,4 +34,24 @@ func (c Cubes) OddQs() OddQs {
 
 func (c Cubes) OddRs() OddRs {
 	return castAs(c, Cube.OddR)
+}
+
+func (c Cubes) Copy() Cubes {
+	return slices.Clone(c)
+}
+
+func (c Cubes) Sorted() Cubes {
+	return c.Axials().Sorted().Cubes()
+}
+
+func (c Cubes) UnionWith(other Cubes) Cubes {
+	return c.Axials().UnionWith(other.Axials()).Cubes()
+}
+
+func (c Cubes) IntersectWith(other Cubes) Cubes {
+	return c.Axials().IntersectWith(other.Axials()).Cubes()
+}
+
+func (c Cubes) DifferenceWith(other Cubes) Cubes {
+	return c.Axials().DifferenceWith(other.Axials()).Cubes()
 }

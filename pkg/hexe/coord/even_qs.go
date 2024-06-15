@@ -1,5 +1,7 @@
 package coord
 
+import "slices"
+
 type EvenQs []EvenQ
 
 func (e EvenQs) Axials() Axials {
@@ -32,4 +34,24 @@ func (e EvenQs) OddQs() OddQs {
 
 func (e EvenQs) OddRs() OddRs {
 	return castAs(e, EvenQ.OddR)
+}
+
+func (e EvenQs) Copy() EvenQs {
+	return slices.Clone(e)
+}
+
+func (e EvenQs) Sorted() EvenQs {
+	return e.Axials().Sorted().EvenQs()
+}
+
+func (e EvenQs) UnionWith(other EvenQs) EvenQs {
+	return e.Axials().UnionWith(other.Axials()).EvenQs()
+}
+
+func (e EvenQs) IntersectWith(other EvenQs) EvenQs {
+	return e.Axials().IntersectWith(other.Axials()).EvenQs()
+}
+
+func (e EvenQs) DifferenceWith(other EvenQs) EvenQs {
+	return e.Axials().DifferenceWith(other.Axials()).EvenQs()
 }

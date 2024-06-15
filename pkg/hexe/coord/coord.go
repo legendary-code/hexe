@@ -11,7 +11,10 @@ type Coord interface {
 	DoubleHeight() DoubleHeight
 }
 
-type Coords[T Coord] interface {
+type TCoords[T Coord] interface {
+}
+
+type Coords[T Coord, TS TCoords[T]] interface {
 	~[]T
 	Axials() Axials
 	Cubes() Cubes
@@ -21,9 +24,14 @@ type Coords[T Coord] interface {
 	EvenQs() EvenQs
 	DoubleWidths() DoubleWidths
 	DoubleHeights() DoubleHeights
+	Copy() TS
+	Sorted() TS
+	UnionWith(other TS) TS
+	IntersectWith(other TS) TS
+	DifferenceWith(other TS) TS
 }
 
-type QR[T Coord, TS Coords[T]] interface {
+type QR[T Coord, TS Coords[T, TS]] interface {
 	Coord
 	Q() int
 	R() int
@@ -35,7 +43,7 @@ type QR[T Coord, TS Coords[T]] interface {
 	MovementRange(n int) TS
 }
 
-type QRS[T Coord, TS Coords[T]] interface {
+type QRS[T Coord, TS Coords[T, TS]] interface {
 	Coord
 	Q() int
 	R() int

@@ -1,5 +1,7 @@
 package coord
 
+import "slices"
+
 type OddRs []OddR
 
 func (o OddRs) Axials() Axials {
@@ -32,4 +34,24 @@ func (o OddRs) OddQs() OddQs {
 
 func (o OddRs) OddRs() OddRs {
 	return o
+}
+
+func (o OddRs) Copy() OddRs {
+	return slices.Clone(o)
+}
+
+func (o OddRs) Sorted() OddRs {
+	return o.Axials().Sorted().OddRs()
+}
+
+func (o OddRs) UnionWith(other OddRs) OddRs {
+	return o.Axials().UnionWith(other.Axials()).OddRs()
+}
+
+func (o OddRs) IntersectWith(other OddRs) OddRs {
+	return o.Axials().IntersectWith(other.Axials()).OddRs()
+}
+
+func (o OddRs) DifferenceWith(other OddRs) OddRs {
+	return o.Axials().DifferenceWith(other.Axials()).OddRs()
 }
