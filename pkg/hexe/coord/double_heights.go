@@ -1,8 +1,19 @@
 package coord
 
-import "slices"
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
+	"slices"
+)
 
 type DoubleHeights []DoubleHeight
+
+func (d DoubleHeights) Type() consts.CoordType {
+	return consts.DoubleHeight
+}
+
+func (d DoubleHeights) Coords() []Coord {
+	return toCoords(d)
+}
 
 func (d DoubleHeights) Axials() Axials {
 	return castAs(d, DoubleHeight.Axial)

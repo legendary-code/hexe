@@ -10,6 +10,14 @@ func NewOddQ(q int, r int) OddQ {
 	return OddQ{q, r}
 }
 
+func (o OddQ) Type() consts.CoordType {
+	return consts.OddQ
+}
+
+func (o OddQ) Convert(typ consts.CoordType) Coord {
+	return convert(o, typ)
+}
+
 func (o OddQ) Axial() Axial {
 	return NewAxial(o[0], o[1]-(o[0]-(o[0]&1))/2)
 }
@@ -78,7 +86,7 @@ func (o OddQ) LineTo(other OddQ) OddQs {
 	return o.Cube().LineTo(other.Cube()).OddQs()
 }
 
-func (o OddQ) FloodFill(n int, blocked CoordPredicate[OddQ]) OddQs {
+func (o OddQ) FloodFill(n int, blocked Predicate[OddQ]) OddQs {
 	return o.Axial().FloodFill(n, func(coord Axial) bool {
 		return blocked(coord.OddQ())
 	}).OddQs()

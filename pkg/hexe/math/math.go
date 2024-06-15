@@ -1,6 +1,7 @@
 package math
 
 import (
+	"fmt"
 	hm "github.com/legendary-code/hexe/internal/hexe/math"
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"golang.org/x/exp/constraints"
@@ -107,4 +108,15 @@ func CubeLineDraw(aq int, ar int, as int, bq int, br int, bs int) [][3]int {
 	}
 
 	return coords
+}
+
+func AxialToPixel(q int, r int, size float64, orientation consts.Orientation) (float64, float64) {
+	switch orientation {
+	case consts.FlatTop:
+		return 1.5 * size * float64(q), size * (root3*0.5*float64(q) + root3*float64(r))
+	case consts.PointyTop:
+		return size * (root3*float64(q) + root3*0.5*float64(r)), 1.5 * size * float64(r)
+	default:
+		panic(fmt.Sprintf("unknown orientation type: %v", orientation))
+	}
 }

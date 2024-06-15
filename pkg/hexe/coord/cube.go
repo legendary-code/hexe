@@ -32,6 +32,14 @@ func NewCube(q int, r int, s int) Cube {
 	return Cube{q, r, s}
 }
 
+func (c Cube) Type() consts.CoordType {
+	return consts.Cube
+}
+
+func (c Cube) Convert(typ consts.CoordType) Coord {
+	return convert(c, typ)
+}
+
 func (c Cube) Axial() Axial {
 	return NewAxial(c[0], c[1])
 }
@@ -112,8 +120,8 @@ func (c Cube) LineTo(other Cube) Cubes {
 
 func (c Cube) MovementRange(n int) Cubes {
 	results := make(Cubes, 0)
-	for q := -n; q < n; q++ {
-		for r := hm.Maxi(-n, -q-n); r < hm.Mini(n, -q+n); r++ {
+	for q := -n; q <= n; q++ {
+		for r := hm.Maxi(-n, -q-n); r <= hm.Mini(n, -q+n); r++ {
 			s := -q - r
 			results = append(results, NewCube(c.Q()+q, c.R()+r, c.S()+s))
 		}
@@ -121,7 +129,7 @@ func (c Cube) MovementRange(n int) Cubes {
 	return results
 }
 
-func (c Cube) FloodFill(n int, blocked CoordPredicate[Cube]) Cubes {
+func (c Cube) FloodFill(n int, blocked Predicate[Cube]) Cubes {
 	return c.Axial().FloodFill(n, func(coord Axial) bool {
 		return blocked(coord.Cube())
 	}).Cubes()

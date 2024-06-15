@@ -1,15 +1,3 @@
-# Hexe
-
-![](images/hexe.png)
-
-An easy-to-use golang library for working with hexagonal grids.
-
-## Visualization
-To help visualize hex grids generated in code, simple plotting functionality
-is provided for drawing hex grid coordinates and styling the cells.
-
-#### Example code:
-```go
 package main
 
 import (
@@ -50,7 +38,3 @@ func main() {
 
 	_ = f.RenderFile("example.svg")
 }
-```
-
-#### Output:
-![](images/example.svg)

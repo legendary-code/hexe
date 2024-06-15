@@ -162,7 +162,7 @@ func TestQrGrid_IndexMovementRange(t *testing.T) {
 
 	assert.Equal(
 		t,
-		[]string{"baz", "foo", "qux"},
+		[]string{"baz", "foo", "qux", "quuux"},
 		names,
 	)
 
@@ -172,6 +172,7 @@ func TestQrGrid_IndexMovementRange(t *testing.T) {
 			{-1, 2},
 			{0, 0},
 			{2, -1},
+			{2, 2},
 		},
 		coords,
 	)

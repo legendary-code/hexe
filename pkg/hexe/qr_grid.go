@@ -2,7 +2,7 @@ package hexe
 
 import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
-type QRGrid[T any, C coord.QR[C, CS], CS coord.Coords[C, CS]] interface {
+type QRGrid[T any, C coord.QRCoord[C, CS], CS coord.Coords[C, CS]] interface {
 	Grid[T]
 
 	// Get returns item at given coordinate
@@ -21,7 +21,7 @@ type QRGrid[T any, C coord.QR[C, CS], CS coord.Coords[C, CS]] interface {
 	IndexCoords(coords CS) Items[T, C, CS]
 }
 
-type qrGrid[T any, C coord.QR[C, CS], CS coord.Coords[C, CS]] struct {
+type qrGrid[T any, C coord.QRCoord[C, CS], CS coord.Coords[C, CS]] struct {
 	*grid[T]
 	toAxial   func(q int, r int) (int, int)
 	fromAxial func(q int, r int) C

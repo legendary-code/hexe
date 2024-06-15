@@ -1,6 +1,13 @@
 package coord
 
+import (
+	"fmt"
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
+)
+
 type Coord interface {
+	Type() consts.CoordType
+	Convert(typ consts.CoordType) Coord
 	Axial() Axial
 	Cube() Cube
 	OddR() OddR
@@ -14,10 +21,12 @@ type Coord interface {
 type TCoords[T Coord] interface {
 }
 
-type CoordPredicate[T Coord] func(coord T) bool
+type Predicate[T Coord] func(coord T) bool
 
 type Coords[T Coord, TS TCoords[T]] interface {
 	~[]T
+	Type() consts.CoordType
+	Coords() []Coord
 	Axials() Axials
 	Cubes() Cubes
 	OddRs() OddRs
@@ -33,31 +42,39 @@ type Coords[T Coord, TS TCoords[T]] interface {
 	DifferenceWith(other TS) TS
 }
 
-type QR[T Coord, TS Coords[T, TS]] interface {
+type QR interface {
 	Coord
 	Q() int
 	R() int
 	Unpack() (int, int)
+}
+
+type QRCoord[T Coord, TS Coords[T, TS]] interface {
+	QR
 	Neighbors() TS
 	DiagonalNeighbors() TS
 	DistanceTo(other T) int
 	LineTo(other T) TS
 	MovementRange(n int) TS
-	FloodFill(n int, blocked CoordPredicate[T]) TS
+	FloodFill(n int, blocked Predicate[T]) TS
 }
 
-type QRS[T Coord, TS Coords[T, TS]] interface {
+type QRS interface {
 	Coord
 	Q() int
 	R() int
 	S() int
 	Unpack() (int, int, int)
+}
+
+type QRSCoord[T Coord, TS Coords[T, TS]] interface {
+	QRS
 	Neighbors() TS
 	DiagonalNeighbors() TS
 	DistanceTo(other T) int
 	LineTo(other T) TS
 	MovementRange(n int) TS
-	FloodFill(n int, blocked CoordPredicate[T]) TS
+	FloodFill(n int, blocked Predicate[T]) TS
 }
 
 func castAs[F Coord, T Coord](values []F, convertFunc func(F) T) []T {
@@ -66,4 +83,35 @@ func castAs[F Coord, T Coord](values []F, convertFunc func(F) T) []T {
 		result[i] = convertFunc(values[i])
 	}
 	return result
+}
+
+func convert[F Coord](value F, typ consts.CoordType) Coord {
+	switch typ {
+	case consts.Axial:
+		return value.Axial()
+	case consts.Cube:
+		return value.Cube()
+	case consts.DoubleHeight:
+		return value.DoubleHeight()
+	case consts.DoubleWidth:
+		return value.DoubleWidth()
+	case consts.EvenQ:
+		return value.EvenQ()
+	case consts.EvenR:
+		return value.EvenR()
+	case consts.OddQ:
+		return value.OddQ()
+	case consts.OddR:
+		return value.OddR()
+	}
+
+	panic(fmt.Sprintf("unsupported coord type: %+v", typ))
+}
+
+func toCoords[T Coord, TS Coords[T, TS]](coords TS) []Coord {
+	cs := make([]Coord, len(coords))
+	for i, c := range coords {
+		cs[i] = c
+	}
+	return cs
 }

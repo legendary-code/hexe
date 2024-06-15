@@ -1,12 +1,21 @@
 package coord
 
 import (
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"golang.org/x/exp/maps"
 	"slices"
 	"sort"
 )
 
 type Axials []Axial
+
+func (a Axials) Type() consts.CoordType {
+	return consts.Axial
+}
+
+func (a Axials) Coords() []Coord {
+	return toCoords(a)
+}
 
 func (a Axials) Axials() Axials {
 	return a

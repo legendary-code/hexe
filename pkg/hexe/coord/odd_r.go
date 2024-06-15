@@ -10,6 +10,14 @@ func NewOddR(q int, r int) OddR {
 	return OddR{q, r}
 }
 
+func (o OddR) Type() consts.CoordType {
+	return consts.OddR
+}
+
+func (o OddR) Convert(typ consts.CoordType) Coord {
+	return convert(o, typ)
+}
+
 func (o OddR) Axial() Axial {
 	return NewAxial(o[0]-(o[1]-(o[1]&1))/2, o[1])
 }
@@ -82,7 +90,7 @@ func (o OddR) MovementRange(n int) OddRs {
 	return o.Cube().MovementRange(n).OddRs()
 }
 
-func (o OddR) FloodFill(n int, blocked CoordPredicate[OddR]) OddRs {
+func (o OddR) FloodFill(n int, blocked Predicate[OddR]) OddRs {
 	return o.Axial().FloodFill(n, func(coord Axial) bool {
 		return blocked(coord.OddR())
 	}).OddRs()

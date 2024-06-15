@@ -10,6 +10,14 @@ func NewDoubleHeight(q int, r int) DoubleHeight {
 	return DoubleHeight{q, r}
 }
 
+func (d DoubleHeight) Type() consts.CoordType {
+	return consts.DoubleHeight
+}
+
+func (d DoubleHeight) Convert(typ consts.CoordType) Coord {
+	return convert(d, typ)
+}
+
 func (d DoubleHeight) Axial() Axial {
 	return NewAxial(d[0], (d[1]-d[0])/2)
 }
@@ -82,7 +90,7 @@ func (d DoubleHeight) MovementRange(n int) DoubleHeights {
 	return d.Cube().MovementRange(n).DoubleHeights()
 }
 
-func (d DoubleHeight) FloodFill(n int, blocked CoordPredicate[DoubleHeight]) DoubleHeights {
+func (d DoubleHeight) FloodFill(n int, blocked Predicate[DoubleHeight]) DoubleHeights {
 	return d.Axial().FloodFill(n, func(coord Axial) bool {
 		return blocked(coord.DoubleHeight())
 	}).DoubleHeights()

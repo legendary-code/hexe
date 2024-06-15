@@ -10,6 +10,14 @@ func NewEvenR(q int, r int) EvenR {
 	return EvenR{q, r}
 }
 
+func (e EvenR) Type() consts.CoordType {
+	return consts.EvenR
+}
+
+func (e EvenR) Convert(typ consts.CoordType) Coord {
+	return convert(e, typ)
+}
+
 func (e EvenR) Axial() Axial {
 	return NewAxial(e[0]-(e[1]+(e[1]&1))/2, e[1])
 }
@@ -82,7 +90,7 @@ func (e EvenR) MovementRange(n int) EvenRs {
 	return e.Cube().MovementRange(n).EvenRs()
 }
 
-func (e EvenR) FloodFill(n int, blocked CoordPredicate[EvenR]) EvenRs {
+func (e EvenR) FloodFill(n int, blocked Predicate[EvenR]) EvenRs {
 	return e.Axial().FloodFill(n, func(coord Axial) bool {
 		return blocked(coord.EvenR())
 	}).EvenRs()

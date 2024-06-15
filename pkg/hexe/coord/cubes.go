@@ -1,8 +1,19 @@
 package coord
 
-import "slices"
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
+	"slices"
+)
 
 type Cubes []Cube
+
+func (c Cubes) Type() consts.CoordType {
+	return consts.Cube
+}
+
+func (c Cubes) Coords() []Coord {
+	return toCoords(c)
+}
 
 func (c Cubes) Axials() Axials {
 	return castAs(c, Cube.Axial)

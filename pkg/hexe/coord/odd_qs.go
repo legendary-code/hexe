@@ -1,8 +1,19 @@
 package coord
 
-import "slices"
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
+	"slices"
+)
 
 type OddQs []OddQ
+
+func (o OddQs) Type() consts.CoordType {
+	return consts.OddQ
+}
+
+func (o OddQs) Coords() []Coord {
+	return toCoords(o)
+}
 
 func (o OddQs) Axials() Axials {
 	return castAs(o, OddQ.Axial)

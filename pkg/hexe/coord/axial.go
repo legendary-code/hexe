@@ -29,6 +29,14 @@ func NewAxial(q int, r int) Axial {
 	return Axial{q, r}
 }
 
+func (a Axial) Type() consts.CoordType {
+	return consts.Axial
+}
+
+func (a Axial) Convert(typ consts.CoordType) Coord {
+	return convert(a, typ)
+}
+
 func (a Axial) Axial() Axial {
 	return a
 }
@@ -101,7 +109,7 @@ func (a Axial) MovementRange(n int) Axials {
 	return a.Cube().MovementRange(n).Axials()
 }
 
-func (a Axial) FloodFill(n int, blocked CoordPredicate[Axial]) Axials {
+func (a Axial) FloodFill(n int, blocked Predicate[Axial]) Axials {
 	visited := make(map[Axial]bool)
 	visited[a] = true
 

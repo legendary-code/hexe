@@ -1,8 +1,19 @@
 package coord
 
-import "slices"
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
+	"slices"
+)
 
 type EvenQs []EvenQ
+
+func (e EvenQs) Type() consts.CoordType {
+	return consts.EvenQ
+}
+
+func (e EvenQs) Coords() []Coord {
+	return toCoords(e)
+}
 
 func (e EvenQs) Axials() Axials {
 	return castAs(e, EvenQ.Axial)
