@@ -81,3 +81,9 @@ func (e EvenQ) LineTo(other EvenQ) EvenQs {
 func (e EvenQ) MovementRange(n int) EvenQs {
 	return e.Cube().MovementRange(n).EvenQs()
 }
+
+func (e EvenQ) FloodFill(n int, blocked CoordPredicate[EvenQ]) EvenQs {
+	return e.Axial().FloodFill(n, func(coord Axial) bool {
+		return blocked(coord.EvenQ())
+	}).EvenQs()
+}

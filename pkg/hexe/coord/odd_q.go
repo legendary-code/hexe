@@ -78,6 +78,12 @@ func (o OddQ) LineTo(other OddQ) OddQs {
 	return o.Cube().LineTo(other.Cube()).OddQs()
 }
 
+func (o OddQ) FloodFill(n int, blocked CoordPredicate[OddQ]) OddQs {
+	return o.Axial().FloodFill(n, func(coord Axial) bool {
+		return blocked(coord.OddQ())
+	}).OddQs()
+}
+
 func (o OddQ) MovementRange(n int) OddQs {
 	return o.Cube().MovementRange(n).OddQs()
 }

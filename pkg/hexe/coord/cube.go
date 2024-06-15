@@ -120,3 +120,9 @@ func (c Cube) MovementRange(n int) Cubes {
 	}
 	return results
 }
+
+func (c Cube) FloodFill(n int, blocked CoordPredicate[Cube]) Cubes {
+	return c.Axial().FloodFill(n, func(coord Axial) bool {
+		return blocked(coord.Cube())
+	}).Cubes()
+}

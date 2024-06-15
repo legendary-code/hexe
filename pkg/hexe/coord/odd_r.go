@@ -81,3 +81,9 @@ func (o OddR) LineTo(other OddR) OddRs {
 func (o OddR) MovementRange(n int) OddRs {
 	return o.Cube().MovementRange(n).OddRs()
 }
+
+func (o OddR) FloodFill(n int, blocked CoordPredicate[OddR]) OddRs {
+	return o.Axial().FloodFill(n, func(coord Axial) bool {
+		return blocked(coord.OddR())
+	}).OddRs()
+}

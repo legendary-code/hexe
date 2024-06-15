@@ -1,5 +1,12 @@
 package math
 
+import (
+	"golang.org/x/exp/constraints"
+	"math"
+)
+
+const TwoPi = 2.0 * math.Pi
+
 func Maxi(values ...int) int {
 	m := values[0]
 
@@ -29,4 +36,14 @@ func Absi(v int) int {
 		return -v
 	}
 	return v
+}
+
+func Lerp(a float64, b float64, t float64) float64 {
+	return a + (b-a)*t
+}
+
+func WrapAroundRadians[T constraints.Float](radians T) T {
+	radians += T(math.Ceil(float64(-radians)/TwoPi) * TwoPi)
+	radians -= T(math.Floor(float64(radians)/TwoPi) * TwoPi)
+	return radians
 }

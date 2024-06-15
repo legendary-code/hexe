@@ -8,7 +8,6 @@ import (
 )
 
 const root3 = 1.7320508075688772935274463415059
-const twoPi = 2.0 * math.Pi
 
 func CalculateWidth[T constraints.Float](orientation consts.Orientation, size T) T {
 	if orientation == consts.FlatTop {
@@ -42,16 +41,10 @@ func CalculateVerticalSpacing[T constraints.Float](orientation consts.Orientatio
 	}
 }
 
-func wrapAroundRadians[T constraints.Float](radians T) T {
-	radians += T(math.Ceil(float64(-radians)/twoPi) * twoPi)
-	radians -= T(math.Floor(float64(radians)/twoPi) * twoPi)
-	return radians
-}
-
 func CalculateCorners[T constraints.Float](center [2]T, size T, startRadians T, clockwise bool) [consts.Sides][2]T {
 	corners := [consts.Sides][2]T{{}, {}, {}, {}, {}, {}}
 	r := startRadians
-	r = wrapAroundRadians(r)
+	r = hm.WrapAroundRadians(r)
 	inc := T(consts.InnerAngleRadians)
 
 	if clockwise {
@@ -65,7 +58,7 @@ func CalculateCorners[T constraints.Float](center [2]T, size T, startRadians T, 
 		}
 
 		r += inc
-		r = wrapAroundRadians(r)
+		r = hm.WrapAroundRadians(r)
 	}
 
 	return corners
@@ -95,14 +88,10 @@ func CubeRound(q float64, r float64, s float64) (int, int, int) {
 	return int(qr), int(rr), int(sr)
 }
 
-func lerp(a float64, b float64, t float64) float64 {
-	return a + (b-a)*t
-}
-
 func CubeLerp(aq float64, ar float64, as float64, bq float64, br float64, bs float64, t float64) (float64, float64, float64) {
-	q := lerp(aq, bq, t)
-	r := lerp(ar, br, t)
-	s := lerp(as, bs, t)
+	q := hm.Lerp(aq, bq, t)
+	r := hm.Lerp(ar, br, t)
+	s := hm.Lerp(as, bs, t)
 	return q, r, s
 }
 

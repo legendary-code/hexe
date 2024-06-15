@@ -81,3 +81,9 @@ func (d DoubleHeight) LineTo(other DoubleHeight) DoubleHeights {
 func (d DoubleHeight) MovementRange(n int) DoubleHeights {
 	return d.Cube().MovementRange(n).DoubleHeights()
 }
+
+func (d DoubleHeight) FloodFill(n int, blocked CoordPredicate[DoubleHeight]) DoubleHeights {
+	return d.Axial().FloodFill(n, func(coord Axial) bool {
+		return blocked(coord.DoubleHeight())
+	}).DoubleHeights()
+}

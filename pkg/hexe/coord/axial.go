@@ -2,6 +2,7 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
+	"golang.org/x/exp/maps"
 )
 
 var axialNeighborCoords = [consts.Sides][2]int{
@@ -98,4 +99,32 @@ func (a Axial) LineTo(other Axial) Axials {
 
 func (a Axial) MovementRange(n int) Axials {
 	return a.Cube().MovementRange(n).Axials()
+}
+
+func (a Axial) FloodFill(n int, blocked CoordPredicate[Axial]) Axials {
+	visited := make(map[Axial]bool)
+	visited[a] = true
+
+	fringes := make([]Axials, 0)
+	fringes = append(fringes, Axials{a})
+
+	for k := 1; k <= n; k++ {
+		fringes = append(fringes, Axials{})
+		for _, coord := range fringes[k-1] {
+			for _, neighbor := range coord.Neighbors() {
+				if _, ok := visited[neighbor]; ok {
+					continue
+				}
+
+				if blocked(neighbor) {
+					continue
+				}
+
+				visited[neighbor] = true
+				fringes[k] = append(fringes[k], neighbor)
+			}
+		}
+	}
+
+	return maps.Keys(visited)
 }

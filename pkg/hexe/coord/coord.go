@@ -14,6 +14,8 @@ type Coord interface {
 type TCoords[T Coord] interface {
 }
 
+type CoordPredicate[T Coord] func(coord T) bool
+
 type Coords[T Coord, TS TCoords[T]] interface {
 	~[]T
 	Axials() Axials
@@ -41,6 +43,7 @@ type QR[T Coord, TS Coords[T, TS]] interface {
 	DistanceTo(other T) int
 	LineTo(other T) TS
 	MovementRange(n int) TS
+	FloodFill(n int, blocked CoordPredicate[T]) TS
 }
 
 type QRS[T Coord, TS Coords[T, TS]] interface {
@@ -54,6 +57,7 @@ type QRS[T Coord, TS Coords[T, TS]] interface {
 	DistanceTo(other T) int
 	LineTo(other T) TS
 	MovementRange(n int) TS
+	FloodFill(n int, blocked CoordPredicate[T]) TS
 }
 
 func castAs[F Coord, T Coord](values []F, convertFunc func(F) T) []T {

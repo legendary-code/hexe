@@ -59,3 +59,24 @@ func TestAxial_DistanceTo(t *testing.T) {
 	assert.Equal(t, 0, NewAxial(0, 0).DistanceTo(NewAxial(0, 0)))
 	assert.Equal(t, 3, NewAxial(1, -2).DistanceTo(NewAxial(2, 0)))
 }
+
+func TestAxial_FloodFill(t *testing.T) {
+	actual := NewAxial(1, 0).FloodFill(2, func(coord Axial) bool {
+		return coord.Q()+coord.R() == 0
+	}).Sorted()
+	expected := Axials{
+		NewAxial(-1, 2),
+		NewAxial(0, 1),
+		NewAxial(0, 2),
+		NewAxial(1, 0),
+		NewAxial(1, 1),
+		NewAxial(1, 2),
+		NewAxial(2, -1),
+		NewAxial(2, 0),
+		NewAxial(2, 1),
+		NewAxial(3, -2),
+		NewAxial(3, -1),
+		NewAxial(3, 0),
+	}
+	assert.Equal(t, expected, actual)
+}
