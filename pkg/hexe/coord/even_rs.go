@@ -51,8 +51,8 @@ func (e EvenRs) Copy() EvenRs {
 	return slices.Clone(e)
 }
 
-func (e EvenRs) Sorted() EvenRs {
-	return e.Axials().Sorted().EvenRs()
+func (e EvenRs) Sort() EvenRs {
+	return e.Axials().Sort().EvenRs()
 }
 
 func (e EvenRs) UnionWith(other EvenRs) EvenRs {
@@ -65,4 +65,8 @@ func (e EvenRs) IntersectWith(other EvenRs) EvenRs {
 
 func (e EvenRs) DifferenceWith(other EvenRs) EvenRs {
 	return e.Axials().DifferenceWith(other.Axials()).EvenRs()
+}
+
+func (e EvenRs) Rotate(center EvenR, angle int) EvenRs {
+	return e.Cubes().Rotate(center.Cube(), angle).EvenRs()
 }

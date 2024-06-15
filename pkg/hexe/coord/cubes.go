@@ -51,8 +51,8 @@ func (c Cubes) Copy() Cubes {
 	return slices.Clone(c)
 }
 
-func (c Cubes) Sorted() Cubes {
-	return c.Axials().Sorted().Cubes()
+func (c Cubes) Sort() Cubes {
+	return c.Axials().Sort().Cubes()
 }
 
 func (c Cubes) UnionWith(other Cubes) Cubes {
@@ -65,4 +65,12 @@ func (c Cubes) IntersectWith(other Cubes) Cubes {
 
 func (c Cubes) DifferenceWith(other Cubes) Cubes {
 	return c.Axials().DifferenceWith(other.Axials()).Cubes()
+}
+
+func (c Cubes) Rotate(center Cube, angle int) Cubes {
+	coords := make(Cubes, len(c))
+	for i, coord := range c {
+		coords[i] = coord.Rotate(center, angle)
+	}
+	return coords
 }

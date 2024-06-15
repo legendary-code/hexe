@@ -5,6 +5,7 @@ import (
 	hm "github.com/legendary-code/hexe/internal/hexe/math"
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"github.com/legendary-code/hexe/pkg/hexe/math"
+	"golang.org/x/exp/maps"
 )
 
 type Cube [3]int
@@ -130,7 +131,46 @@ func (c Cube) MovementRange(n int) Cubes {
 }
 
 func (c Cube) FloodFill(n int, blocked Predicate[Cube]) Cubes {
-	return c.Axial().FloodFill(n, func(coord Axial) bool {
-		return blocked(coord.Cube())
-	}).Cubes()
+	visited := make(map[Cube]bool)
+	visited[c] = true
+
+	fringes := make([]Cubes, 0)
+	fringes = append(fringes, Cubes{c})
+
+	for k := 1; k <= n; k++ {
+		fringes = append(fringes, Cubes{})
+		for _, coord := range fringes[k-1] {
+			for _, neighbor := range coord.Neighbors() {
+				if _, ok := visited[neighbor]; ok {
+					continue
+				}
+
+				if blocked(neighbor) {
+					continue
+				}
+
+				visited[neighbor] = true
+				fringes[k] = append(fringes[k], neighbor)
+			}
+		}
+	}
+
+	return maps.Keys(visited)
+}
+
+func (c Cube) Rotate(center Cube, angle int) Cube {
+	q, r, s := c.Unpack()
+	cq, cr, cs := center.Unpack()
+	dq, dr, ds := q-cq, r-cr, s-cs
+
+	if angle < 0 {
+		angle = angle + (-angle/consts.Sides)*consts.Sides + consts.Sides
+	}
+
+	angle = angle % consts.Sides
+	for i := 0; i < angle; i++ {
+		dq, dr, ds = -dr, -ds, -dq
+	}
+
+	return NewCube(cq+dq, cr+dr, cs+ds)
 }

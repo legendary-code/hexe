@@ -100,7 +100,12 @@ func CubeLineDraw(aq int, ar int, as int, bq int, br int, bs int) [][3]int {
 	n := CubeDistance(aq, ar, as, bq, br, bs)
 	coords := make([][3]int, 0)
 
-	for i := 0; i < n; i++ {
+	if n == 0 {
+		coords = append(coords, [3]int{aq, ar, as})
+		return coords
+	}
+
+	for i := 0; i <= n; i++ {
 		tn := 1.0 / float64(n) * float64(i)
 		q, r, s := CubeLerp(float64(aq), float64(ar), float64(as), float64(bq), float64(br), float64(bs), tn)
 		qr, rr, sr := CubeRound(q, r, s)

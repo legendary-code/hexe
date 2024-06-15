@@ -91,7 +91,11 @@ func (d DoubleWidth) MovementRange(n int) DoubleWidths {
 }
 
 func (d DoubleWidth) FloodFill(n int, blocked Predicate[DoubleWidth]) DoubleWidths {
-	return d.Axial().FloodFill(n, func(coord Axial) bool {
+	return d.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.DoubleWidth())
 	}).DoubleWidths()
+}
+
+func (d DoubleWidth) Rotate(center DoubleWidth, angle int) DoubleWidth {
+	return d.Cube().Rotate(center.Cube(), angle).DoubleWidth()
 }

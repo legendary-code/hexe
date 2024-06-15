@@ -91,7 +91,11 @@ func (e EvenR) MovementRange(n int) EvenRs {
 }
 
 func (e EvenR) FloodFill(n int, blocked Predicate[EvenR]) EvenRs {
-	return e.Axial().FloodFill(n, func(coord Axial) bool {
+	return e.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.EvenR())
 	}).EvenRs()
+}
+
+func (e EvenR) Rotate(center EvenR, angle int) EvenR {
+	return e.Cube().Rotate(center.Cube(), angle).EvenR()
 }

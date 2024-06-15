@@ -34,7 +34,7 @@ func TestAxials_Sorted(t *testing.T) {
 		NewAxial(0, 1),
 	}
 
-	actual = actual.Sorted()
+	actual = actual.Sort()
 	assert.Equal(t, expected, actual)
 }
 
@@ -49,7 +49,7 @@ func TestAxials_UnionWith(t *testing.T) {
 		NewAxial(1, 1),
 	}
 
-	c := a.UnionWith(b).Sorted()
+	c := a.UnionWith(b).Sort()
 	expected := Axials{
 		NewAxial(0, 0),
 		NewAxial(0, 1),
@@ -73,7 +73,7 @@ func TestAxials_IntersectWith(t *testing.T) {
 		NewAxial(1, 0),
 	}
 
-	c := a.IntersectWith(b).Sorted()
+	c := a.IntersectWith(b).Sort()
 	expected := Axials{
 		NewAxial(0, 1),
 		NewAxial(1, 0),
@@ -95,7 +95,7 @@ func TestAxials_DifferenceWith(t *testing.T) {
 		NewAxial(1, 0),
 	}
 
-	c := a.DifferenceWith(b).Sorted()
+	c := a.DifferenceWith(b).Sort()
 	expected := Axials{
 		NewAxial(0, 0),
 		NewAxial(1, 1),

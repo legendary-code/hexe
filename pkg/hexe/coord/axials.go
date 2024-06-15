@@ -53,7 +53,7 @@ func (a Axials) Copy() Axials {
 	return slices.Clone(a)
 }
 
-func (a Axials) Sorted() Axials {
+func (a Axials) Sort() Axials {
 	sorted := a.Copy()
 	sort.Slice(sorted, func(i, j int) bool {
 		if sorted[i].Q() == sorted[j].Q() {
@@ -104,4 +104,8 @@ func (a Axials) DifferenceWith(other Axials) Axials {
 	}
 
 	return maps.Keys(coords)
+}
+
+func (a Axials) Rotate(center Axial, angle int) Axials {
+	return a.Cubes().Rotate(center.Cube(), angle).Axials()
 }

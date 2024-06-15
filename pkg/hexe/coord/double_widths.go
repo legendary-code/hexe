@@ -51,8 +51,8 @@ func (d DoubleWidths) Copy() DoubleWidths {
 	return slices.Clone(d)
 }
 
-func (d DoubleWidths) Sorted() DoubleWidths {
-	return d.Axials().Sorted().DoubleWidths()
+func (d DoubleWidths) Sort() DoubleWidths {
+	return d.Axials().Sort().DoubleWidths()
 }
 
 func (d DoubleWidths) UnionWith(other DoubleWidths) DoubleWidths {
@@ -65,4 +65,8 @@ func (d DoubleWidths) IntersectWith(other DoubleWidths) DoubleWidths {
 
 func (d DoubleWidths) DifferenceWith(other DoubleWidths) DoubleWidths {
 	return d.Axials().DifferenceWith(other.Axials()).DoubleWidths()
+}
+
+func (d DoubleWidths) Rotate(center DoubleWidth, angle int) DoubleWidths {
+	return d.Cubes().Rotate(center.Cube(), angle).DoubleWidths()
 }

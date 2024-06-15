@@ -91,7 +91,11 @@ func (o OddR) MovementRange(n int) OddRs {
 }
 
 func (o OddR) FloodFill(n int, blocked Predicate[OddR]) OddRs {
-	return o.Axial().FloodFill(n, func(coord Axial) bool {
+	return o.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.OddR())
 	}).OddRs()
+}
+
+func (o OddR) Rotate(center OddR, angle int) OddR {
+	return o.Cube().Rotate(center.Cube(), angle).OddR()
 }

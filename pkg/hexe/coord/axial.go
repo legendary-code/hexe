@@ -2,26 +2,7 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
-	"golang.org/x/exp/maps"
 )
-
-var axialNeighborCoords = [consts.Sides][2]int{
-	{1, 0},
-	{0, 1},
-	{-1, 1},
-	{-1, 0},
-	{0, -1},
-	{1, -1},
-}
-
-var axialDiagonalNeighborCoords = [consts.Sides][2]int{
-	{1, 1},
-	{-1, 2},
-	{-2, 1},
-	{-1, -1},
-	{1, -2},
-	{2, -1},
-}
 
 type Axial [2]int
 
@@ -82,19 +63,11 @@ func (a Axial) Unpack() (int, int) {
 }
 
 func (a Axial) Neighbors() Axials {
-	neighbors := make(Axials, consts.Sides)
-	for i, neighborCoord := range axialNeighborCoords {
-		neighbors[i] = NewAxial(a[0]+neighborCoord[0], a[1]+neighborCoord[1])
-	}
-	return neighbors
+	return a.Cube().Neighbors().Axials()
 }
 
 func (a Axial) DiagonalNeighbors() Axials {
-	neighbors := make(Axials, consts.Sides)
-	for i, neighborCoord := range axialDiagonalNeighborCoords {
-		neighbors[i] = NewAxial(a[0]+neighborCoord[0], a[1]+neighborCoord[1])
-	}
-	return neighbors
+	return a.Cube().DiagonalNeighbors().Axials()
 }
 
 func (a Axial) DistanceTo(other Axial) int {
@@ -110,29 +83,11 @@ func (a Axial) MovementRange(n int) Axials {
 }
 
 func (a Axial) FloodFill(n int, blocked Predicate[Axial]) Axials {
-	visited := make(map[Axial]bool)
-	visited[a] = true
+	return a.Cube().FloodFill(n, func(coord Cube) bool {
+		return blocked(coord.Axial())
+	}).Axials()
+}
 
-	fringes := make([]Axials, 0)
-	fringes = append(fringes, Axials{a})
-
-	for k := 1; k <= n; k++ {
-		fringes = append(fringes, Axials{})
-		for _, coord := range fringes[k-1] {
-			for _, neighbor := range coord.Neighbors() {
-				if _, ok := visited[neighbor]; ok {
-					continue
-				}
-
-				if blocked(neighbor) {
-					continue
-				}
-
-				visited[neighbor] = true
-				fringes[k] = append(fringes[k], neighbor)
-			}
-		}
-	}
-
-	return maps.Keys(visited)
+func (a Axial) Rotate(center Axial, angle int) Axial {
+	return a.Cube().Rotate(center.Cube(), angle).Axial()
 }

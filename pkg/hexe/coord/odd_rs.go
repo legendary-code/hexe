@@ -51,8 +51,8 @@ func (o OddRs) Copy() OddRs {
 	return slices.Clone(o)
 }
 
-func (o OddRs) Sorted() OddRs {
-	return o.Axials().Sorted().OddRs()
+func (o OddRs) Sort() OddRs {
+	return o.Axials().Sort().OddRs()
 }
 
 func (o OddRs) UnionWith(other OddRs) OddRs {
@@ -65,4 +65,8 @@ func (o OddRs) IntersectWith(other OddRs) OddRs {
 
 func (o OddRs) DifferenceWith(other OddRs) OddRs {
 	return o.Axials().DifferenceWith(other.Axials()).OddRs()
+}
+
+func (o OddRs) Rotate(center OddR, angle int) OddRs {
+	return o.Cubes().Rotate(center.Cube(), angle).OddRs()
 }
