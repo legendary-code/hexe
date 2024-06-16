@@ -1,23 +1,5 @@
 package coord
 
-import (
-	"github.com/legendary-code/hexe/pkg/hexe/consts"
-)
-
-type OddR [2]int
-
-func NewOddR(q int, r int) OddR {
-	return OddR{q, r}
-}
-
-func (o OddR) Type() consts.CoordType {
-	return consts.OddR
-}
-
-func (o OddR) Convert(typ consts.CoordType) Coord {
-	return convertCoord(o, typ)
-}
-
 func (o OddR) Axial() Axial {
 	return NewAxial(o[0]-(o[1]-(o[1]&1))/2, o[1])
 }
@@ -48,66 +30,4 @@ func (o OddR) DoubleWidth() DoubleWidth {
 
 func (o OddR) DoubleHeight() DoubleHeight {
 	return o.Axial().DoubleHeight()
-}
-
-func (o OddR) Q() int {
-	return o[0]
-}
-
-func (o OddR) R() int {
-	return o[1]
-}
-
-func (o OddR) Unpack() (int, int) {
-	return o[0], o[1]
-}
-
-func (o OddR) Neighbors() OddRs {
-	neighbors := make(OddRs, consts.Sides)
-	for i, neighbor := range o.Axial().Neighbors() {
-		neighbors[i] = neighbor.OddR()
-	}
-	return neighbors
-}
-
-func (o OddR) DiagonalNeighbors() OddRs {
-	neighbors := make(OddRs, consts.Sides)
-	for i, neighbor := range o.Axial().DiagonalNeighbors() {
-		neighbors[i] = neighbor.OddR()
-	}
-	return neighbors
-}
-
-func (o OddR) DistanceTo(other OddR) int {
-	return o.Cube().DistanceTo(other.Cube())
-}
-
-func (o OddR) LineTo(other OddR) OddRs {
-	return o.Cube().LineTo(other.Cube()).OddRs()
-}
-
-func (o OddR) MovementRange(n int) OddRs {
-	return o.Cube().MovementRange(n).OddRs()
-}
-
-func (o OddR) FloodFill(n int, blocked Predicate[OddR]) OddRs {
-	return o.Cube().FloodFill(n, func(coord Cube) bool {
-		return blocked(coord.OddR())
-	}).OddRs()
-}
-
-func (o OddR) Rotate(center OddR, angle int) OddR {
-	return o.Cube().Rotate(center.Cube(), angle).OddR()
-}
-
-func (o OddR) ReflectQ() OddR {
-	return o.Cube().ReflectQ().OddR()
-}
-
-func (o OddR) ReflectR() OddR {
-	return o.Cube().ReflectR().OddR()
-}
-
-func (o OddR) ReflectS() OddR {
-	return o.Cube().ReflectS().OddR()
 }

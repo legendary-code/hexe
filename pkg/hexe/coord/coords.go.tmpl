@@ -1,0 +1,88 @@
+package coord
+
+import (
+    "github.com/legendary-code/hexe/pkg/hexe/consts"
+    "slices"
+)
+
+type GCoords []GCoord
+
+func (g GCoords) Type() consts.CoordType {
+    return consts.GCoord
+}
+
+func (g GCoords) Convert(typ consts.CoordType) Coords {
+    return convertCoords(g, typ)
+}
+
+func (g GCoords) ToSlice() []Coord {
+    return toCoords(g)
+}
+
+func (g GCoords) Axials() Axials {
+    return castAs(g, GCoord.Axial)
+}
+
+func (g GCoords) Cubes() Cubes {
+    return castAs(g, GCoord.Cube)
+}
+
+func (g GCoords) DoubleWidths() DoubleWidths {
+    return castAs(g, GCoord.DoubleWidth)
+}
+
+func (g GCoords) DoubleHeights() DoubleHeights {
+    return castAs(g, GCoord.DoubleHeight)
+}
+
+func (g GCoords) EvenQs() EvenQs {
+    return castAs(g, GCoord.EvenQ)
+}
+
+func (g GCoords) EvenRs() EvenRs {
+    return castAs(g, GCoord.EvenR)
+}
+
+func (g GCoords) OddQs() OddQs {
+    return castAs(g, GCoord.OddQ)
+}
+
+func (g GCoords) OddRs() OddRs {
+    return castAs(g, GCoord.OddR)
+}
+
+func (g GCoords) Copy() GCoords {
+    return slices.Clone(g)
+}
+
+func (g GCoords) Sort() GCoords {
+    return g.Cubes().Sort().GCoords()
+}
+
+func (g GCoords) UnionWith(other GCoords) GCoords {
+    return g.Cubes().UnionWith(other.Cubes()).GCoords()
+}
+
+func (g GCoords) IntersectWith(other GCoords) GCoords {
+    return g.Cubes().IntersectWith(other.Cubes()).GCoords()
+}
+
+func (g GCoords) DifferenceWith(other GCoords) GCoords {
+    return g.Cubes().DifferenceWith(other.Cubes()).GCoords()
+}
+
+func (g GCoords) Rotate(center GCoord, angle int) GCoords {
+    return g.Cubes().Rotate(center.Cube(), angle).GCoords()
+}
+
+func (g GCoords) ReflectQ() GCoords {
+    return g.Cubes().ReflectQ().GCoords()
+}
+
+func (g GCoords) ReflectR() GCoords {
+    return g.Cubes().ReflectR().GCoords()
+}
+
+func (g GCoords) ReflectS() GCoords {
+    return g.Cubes().ReflectS().GCoords()
+}

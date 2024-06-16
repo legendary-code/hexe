@@ -1,0 +1,71 @@
+package coord
+
+import "github.com/legendary-code/hexe/pkg/hexe/consts"
+
+type GCoord [2]int
+
+func NewGCoord(q int, r int) GCoord {
+    return GCoord{q, r}
+}
+
+func (g GCoord) Type() consts.CoordType {
+    return consts.GCoord
+}
+
+func (g GCoord) Convert(typ consts.CoordType) Coord {
+    return convertCoord(g, typ)
+}
+
+func (g GCoord) Q() int {
+    return g[0]
+}
+
+func (g GCoord) R() int {
+    return g[1]
+}
+
+func (g GCoord) Unpack() (int, int) {
+    return g[0], g[1]
+}
+
+func (g GCoord) Neighbors() GCoords {
+    return g.Cube().Neighbors().GCoords()
+}
+
+func (g GCoord) DiagonalNeighbors() GCoords {
+    return g.Cube().DiagonalNeighbors().GCoords()
+}
+
+func (g GCoord) DistanceTo(other GCoord) int {
+    return g.Cube().DistanceTo(other.Cube())
+}
+
+func (g GCoord) LineTo(other GCoord) GCoords {
+    return g.Cube().LineTo(other.Cube()).GCoords()
+}
+
+func (g GCoord) MovementRange(n int) GCoords {
+    return g.Cube().MovementRange(n).GCoords()
+}
+
+func (g GCoord) FloodFill(n int, blocked Predicate[GCoord]) GCoords {
+    return g.Cube().FloodFill(n, func(coord Cube) bool {
+        return blocked(coord.GCoord())
+    }).GCoords()
+}
+
+func (g GCoord) Rotate(center GCoord, angle int) GCoord {
+    return g.Cube().Rotate(center.Cube(), angle).GCoord()
+}
+
+func (g GCoord) ReflectQ() GCoord {
+    return g.Cube().ReflectQ().GCoord()
+}
+
+func (g GCoord) ReflectR() GCoord {
+    return g.Cube().ReflectR().GCoord()
+}
+
+func (g GCoord) ReflectS() GCoord {
+    return g.Cube().ReflectS().GCoord()
+}
