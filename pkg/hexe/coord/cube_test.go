@@ -5,6 +5,18 @@ import (
 	"testing"
 )
 
+func TestCube_Add(t *testing.T) {
+	assert.Equal(t, NewCube(2, 4, -6), NewCube(1, 2, -3).Add(NewCube(1, 2, -3)))
+}
+
+func TestCube_Scale(t *testing.T) {
+	assert.Equal(t, NewCube(-3, 6, -3), NewCube(-1, 2, -1).Scale(3))
+}
+
+func TestCube_Neighbor(t *testing.T) {
+	assert.Equal(t, NewCube(-2, 2, 0), NewCube(-1, 2, -1).Neighbor(3))
+}
+
 func TestCube_Neighbors(t *testing.T) {
 	assert.Equal(
 		t,
@@ -62,4 +74,29 @@ func TestCube_ReflectR(t *testing.T) {
 func TestCube_ReflectS(t *testing.T) {
 	assert.Equal(t, NewCube(0, 0, 0), NewCube(0, 0, 0).ReflectS())
 	assert.Equal(t, NewCube(-2, 1, 1), NewCube(1, -2, 1).ReflectS())
+}
+
+func TestCube_Ring(t *testing.T) {
+	expected := Cubes{
+		NewCube(1, -1, 0),
+		NewCube(2, -1, -1),
+		NewCube(3, -1, -2),
+		NewCube(4, -1, -3),
+		NewCube(4, 0, -4),
+		NewCube(4, 1, -5),
+		NewCube(4, 2, -6),
+		NewCube(3, 3, -6),
+		NewCube(2, 4, -6),
+		NewCube(1, 5, -6),
+		NewCube(0, 5, -5),
+		NewCube(-1, 5, -4),
+		NewCube(-2, 5, -3),
+		NewCube(-2, 4, -2),
+		NewCube(-2, 3, -1),
+		NewCube(-2, 2, 0),
+		NewCube(-1, 1, 0),
+		NewCube(0, 0, 0),
+	}
+	actual := NewCube(1, 2, -3).Ring(3)
+	assert.Equal(t, expected, actual)
 }

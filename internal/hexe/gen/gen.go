@@ -16,7 +16,8 @@ import (
 const GCoord = "GCoord"
 const GCoords = "GCoords"
 const GReceiver = "g"
-const GCordCtor = "NewGCoord"
+const GCoordCtor = "NewGCoord"
+const GCoordZero = "ZeroGCoord"
 
 func main() {
 	wd, err := os.Getwd()
@@ -77,6 +78,7 @@ func processTemplate(templateFile string) {
 		coordsTypeName := fmt.Sprintf("%ss", coordType.Name())
 		coordsTypeReceiver := strings.ToLower(string(coordType.Name()[0]))
 		coordTypeCtor := fmt.Sprintf("New%s", coordType.Name())
+		coordTypeZero := fmt.Sprintf("Zero%s", coordType.Name())
 
 		// Replace placeholder types/receivers
 		ast.Inspect(file, func(node ast.Node) bool {
@@ -92,8 +94,10 @@ func processTemplate(templateFile string) {
 				ident.Name = coordTypeName
 			case GReceiver:
 				ident.Name = coordsTypeReceiver
-			case GCordCtor:
+			case GCoordCtor:
 				ident.Name = coordTypeCtor
+			case GCoordZero:
+				ident.Name = coordTypeZero
 			}
 
 			return true

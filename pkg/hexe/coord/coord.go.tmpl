@@ -8,6 +8,10 @@ func NewGCoord(q int, r int) GCoord {
     return GCoord{q, r}
 }
 
+func ZeroGCoord() GCoord {
+    return GCoord{0, 0}
+}
+
 func (g GCoord) Type() consts.CoordType {
     return consts.GCoord
 }
@@ -26,6 +30,18 @@ func (g GCoord) R() int {
 
 func (g GCoord) Unpack() (int, int) {
     return g[0], g[1]
+}
+
+func (g GCoord) Neighbor(angle int) GCoord {
+	return g.Cube().Neighbor(angle).GCoord()
+}
+
+func (g GCoord) Add(other GCoord) GCoord {
+    return g.Cube().Add(other.Cube()).GCoord()
+}
+
+func (g GCoord) Scale(factor int) GCoord {
+    return g.Cube().Scale(factor).GCoord()
 }
 
 func (g GCoord) Neighbors() GCoords {
@@ -68,4 +84,8 @@ func (g GCoord) ReflectR() GCoord {
 
 func (g GCoord) ReflectS() GCoord {
     return g.Cube().ReflectS().GCoord()
+}
+
+func (g GCoord) Ring(radius int) GCoords {
+	return g.Cube().Ring(radius).GCoords()
 }

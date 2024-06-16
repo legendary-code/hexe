@@ -33,6 +33,10 @@ func NewCube(q int, r int, s int) Cube {
 	return Cube{q, r, s}
 }
 
+func ZeroCube() Cube {
+	return NewCube(0, 0, 0)
+}
+
 func (c Cube) Type() consts.CoordType {
 	return consts.Cube
 }
@@ -87,6 +91,20 @@ func (c Cube) S() int {
 
 func (c Cube) Unpack() (int, int, int) {
 	return c[0], c[1], c[2]
+}
+
+func (c Cube) Neighbor(angle int) Cube {
+	angle = math.ClampHexAngle(angle)
+	dir := cubeNeighborCoords[angle]
+	return NewCube(c[0]+dir[0], c[1]+dir[1], c[2]+dir[2])
+}
+
+func (c Cube) Add(other Cube) Cube {
+	return NewCube(c[0]+other[0], c[1]+other[1], c[2]+other[2])
+}
+
+func (c Cube) Scale(factor int) Cube {
+	return NewCube(c[0]*factor, c[1]*factor, c[2]*factor)
 }
 
 func (c Cube) Neighbors() Cubes {
@@ -162,12 +180,8 @@ func (c Cube) Rotate(center Cube, angle int) Cube {
 	q, r, s := c.Unpack()
 	cq, cr, cs := center.Unpack()
 	dq, dr, ds := q-cq, r-cr, s-cs
+	angle = math.ClampHexAngle(angle)
 
-	if angle < 0 {
-		angle = angle + (-angle/consts.Sides)*consts.Sides + consts.Sides
-	}
-
-	angle = angle % consts.Sides
 	for i := 0; i < angle; i++ {
 		dq, dr, ds = -dr, -ds, -dq
 	}
@@ -185,4 +199,22 @@ func (c Cube) ReflectR() Cube {
 
 func (c Cube) ReflectS() Cube {
 	return NewCube(c[1], c[0], c[2])
+}
+
+func (c Cube) Ring(radius int) Cubes {
+	if radius < 1 {
+		return Cubes{c}
+	}
+
+	results := make(Cubes, 0)
+	coord := c.Add(ZeroCube().Neighbor(4).Scale(radius))
+
+	for i := 0; i < consts.Sides; i++ {
+		for j := 0; j < radius; j++ {
+			results = append(results, coord)
+			coord = coord.Neighbor(i)
+		}
+	}
+
+	return results
 }

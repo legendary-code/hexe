@@ -22,6 +22,9 @@ type Coord interface {
 
 type TCoord[T Coord, TS TCoords[T, TS]] interface {
 	Coord
+	Neighbor(angle int) T
+	Add(other T) T
+	Scale(factor int) T
 	Neighbors() TS
 	DiagonalNeighbors() TS
 	DistanceTo(other T) int
@@ -32,6 +35,7 @@ type TCoord[T Coord, TS TCoords[T, TS]] interface {
 	ReflectQ() T
 	ReflectR() T
 	ReflectS() T
+	Ring(radius int) TS
 }
 
 type Predicate[T Coord] func(coord T) bool

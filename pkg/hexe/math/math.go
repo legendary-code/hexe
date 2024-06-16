@@ -125,3 +125,11 @@ func AxialToPixel(q int, r int, size float64, orientation consts.Orientation) (f
 		panic(fmt.Sprintf("unknown orientation type: %v", orientation))
 	}
 }
+
+func ClampHexAngle(angle int) int {
+	if angle < 0 {
+		angle = angle + (-angle/consts.Sides)*consts.Sides + consts.Sides
+	}
+
+	return angle % consts.Sides
+}
