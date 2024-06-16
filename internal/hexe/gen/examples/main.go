@@ -11,6 +11,7 @@ import (
 	"go/token"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 )
 
@@ -43,6 +44,7 @@ func findExampleFunctions() []string {
 		}
 	}
 
+	slices.Sort(exampleFunctions)
 	return exampleFunctions
 }
 
