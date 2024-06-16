@@ -38,7 +38,7 @@ func main() {
 	check.Error(tmpl.Execute(file, nil))
 }
 
-func countExampleCodeLines(name string) int {
+func getExampleCodeMarkdown(name string) string {
 	wd, err := os.Getwd()
 	check.Error(err)
 
@@ -50,14 +50,13 @@ func countExampleCodeLines(name string) int {
 	bytes, err := io.ReadAll(file)
 	check.Error(err)
 
-	lineCount := 0
-	for _, b := range bytes {
-		if b == '\n' {
-			lineCount++
-		}
-	}
+	sb := strings.Builder{}
+	sb.WriteString(fmt.Sprintf("https://github.com/legendary-code/hexe/blob/main/examples/%s.go\n", name))
+	sb.WriteString("```go\n")
+	sb.WriteString(string(bytes))
+	sb.WriteString("```\n")
 
-	return lineCount
+	return sb.String()
 }
 
 func hasExampleImage(name string) bool {
@@ -74,16 +73,10 @@ func hasExampleImage(name string) bool {
 }
 
 func example(name string) string {
-	sb := strings.Builder{}
-	numLines := countExampleCodeLines(name)
+	embeddedCode := getExampleCodeMarkdown(name)
 
-	sb.WriteString(
-		fmt.Sprintf(
-			"https://github.com/legendary-code/hexe/blob/main/examples/%s.go#L1-L%d\n\n",
-			name,
-			numLines,
-		),
-	)
+	sb := strings.Builder{}
+	sb.WriteString(embeddedCode)
 
 	if hasExampleImage(name) {
 		sb.WriteString(

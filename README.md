@@ -101,8 +101,20 @@ is a less common use-case, but, is available if needed.
 
 Example:
 
-https://github.com/legendary-code/hexe/blob/main/examples/math_functions.go#L1-L11
+https://github.com/legendary-code/hexe/blob/main/examples/math_functions.go
+```go
+package main
 
+import (
+	"fmt"
+	"github.com/legendary-code/hexe/pkg/hexe/math"
+)
+
+func mathFunctionsExample() {
+	distance := math.CubeDistance(0, 1, -1, 0, 2, -2)
+	fmt.Printf("The distance from (0, 1, -1) to (0, 2, -2) is %d", distance)
+}
+```
 
 
 <p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
@@ -112,15 +124,61 @@ This is the most common usage of this library, working directly with coordinates
 
 ### Instantiation
 
-https://github.com/legendary-code/hexe/blob/main/examples/instantiation.go#L1-L20
+https://github.com/legendary-code/hexe/blob/main/examples/instantiation.go
+```go
+package main
 
+import (
+	"fmt"
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+)
+
+func instantiationExample() {
+	// new axial coordinate (0, 1)
+	a := coord.NewAxial(0, 1)
+
+	// convert to cube coordinates (0, 1, -1)
+	c := a.Cube()
+
+	// zero value
+	c = coord.ZeroCube()
+
+	// accessing components
+	fmt.Println(c.Q(), c.R(), c.S())
+}
+```
 
 
 ### Sets
 Some functions return a set of coordinates, you can easily work with multiple coordinates:
 
-https://github.com/legendary-code/hexe/blob/main/examples/sets.go#L1-L24
+https://github.com/legendary-code/hexe/blob/main/examples/sets.go
+```go
+package main
 
+import (
+	"fmt"
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+)
+
+func setsExample() {
+	// Create a set of axial coordinates
+	a := coord.Axials{
+		coord.NewAxial(0, 0),
+		coord.NewAxial(0, 1),
+		coord.NewAxial(1, 0),
+		coord.NewAxial(1, 1),
+	}
+
+	// Convert them to cube coordinates
+	c := a.Cubes()
+
+	// You can iterate over them
+	for _, v := range c {
+		fmt.Println(v)
+	}
+}
+```
 
 
 <p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
@@ -129,8 +187,50 @@ https://github.com/legendary-code/hexe/blob/main/examples/sets.go#L1-L24
 To help visualize hex grids generated in code, simple plotting functionality
 is provided for drawing hex grid coordinates and styling the cells.
 
-https://github.com/legendary-code/hexe/blob/main/examples/plot.go#L1-L41
+https://github.com/legendary-code/hexe/blob/main/examples/plot.go
+```go
+package main
 
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func plotExample() {
+	fig := plot.NewFigure()
+
+	center := coord.NewAxial(0, 0)
+	grid := center.MovementRange(3)
+
+	waterStyle := style.Color(colornames.Lightblue).FontSize(40).Name("🌊")
+	landStyle := style.Color(colornames.Sandybrown).FontSize(40).Name("🏝️")
+
+	fig.AddStyledCoords(
+		grid,
+		waterStyle,
+	)
+
+	fig.AddStyledCoords(
+		coord.Axials{
+			coord.NewAxial(0, 0),
+			coord.NewAxial(1, 0),
+			coord.NewAxial(1, -1),
+			coord.NewAxial(0, -1),
+			coord.NewAxial(-1, 0),
+		},
+		landStyle,
+	)
+
+	fig.AddStyledCoord(
+		coord.NewAxial(1, 1),
+		landStyle.Name("🏖️"),
+	)
+
+	_ = fig.RenderFile("../images/plot.svg")
+}
+```
 #### Output:
 ![Example](images/plot.svg)
 
