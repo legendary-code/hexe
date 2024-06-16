@@ -101,3 +101,9 @@ func (g GCoord) FieldOfView(radius int, blocked Predicate[GCoord]) GCoords {
         return blocked(coord.GCoord())
     }).GCoords()
 }
+
+func (g GCoord) FindPathBFS(target GCoord, maxDistance int, blocked Predicate[GCoord]) GCoords {
+    return g.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
+        return blocked(coord.GCoord())
+    }).GCoords()
+}

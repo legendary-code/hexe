@@ -15,24 +15,25 @@ package main
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/coord"
 	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
 	"golang.org/x/image/colornames"
 )
 
 func main() {
-	f := plot.NewFigure()
+	fig := plot.NewFigure()
 
 	center := coord.NewAxial(0, 0)
 	grid := center.MovementRange(3)
 
-	waterStyle := &plot.CellStyle{Color: colornames.Lightblue, FontSize: 40}
-	landStyle := &plot.CellStyle{Color: colornames.Sandybrown, FontSize: 40}
+	waterStyle := style.Color(colornames.Lightblue).FontSize(40).Name("🌊")
+	landStyle := style.Color(colornames.Sandybrown).FontSize(40).Name("🏝️")
 
-	f.AddStyledCoords(
+	fig.AddStyledCoords(
 		grid,
-		func(coord coord.Coord) (string, *plot.CellStyle) { return "🌊", waterStyle },
+		waterStyle,
 	)
 
-	f.AddStyledCoords(
+	fig.AddStyledCoords(
 		coord.Axials{
 			coord.NewAxial(0, 0),
 			coord.NewAxial(1, 0),
@@ -40,17 +41,17 @@ func main() {
 			coord.NewAxial(0, -1),
 			coord.NewAxial(-1, 0),
 		},
-		func(coord coord.Coord) (string, *plot.CellStyle) { return "🏝️", landStyle },
+		landStyle,
 	)
 
-	f.AddStyledCoord(
+	fig.AddStyledCoord(
 		coord.NewAxial(1, 1),
-		func(coord coord.Coord) (string, *plot.CellStyle) { return "🏖️", landStyle },
+		landStyle.Name("🏖️"),
 	)
 
-	_ = f.RenderFile("example.svg")
+	_ = fig.RenderFile("example.svg")
 }
 ```
 
 #### Output:
-![Example](images/example.svg)
+![Example](images/plot.svg)

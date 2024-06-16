@@ -3,13 +3,7 @@ package plot
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"github.com/legendary-code/hexe/pkg/hexe/coord"
-	"image/color"
 )
-
-type CellStyle struct {
-	Color    color.RGBA
-	FontSize int
-}
 
 type Cell struct {
 	Coord coord.Coord
@@ -52,17 +46,17 @@ func (f *Figure) AddCoords(coords coord.Coords) {
 	}
 }
 
-func (f *Figure) AddStyledCoord(coord coord.Coord, styleFunc CellStyleFunc) {
-	text, style := styleFunc(coord)
+func (f *Figure) AddStyledCoord(coord coord.Coord, style Style) {
+	text, cellStyle := style(coord)
 	f.cells[coord.Axial()] = &Cell{
 		Coord: coord,
-		Style: style,
+		Style: cellStyle,
 		Text:  text,
 	}
 }
 
-func (f *Figure) AddStyledCoords(coords coord.Coords, styleFunc CellStyleFunc) {
+func (f *Figure) AddStyledCoords(coords coord.Coords, style Style) {
 	for _, c := range coords.ToSlice() {
-		f.AddStyledCoord(c, styleFunc)
+		f.AddStyledCoord(c, style)
 	}
 }

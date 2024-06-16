@@ -241,3 +241,38 @@ func (c Cube) FieldOfView(radius int, blocked Predicate[Cube]) Cubes {
 	}
 	return maps.Keys(results)
 }
+
+func (c Cube) FindPathBFS(target Cube, maxDistance int, blocked Predicate[Cube]) Cubes {
+	visited := make(map[Cube]bool)
+	visited[c] = true
+
+	paths := make([]Cubes, 1)
+	paths[0] = Cubes{c}
+
+	for len(paths) > 0 {
+		path := paths[0]
+		current := path[len(path)-1]
+		paths = paths[1:]
+
+		if current == target {
+			return path
+		}
+
+		if blocked(current) {
+			continue
+		}
+
+		if c.DistanceTo(current) > maxDistance {
+			continue
+		}
+
+		for _, neighbor := range current.Neighbors() {
+			if !visited[neighbor] {
+				paths = append(paths, append(path.Copy(), neighbor))
+				visited[neighbor] = true
+			}
+		}
+	}
+
+	return Cubes{}
+}

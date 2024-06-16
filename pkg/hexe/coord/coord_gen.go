@@ -81,6 +81,11 @@ func (a Axial) FieldOfView(radius int, blocked Predicate[Axial]) Axials {
 		return blocked(coord.Axial())
 	}).Axials()
 }
+func (a Axial) FindPathBFS(target Axial, maxDistance int, blocked Predicate[Axial]) Axials {
+	return a.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
+		return blocked(coord.Axial())
+	}).Axials()
+}
 
 type DoubleHeight [2]int
 
@@ -156,6 +161,11 @@ func (d DoubleHeight) Ring(radius int) DoubleHeights {
 }
 func (d DoubleHeight) FieldOfView(radius int, blocked Predicate[DoubleHeight]) DoubleHeights {
 	return d.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.DoubleHeight())
+	}).DoubleHeights()
+}
+func (d DoubleHeight) FindPathBFS(target DoubleHeight, maxDistance int, blocked Predicate[DoubleHeight]) DoubleHeights {
+	return d.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.DoubleHeight())
 	}).DoubleHeights()
 }
@@ -237,6 +247,11 @@ func (d DoubleWidth) FieldOfView(radius int, blocked Predicate[DoubleWidth]) Dou
 		return blocked(coord.DoubleWidth())
 	}).DoubleWidths()
 }
+func (d DoubleWidth) FindPathBFS(target DoubleWidth, maxDistance int, blocked Predicate[DoubleWidth]) DoubleWidths {
+	return d.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
+		return blocked(coord.DoubleWidth())
+	}).DoubleWidths()
+}
 
 type EvenQ [2]int
 
@@ -312,6 +327,11 @@ func (e EvenQ) Ring(radius int) EvenQs {
 }
 func (e EvenQ) FieldOfView(radius int, blocked Predicate[EvenQ]) EvenQs {
 	return e.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.EvenQ())
+	}).EvenQs()
+}
+func (e EvenQ) FindPathBFS(target EvenQ, maxDistance int, blocked Predicate[EvenQ]) EvenQs {
+	return e.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.EvenQ())
 	}).EvenQs()
 }
@@ -393,6 +413,11 @@ func (e EvenR) FieldOfView(radius int, blocked Predicate[EvenR]) EvenRs {
 		return blocked(coord.EvenR())
 	}).EvenRs()
 }
+func (e EvenR) FindPathBFS(target EvenR, maxDistance int, blocked Predicate[EvenR]) EvenRs {
+	return e.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
+		return blocked(coord.EvenR())
+	}).EvenRs()
+}
 
 type OddQ [2]int
 
@@ -471,6 +496,11 @@ func (o OddQ) FieldOfView(radius int, blocked Predicate[OddQ]) OddQs {
 		return blocked(coord.OddQ())
 	}).OddQs()
 }
+func (o OddQ) FindPathBFS(target OddQ, maxDistance int, blocked Predicate[OddQ]) OddQs {
+	return o.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
+		return blocked(coord.OddQ())
+	}).OddQs()
+}
 
 type OddR [2]int
 
@@ -546,6 +576,11 @@ func (o OddR) Ring(radius int) OddRs {
 }
 func (o OddR) FieldOfView(radius int, blocked Predicate[OddR]) OddRs {
 	return o.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.OddR())
+	}).OddRs()
+}
+func (o OddR) FindPathBFS(target OddR, maxDistance int, blocked Predicate[OddR]) OddRs {
+	return o.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.OddR())
 	}).OddRs()
 }

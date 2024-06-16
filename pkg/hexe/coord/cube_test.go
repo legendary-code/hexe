@@ -150,3 +150,19 @@ func TestCube_FieldOfView(t *testing.T) {
 	})
 	assert.Equal(t, expected, actual.Sort())
 }
+
+func TestCube_FindPathBFS(t *testing.T) {
+	expected := Cubes{
+		NewCube(1, 2, -3),
+		NewCube(2, 2, -4),
+		NewCube(3, 2, -5),
+		NewCube(4, 2, -6),
+		NewCube(5, 2, -7),
+		NewCube(6, 2, -8),
+		NewCube(6, 3, -9),
+	}
+	actual := NewCube(1, 2, -3).FindPathBFS(NewCube(6, 3, -9), 10, func(coord Cube) bool {
+		return coord.Q() < 0 || coord.R() < 0
+	})
+	assert.Equal(t, expected, actual.Sort())
+}
