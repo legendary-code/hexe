@@ -54,7 +54,7 @@ func getExampleCodeMarkdown(name string) (string, error) {
 	check.Error(err)
 
 	sb := strings.Builder{}
-	sb.WriteString(fmt.Sprintf("https://github.com/legendary-code/hexe/blob/main/examples/%s.go\n", name))
+	sb.WriteString(fmt.Sprintf("[%s.go](https://github.com/legendary-code/hexe/blob/main/examples/%s.go)\n", name, name))
 	sb.WriteString("```go\n")
 	sb.WriteString(string(bytes))
 	sb.WriteString("```\n")

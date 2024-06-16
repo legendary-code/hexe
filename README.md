@@ -116,7 +116,7 @@ is a less common use-case, but, is available if needed.
 
 Example:
 
-https://github.com/legendary-code/hexe/blob/main/examples/math_functions.go
+[math_functions.go](https://github.com/legendary-code/hexe/blob/main/examples/math_functions.go)
 ```go
 package main
 
@@ -139,7 +139,7 @@ This is the most common usage of this library, working directly with coordinates
 
 ### Instantiation
 
-https://github.com/legendary-code/hexe/blob/main/examples/instantiation.go
+[instantiation.go](https://github.com/legendary-code/hexe/blob/main/examples/instantiation.go)
 ```go
 package main
 
@@ -167,7 +167,7 @@ func instantiationExample() {
 ### Sets
 Some functions return a set of coordinates, which you can easily work with
 
-https://github.com/legendary-code/hexe/blob/main/examples/sets.go
+[sets.go](https://github.com/legendary-code/hexe/blob/main/examples/sets.go)
 ```go
 package main
 
@@ -202,7 +202,7 @@ func setsExample() {
 To help visualize hex grids generated in code, simple plotting functionality
 is provided for drawing hex grid coordinates and styling the cells.
 
-https://github.com/legendary-code/hexe/blob/main/examples/plot.go
+[plot.go](https://github.com/legendary-code/hexe/blob/main/examples/plot.go)
 ```go
 package main
 
@@ -254,7 +254,7 @@ func plotExample() {
 ### Neighbors
 You can calculate neighbors of a coordinate
 
-https://github.com/legendary-code/hexe/blob/main/examples/neighbors.go
+[neighbors.go](https://github.com/legendary-code/hexe/blob/main/examples/neighbors.go)
 ```go
 package main
 
@@ -285,7 +285,7 @@ func neighborsExample() {
 ### Diagonal Neighbors
 This library also supports diagonal neighbors of a coordinate
 
-https://github.com/legendary-code/hexe/blob/main/examples/diagonal_neighbors.go
+[diagonal_neighbors.go](https://github.com/legendary-code/hexe/blob/main/examples/diagonal_neighbors.go)
 ```go
 package main
 
@@ -316,7 +316,7 @@ func diagonalNeighborsExample() {
 ### Movement Range
 Using the movement range on a coord returns all the coordinates that can be reached into a given number of steps
 
-https://github.com/legendary-code/hexe/blob/main/examples/movement_range.go
+[movement_range.go](https://github.com/legendary-code/hexe/blob/main/examples/movement_range.go)
 ```go
 package main
 
@@ -347,7 +347,7 @@ func movementRangeExample() {
 ### Line
 Drawing lines is supported as well
 
-https://github.com/legendary-code/hexe/blob/main/examples/line_to.go
+[line_to.go](https://github.com/legendary-code/hexe/blob/main/examples/line_to.go)
 ```go
 package main
 
@@ -380,7 +380,7 @@ func lineToExample() {
 ### Trace
 Trace draws a line but with collision detection
 
-https://github.com/legendary-code/hexe/blob/main/examples/trace_to.go
+[trace_to.go](https://github.com/legendary-code/hexe/blob/main/examples/trace_to.go)
 ```go
 package main
 
@@ -422,7 +422,7 @@ func traceToExample() {
 ### Flood Fill
 Flood fill tries to fill an area up to a maximum radius, taking into account blocked areas
 
-https://github.com/legendary-code/hexe/blob/main/examples/flood_fill.go
+[flood_fill.go](https://github.com/legendary-code/hexe/blob/main/examples/flood_fill.go)
 ```go
 package main
 
@@ -463,7 +463,7 @@ func floodFillExample() {
 ### Rotate
 You can rotate single coordinates or a set of coordinates around a center in 60-degree increments
 
-https://github.com/legendary-code/hexe/blob/main/examples/rotate.go
+[rotate.go](https://github.com/legendary-code/hexe/blob/main/examples/rotate.go)
 ```go
 package main
 
@@ -494,7 +494,7 @@ func rotateExample() {
 ### Reflect
 You can reflect a coordinate or set of coordinates across the Q, R, or S axis
 
-https://github.com/legendary-code/hexe/blob/main/examples/reflect.go
+[reflect.go](https://github.com/legendary-code/hexe/blob/main/examples/reflect.go)
 ```go
 package main
 
@@ -524,7 +524,7 @@ func reflectExample() {
 ### Ring
 You can generate rings of various radii
 
-https://github.com/legendary-code/hexe/blob/main/examples/ring.go
+[ring.go](https://github.com/legendary-code/hexe/blob/main/examples/ring.go)
 ```go
 package main
 
@@ -557,7 +557,7 @@ func ringExample() {
 ### Field Of View
 Field of view casts out rays in all directions from a given coordinate to generate the cells visible from the location
 
-https://github.com/legendary-code/hexe/blob/main/examples/field_of_view.go
+[field_of_view.go](https://github.com/legendary-code/hexe/blob/main/examples/field_of_view.go)
 ```go
 package main
 
@@ -607,7 +607,7 @@ func fieldOfViewExample() {
 ### Find Path (Breadth First Search)
 You can perform basic pathfinding with the breadth first search functionality
 
-https://github.com/legendary-code/hexe/blob/main/examples/find_path_bfs.go
+[find_path_bfs.go](https://github.com/legendary-code/hexe/blob/main/examples/find_path_bfs.go)
 ```go
 package main
 
