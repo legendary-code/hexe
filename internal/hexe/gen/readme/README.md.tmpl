@@ -1,5 +1,5 @@
 <!-- Back to Top -->
-<a name="readme-top"></a>
+{{ topAnchor }}
 
 <!-- Shields -->
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -7,7 +7,7 @@
 <!-- Logo -->
 <br/>
 <div style="text-align: center">
-    <img src="images/hexe.png" alt="Logo">
+    {{ logo }}
     <h3>Hexe</h3>
     <p>
     An easy-to-use golang library for working with hexagonal grids.
@@ -51,7 +51,7 @@ anything great, so, I decided to implement my own.  I stumbled on this [great gu
 that covers just about everything you could want to know about hexagonal grids and algorithms for them.  This project is
 an implementation of that guide as an easy-to-use Go library. 
 
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+{{ backToTop }}
 
 ## Getting Started
 
@@ -65,7 +65,7 @@ The library can be installed the usual way with go modules:
 go get -u github.com/legendary-code/hexe
 ```
 
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+{{ backToTop }}
 
 ## Features
 These are the features currently supported by this library:
@@ -101,42 +101,31 @@ is a less common use-case, but, is available if needed.
 
 Example:
 
-https://github.com/legendary-code/hexe/blob/master/examples/math_functions.go#L1-L12
+{{ example "math_functions" }}
 
-
-
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+{{ backToTop }}
 
 ## Coordinates
 This is the most common usage of this library, working directly with coordinates and sets of coordinates.
 
 ### Instantiation
 
-https://github.com/legendary-code/hexe/blob/master/examples/instantiation.go#L1-L21
-
-
+{{ example "instantiation" }}
 
 ### Sets
 Some functions return a set of coordinates, you can easily work with multiple coordinates:
 
-https://github.com/legendary-code/hexe/blob/master/examples/sets.go#L1-L25
+{{ example "sets" }}
 
-
-
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+{{ backToTop }}
 
 ## Visualization
 To help visualize hex grids generated in code, simple plotting functionality
 is provided for drawing hex grid coordinates and styling the cells.
 
-https://github.com/legendary-code/hexe/blob/master/examples/plot.go#L1-L42
+{{ example "plot" }}
 
-#### Output:
-![Example](images/plot.svg)
-
-
-
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+{{ backToTop }}
 
 <!-- Links & Images -->
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-blue?style=social&logo=linkedin

@@ -15,6 +15,7 @@ import (
 )
 
 func main() {
+	fmt.Println("Processing main.go.tmpl...")
 	exampleFunctions := findExampleFunctions()
 	src, fset := generateCode(exampleFunctions)
 	writeGeneratedCode(src, fset)
