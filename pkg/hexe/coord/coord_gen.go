@@ -76,6 +76,11 @@ func (a Axial) ReflectS() Axial {
 func (a Axial) Ring(radius int) Axials {
 	return a.Cube().Ring(radius).Axials()
 }
+func (a Axial) FieldOfView(radius int, blocked Predicate[Axial]) Axials {
+	return a.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.Axial())
+	}).Axials()
+}
 
 type DoubleHeight [2]int
 
@@ -148,6 +153,11 @@ func (d DoubleHeight) ReflectS() DoubleHeight {
 }
 func (d DoubleHeight) Ring(radius int) DoubleHeights {
 	return d.Cube().Ring(radius).DoubleHeights()
+}
+func (d DoubleHeight) FieldOfView(radius int, blocked Predicate[DoubleHeight]) DoubleHeights {
+	return d.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.DoubleHeight())
+	}).DoubleHeights()
 }
 
 type DoubleWidth [2]int
@@ -222,6 +232,11 @@ func (d DoubleWidth) ReflectS() DoubleWidth {
 func (d DoubleWidth) Ring(radius int) DoubleWidths {
 	return d.Cube().Ring(radius).DoubleWidths()
 }
+func (d DoubleWidth) FieldOfView(radius int, blocked Predicate[DoubleWidth]) DoubleWidths {
+	return d.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.DoubleWidth())
+	}).DoubleWidths()
+}
 
 type EvenQ [2]int
 
@@ -294,6 +309,11 @@ func (e EvenQ) ReflectS() EvenQ {
 }
 func (e EvenQ) Ring(radius int) EvenQs {
 	return e.Cube().Ring(radius).EvenQs()
+}
+func (e EvenQ) FieldOfView(radius int, blocked Predicate[EvenQ]) EvenQs {
+	return e.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.EvenQ())
+	}).EvenQs()
 }
 
 type EvenR [2]int
@@ -368,6 +388,11 @@ func (e EvenR) ReflectS() EvenR {
 func (e EvenR) Ring(radius int) EvenRs {
 	return e.Cube().Ring(radius).EvenRs()
 }
+func (e EvenR) FieldOfView(radius int, blocked Predicate[EvenR]) EvenRs {
+	return e.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.EvenR())
+	}).EvenRs()
+}
 
 type OddQ [2]int
 
@@ -441,6 +466,11 @@ func (o OddQ) ReflectS() OddQ {
 func (o OddQ) Ring(radius int) OddQs {
 	return o.Cube().Ring(radius).OddQs()
 }
+func (o OddQ) FieldOfView(radius int, blocked Predicate[OddQ]) OddQs {
+	return o.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.OddQ())
+	}).OddQs()
+}
 
 type OddR [2]int
 
@@ -513,4 +543,9 @@ func (o OddR) ReflectS() OddR {
 }
 func (o OddR) Ring(radius int) OddRs {
 	return o.Cube().Ring(radius).OddRs()
+}
+func (o OddR) FieldOfView(radius int, blocked Predicate[OddR]) OddRs {
+	return o.Cube().FieldOfView(radius, func(coord Cube) bool {
+		return blocked(coord.OddR())
+	}).OddRs()
 }

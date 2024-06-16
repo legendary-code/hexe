@@ -229,3 +229,15 @@ func (c Cube) Ring(radius int) Cubes {
 
 	return results
 }
+
+func (c Cube) FieldOfView(radius int, blocked Predicate[Cube]) Cubes {
+	ring := c.Ring(radius)
+	results := make(map[Cube]bool)
+	for _, target := range ring {
+		trace := c.TraceTo(target, blocked)
+		for _, visible := range trace {
+			results[visible] = true
+		}
+	}
+	return maps.Keys(results)
+}

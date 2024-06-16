@@ -95,3 +95,9 @@ func (g GCoord) ReflectS() GCoord {
 func (g GCoord) Ring(radius int) GCoords {
 	return g.Cube().Ring(radius).GCoords()
 }
+
+func (g GCoord) FieldOfView(radius int, blocked Predicate[GCoord]) GCoords {
+    return g.Cube().FieldOfView(radius, func(coord Cube) bool {
+        return blocked(coord.GCoord())
+    }).GCoords()
+}

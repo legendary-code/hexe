@@ -125,3 +125,28 @@ func TestCube_Ring(t *testing.T) {
 	actual := NewCube(1, 2, -3).Ring(3)
 	assert.Equal(t, expected, actual)
 }
+
+func TestCube_FieldOfView(t *testing.T) {
+	expected := Cubes{
+		NewCube(0, 1, -1),
+		NewCube(0, 2, -2),
+		NewCube(0, 3, -3),
+		NewCube(0, 4, -4),
+		NewCube(1, 0, -1),
+		NewCube(1, 1, -2),
+		NewCube(1, 2, -3),
+		NewCube(1, 3, -4),
+		NewCube(1, 4, -5),
+		NewCube(2, 0, -2),
+		NewCube(2, 1, -3),
+		NewCube(2, 2, -4),
+		NewCube(2, 3, -5),
+		NewCube(3, 0, -3),
+		NewCube(3, 1, -4),
+		NewCube(3, 2, -5),
+	}
+	actual := NewCube(1, 2, -3).FieldOfView(2, func(coord Cube) bool {
+		return coord.Q() < 0 || coord.R() < 0
+	})
+	assert.Equal(t, expected, actual.Sort())
+}

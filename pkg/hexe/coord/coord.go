@@ -37,6 +37,7 @@ type TCoord[T Coord, TS TCoords[T, TS]] interface {
 	ReflectR() T
 	ReflectS() T
 	Ring(radius int) TS
+	FieldOfView(radius int, blocked Predicate[T]) TS
 }
 
 type Predicate[T Coord] func(coord T) bool
