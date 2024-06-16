@@ -50,7 +50,7 @@ func countExampleCodeLines(name string) int {
 	bytes, err := io.ReadAll(file)
 	check.Error(err)
 
-	lineCount := 1
+	lineCount := 0
 	for _, b := range bytes {
 		if b == '\n' {
 			lineCount++

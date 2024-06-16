@@ -101,7 +101,7 @@ is a less common use-case, but, is available if needed.
 
 Example:
 
-https://github.com/legendary-code/hexe/blob/main/examples/math_functions.go#L1-L12
+https://github.com/legendary-code/hexe/blob/main/examples/math_functions.go#L1-L11
 
 
 
@@ -112,14 +112,14 @@ This is the most common usage of this library, working directly with coordinates
 
 ### Instantiation
 
-https://github.com/legendary-code/hexe/blob/main/examples/instantiation.go#L1-L21
+https://github.com/legendary-code/hexe/blob/main/examples/instantiation.go#L1-L20
 
 
 
 ### Sets
 Some functions return a set of coordinates, you can easily work with multiple coordinates:
 
-https://github.com/legendary-code/hexe/blob/main/examples/sets.go#L1-L25
+https://github.com/legendary-code/hexe/blob/main/examples/sets.go#L1-L24
 
 
 
@@ -129,7 +129,7 @@ https://github.com/legendary-code/hexe/blob/main/examples/sets.go#L1-L25
 To help visualize hex grids generated in code, simple plotting functionality
 is provided for drawing hex grid coordinates and styling the cells.
 
-https://github.com/legendary-code/hexe/blob/main/examples/plot.go#L1-L42
+https://github.com/legendary-code/hexe/blob/main/examples/plot.go#L1-L41
 
 #### Output:
 ![Example](images/plot.svg)
