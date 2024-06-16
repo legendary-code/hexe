@@ -12,7 +12,7 @@
     <p>
     An easy-to-use golang library for working with hexagonal grids.
     <br/>
-    <a href="www.google.com"><strong>Explore the docs »</strong></a>
+    <a href="https://pkg.go.dev/legendary-code/hexe"><strong>Explore the docs »</strong></a>
     </p>
 </div>
 
@@ -41,10 +41,20 @@
 			<ul>
 				<li><a href="#instantiation">Instantiation</a></li>
 				<li><a href="#sets">Sets</a></li>
+				<li><a href="#visualization">Visualization</a></li>
+				<li><a href="#neighbors">Neighbors</a></li>
+				<li><a href="#diagonal-neighbors">Diagonal Neighbors</a></li>
+				<li><a href="#movement-range">Movement Range</a></li>
+				<li><a href="#line">Line</a></li>
+				<li><a href="#trace">Trace</a></li>
+				<li><a href="#flood-fill">Flood Fill</a></li>
+				<li><a href="#rotate">Rotate</a></li>
+				<li><a href="#reflect">Reflect</a></li>
+				<li><a href="#ring">Ring</a></li>
+				<li><a href="#field-of-view">Field Of View</a></li>
+				<li><a href="#find-path-(breadth-first-search)">Find Path (Breadth First Search)</a></li>
 			</ul>
 		</li>
-		<li>
-			<a href="#visualization">Visualization</a>
 		</li>
 	</ol>
 </details>
@@ -155,7 +165,7 @@ func instantiationExample() {
 
 
 ### Sets
-Some functions return a set of coordinates, you can easily work with multiple coordinates
+Some functions return a set of coordinates, which you can easily work with
 
 https://github.com/legendary-code/hexe/blob/main/examples/sets.go
 ```go
@@ -188,7 +198,7 @@ func setsExample() {
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Visualization
+### Visualization
 To help visualize hex grids generated in code, simple plotting functionality
 is provided for drawing hex grid coordinates and styling the cells.
 
@@ -233,11 +243,416 @@ func plotExample() {
 		landStyle.Name("🏖️"),
 	)
 
-	_ = fig.RenderFile("../images/plot.svg")
+	_ = fig.RenderFile("images/plot.svg")
 }
 ```
 #### Output:
 ![Example](images/plot.svg)
+
+
+
+### Neighbors
+You can calculate neighbors of a coordinate
+
+https://github.com/legendary-code/hexe/blob/main/examples/neighbors.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func neighborsExample() {
+	fig := plot.NewFigure()
+
+	center := coord.ZeroAxial()
+	neighbors := center.Neighbors()
+
+	fig.AddStyledCoords(neighbors, style.Color(colornames.Lightblue))
+	fig.AddCoord(center)
+
+	_ = fig.RenderFile("images/neighbors.svg")
+}
+```
+#### Output:
+![Example](images/neighbors.svg)
+
+
+
+### Diagonal Neighbors
+This library also supports diagonal neighbors of a coordinate
+
+https://github.com/legendary-code/hexe/blob/main/examples/diagonal_neighbors.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func diagonalNeighborsExample() {
+	fig := plot.NewFigure()
+
+	center := coord.ZeroAxial()
+	neighbors := center.DiagonalNeighbors()
+
+	fig.AddStyledCoords(neighbors, style.Color(colornames.Lightblue))
+	fig.AddCoord(center)
+
+	_ = fig.RenderFile("images/diagonal_neighbors.svg")
+}
+```
+#### Output:
+![Example](images/diagonal_neighbors.svg)
+
+
+
+### Movement Range
+Using the movement range on a coord returns all the coordinates that can be reached into a given number of steps
+
+https://github.com/legendary-code/hexe/blob/main/examples/movement_range.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func movementRangeExample() {
+	fig := plot.NewFigure()
+
+	center := coord.ZeroAxial()
+	movementRange := center.MovementRange(2)
+
+	fig.AddStyledCoords(movementRange, style.Color(colornames.Lightblue))
+	fig.AddCoord(center)
+
+	_ = fig.RenderFile("images/movement_range.svg")
+}
+```
+#### Output:
+![Example](images/movement_range.svg)
+
+
+
+### Line
+Drawing lines is supported as well
+
+https://github.com/legendary-code/hexe/blob/main/examples/line_to.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func lineToExample() {
+	fig := plot.NewFigure()
+
+	grid := coord.ZeroAxial().MovementRange(3)
+	from := coord.NewAxial(-1, -1)
+	to := coord.NewAxial(2, 0)
+	line := from.LineTo(to)
+
+	fig.AddCoords(grid)
+	fig.AddStyledCoords(line, style.Color(colornames.Lightgreen))
+
+	_ = fig.RenderFile("images/line_to.svg")
+}
+```
+#### Output:
+![Example](images/line_to.svg)
+
+
+
+### Trace
+Trace draws a line but with collision detection
+
+https://github.com/legendary-code/hexe/blob/main/examples/trace_to.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func traceToExample() {
+	fig := plot.NewFigure()
+
+	grid, walls := createArena()
+	from := coord.NewAxial(-1, -1)
+	to := coord.NewAxial(0, 2)
+	trace := from.TraceTo(to, func(coord coord.Axial) bool {
+		for _, wall := range walls {
+			if coord == wall {
+				return true
+			}
+		}
+
+		return false
+	})
+
+	fig.AddCoords(grid)
+	fig.AddStyledCoords(walls, style.Color(colornames.Bisque))
+	fig.AddStyledCoords(trace, style.Color(colornames.Lightgreen))
+
+	_ = fig.RenderFile("images/trace_to.svg")
+}
+```
+#### Output:
+![Example](images/trace_to.svg)
+
+
+
+### Flood Fill
+Flood fill tries to fill an area up to a maximum radius, taking into account blocked areas
+
+https://github.com/legendary-code/hexe/blob/main/examples/flood_fill.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func floodFillExample() {
+	fig := plot.NewFigure()
+
+	grid, walls := createArena()
+	center := coord.NewAxial(-1, -1)
+	fill := center.FloodFill(3, func(coord coord.Axial) bool {
+		for _, wall := range walls {
+			if coord == wall {
+				return true
+			}
+		}
+
+		return false
+	})
+
+	fig.AddCoords(grid)
+	fig.AddStyledCoords(walls, style.Color(colornames.Bisque))
+	fig.AddStyledCoords(fill, style.Color(colornames.Lightgreen))
+
+	_ = fig.RenderFile("images/flood_fill.svg")
+}
+```
+#### Output:
+![Example](images/flood_fill.svg)
+
+
+
+### Rotate
+You can rotate single coordinates or a set of coordinates around a center in 60-degree increments
+
+https://github.com/legendary-code/hexe/blob/main/examples/rotate.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func rotateExample() {
+	fig := plot.NewFigure()
+
+	grid, walls := createArena()
+	walls = walls.Rotate(coord.ZeroAxial(), 2)
+
+	fig.AddCoords(grid)
+	fig.AddStyledCoords(walls, style.Color(colornames.Bisque))
+
+	_ = fig.RenderFile("images/rotate.svg")
+}
+```
+#### Output:
+![Example](images/rotate.svg)
+
+
+
+### Reflect
+You can reflect a coordinate or set of coordinates across the Q, R, or S axis
+
+https://github.com/legendary-code/hexe/blob/main/examples/reflect.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func reflectExample() {
+	fig := plot.NewFigure()
+
+	grid, walls := createArena()
+	walls = walls.ReflectR()
+
+	fig.AddCoords(grid)
+	fig.AddStyledCoords(walls, style.Color(colornames.Bisque))
+
+	_ = fig.RenderFile("images/reflect.svg")
+}
+```
+#### Output:
+![Example](images/reflect.svg)
+
+
+
+### Ring
+You can generate rings of various radii
+
+https://github.com/legendary-code/hexe/blob/main/examples/ring.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func ringExample() {
+	fig := plot.NewFigure()
+
+	grid, walls := createArena()
+	walls = walls.ReflectR()
+	ring := coord.ZeroAxial().Ring(1)
+
+	fig.AddCoords(grid)
+	fig.AddStyledCoords(walls, style.Color(colornames.Bisque))
+	fig.AddStyledCoords(ring, style.Color(colornames.Lightcoral))
+
+	_ = fig.RenderFile("images/ring.svg")
+}
+```
+#### Output:
+![Example](images/ring.svg)
+
+
+
+### Field Of View
+Field of view casts out rays in all directions from a given coordinate to generate the cells visible from the location
+
+https://github.com/legendary-code/hexe/blob/main/examples/field_of_view.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+	"image/color"
+)
+
+func fieldOfViewExample() {
+	fig := plot.NewFigure()
+	grid, walls := createArena()
+
+	person := coord.NewAxial(-1, 2)
+
+	blocked := func(coord coord.Axial) bool {
+		for _, wall := range walls {
+			if wall == coord {
+				return true
+			}
+		}
+
+		return false
+	}
+
+	fov := person.FieldOfView(3, blocked)
+
+	wallStyle := style.Color(colornames.Bisque)
+	fovStyle := style.Color(color.RGBA{R: 0xdd, G: 0xff, B: 0xdd, A: 0xff})
+	personStyle := fovStyle.FontSize(40).Name("🧍")
+
+	fig.AddCoords(grid)
+	fig.AddStyledCoords(walls, wallStyle)
+	fig.AddStyledCoords(fov, fovStyle)
+	fig.AddStyledCoord(person, personStyle)
+
+	_ = fig.RenderFile("images/field_of_view.svg")
+}
+```
+#### Output:
+![Example](images/field_of_view.svg)
+
+
+
+### Find Path (Breadth First Search)
+You can perform basic pathfinding with the breadth first search functionality
+
+https://github.com/legendary-code/hexe/blob/main/examples/find_path_bfs.go
+```go
+package main
+
+import (
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"github.com/legendary-code/hexe/pkg/hexe/plot"
+	"github.com/legendary-code/hexe/pkg/hexe/plot/style"
+	"golang.org/x/image/colornames"
+)
+
+func findPathBfsExample() {
+	fig := plot.NewFigure()
+	grid, walls := createArena()
+
+	person := coord.NewAxial(-2, 0)
+	target := coord.NewAxial(-2, 2)
+
+	blocked := func(coord coord.Axial) bool {
+		for _, wall := range walls {
+			if wall == coord {
+				return true
+			}
+		}
+
+		return false
+	}
+
+	path := person.FindPathBFS(target, 20, blocked)
+
+	wallStyle := style.Color(colornames.Bisque)
+	pathStyle := style.Color(colornames.Lightblue).FontSize(40)
+	personStyle := pathStyle.Name("🧍")
+	targetStyle := pathStyle.Name("❌")
+
+	fig.AddCoords(grid)
+	fig.AddStyledCoords(walls, wallStyle)
+	fig.AddStyledCoords(path, pathStyle)
+	fig.AddStyledCoord(person, personStyle)
+	fig.AddStyledCoord(target, targetStyle)
+
+	_ = fig.RenderFile("images/find_path_bfs.svg")
+}
+```
+#### Output:
+![Example](images/find_path_bfs.svg)
 
 
 

@@ -37,5 +37,5 @@ func plotExample() {
 		landStyle.Name("🏖️"),
 	)
 
-	_ = fig.RenderFile("../images/plot.svg")
+	_ = fig.RenderFile("images/plot.svg")
 }

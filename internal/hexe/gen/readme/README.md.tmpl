@@ -12,7 +12,7 @@
     <p>
     An easy-to-use golang library for working with hexagonal grids.
     <br/>
-    <a href="www.google.com"><strong>Explore the docs »</strong></a>
+    <a href="https://pkg.go.dev/legendary-code/hexe"><strong>Explore the docs »</strong></a>
     </p>
 </div>
 
@@ -87,17 +87,72 @@ This is the most common usage of this library, working directly with coordinates
 {{ example "instantiation" }}
 
 ### Sets
-Some functions return a set of coordinates, you can easily work with multiple coordinates
+Some functions return a set of coordinates, which you can easily work with
 
 {{ example "sets" }}
 
 {{ backToTop }}
 
-## Visualization
+### Visualization
 To help visualize hex grids generated in code, simple plotting functionality
 is provided for drawing hex grid coordinates and styling the cells.
 
 {{ example "plot" }}
+
+### Neighbors
+You can calculate neighbors of a coordinate
+
+{{ example "neighbors" }}
+
+### Diagonal Neighbors
+This library also supports diagonal neighbors of a coordinate
+
+{{ example "diagonal_neighbors" }}
+
+### Movement Range
+Using the movement range on a coord returns all the coordinates that can be reached into a given number of steps
+
+{{ example "movement_range" }}
+
+### Line
+Drawing lines is supported as well
+
+{{ example "line_to" }}
+
+### Trace
+Trace draws a line but with collision detection
+
+{{ example "trace_to" }}
+
+### Flood Fill
+Flood fill tries to fill an area up to a maximum radius, taking into account blocked areas
+
+{{ example "flood_fill" }}
+
+### Rotate
+You can rotate single coordinates or a set of coordinates around a center in 60-degree increments
+
+{{ example "rotate" }}
+
+### Reflect
+You can reflect a coordinate or set of coordinates across the Q, R, or S axis
+
+{{ example "reflect" }}
+
+### Ring
+You can generate rings of various radii
+
+{{ example "ring" }}
+
+### Field Of View
+Field of view casts out rays in all directions from a given coordinate to generate the cells visible from the location
+
+{{ example "field_of_view" }}
+
+### Find Path (Breadth First Search)
+You can perform basic pathfinding with the breadth first search functionality
+
+{{ example "find_path_bfs" }}
 
 {{ backToTop }}
 

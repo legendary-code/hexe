@@ -35,5 +35,5 @@ func fieldOfViewExample() {
 	fig.AddStyledCoords(fov, fovStyle)
 	fig.AddStyledCoord(person, personStyle)
 
-	_ = fig.RenderFile("../images/field_of_view.svg")
+	_ = fig.RenderFile("images/field_of_view.svg")
 }

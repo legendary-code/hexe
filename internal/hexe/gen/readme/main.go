@@ -39,13 +39,15 @@ func main() {
 	check.Error(tmpl.Execute(file, nil))
 }
 
-func getExampleCodeMarkdown(name string) string {
+func getExampleCodeMarkdown(name string) (string, error) {
 	wd, err := os.Getwd()
 	check.Error(err)
 
 	fileName := filepath.Join(wd, "../../../..", "examples", fmt.Sprintf("%s.go", name))
 	file, err := os.Open(fileName)
-	check.Error(err)
+	if err != nil {
+		return "", err
+	}
 	defer unsafe.CloseIgnoreError(file)
 
 	bytes, err := io.ReadAll(file)
@@ -57,7 +59,7 @@ func getExampleCodeMarkdown(name string) string {
 	sb.WriteString(string(bytes))
 	sb.WriteString("```\n")
 
-	return sb.String()
+	return sb.String(), nil
 }
 
 func hasExampleImage(name string) bool {
@@ -74,7 +76,10 @@ func hasExampleImage(name string) bool {
 }
 
 func example(name string) string {
-	embeddedCode := getExampleCodeMarkdown(name)
+	embeddedCode, err := getExampleCodeMarkdown(name)
+	if err != nil {
+		return ""
+	}
 
 	sb := strings.Builder{}
 	sb.WriteString(embeddedCode)

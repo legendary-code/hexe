@@ -8,12 +8,21 @@ import (
 	"image/color"
 	"io"
 	"os"
+	"path/filepath"
 )
 
 //go:embed figure.svg.tmpl
 var svgTemplate string
 
 func (f *Figure) RenderFile(name string) error {
+	if !filepath.IsAbs(name) {
+		wd, err := os.Getwd()
+		if err != nil {
+			return err
+		}
+		name = filepath.Join(wd, name)
+	}
+
 	file, err := os.Create(name)
 	if err != nil {
 		return err

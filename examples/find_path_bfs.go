@@ -37,5 +37,5 @@ func findPathBfsExample() {
 	fig.AddStyledCoord(person, personStyle)
 	fig.AddStyledCoord(target, targetStyle)
 
-	_ = fig.RenderFile("../images/find_path_bfs.svg")
+	_ = fig.RenderFile("images/find_path_bfs.svg")
 }
