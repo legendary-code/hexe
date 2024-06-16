@@ -6,7 +6,7 @@
 
 <!-- Logo -->
 <br/>
-<div style="text-align: center">
+<div align="center">
     <img src="images/hexe.png" alt="Logo">
     <h3>Hexe</h3>
     <p>
@@ -51,7 +51,7 @@ anything great, so, I decided to implement my own.  I stumbled on this [great gu
 that covers just about everything you could want to know about hexagonal grids and algorithms for them.  This project is
 an implementation of that guide as an easy-to-use Go library. 
 
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Getting Started
 
@@ -65,7 +65,7 @@ The library can be installed the usual way with go modules:
 go get -u github.com/legendary-code/hexe
 ```
 
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Features
 These are the features currently supported by this library:
@@ -117,7 +117,7 @@ func mathFunctionsExample() {
 ```
 
 
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Coordinates
 This is the most common usage of this library, working directly with coordinates and sets of coordinates.
@@ -150,7 +150,7 @@ func instantiationExample() {
 
 
 ### Sets
-Some functions return a set of coordinates, you can easily work with multiple coordinates:
+Some functions return a set of coordinates, you can easily work with multiple coordinates
 
 https://github.com/legendary-code/hexe/blob/main/examples/sets.go
 ```go
@@ -181,7 +181,7 @@ func setsExample() {
 ```
 
 
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Visualization
 To help visualize hex grids generated in code, simple plotting functionality
@@ -236,7 +236,7 @@ func plotExample() {
 
 
 
-<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Links & Images -->
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-blue?style=social&logo=linkedin

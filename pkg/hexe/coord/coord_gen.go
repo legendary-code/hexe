@@ -3,9 +3,7 @@
 package coord
 
 import "github.com/legendary-code/hexe/pkg/hexe/consts"
-
 type Axial [2]int
-
 func NewAxial(q int, r int) Axial {
 	return Axial{q, r}
 }
@@ -86,9 +84,7 @@ func (a Axial) FindPathBFS(target Axial, maxDistance int, blocked Predicate[Axia
 		return blocked(coord.Axial())
 	}).Axials()
 }
-
 type DoubleHeight [2]int
-
 func NewDoubleHeight(q int, r int) DoubleHeight {
 	return DoubleHeight{q, r}
 }
@@ -169,9 +165,7 @@ func (d DoubleHeight) FindPathBFS(target DoubleHeight, maxDistance int, blocked 
 		return blocked(coord.DoubleHeight())
 	}).DoubleHeights()
 }
-
 type DoubleWidth [2]int
-
 func NewDoubleWidth(q int, r int) DoubleWidth {
 	return DoubleWidth{q, r}
 }
@@ -252,9 +246,7 @@ func (d DoubleWidth) FindPathBFS(target DoubleWidth, maxDistance int, blocked Pr
 		return blocked(coord.DoubleWidth())
 	}).DoubleWidths()
 }
-
 type EvenQ [2]int
-
 func NewEvenQ(q int, r int) EvenQ {
 	return EvenQ{q, r}
 }
@@ -335,9 +327,7 @@ func (e EvenQ) FindPathBFS(target EvenQ, maxDistance int, blocked Predicate[Even
 		return blocked(coord.EvenQ())
 	}).EvenQs()
 }
-
 type EvenR [2]int
-
 func NewEvenR(q int, r int) EvenR {
 	return EvenR{q, r}
 }
@@ -418,9 +408,7 @@ func (e EvenR) FindPathBFS(target EvenR, maxDistance int, blocked Predicate[Even
 		return blocked(coord.EvenR())
 	}).EvenRs()
 }
-
 type OddQ [2]int
-
 func NewOddQ(q int, r int) OddQ {
 	return OddQ{q, r}
 }
@@ -501,9 +489,7 @@ func (o OddQ) FindPathBFS(target OddQ, maxDistance int, blocked Predicate[OddQ])
 		return blocked(coord.OddQ())
 	}).OddQs()
 }
-
 type OddR [2]int
-
 func NewOddR(q int, r int) OddR {
 	return OddR{q, r}
 }
