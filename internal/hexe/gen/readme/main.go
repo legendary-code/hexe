@@ -96,5 +96,5 @@ func topAnchor() string {
 }
 
 func backToTop() string {
-	return `<p style="text-align: right">(<a href="#readme-top">back to top</a>)</p>`
+	return `<p align="right">(<a href="#readme-top">back to top</a>)</p>`
 }
