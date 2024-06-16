@@ -79,7 +79,7 @@ func example(name string) string {
 
 	sb.WriteString(
 		fmt.Sprintf(
-			"https://github.com/legendary-code/hexe/blob/master/examples/%s.go#L1-L%d\n\n",
+			"https://github.com/legendary-code/hexe/blob/main/examples/%s.go#L1-L%d\n\n",
 			name,
 			numLines,
 		),
