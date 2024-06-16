@@ -32,7 +32,7 @@ type svgCell struct {
 }
 
 type svgStyle struct {
-	Id       string
+	Class    string
 	Color    color.RGBA
 	FontSize int
 }
@@ -102,14 +102,13 @@ func (r *renderVarsBuilder) build() *renderVars {
 			continue
 		}
 
-		existing, ok := styles[style]
+		_, ok := styles[style]
 		if !ok {
-			existing = &svgStyle{
-				Id:       fmt.Sprintf("style-%d", len(styles)+1),
+			styles[style] = &svgStyle{
+				Class:    fmt.Sprintf("style-%d", len(styles)+1),
 				Color:    style.Color,
 				FontSize: style.FontSize,
 			}
-			styles[style] = existing
 		}
 	}
 

@@ -71,8 +71,8 @@ an implementation of that guide as an easy-to-use Go library.
 ## Getting Started
 
 ### Prerequisites
-This library was written with Go 1.22.3 and uses some of its experimental libraries.  You will need a compatible
-version of Go.
+This library was written with heavy use of generics and some experimental go modules.  Your project will require at 
+least Go 1.22.3 installed.
 
 ### Installation
 The library can be installed the usual way with go modules:
@@ -154,6 +154,7 @@ func instantiationExample() {
 
 	// convert to cube coordinates (0, 1, -1)
 	c := a.Cube()
+	fmt.Println(c.Q(), c.R(), c.S())
 
 	// zero value
 	c = coord.ZeroCube()

@@ -83,8 +83,6 @@ var testCoordinates = map[consts.CoordType][]Coord{
 }
 
 func TestCoord_Coord(t *testing.T) {
-	t.Parallel()
-
 	for _, typeA := range consts.CoordinateTypes() {
 		for _, typeB := range consts.CoordinateTypes() {
 			if typeA == typeB {
@@ -92,7 +90,6 @@ func TestCoord_Coord(t *testing.T) {
 			}
 
 			t.Run(fmt.Sprintf("Test%s_%s", typeA.Name(), typeB.Name()), func(t2 *testing.T) {
-				t2.Parallel()
 				typeACoords := testCoordinates[typeA]
 				typeBCoords := testCoordinates[typeB]
 
@@ -106,19 +103,14 @@ func TestCoord_Coord(t *testing.T) {
 }
 
 func TestCoord_Type(t *testing.T) {
-	t.Parallel()
-
 	for _, coordType := range consts.CoordinateTypes() {
 		t.Run(fmt.Sprintf("Test%s_Type", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
 			assert.Equal(t2, coordType, testCoordinates[coordType][0].Type())
 		})
 	}
 }
 
 func TestCoord_Neighbors(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := testCoordinates[consts.Cube]
 	expecteds := make([]Cubes, len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
@@ -131,8 +123,6 @@ func TestCoord_Neighbors(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_Neighbors", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			for i, coord := range testCoordinates[coordType] {
 				var actual Cubes
 				expected := expecteds[i]
@@ -163,8 +153,6 @@ func TestCoord_Neighbors(t *testing.T) {
 }
 
 func TestCoord_DiagonalNeighbors(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := testCoordinates[consts.Cube]
 	expecteds := make([]Cubes, len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
@@ -177,8 +165,6 @@ func TestCoord_DiagonalNeighbors(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_DiagonalNeighbors", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			for i, coord := range testCoordinates[coordType] {
 				var actual Cubes
 				expected := expecteds[i]
@@ -209,8 +195,6 @@ func TestCoord_DiagonalNeighbors(t *testing.T) {
 }
 
 func TestCoord_DistanceTo(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := testCoordinates[consts.Cube]
 	expecteds := make([]int, len(cubeCoordinates)*len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
@@ -225,8 +209,6 @@ func TestCoord_DistanceTo(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_DistanceTo", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			for i, coord := range testCoordinates[coordType] {
 				for j, otherCoord := range testCoordinates[coordType] {
 					var actual int
@@ -259,8 +241,6 @@ func TestCoord_DistanceTo(t *testing.T) {
 }
 
 func TestCoord_LineTo(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := testCoordinates[consts.Cube]
 	expecteds := make([]Cubes, len(cubeCoordinates)*len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
@@ -275,8 +255,6 @@ func TestCoord_LineTo(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_LineTo", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			for i, coord := range testCoordinates[coordType] {
 				for j, otherCoord := range testCoordinates[coordType] {
 					var actual Cubes
@@ -309,8 +287,6 @@ func TestCoord_LineTo(t *testing.T) {
 }
 
 func TestCoord_MovementRange(t *testing.T) {
-	t.Parallel()
-
 	n := 3
 	cubeCoordinates := testCoordinates[consts.Cube]
 	expecteds := make([]Cubes, len(cubeCoordinates)*n)
@@ -326,8 +302,6 @@ func TestCoord_MovementRange(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_MovementRange", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			for i, coord := range testCoordinates[coordType] {
 				for j := 0; j < n; j++ {
 					var actual Cubes
@@ -360,8 +334,6 @@ func TestCoord_MovementRange(t *testing.T) {
 }
 
 func TestCoord_FloodFill(t *testing.T) {
-	t.Parallel()
-
 	n := 3
 	isBlocked := func(coord Cube) bool {
 		return coord.Axial().Q() > coord.Axial().R()
@@ -381,8 +353,6 @@ func TestCoord_FloodFill(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_FloodFill", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			for i, coord := range testCoordinates[coordType] {
 				for j := 0; j < n; j++ {
 					var actual Cubes
@@ -429,8 +399,6 @@ func TestCoord_FloodFill(t *testing.T) {
 }
 
 func TestCoord_Rotate(t *testing.T) {
-	t.Parallel()
-
 	minAngle := -12
 	maxAngle := 12
 	cubeCoordinates := testCoordinates[consts.Cube]
@@ -451,7 +419,6 @@ func TestCoord_Rotate(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_Rotate", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
 			n := 0
 
 			for _, coord := range testCoordinates[coordType] {
@@ -489,8 +456,6 @@ func TestCoord_Rotate(t *testing.T) {
 }
 
 func TestCoord_ReflectQ(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := testCoordinates[consts.Cube]
 	expecteds := make([]Cube, len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
@@ -503,8 +468,6 @@ func TestCoord_ReflectQ(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_ReflectQ", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			for i, coord := range testCoordinates[coordType] {
 				var actual Cube
 				expected := expecteds[i]
@@ -535,8 +498,6 @@ func TestCoord_ReflectQ(t *testing.T) {
 }
 
 func TestCoord_ReflectR(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := testCoordinates[consts.Cube]
 	expecteds := make([]Cube, len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
@@ -549,8 +510,6 @@ func TestCoord_ReflectR(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_ReflectR", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			for i, coord := range testCoordinates[coordType] {
 				var actual Cube
 				expected := expecteds[i]
@@ -581,8 +540,6 @@ func TestCoord_ReflectR(t *testing.T) {
 }
 
 func TestCoord_ReflectS(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := testCoordinates[consts.Cube]
 	expecteds := make([]Cube, len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
@@ -595,8 +552,6 @@ func TestCoord_ReflectS(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%s_ReflectS", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			for i, coord := range testCoordinates[coordType] {
 				var actual Cube
 				expected := expecteds[i]

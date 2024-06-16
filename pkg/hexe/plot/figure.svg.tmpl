@@ -1,5 +1,5 @@
 {{- define "styleClass" -}}
-{{- if . -}}class="{{.Id}}"{{- end -}}
+{{- if . -}}class="{{.Class}}"{{- end -}}
 {{- end -}}
 {{- define "transform" -}}
 {{- if .PointyTop -}}
@@ -61,7 +61,7 @@ transform="translate({{- .X -}},{{- .Y -}})"
         fill: {{ .Theme.CoordSColor | hex }};
     }
     {{- range $style := .Styles }}
-    .{{ $style.Id }} {
+    .{{ $style.Class }} {
         fill: {{ $style.Color | hex }};
         {{- if $style.FontSize }}
         font-size: {{ $style.FontSize }}px;

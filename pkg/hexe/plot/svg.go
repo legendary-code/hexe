@@ -50,7 +50,7 @@ func (f *Figure) Render(writer io.Writer) error {
 					return ""
 				}
 
-				return fmt.Sprintf(`class="%s"`, style.Id)
+				return fmt.Sprintf(`class="%s"`, style.Class)
 			},
 		},
 	)

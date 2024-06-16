@@ -8,19 +8,14 @@ import (
 )
 
 func TestCoords_Type(t *testing.T) {
-	t.Parallel()
-
 	for coordType, coords := range testCoordinates {
 		t.Run(fmt.Sprintf("Test%ss_Type", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
 			assert.Equal(t2, coordType, NewCoords(coords).Type())
 		})
 	}
 }
 
 func TestCoords_Coords(t *testing.T) {
-	t.Parallel()
-
 	for _, typeA := range consts.CoordinateTypes() {
 		for _, typeB := range consts.CoordinateTypes() {
 			if typeA == typeB {
@@ -28,7 +23,6 @@ func TestCoords_Coords(t *testing.T) {
 			}
 
 			t.Run(fmt.Sprintf("Test%ss_%ss", typeA.Name(), typeB.Name()), func(t2 *testing.T) {
-				t2.Parallel()
 				typeACoords := NewCoords(testCoordinates[typeA])
 				typeBCoords := NewCoords(testCoordinates[typeB])
 
@@ -39,11 +33,8 @@ func TestCoords_Coords(t *testing.T) {
 }
 
 func TestCoords_ToSlice(t *testing.T) {
-	t.Parallel()
-
 	for _, coordType := range consts.CoordinateTypes() {
 		t.Run(fmt.Sprintf("Test%ss_ToSlice", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
 			coords := NewCoords(testCoordinates[coordType])
 			assert.Equal(t2, coords, NewCoords(coords.ToSlice()))
 		})
@@ -51,11 +42,8 @@ func TestCoords_ToSlice(t *testing.T) {
 }
 
 func TestCoords_Copy(t *testing.T) {
-	t.Parallel()
-
 	for _, coordType := range consts.CoordinateTypes() {
 		t.Run(fmt.Sprintf("Test%ss_ToSlice", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
 			coords := NewCoords(testCoordinates[coordType])
 			var cpy Coords
 
@@ -86,8 +74,6 @@ func TestCoords_Copy(t *testing.T) {
 }
 
 func TestCoords_UnionWith(t *testing.T) {
-	t.Parallel()
-
 	a := Cubes{
 		NewCube(0, 0, 0),
 		NewCube(0, 1, -1),
@@ -110,7 +96,6 @@ func TestCoords_UnionWith(t *testing.T) {
 
 	for _, coordType := range consts.CoordinateTypes() {
 		t.Run(fmt.Sprintf("Test%ss_UnionWith", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
 			var actual Coords
 
 			switch coordType {
@@ -140,8 +125,6 @@ func TestCoords_UnionWith(t *testing.T) {
 }
 
 func TestCoords_IntersectWith(t *testing.T) {
-	t.Parallel()
-
 	a := Cubes{
 		NewCube(0, 0, 0),
 		NewCube(0, 1, -1),
@@ -162,7 +145,6 @@ func TestCoords_IntersectWith(t *testing.T) {
 
 	for _, coordType := range consts.CoordinateTypes() {
 		t.Run(fmt.Sprintf("Test%ss_IntersectWith", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
 			var actual Coords
 
 			switch coordType {
@@ -192,8 +174,6 @@ func TestCoords_IntersectWith(t *testing.T) {
 }
 
 func TestCoords_DifferenceWith(t *testing.T) {
-	t.Parallel()
-
 	a := Cubes{
 		NewCube(0, 0, 0),
 		NewCube(0, 1, -1),
@@ -214,7 +194,6 @@ func TestCoords_DifferenceWith(t *testing.T) {
 
 	for _, coordType := range consts.CoordinateTypes() {
 		t.Run(fmt.Sprintf("Test%ss_DifferenceWith", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
 			var actual Coords
 
 			switch coordType {
@@ -244,8 +223,6 @@ func TestCoords_DifferenceWith(t *testing.T) {
 }
 
 func TestCoords_Rotate(t *testing.T) {
-	t.Parallel()
-
 	minAngle := -12
 	maxAngle := 12
 	cubeCoordinates := NewCoords(testCoordinates[consts.Cube]).Cubes()
@@ -264,7 +241,6 @@ func TestCoords_Rotate(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%ss_Rotate", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
 			n := 0
 
 			for _, centerCoord := range testCoordinates[coordType] {
@@ -301,8 +277,6 @@ func TestCoords_Rotate(t *testing.T) {
 }
 
 func TestCoords_ReflectQ(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := NewCoords(testCoordinates[consts.Cube]).Cubes()
 	expected := cubeCoordinates.ReflectQ()
 
@@ -312,8 +286,6 @@ func TestCoords_ReflectQ(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%ss_ReflectQ", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			var actual Cubes
 
 			switch coordType {
@@ -341,8 +313,6 @@ func TestCoords_ReflectQ(t *testing.T) {
 }
 
 func TestCoords_ReflectR(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := NewCoords(testCoordinates[consts.Cube]).Cubes()
 	expected := cubeCoordinates.ReflectR()
 
@@ -352,8 +322,6 @@ func TestCoords_ReflectR(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%ss_ReflectR", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			var actual Cubes
 
 			switch coordType {
@@ -381,8 +349,6 @@ func TestCoords_ReflectR(t *testing.T) {
 }
 
 func TestCoords_ReflectS(t *testing.T) {
-	t.Parallel()
-
 	cubeCoordinates := NewCoords(testCoordinates[consts.Cube]).Cubes()
 	expected := cubeCoordinates.ReflectS()
 
@@ -392,8 +358,6 @@ func TestCoords_ReflectS(t *testing.T) {
 		}
 
 		t.Run(fmt.Sprintf("Test%ss_ReflectS", coordType.Name()), func(t2 *testing.T) {
-			t2.Parallel()
-
 			var actual Cubes
 
 			switch coordType {

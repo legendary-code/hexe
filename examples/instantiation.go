@@ -11,6 +11,7 @@ func instantiationExample() {
 
 	// convert to cube coordinates (0, 1, -1)
 	c := a.Cube()
+	fmt.Println(c.Q(), c.R(), c.S())
 
 	// zero value
 	c = coord.ZeroCube()
