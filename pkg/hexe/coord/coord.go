@@ -5,7 +5,7 @@ import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 )
 
-//go:generate go run ../../../internal/hexe/gen
+//go:generate go run ../../../internal/hexe/gen/coords
 
 type Coord interface {
 	Type() consts.CoordType

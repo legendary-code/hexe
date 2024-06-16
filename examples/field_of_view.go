@@ -8,49 +8,32 @@ import (
 	"image/color"
 )
 
-func init() {
-	addExample("field_of_view", func() *plot.Figure {
-		fig := plot.NewFigure()
-		grid, walls := createArena()
+func fieldOfViewExample() {
+	fig := plot.NewFigure()
+	grid, walls := createArena()
 
-		person1 := coord.NewAxial(-1, -3)
-		person2 := coord.NewAxial(-1, 3)
+	person := coord.NewAxial(-1, 2)
 
-		blocked := func(coord coord.Axial) bool {
-			for _, wall := range walls {
-				if wall == coord {
-					return true
-				}
+	blocked := func(coord coord.Axial) bool {
+		for _, wall := range walls {
+			if wall == coord {
+				return true
 			}
-
-			return false
 		}
 
-		fov1 := person1.FieldOfView(4, blocked)
-		fov2 := person2.FieldOfView(4, blocked)
-		fov3 := fov1.IntersectWith(fov2)
-		fov1 = fov1.DifferenceWith(fov3)
-		fov2 = fov2.DifferenceWith(fov3)
+		return false
+	}
 
-		lightGreen := color.RGBA{R: 0xdd, G: 0xff, B: 0xdd, A: 0xff}
-		lightBlue := color.RGBA{R: 0xdd, G: 0xdd, B: 0xff, A: 0xff}
-		lightPurple := color.RGBA{R: 0xdd, G: 0xee, B: 0xee, A: 0xff}
+	fov := person.FieldOfView(3, blocked)
 
-		wallStyle := style.Color(colornames.Bisque)
-		person1Style := style.Color(lightGreen).FontSize(40).Name("🧍")
-		person2Style := style.Color(lightBlue).FontSize(40).Name("🧍")
-		fov1Style := style.Color(lightGreen)
-		fov2Style := style.Color(lightBlue)
-		fov3Style := style.Color(lightPurple)
+	wallStyle := style.Color(colornames.Bisque)
+	fovStyle := style.Color(color.RGBA{R: 0xdd, G: 0xff, B: 0xdd, A: 0xff})
+	personStyle := fovStyle.FontSize(40).Name("🧍")
 
-		fig.AddCoords(grid)
-		fig.AddStyledCoords(walls, wallStyle)
-		fig.AddStyledCoords(fov1, fov1Style)
-		fig.AddStyledCoords(fov2, fov2Style)
-		fig.AddStyledCoords(fov3, fov3Style)
-		fig.AddStyledCoord(person1, person1Style)
-		fig.AddStyledCoord(person2, person2Style)
+	fig.AddCoords(grid)
+	fig.AddStyledCoords(walls, wallStyle)
+	fig.AddStyledCoords(fov, fovStyle)
+	fig.AddStyledCoord(person, personStyle)
 
-		return fig
-	})
+	_ = fig.RenderFile("../images/field_of_view.svg")
 }

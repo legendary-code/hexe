@@ -1,5 +1,5 @@
-<svg version="1.1" viewBox="-1558 -1350 3116 2700"
-     width="3116" height="2700" preserveAspectRatio="xMidYMin meet"
+<svg version="1.1" viewBox="-692 -600 1384 1200"
+     width="1384" height="1200" preserveAspectRatio="xMidYMin meet"
      xmlns="http://www.w3.org/2000/svg">
 <style>
     svg {
@@ -25,1315 +25,235 @@
         fill: #e619e5ff;
     }
     .style-1 {
+        fill: #ffe4c4ff;
+    }
+    .style-2 {
         fill: #add8e6ff;
         font-size: 40px;
     }
-    .style-2 {
-        fill: #ffe4c4ff;
-    }
-</style><g class="style-1" transform="translate(0,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g  transform="translate(173.20508075688772,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g  transform="translate(346.41016151377545,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-1" transform="translate(606.217782649107,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g  transform="translate(-259.8076211353316,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(952.6279441628825,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g class="style-1" transform="translate(519.6152422706632,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g class="style-2" transform="translate(-692.8203230275509,-1200),rotate(-30)">
+</style><g class="style-1" transform="translate(259.8076211353316,450),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;8</text>
-</g><g  transform="translate(-259.8076211353316,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(952.6279441628825,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g class="style-2" transform="translate(1212.435565298214,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-8</text>
-</g><g class="style-2" transform="translate(519.6152422706632,1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g  transform="translate(86.60254037844393,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(519.6152422706631,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g class="style-2" transform="translate(1299.038105676658,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-8</text>
-</g><g  transform="translate(-692.8203230275509,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g class="style-2" transform="translate(866.0254037844386,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-8</text>
-</g><g  transform="translate(866.0254037844386,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g  transform="translate(346.41016151377534,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g class="style-2" transform="translate(-952.6279441628825,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;8</text>
-</g><g  transform="translate(-86.60254037844386,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(-433.0127018922193,-1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g class="style-2" transform="translate(-692.8203230275509,1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g  transform="translate(866.0254037844386,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g class="style-2" transform="translate(-866.0254037844386,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;8</text>
-</g><g class="style-2" transform="translate(-519.6152422706632,-1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g  transform="translate(-86.60254037844388,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g class="style-2" transform="translate(-173.20508075688767,-1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g class="style-1" transform="translate(-692.8203230275509,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(1039.2304845413262,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g  transform="translate(-259.8076211353316,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(606.217782649107,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
     <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(-779.4228634059948,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g class="style-2" transform="translate(-346.41016151377545,-1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g  transform="translate(-606.217782649107,-1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g class="style-1" transform="translate(-173.20508075688772,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g class="style-2" transform="translate(433.01270189221935,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g  transform="translate(-866.0254037844386,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g class="style-2" transform="translate(1385.6406460551018,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-8</text>
-</g><g  transform="translate(1125.8330249197704,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g class="style-2" transform="translate(1299.0381056766578,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g  transform="translate(779.4228634059948,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g  transform="translate(259.80762113533154,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g class="style-2" transform="translate(-259.8076211353316,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g  transform="translate(-606.217782649107,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(-692.8203230275509,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g class="style-2" transform="translate(-1299.0381056766578,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g  transform="translate(-259.8076211353316,-1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g  transform="translate(606.217782649107,1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g  transform="translate(433.0127018922193,1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g  transform="translate(-173.20508075688775,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g class="style-2" transform="translate(866.0254037844386,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-2" transform="translate(-1385.6406460551018,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;8</text>
-</g><g class="style-1" transform="translate(779.4228634059948,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-    <text transform="rotate(30)" class="style-1">❌</text>
-</g><g  transform="translate(-346.41016151377545,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g class="style-1" transform="translate(692.8203230275509,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g  transform="translate(433.0127018922193,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g  transform="translate(86.60254037844388,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-2" transform="translate(952.6279441628825,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-8</text>
-</g><g class="style-2" transform="translate(0,1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g  transform="translate(-433.0127018922193,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g class="style-2" transform="translate(0,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g  transform="translate(-866.0254037844386,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g  transform="translate(0,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(0,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(433.0127018922193,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(-952.6279441628825,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g  transform="translate(692.8203230275509,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g  transform="translate(0,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-2" transform="translate(0,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(-86.60254037844383,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(86.60254037844383,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g  transform="translate(-346.41016151377545,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(173.20508075688772,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g class="style-2" transform="translate(1125.8330249197702,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(692.820323027551,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-2" transform="translate(519.6152422706632,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g  transform="translate(1039.2304845413264,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(-952.6279441628825,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g  transform="translate(-519.6152422706632,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g class="style-2" transform="translate(-346.41016151377534,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g  transform="translate(-606.217782649107,1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g  transform="translate(-519.6152422706632,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-2" transform="translate(779.4228634059947,-1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g  transform="translate(-779.4228634059948,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(606.217782649107,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g class="style-2" transform="translate(-866.0254037844386,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g class="style-2" transform="translate(606.217782649107,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-2" transform="translate(-952.6279441628825,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g class="style-2" transform="translate(952.6279441628825,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g class="style-1" transform="translate(606.217782649107,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g  transform="translate(173.20508075688775,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g class="style-2" transform="translate(-1039.2304845413264,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-1" transform="translate(173.20508075688772,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-2" transform="translate(86.60254037844383,1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g  transform="translate(-692.8203230275509,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(86.60254037844386,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g class="style-2" transform="translate(-173.20508075688772,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g class="style-2" transform="translate(-346.4101615137755,1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g  transform="translate(-519.6152422706632,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g class="style-2" transform="translate(-1212.435565298214,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;8</text>
-</g><g  transform="translate(-173.20508075688772,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g class="style-2" transform="translate(-1125.8330249197702,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g  transform="translate(606.2177826491071,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g class="style-2" transform="translate(779.4228634059948,1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-8</text>
-</g><g  transform="translate(-606.217782649107,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g class="style-2" transform="translate(346.41016151377545,1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g  transform="translate(0,0),rotate(-30)">
+</g><g class="style-1" transform="translate(0,0),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">q</text>
     <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">r</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">s</text>
-</g><g class="style-2" transform="translate(-606.217782649107,150),rotate(-30)">
+</g><g class="style-1" transform="translate(433.01270189221935,-150),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(-433.0127018922193,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
     <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(-519.6152422706631,600),rotate(-30)">
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
+</g><g class="style-1" transform="translate(519.6152422706632,0),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(-86.60254037844383,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g class="style-2" transform="translate(259.8076211353316,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g class="style-2" transform="translate(346.41016151377545,300),rotate(-30)">
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
+</g><g class="style-2" transform="translate(173.20508075688772,0),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
+</g><g class="style-2" transform="translate(-173.20508075688772,300),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
     <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g class="style-2" transform="translate(-259.8076211353316,450),rotate(-30)">
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
+    <text transform="rotate(30)" class="style-2">❌</text>
+</g><g class="style-1" transform="translate(86.60254037844383,-450),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
+</g><g class="style-1" transform="translate(-346.41016151377545,-300),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
+</g><g class="style-1" transform="translate(-433.01270189221935,150),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g  transform="translate(-86.60254037844383,1050),rotate(-30)">
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
+</g><g class="style-1" transform="translate(346.4101615137755,-300),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
 </g><g  transform="translate(259.8076211353316,150),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
     <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-1" transform="translate(692.8203230275509,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g  transform="translate(-952.6279441628825,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g  transform="translate(-86.60254037844386,150),rotate(-30)">
+</g><g class="style-2" transform="translate(0,300),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g class="style-2" transform="translate(1039.2304845413264,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-8</text>
-</g><g  transform="translate(-433.01270189221935,150),rotate(-30)">
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
+</g><g class="style-1" transform="translate(-259.8076211353316,450),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(-346.41016151377545,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g  transform="translate(779.4228634059947,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g  transform="translate(-1039.2304845413264,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g  transform="translate(519.6152422706632,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g class="style-1" transform="translate(259.8076211353316,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
     <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g  transform="translate(-173.20508075688767,900),rotate(-30)">
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
+</g><g class="style-2" transform="translate(-173.20508075688772,0),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
+</g><g class="style-1" transform="translate(86.60254037844388,450),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-1" transform="translate(-346.4101615137755,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g class="style-2" transform="translate(-1212.435565298214,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g  transform="translate(-1212.435565298214,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g  transform="translate(259.8076211353316,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(692.8203230275509,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g class="style-2" transform="translate(433.0127018922193,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g class="style-2" transform="translate(692.8203230275509,-1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g class="style-2" transform="translate(173.20508075688767,1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(-519.6152422706632,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g  transform="translate(779.4228634059948,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g  transform="translate(779.4228634059947,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(-866.0254037844386,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g  transform="translate(-519.6152422706632,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(-173.20508075688772,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(433.0127018922193,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g class="style-2" transform="translate(-519.6152422706632,1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g  transform="translate(173.20508075688767,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g class="style-2" transform="translate(-346.41016151377545,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g class="style-2" transform="translate(-1125.8330249197702,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;8</text>
-</g><g  transform="translate(866.0254037844386,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g  transform="translate(-86.60254037844383,-1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-2" transform="translate(-692.8203230275509,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-2" transform="translate(1125.8330249197702,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-8</text>
-</g><g class="style-2" transform="translate(-173.20508075688767,1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g class="style-2" transform="translate(-779.4228634059947,1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(692.8203230275509,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g  transform="translate(-606.2177826491071,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(-433.0127018922193,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g  transform="translate(-173.20508075688775,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-2" transform="translate(519.6152422706632,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g class="style-1" transform="translate(-779.4228634059947,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-2" transform="translate(-1039.2304845413262,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g class="style-2" transform="translate(-606.217782649107,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g  transform="translate(519.6152422706632,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g  transform="translate(779.4228634059947,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g  transform="translate(346.4101615137755,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g  transform="translate(952.6279441628825,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(173.20508075688775,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(259.8076211353316,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g  transform="translate(259.8076211353315,-1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g class="style-2" transform="translate(-866.0254037844386,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(346.41016151377545,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g  transform="translate(346.4101615137755,900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(-1039.2304845413264,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g class="style-2" transform="translate(-433.01270189221935,1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
-</g><g  transform="translate(-606.217782649107,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g  transform="translate(86.60254037844383,-1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
-</g><g  transform="translate(866.0254037844386,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g class="style-2" transform="translate(519.6152422706632,-1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(-866.0254037844387,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-2" transform="translate(173.20508075688767,-1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
 </g><g class="style-2" transform="translate(86.60254037844386,-150),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
     <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g class="style-1" transform="translate(433.0127018922193,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g  transform="translate(-433.0127018922193,-450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-2" transform="translate(-1039.2304845413264,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;8</text>
-</g><g  transform="translate(-779.4228634059948,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(-692.8203230275509,-600),rotate(-30)">
+</g><g class="style-2" transform="translate(-346.41016151377545,0),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g  transform="translate(433.01270189221935,-1050),rotate(-30)">
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
+    <text transform="rotate(30)" class="style-2">🧍</text>
+</g><g class="style-1" transform="translate(-433.0127018922193,-150),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g  transform="translate(173.20508075688772,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
-</g><g class="style-2" transform="translate(-86.60254037844393,750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g  transform="translate(86.60254037844383,-450),rotate(-30)">
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
+</g><g  transform="translate(259.8076211353316,-150),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g class="style-2" transform="translate(1039.2304845413264,-600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g  transform="translate(1039.2304845413264,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g  transform="translate(-346.4101615137755,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g  transform="translate(-259.80762113533154,-750),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-2" transform="translate(1212.435565298214,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g  transform="translate(692.8203230275509,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(952.6279441628825,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g class="style-2" transform="translate(692.8203230275509,1200),rotate(-30)">
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
+</g><g class="style-1" transform="translate(-259.8076211353316,-450),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-8</text>
-</g><g  transform="translate(346.41016151377545,-600),rotate(-30)">
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
+</g><g class="style-1" transform="translate(259.8076211353316,-450),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-4</text>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;3</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g class="style-1" transform="translate(-519.6152422706632,300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(-1125.8330249197702,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;6</text>
-</g><g  transform="translate(-779.4228634059947,-750),rotate(-30)">
+</g><g class="style-1" transform="translate(-259.8076211353316,150),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-5</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g  transform="translate(866.0254037844387,-300),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-4</text>
-</g><g  transform="translate(1125.8330249197702,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-6</text>
-</g><g  transform="translate(-692.820323027551,600),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(-433.0127018922193,450),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
-</g><g class="style-2" transform="translate(-779.4228634059947,-150),rotate(-30)">
+</g><g class="style-1" transform="translate(-86.60254037844388,-450),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-</g><g class="style-2" transform="translate(346.4101615137755,-1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-8</text>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-3</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
-</g><g  transform="translate(259.8076211353316,1050),rotate(-30)">
+</g><g class="style-1" transform="translate(-346.4101615137755,300),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-5</text>
-</g><g  transform="translate(519.6152422706632,-900),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-6</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
-</g><g class="style-2" transform="translate(-1299.038105676658,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;8</text>
-</g><g  transform="translate(-1125.8330249197704,-150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;7</text>
-</g><g  transform="translate(-259.8076211353315,1050),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-5</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
-</g><g class="style-2" transform="translate(0,-1200),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;4</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-8</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;4</text>
-</g><g class="style-1" transform="translate(-952.6279441628825,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-6</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;5</text>
-    <text transform="rotate(30)" class="style-1">🧍</text>
-</g><g  transform="translate(1212.435565298214,0),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-7</text>
-</g><g class="style-2" transform="translate(-779.4228634059948,-1050),rotate(-30)">
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
+</g><g  transform="translate(-259.8076211353316,-150),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;8</text>
-</g><g  transform="translate(606.217782649107,-1050),rotate(-30)">
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
+</g><g class="style-1" transform="translate(433.0127018922193,150),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;7</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-7</text>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
+</g><g class="style-2" transform="translate(-86.60254037844386,-150),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-1</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
+</g><g  transform="translate(346.41016151377545,0),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
+</g><g  transform="translate(-173.20508075688772,-300),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;2</text>
+</g><g class="style-1" transform="translate(-86.60254037844386,150),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
+</g><g  transform="translate(0,-300),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;1</text>
+</g><g  transform="translate(173.20508075688772,300),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
+</g><g class="style-1" transform="translate(-519.6152422706632,0),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-3</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">0</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">&#43;3</text>
+</g><g  transform="translate(173.20508075688772,-300),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;2</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">-2</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">0</text>
+</g><g class="style-1" transform="translate(346.41016151377545,300),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;2</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-3</text>
+</g><g class="style-1" transform="translate(-86.60254037844383,450),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-2</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;3</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
+</g><g class="style-2" transform="translate(86.60254037844386,150),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">0</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-1</text>
 </g>
 </svg>
