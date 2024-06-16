@@ -22,10 +22,11 @@ func main() {
 
 	tmpl := template.New("")
 	tmpl.Funcs(map[string]any{
-		"example":   example,
-		"logo":      logo,
-		"topAnchor": topAnchor,
-		"backToTop": backToTop,
+		"example":         example,
+		"logo":            logo,
+		"topAnchor":       topAnchor,
+		"backToTop":       backToTop,
+		"tableOfContents": tableOfContents,
 	})
 
 	tmpl, err := tmpl.Parse(readMeTemplate)
@@ -97,4 +98,62 @@ func topAnchor() string {
 
 func backToTop() string {
 	return `<p align="right">(<a href="#readme-top">back to top</a>)</p>`
+}
+
+func makeAnchorLink(text string) string {
+	return fmt.Sprintf("#%s", strings.ToLower(strings.ReplaceAll(text, " ", "-")))
+}
+
+func tableOfContents() string {
+	sb := strings.Builder{}
+	sb.WriteString("<details>\n")
+	sb.WriteString("\t<summary>Table of Contents</summary>\n")
+	sb.WriteString("\t<ol>\n")
+
+	level := 0
+
+	readMeLines := strings.Split(readMeTemplate, "\n")
+
+	for _, line := range readMeLines {
+		if strings.HasPrefix(line, "## ") {
+			headerText := strings.TrimPrefix(line, "## ")
+			anchorLink := makeAnchorLink(headerText)
+
+			if level > 2 {
+				sb.WriteString("\t\t\t</ul>\n")
+				sb.WriteString("\t\t</li>\n")
+			} else if level == 2 {
+				sb.WriteString("\t\t</li>\n")
+			}
+
+			sb.WriteString("\t\t<li>\n")
+			sb.WriteString(fmt.Sprintf("\t\t\t<a href=\"%s\">%s</a>\n", anchorLink, headerText))
+
+			level = 2
+		} else if strings.HasPrefix(line, "### ") {
+			headerText := strings.TrimPrefix(line, "### ")
+			anchorLink := makeAnchorLink(headerText)
+
+			if level < 3 {
+				sb.WriteString("\t\t\t<ul>\n")
+			}
+
+			sb.WriteString(fmt.Sprintf("\t\t\t\t<li><a href=\"%s\">%s</a></li>\n", anchorLink, headerText))
+
+			level = 3
+		}
+	}
+
+	if level > 2 {
+		sb.WriteString("\t\t\t</ul>\n")
+		sb.WriteString("\t\t</li>\n")
+	}
+
+	if level > 1 {
+		sb.WriteString("\t\t</li>\n")
+	}
+
+	sb.WriteString("\t</ol>\n")
+	sb.WriteString("</details>\n")
+	return sb.String()
 }
