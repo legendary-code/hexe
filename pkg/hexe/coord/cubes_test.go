@@ -127,3 +127,51 @@ func TestCubes_Rotate(t *testing.T) {
 	actual := coords.Rotate(center, angle)
 	assert.Equal(t, expected.Sort(), actual.Sort())
 }
+
+func TestCubes_ReflectQ(t *testing.T) {
+	coords := Cubes{
+		NewCube(0, 0, 0),
+		NewCube(1, -1, 0),
+		NewCube(-1, 2, -1),
+	}
+
+	expected := Cubes{
+		NewCube(0, 0, 0),
+		NewCube(1, 0, -1),
+		NewCube(-1, -1, 2),
+	}
+
+	assert.Equal(t, expected, coords.ReflectQ())
+}
+
+func TestCubes_ReflectR(t *testing.T) {
+	coords := Cubes{
+		NewCube(0, 0, 0),
+		NewCube(1, -1, 0),
+		NewCube(-1, 2, -1),
+	}
+
+	expected := Cubes{
+		NewCube(0, 0, 0),
+		NewCube(0, -1, 1),
+		NewCube(-1, 2, -1),
+	}
+
+	assert.Equal(t, expected, coords.ReflectR())
+}
+
+func TestCubes_ReflectS(t *testing.T) {
+	coords := Cubes{
+		NewCube(0, 0, 0),
+		NewCube(1, -1, 0),
+		NewCube(-1, 2, -1),
+	}
+
+	expected := Cubes{
+		NewCube(0, 0, 0),
+		NewCube(-1, 1, 0),
+		NewCube(2, -1, -1),
+	}
+
+	assert.Equal(t, expected, coords.ReflectS())
+}

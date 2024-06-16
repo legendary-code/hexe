@@ -73,3 +73,15 @@ func (e Empty) DifferenceWith(_ Empty) Empty {
 func (e Empty) Rotate(_ Coord, _ int) Empty {
 	return e
 }
+
+func (e Empty) ReflectQ() Empty {
+	return e
+}
+
+func (e Empty) ReflectR() Empty {
+	return e
+}
+
+func (e Empty) ReflectS() Empty {
+	return e
+}

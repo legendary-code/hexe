@@ -31,6 +31,9 @@ type TCoords[T Coord, TS TCoordSlice[T]] interface {
 	IntersectWith(other TS) TS
 	DifferenceWith(other TS) TS
 	Rotate(center T, angle int) TS
+	ReflectQ() TS
+	ReflectR() TS
+	ReflectS() TS
 }
 
 func castAs[F Coord, T Coord](values []F, convertFunc func(F) T) []T {

@@ -99,3 +99,15 @@ func (d DoubleWidth) FloodFill(n int, blocked Predicate[DoubleWidth]) DoubleWidt
 func (d DoubleWidth) Rotate(center DoubleWidth, angle int) DoubleWidth {
 	return d.Cube().Rotate(center.Cube(), angle).DoubleWidth()
 }
+
+func (d DoubleWidth) ReflectQ() DoubleWidth {
+	return d.Cube().ReflectQ().DoubleWidth()
+}
+
+func (d DoubleWidth) ReflectR() DoubleWidth {
+	return d.Cube().ReflectR().DoubleWidth()
+}
+
+func (d DoubleWidth) ReflectS() DoubleWidth {
+	return d.Cube().ReflectS().DoubleWidth()
+}

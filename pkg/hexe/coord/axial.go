@@ -91,3 +91,15 @@ func (a Axial) FloodFill(n int, blocked Predicate[Axial]) Axials {
 func (a Axial) Rotate(center Axial, angle int) Axial {
 	return a.Cube().Rotate(center.Cube(), angle).Axial()
 }
+
+func (a Axial) ReflectQ() Axial {
+	return a.Cube().ReflectQ().Axial()
+}
+
+func (a Axial) ReflectR() Axial {
+	return a.Cube().ReflectR().Axial()
+}
+
+func (a Axial) ReflectS() Axial {
+	return a.Cube().ReflectS().Axial()
+}

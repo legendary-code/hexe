@@ -487,3 +487,141 @@ func TestCoord_Rotate(t *testing.T) {
 		})
 	}
 }
+
+func TestCoord_ReflectQ(t *testing.T) {
+	t.Parallel()
+
+	cubeCoordinates := testCoordinates[consts.Cube]
+	expecteds := make([]Cube, len(cubeCoordinates))
+	for i, cubeCoord := range cubeCoordinates {
+		expecteds[i] = cubeCoord.Cube().ReflectQ()
+	}
+
+	for _, coordType := range consts.CoordinateTypes() {
+		if coordType == consts.Cube {
+			continue
+		}
+
+		t.Run(fmt.Sprintf("Test%s_ReflectQ", coordType.Name()), func(t2 *testing.T) {
+			t2.Parallel()
+
+			for i, coord := range testCoordinates[coordType] {
+				var actual Cube
+				expected := expecteds[i]
+
+				switch coordType {
+				case consts.Axial:
+					actual = coord.Axial().ReflectQ().Cube()
+				case consts.DoubleHeight:
+					actual = coord.DoubleHeight().ReflectQ().Cube()
+				case consts.DoubleWidth:
+					actual = coord.DoubleWidth().ReflectQ().Cube()
+				case consts.EvenQ:
+					actual = coord.EvenQ().ReflectQ().Cube()
+				case consts.EvenR:
+					actual = coord.EvenR().ReflectQ().Cube()
+				case consts.OddQ:
+					actual = coord.OddQ().ReflectQ().Cube()
+				case consts.OddR:
+					actual = coord.OddR().ReflectQ().Cube()
+				default:
+					assert.Fail(t2, "unexpected coord type")
+				}
+
+				assert.Equal(t2, expected, actual)
+			}
+		})
+	}
+}
+
+func TestCoord_ReflectR(t *testing.T) {
+	t.Parallel()
+
+	cubeCoordinates := testCoordinates[consts.Cube]
+	expecteds := make([]Cube, len(cubeCoordinates))
+	for i, cubeCoord := range cubeCoordinates {
+		expecteds[i] = cubeCoord.Cube().ReflectR()
+	}
+
+	for _, coordType := range consts.CoordinateTypes() {
+		if coordType == consts.Cube {
+			continue
+		}
+
+		t.Run(fmt.Sprintf("Test%s_ReflectR", coordType.Name()), func(t2 *testing.T) {
+			t2.Parallel()
+
+			for i, coord := range testCoordinates[coordType] {
+				var actual Cube
+				expected := expecteds[i]
+
+				switch coordType {
+				case consts.Axial:
+					actual = coord.Axial().ReflectR().Cube()
+				case consts.DoubleHeight:
+					actual = coord.DoubleHeight().ReflectR().Cube()
+				case consts.DoubleWidth:
+					actual = coord.DoubleWidth().ReflectR().Cube()
+				case consts.EvenQ:
+					actual = coord.EvenQ().ReflectR().Cube()
+				case consts.EvenR:
+					actual = coord.EvenR().ReflectR().Cube()
+				case consts.OddQ:
+					actual = coord.OddQ().ReflectR().Cube()
+				case consts.OddR:
+					actual = coord.OddR().ReflectR().Cube()
+				default:
+					assert.Fail(t2, "unexpected coord type")
+				}
+
+				assert.Equal(t2, expected, actual)
+			}
+		})
+	}
+}
+
+func TestCoord_ReflectS(t *testing.T) {
+	t.Parallel()
+
+	cubeCoordinates := testCoordinates[consts.Cube]
+	expecteds := make([]Cube, len(cubeCoordinates))
+	for i, cubeCoord := range cubeCoordinates {
+		expecteds[i] = cubeCoord.Cube().ReflectS()
+	}
+
+	for _, coordType := range consts.CoordinateTypes() {
+		if coordType == consts.Cube {
+			continue
+		}
+
+		t.Run(fmt.Sprintf("Test%s_ReflectS", coordType.Name()), func(t2 *testing.T) {
+			t2.Parallel()
+
+			for i, coord := range testCoordinates[coordType] {
+				var actual Cube
+				expected := expecteds[i]
+
+				switch coordType {
+				case consts.Axial:
+					actual = coord.Axial().ReflectS().Cube()
+				case consts.DoubleHeight:
+					actual = coord.DoubleHeight().ReflectS().Cube()
+				case consts.DoubleWidth:
+					actual = coord.DoubleWidth().ReflectS().Cube()
+				case consts.EvenQ:
+					actual = coord.EvenQ().ReflectS().Cube()
+				case consts.EvenR:
+					actual = coord.EvenR().ReflectS().Cube()
+				case consts.OddQ:
+					actual = coord.OddQ().ReflectS().Cube()
+				case consts.OddR:
+					actual = coord.OddR().ReflectS().Cube()
+				default:
+					assert.Fail(t2, "unexpected coord type")
+				}
+
+				assert.Equal(t2, expected, actual)
+			}
+		})
+	}
+}

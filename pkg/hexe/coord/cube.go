@@ -174,3 +174,15 @@ func (c Cube) Rotate(center Cube, angle int) Cube {
 
 	return NewCube(cq+dq, cr+dr, cs+ds)
 }
+
+func (c Cube) ReflectQ() Cube {
+	return NewCube(c[0], c[2], c[1])
+}
+
+func (c Cube) ReflectR() Cube {
+	return NewCube(c[2], c[1], c[0])
+}
+
+func (c Cube) ReflectS() Cube {
+	return NewCube(c[1], c[0], c[2])
+}

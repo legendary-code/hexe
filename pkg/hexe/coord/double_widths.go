@@ -74,3 +74,15 @@ func (d DoubleWidths) DifferenceWith(other DoubleWidths) DoubleWidths {
 func (d DoubleWidths) Rotate(center DoubleWidth, angle int) DoubleWidths {
 	return d.Cubes().Rotate(center.Cube(), angle).DoubleWidths()
 }
+
+func (d DoubleWidths) ReflectQ() DoubleWidths {
+	return d.Cubes().ReflectQ().DoubleWidths()
+}
+
+func (d DoubleWidths) ReflectR() DoubleWidths {
+	return d.Cubes().ReflectR().DoubleWidths()
+}
+
+func (d DoubleWidths) ReflectS() DoubleWidths {
+	return d.Cubes().ReflectS().DoubleWidths()
+}

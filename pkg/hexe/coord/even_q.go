@@ -99,3 +99,15 @@ func (e EvenQ) FloodFill(n int, blocked Predicate[EvenQ]) EvenQs {
 func (e EvenQ) Rotate(center EvenQ, angle int) EvenQ {
 	return e.Cube().Rotate(center.Cube(), angle).EvenQ()
 }
+
+func (e EvenQ) ReflectQ() EvenQ {
+	return e.Cube().ReflectQ().EvenQ()
+}
+
+func (e EvenQ) ReflectR() EvenQ {
+	return e.Cube().ReflectR().EvenQ()
+}
+
+func (e EvenQ) ReflectS() EvenQ {
+	return e.Cube().ReflectS().EvenQ()
+}

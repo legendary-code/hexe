@@ -27,6 +27,9 @@ type TCoord[T Coord, TS TCoords[T, TS]] interface {
 	MovementRange(n int) TS
 	FloodFill(n int, blocked Predicate[T]) TS
 	Rotate(center T, angle int) T
+	ReflectQ() T
+	ReflectR() T
+	ReflectS() T
 }
 
 type Predicate[T Coord] func(coord T) bool

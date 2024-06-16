@@ -74,3 +74,15 @@ func (e EvenRs) DifferenceWith(other EvenRs) EvenRs {
 func (e EvenRs) Rotate(center EvenR, angle int) EvenRs {
 	return e.Cubes().Rotate(center.Cube(), angle).EvenRs()
 }
+
+func (e EvenRs) ReflectQ() EvenRs {
+	return e.Cubes().ReflectQ().EvenRs()
+}
+
+func (e EvenRs) ReflectR() EvenRs {
+	return e.Cubes().ReflectR().EvenRs()
+}
+
+func (e EvenRs) ReflectS() EvenRs {
+	return e.Cubes().ReflectS().EvenRs()
+}

@@ -118,3 +118,27 @@ func (c Cubes) Rotate(center Cube, angle int) Cubes {
 	}
 	return coords
 }
+
+func (c Cubes) ReflectQ() Cubes {
+	coords := make(Cubes, len(c))
+	for i, coord := range c {
+		coords[i] = coord.ReflectQ()
+	}
+	return coords
+}
+
+func (c Cubes) ReflectR() Cubes {
+	coords := make(Cubes, len(c))
+	for i, coord := range c {
+		coords[i] = coord.ReflectR()
+	}
+	return coords
+}
+
+func (c Cubes) ReflectS() Cubes {
+	coords := make(Cubes, len(c))
+	for i, coord := range c {
+		coords[i] = coord.ReflectS()
+	}
+	return coords
+}

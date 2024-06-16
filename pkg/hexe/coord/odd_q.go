@@ -99,3 +99,15 @@ func (o OddQ) MovementRange(n int) OddQs {
 func (o OddQ) Rotate(center OddQ, angle int) OddQ {
 	return o.Cube().Rotate(center.Cube(), angle).OddQ()
 }
+
+func (o OddQ) ReflectQ() OddQ {
+	return o.Cube().ReflectQ().OddQ()
+}
+
+func (o OddQ) ReflectR() OddQ {
+	return o.Cube().ReflectR().OddQ()
+}
+
+func (o OddQ) ReflectS() OddQ {
+	return o.Cube().ReflectS().OddQ()
+}

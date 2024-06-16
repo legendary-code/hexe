@@ -99,3 +99,15 @@ func (o OddR) FloodFill(n int, blocked Predicate[OddR]) OddRs {
 func (o OddR) Rotate(center OddR, angle int) OddR {
 	return o.Cube().Rotate(center.Cube(), angle).OddR()
 }
+
+func (o OddR) ReflectQ() OddR {
+	return o.Cube().ReflectQ().OddR()
+}
+
+func (o OddR) ReflectR() OddR {
+	return o.Cube().ReflectR().OddR()
+}
+
+func (o OddR) ReflectS() OddR {
+	return o.Cube().ReflectS().OddR()
+}

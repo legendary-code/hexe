@@ -74,3 +74,15 @@ func (o OddRs) DifferenceWith(other OddRs) OddRs {
 func (o OddRs) Rotate(center OddR, angle int) OddRs {
 	return o.Cubes().Rotate(center.Cube(), angle).OddRs()
 }
+
+func (o OddRs) ReflectQ() OddRs {
+	return o.Cubes().ReflectQ().OddRs()
+}
+
+func (o OddRs) ReflectR() OddRs {
+	return o.Cubes().ReflectR().OddRs()
+}
+
+func (o OddRs) ReflectS() OddRs {
+	return o.Cubes().ReflectS().OddRs()
+}

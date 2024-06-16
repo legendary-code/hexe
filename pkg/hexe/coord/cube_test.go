@@ -48,3 +48,18 @@ func TestCube_FloodFill(t *testing.T) {
 	}
 	assert.Equal(t, expected, actual)
 }
+
+func TestCube_ReflectQ(t *testing.T) {
+	assert.Equal(t, NewCube(0, 0, 0), NewCube(0, 0, 0).ReflectQ())
+	assert.Equal(t, NewCube(1, 1, -2), NewCube(1, -2, 1).ReflectQ())
+}
+
+func TestCube_ReflectR(t *testing.T) {
+	assert.Equal(t, NewCube(0, 0, 0), NewCube(0, 0, 0).ReflectR())
+	assert.Equal(t, NewCube(1, -2, 1), NewCube(1, -2, 1).ReflectR())
+}
+
+func TestCube_ReflectS(t *testing.T) {
+	assert.Equal(t, NewCube(0, 0, 0), NewCube(0, 0, 0).ReflectS())
+	assert.Equal(t, NewCube(-2, 1, 1), NewCube(1, -2, 1).ReflectS())
+}

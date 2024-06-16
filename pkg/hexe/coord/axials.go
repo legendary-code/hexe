@@ -74,3 +74,15 @@ func (a Axials) DifferenceWith(other Axials) Axials {
 func (a Axials) Rotate(center Axial, angle int) Axials {
 	return a.Cubes().Rotate(center.Cube(), angle).Axials()
 }
+
+func (a Axials) ReflectQ() Axials {
+	return a.Cubes().ReflectQ().Axials()
+}
+
+func (a Axials) ReflectR() Axials {
+	return a.Cubes().ReflectR().Axials()
+}
+
+func (a Axials) ReflectS() Axials {
+	return a.Cubes().ReflectS().Axials()
+}
