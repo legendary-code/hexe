@@ -6,9 +6,7 @@ import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"slices"
 )
-
 type Axials []Axial
-
 func (a Axials) Type() consts.CoordType {
 	return consts.Axial
 }
@@ -69,9 +67,7 @@ func (a Axials) ReflectR() Axials {
 func (a Axials) ReflectS() Axials {
 	return a.Cubes().ReflectS().Axials()
 }
-
 type DoubleHeights []DoubleHeight
-
 func (d DoubleHeights) Type() consts.CoordType {
 	return consts.DoubleHeight
 }
@@ -132,9 +128,7 @@ func (d DoubleHeights) ReflectR() DoubleHeights {
 func (d DoubleHeights) ReflectS() DoubleHeights {
 	return d.Cubes().ReflectS().DoubleHeights()
 }
-
 type DoubleWidths []DoubleWidth
-
 func (d DoubleWidths) Type() consts.CoordType {
 	return consts.DoubleWidth
 }
@@ -195,9 +189,7 @@ func (d DoubleWidths) ReflectR() DoubleWidths {
 func (d DoubleWidths) ReflectS() DoubleWidths {
 	return d.Cubes().ReflectS().DoubleWidths()
 }
-
 type EvenQs []EvenQ
-
 func (e EvenQs) Type() consts.CoordType {
 	return consts.EvenQ
 }
@@ -258,9 +250,7 @@ func (e EvenQs) ReflectR() EvenQs {
 func (e EvenQs) ReflectS() EvenQs {
 	return e.Cubes().ReflectS().EvenQs()
 }
-
 type EvenRs []EvenR
-
 func (e EvenRs) Type() consts.CoordType {
 	return consts.EvenR
 }
@@ -321,9 +311,7 @@ func (e EvenRs) ReflectR() EvenRs {
 func (e EvenRs) ReflectS() EvenRs {
 	return e.Cubes().ReflectS().EvenRs()
 }
-
 type OddQs []OddQ
-
 func (o OddQs) Type() consts.CoordType {
 	return consts.OddQ
 }
@@ -384,9 +372,7 @@ func (o OddQs) ReflectR() OddQs {
 func (o OddQs) ReflectS() OddQs {
 	return o.Cubes().ReflectS().OddQs()
 }
-
 type OddRs []OddR
-
 func (o OddRs) Type() consts.CoordType {
 	return consts.OddR
 }

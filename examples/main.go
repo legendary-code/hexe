@@ -4,11 +4,11 @@ package main
 
 //go:generate go run ../internal/hexe/gen/examples
 
-var examples = []func(){fieldOfViewExample, findPathBfsExample, instantiationExample,
+var examples = []func(){mathFunctionsExample, plotExample, setsExample, fieldOfViewExample,
 
-	mathFunctionsExample,
+	findPathBfsExample,
 
-	plotExample, setsExample}
+	instantiationExample}
 
 func main() {
 	for _, example := range examples {
