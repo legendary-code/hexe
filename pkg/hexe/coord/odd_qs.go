@@ -64,11 +64,11 @@ func (o OddQs) UnionWith(other OddQs) OddQs {
 }
 
 func (o OddQs) IntersectWith(other OddQs) OddQs {
-	return o.Axials().IntersectWith(other.Axials()).OddQs()
+	return o.Cubes().IntersectWith(other.Cubes()).OddQs()
 }
 
 func (o OddQs) DifferenceWith(other OddQs) OddQs {
-	return o.Axials().DifferenceWith(other.Axials()).OddQs()
+	return o.Cubes().DifferenceWith(other.Cubes()).OddQs()
 }
 
 func (o OddQs) Rotate(center OddQ, angle int) OddQs {

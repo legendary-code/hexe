@@ -2,7 +2,6 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
-	"golang.org/x/exp/maps"
 	"slices"
 )
 
@@ -61,45 +60,15 @@ func (a Axials) Sort() Axials {
 }
 
 func (a Axials) UnionWith(other Axials) Axials {
-	coords := make(map[Axial]bool)
-	for _, c := range a {
-		coords[c] = true
-	}
-	for _, c := range other {
-		coords[c] = true
-	}
-	return maps.Keys(coords)
+	return a.Cubes().UnionWith(other.Cubes()).Axials()
 }
 
 func (a Axials) IntersectWith(other Axials) Axials {
-	coords := make(map[Axial]bool)
-	intersection := make(map[Axial]bool)
-
-	for _, c := range a {
-		coords[c] = true
-	}
-
-	for _, c := range other {
-		if _, ok := coords[c]; ok {
-			intersection[c] = true
-		}
-	}
-
-	return maps.Keys(intersection)
+	return a.Cubes().IntersectWith(other.Cubes()).Axials()
 }
 
 func (a Axials) DifferenceWith(other Axials) Axials {
-	coords := make(map[Axial]bool)
-
-	for _, c := range a {
-		coords[c] = true
-	}
-
-	for _, c := range other {
-		delete(coords, c)
-	}
-
-	return maps.Keys(coords)
+	return a.Cubes().DifferenceWith(other.Cubes()).Axials()
 }
 
 func (a Axials) Rotate(center Axial, angle int) Axials {

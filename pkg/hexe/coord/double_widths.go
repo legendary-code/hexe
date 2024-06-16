@@ -60,15 +60,15 @@ func (d DoubleWidths) Sort() DoubleWidths {
 }
 
 func (d DoubleWidths) UnionWith(other DoubleWidths) DoubleWidths {
-	return d.Axials().UnionWith(other.Axials()).DoubleWidths()
+	return d.Cubes().UnionWith(other.Cubes()).DoubleWidths()
 }
 
 func (d DoubleWidths) IntersectWith(other DoubleWidths) DoubleWidths {
-	return d.Axials().IntersectWith(other.Axials()).DoubleWidths()
+	return d.Cubes().IntersectWith(other.Cubes()).DoubleWidths()
 }
 
 func (d DoubleWidths) DifferenceWith(other DoubleWidths) DoubleWidths {
-	return d.Axials().DifferenceWith(other.Axials()).DoubleWidths()
+	return d.Cubes().DifferenceWith(other.Cubes()).DoubleWidths()
 }
 
 func (d DoubleWidths) Rotate(center DoubleWidth, angle int) DoubleWidths {

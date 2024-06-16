@@ -60,15 +60,15 @@ func (e EvenQs) Sort() EvenQs {
 }
 
 func (e EvenQs) UnionWith(other EvenQs) EvenQs {
-	return e.Axials().UnionWith(other.Axials()).EvenQs()
+	return e.Cubes().UnionWith(other.Cubes()).EvenQs()
 }
 
 func (e EvenQs) IntersectWith(other EvenQs) EvenQs {
-	return e.Axials().IntersectWith(other.Axials()).EvenQs()
+	return e.Cubes().IntersectWith(other.Cubes()).EvenQs()
 }
 
 func (e EvenQs) DifferenceWith(other EvenQs) EvenQs {
-	return e.Axials().DifferenceWith(other.Axials()).EvenQs()
+	return e.Cubes().DifferenceWith(other.Cubes()).EvenQs()
 }
 
 func (e EvenQs) Rotate(center EvenQ, angle int) EvenQs {

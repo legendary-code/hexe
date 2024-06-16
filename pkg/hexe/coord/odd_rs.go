@@ -60,15 +60,15 @@ func (o OddRs) Sort() OddRs {
 }
 
 func (o OddRs) UnionWith(other OddRs) OddRs {
-	return o.Axials().UnionWith(other.Axials()).OddRs()
+	return o.Cubes().UnionWith(other.Cubes()).OddRs()
 }
 
 func (o OddRs) IntersectWith(other OddRs) OddRs {
-	return o.Axials().IntersectWith(other.Axials()).OddRs()
+	return o.Cubes().IntersectWith(other.Cubes()).OddRs()
 }
 
 func (o OddRs) DifferenceWith(other OddRs) OddRs {
-	return o.Axials().DifferenceWith(other.Axials()).OddRs()
+	return o.Cubes().DifferenceWith(other.Cubes()).OddRs()
 }
 
 func (o OddRs) Rotate(center OddR, angle int) OddRs {
