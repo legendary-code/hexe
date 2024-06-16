@@ -14,6 +14,7 @@ func main() {
 
 	waterStyle := &plot.CellStyle{Color: colornames.Lightblue, FontSize: 40}
 	landStyle := &plot.CellStyle{Color: colornames.Sandybrown, FontSize: 40}
+	traceStyle := &plot.CellStyle{Color: colornames.Red}
 
 	f.AddStyledCoords(
 		grid,
@@ -34,6 +35,15 @@ func main() {
 	f.AddStyledCoord(
 		coord.NewAxial(1, 1),
 		func(coord coord.Coord) (string, *plot.CellStyle) { return "🏖️", landStyle },
+	)
+
+	f.AddStyledCoords(
+		coord.NewAxial(4, 4).TraceTo(coord.NewAxial(-4, -4), func(coord coord.Axial) bool {
+			return coord.Q() < 0
+		}),
+		func(coord coord.Coord) (string, *plot.CellStyle) {
+			return "", traceStyle
+		},
 	)
 
 	_ = f.RenderFile("example.svg")

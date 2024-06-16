@@ -29,6 +29,7 @@ type TCoord[T Coord, TS TCoords[T, TS]] interface {
 	DiagonalNeighbors() TS
 	DistanceTo(other T) int
 	LineTo(other T) TS
+	TraceTo(other T, blocked Predicate[T]) TS
 	MovementRange(n int) TS
 	FloodFill(n int, blocked Predicate[T]) TS
 	Rotate(center T, angle int) T

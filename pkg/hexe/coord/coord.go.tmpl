@@ -60,6 +60,12 @@ func (g GCoord) LineTo(other GCoord) GCoords {
     return g.Cube().LineTo(other.Cube()).GCoords()
 }
 
+func (g GCoord) TraceTo(other GCoord, blocked Predicate[GCoord]) GCoords {
+	return g.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
+        return blocked(coord.GCoord())
+    }).GCoords()
+}
+
 func (g GCoord) MovementRange(n int) GCoords {
     return g.Cube().MovementRange(n).GCoords()
 }

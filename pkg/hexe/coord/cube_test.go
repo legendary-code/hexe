@@ -37,6 +37,31 @@ func TestCube_DistanceTo(t *testing.T) {
 	assert.Equal(t, 3, NewCube(1, -2, 1).DistanceTo(NewCube(2, 0, -2)))
 }
 
+func TestCube_LineTo(t *testing.T) {
+	expected := Cubes{
+		NewCube(-1, -1, 2),
+		NewCube(-1, 0, 1),
+		NewCube(0, 0, 0),
+		NewCube(0, 1, -1),
+		NewCube(1, 1, -2),
+		NewCube(1, 2, -3),
+	}
+	actual := NewCube(-1, -1, 2).LineTo(NewCube(1, 2, -3))
+	assert.Equal(t, expected, actual)
+}
+
+func TestCube_TraceTo(t *testing.T) {
+	expected := Cubes{
+		NewCube(-1, -1, 2),
+		NewCube(-1, 0, 1),
+		NewCube(0, 0, 0),
+	}
+	actual := NewCube(-1, -1, 2).TraceTo(NewCube(1, 2, -3), func(coord Cube) bool {
+		return coord.Q() > 0 || coord.R() > 0
+	})
+	assert.Equal(t, expected, actual)
+}
+
 func TestCube_FloodFill(t *testing.T) {
 	n := 2
 	blockedFunc := func(coord Cube) bool {

@@ -48,6 +48,11 @@ func (a Axial) DistanceTo(other Axial) int {
 func (a Axial) LineTo(other Axial) Axials {
 	return a.Cube().LineTo(other.Cube()).Axials()
 }
+func (a Axial) TraceTo(other Axial, blocked Predicate[Axial]) Axials {
+	return a.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
+		return blocked(coord.Axial())
+	}).Axials()
+}
 func (a Axial) MovementRange(n int) Axials {
 	return a.Cube().MovementRange(n).Axials()
 }
@@ -115,6 +120,11 @@ func (d DoubleHeight) DistanceTo(other DoubleHeight) int {
 }
 func (d DoubleHeight) LineTo(other DoubleHeight) DoubleHeights {
 	return d.Cube().LineTo(other.Cube()).DoubleHeights()
+}
+func (d DoubleHeight) TraceTo(other DoubleHeight, blocked Predicate[DoubleHeight]) DoubleHeights {
+	return d.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
+		return blocked(coord.DoubleHeight())
+	}).DoubleHeights()
 }
 func (d DoubleHeight) MovementRange(n int) DoubleHeights {
 	return d.Cube().MovementRange(n).DoubleHeights()
@@ -184,6 +194,11 @@ func (d DoubleWidth) DistanceTo(other DoubleWidth) int {
 func (d DoubleWidth) LineTo(other DoubleWidth) DoubleWidths {
 	return d.Cube().LineTo(other.Cube()).DoubleWidths()
 }
+func (d DoubleWidth) TraceTo(other DoubleWidth, blocked Predicate[DoubleWidth]) DoubleWidths {
+	return d.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
+		return blocked(coord.DoubleWidth())
+	}).DoubleWidths()
+}
 func (d DoubleWidth) MovementRange(n int) DoubleWidths {
 	return d.Cube().MovementRange(n).DoubleWidths()
 }
@@ -251,6 +266,11 @@ func (e EvenQ) DistanceTo(other EvenQ) int {
 }
 func (e EvenQ) LineTo(other EvenQ) EvenQs {
 	return e.Cube().LineTo(other.Cube()).EvenQs()
+}
+func (e EvenQ) TraceTo(other EvenQ, blocked Predicate[EvenQ]) EvenQs {
+	return e.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
+		return blocked(coord.EvenQ())
+	}).EvenQs()
 }
 func (e EvenQ) MovementRange(n int) EvenQs {
 	return e.Cube().MovementRange(n).EvenQs()
@@ -320,6 +340,11 @@ func (e EvenR) DistanceTo(other EvenR) int {
 func (e EvenR) LineTo(other EvenR) EvenRs {
 	return e.Cube().LineTo(other.Cube()).EvenRs()
 }
+func (e EvenR) TraceTo(other EvenR, blocked Predicate[EvenR]) EvenRs {
+	return e.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
+		return blocked(coord.EvenR())
+	}).EvenRs()
+}
 func (e EvenR) MovementRange(n int) EvenRs {
 	return e.Cube().MovementRange(n).EvenRs()
 }
@@ -388,6 +413,11 @@ func (o OddQ) DistanceTo(other OddQ) int {
 func (o OddQ) LineTo(other OddQ) OddQs {
 	return o.Cube().LineTo(other.Cube()).OddQs()
 }
+func (o OddQ) TraceTo(other OddQ, blocked Predicate[OddQ]) OddQs {
+	return o.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
+		return blocked(coord.OddQ())
+	}).OddQs()
+}
 func (o OddQ) MovementRange(n int) OddQs {
 	return o.Cube().MovementRange(n).OddQs()
 }
@@ -455,6 +485,11 @@ func (o OddR) DistanceTo(other OddR) int {
 }
 func (o OddR) LineTo(other OddR) OddRs {
 	return o.Cube().LineTo(other.Cube()).OddRs()
+}
+func (o OddR) TraceTo(other OddR, blocked Predicate[OddR]) OddRs {
+	return o.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
+		return blocked(coord.OddR())
+	}).OddRs()
 }
 func (o OddR) MovementRange(n int) OddRs {
 	return o.Cube().MovementRange(n).OddRs()

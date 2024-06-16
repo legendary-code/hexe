@@ -130,9 +130,20 @@ func (c Cube) DistanceTo(other Cube) int {
 }
 
 func (c Cube) LineTo(other Cube) Cubes {
-	coords := make([]Cube, 0)
-	for _, coord := range math.CubeLineDraw(c.Q(), c.R(), c.S(), other.Q(), other.R(), other.S()) {
+	coords := make(Cubes, 0)
+	for _, coord := range math.CubeLineDraw(c[0], c[1], c[2], other[0], other[1], other[2]) {
 		coords = append(coords, NewCube(coord[0], coord[1], coord[2]))
+	}
+	return coords
+}
+
+func (c Cube) TraceTo(other Cube, blocked Predicate[Cube]) Cubes {
+	coords := make(Cubes, 0)
+	for _, coord := range c.LineTo(other) {
+		if blocked(coord) {
+			break
+		}
+		coords = append(coords, coord)
 	}
 	return coords
 }
