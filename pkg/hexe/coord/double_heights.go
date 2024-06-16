@@ -11,7 +11,11 @@ func (d DoubleHeights) Type() consts.CoordType {
 	return consts.DoubleHeight
 }
 
-func (d DoubleHeights) Coords() []Coord {
+func (d DoubleHeights) Convert(typ consts.CoordType) Coords {
+	return convertCoords(d, typ)
+}
+
+func (d DoubleHeights) ToSlice() []Coord {
 	return toCoords(d)
 }
 
@@ -52,7 +56,7 @@ func (d DoubleHeights) Copy() DoubleHeights {
 }
 
 func (d DoubleHeights) Sort() DoubleHeights {
-	return d.Axials().Sort().DoubleHeights()
+	return d.Cubes().Sort().DoubleHeights()
 }
 
 func (d DoubleHeights) UnionWith(other DoubleHeights) DoubleHeights {

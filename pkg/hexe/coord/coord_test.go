@@ -301,7 +301,7 @@ func TestCoord_LineTo(t *testing.T) {
 						assert.Fail(t2, "unexpected coord type")
 					}
 
-					assert.Equal(t2, expected, actual, "LineTo(%+v, %+v)", coord, otherCoord)
+					assert.Equal(t2, expected, actual)
 				}
 			}
 		})
@@ -479,7 +479,7 @@ func TestCoord_Rotate(t *testing.T) {
 							assert.Fail(t2, "unexpected coord type")
 						}
 
-						assert.Equal(t2, expected, actual, "LineTo(%+v, %+v)", coord, otherCoord)
+						assert.Equal(t2, expected, actual)
 						n++
 					}
 				}

@@ -13,6 +13,7 @@ const (
 	EvenR
 	OddQ
 	OddR
+	Unknown CoordType = -1
 )
 
 func (c CoordType) Name() string {
@@ -33,6 +34,8 @@ func (c CoordType) Name() string {
 		return "OddQ"
 	case OddR:
 		return "OddR"
+	case Unknown:
+		return "Unknown"
 	default:
 		panic(fmt.Sprintf("unknown coord type: %+v", c))
 	}

@@ -18,7 +18,7 @@ type Coord interface {
 	DoubleHeight() DoubleHeight
 }
 
-type TCoord[T Coord, TS TCoords[T]] interface {
+type TCoord[T Coord, TS TCoords[T, TS]] interface {
 	Coord
 	Neighbors() TS
 	DiagonalNeighbors() TS
@@ -38,7 +38,7 @@ type QR interface {
 	Unpack() (int, int)
 }
 
-type QRCoord[T Coord, TS Coords[T, TS]] interface {
+type QRCoord[T Coord, TS TCoords[T, TS]] interface {
 	QR
 	TCoord[T, TS]
 }
@@ -51,12 +51,12 @@ type QRS interface {
 	Unpack() (int, int, int)
 }
 
-type QRSCoord[T Coord, TS Coords[T, TS]] interface {
+type QRSCoord[T Coord, TS TCoords[T, TS]] interface {
 	QRS
 	TCoord[T, TS]
 }
 
-func convert[F Coord](value F, typ consts.CoordType) Coord {
+func convertCoord[F Coord](value F, typ consts.CoordType) Coord {
 	switch typ {
 	case consts.Axial:
 		return value.Axial()
@@ -74,7 +74,7 @@ func convert[F Coord](value F, typ consts.CoordType) Coord {
 		return value.OddQ()
 	case consts.OddR:
 		return value.OddR()
+	default:
+		panic(fmt.Sprintf("unsupported coord type: %+v", typ))
 	}
-
-	panic(fmt.Sprintf("unsupported coord type: %+v", typ))
 }

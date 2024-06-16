@@ -15,7 +15,7 @@ func (a Axial) Type() consts.CoordType {
 }
 
 func (a Axial) Convert(typ consts.CoordType) Coord {
-	return convert(a, typ)
+	return convertCoord(a, typ)
 }
 
 func (a Axial) Axial() Axial {

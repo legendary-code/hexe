@@ -15,7 +15,7 @@ func (d DoubleWidth) Type() consts.CoordType {
 }
 
 func (d DoubleWidth) Convert(typ consts.CoordType) Coord {
-	return convert(d, typ)
+	return convertCoord(d, typ)
 }
 
 func (d DoubleWidth) Axial() Axial {

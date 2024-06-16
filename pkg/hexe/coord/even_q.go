@@ -15,7 +15,7 @@ func (e EvenQ) Type() consts.CoordType {
 }
 
 func (e EvenQ) Convert(typ consts.CoordType) Coord {
-	return convert(e, typ)
+	return convertCoord(e, typ)
 }
 
 func (e EvenQ) Axial() Axial {

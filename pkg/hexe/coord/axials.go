@@ -4,7 +4,6 @@ import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"golang.org/x/exp/maps"
 	"slices"
-	"sort"
 )
 
 type Axials []Axial
@@ -13,7 +12,11 @@ func (a Axials) Type() consts.CoordType {
 	return consts.Axial
 }
 
-func (a Axials) Coords() []Coord {
+func (a Axials) Convert(typ consts.CoordType) Coords {
+	return convertCoords(a, typ)
+}
+
+func (a Axials) ToSlice() []Coord {
 	return toCoords(a)
 }
 
@@ -54,14 +57,7 @@ func (a Axials) Copy() Axials {
 }
 
 func (a Axials) Sort() Axials {
-	sorted := a.Copy()
-	sort.Slice(sorted, func(i, j int) bool {
-		if sorted[i].Q() == sorted[j].Q() {
-			return sorted[i].R() < sorted[j].R()
-		}
-		return sorted[i].Q() < sorted[j].Q()
-	})
-	return sorted
+	return a.Cubes().Sort().Axials()
 }
 
 func (a Axials) UnionWith(other Axials) Axials {

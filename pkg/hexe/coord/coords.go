@@ -1,14 +1,14 @@
 package coord
 
-import "github.com/legendary-code/hexe/pkg/hexe/consts"
+import (
+	"fmt"
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
+)
 
-type TCoords[T Coord] interface {
-}
-
-type Coords[T Coord, TS TCoords[T]] interface {
-	~[]T
+type Coords interface {
 	Type() consts.CoordType
-	Coords() []Coord
+	Convert(typ consts.CoordType) Coords
+	ToSlice() []Coord
 	Axials() Axials
 	Cubes() Cubes
 	OddRs() OddRs
@@ -17,6 +17,14 @@ type Coords[T Coord, TS TCoords[T]] interface {
 	EvenQs() EvenQs
 	DoubleWidths() DoubleWidths
 	DoubleHeights() DoubleHeights
+}
+
+type TCoordSlice[T Coord] interface {
+	~[]T
+}
+
+type TCoords[T Coord, TS TCoordSlice[T]] interface {
+	~[]T
 	Copy() TS
 	Sort() TS
 	UnionWith(other TS) TS
@@ -33,10 +41,52 @@ func castAs[F Coord, T Coord](values []F, convertFunc func(F) T) []T {
 	return result
 }
 
-func toCoords[T Coord, TS Coords[T, TS]](coords TS) []Coord {
+func toCoords[T Coord, TS TCoords[T, TS]](coords TS) []Coord {
 	cs := make([]Coord, len(coords))
 	for i, c := range coords {
 		cs[i] = c
 	}
 	return cs
+}
+
+func convertCoords[F Coords](values F, typ consts.CoordType) Coords {
+	switch typ {
+	case consts.Axial:
+		return values.Axials()
+	case consts.Cube:
+		return values.Cubes()
+	case consts.DoubleHeight:
+		return values.DoubleHeights()
+	case consts.DoubleWidth:
+		return values.DoubleWidths()
+	case consts.EvenQ:
+		return values.EvenQs()
+	case consts.EvenR:
+		return values.EvenRs()
+	case consts.OddQ:
+		return values.OddQs()
+	case consts.OddR:
+		return values.OddRs()
+	default:
+		panic(fmt.Sprintf("unsupported coord type: %+v", typ))
+	}
+}
+
+func NewCoords(coords []Coord) Coords {
+	if len(coords) == 0 {
+		return Empty{}
+	}
+
+	a := make(Axials, len(coords))
+	typ := coords[0].Type()
+
+	for i, coord := range coords {
+		if coord.Type() != typ {
+			panic(fmt.Sprintf("cannot create Coords from mixed Coord types: %s and %s", coord.Type().Name(), typ.Name()))
+		}
+		a[i] = coord.Axial()
+		typ = coord.Type()
+	}
+
+	return a.Convert(typ)
 }

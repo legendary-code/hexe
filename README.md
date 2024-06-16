@@ -28,12 +28,12 @@ func main() {
 	landStyle := &plot.CellStyle{Color: colornames.Sandybrown, FontSize: 40}
 
 	f.AddStyledCoords(
-		grid.Coords(),
+		grid,
 		func(coord coord.Coord) (string, *plot.CellStyle) { return "🌊", waterStyle },
 	)
 
 	f.AddStyledCoords(
-		[]coord.Coord{
+		coord.Axials{
 			coord.NewAxial(0, 0),
 			coord.NewAxial(1, 0),
 			coord.NewAxial(1, -1),

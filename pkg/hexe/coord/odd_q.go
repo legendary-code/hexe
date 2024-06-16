@@ -15,7 +15,7 @@ func (o OddQ) Type() consts.CoordType {
 }
 
 func (o OddQ) Convert(typ consts.CoordType) Coord {
-	return convert(o, typ)
+	return convertCoord(o, typ)
 }
 
 func (o OddQ) Axial() Axial {

@@ -3,6 +3,7 @@ package coord
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 	"slices"
+	"sort"
 )
 
 type Cubes []Cube
@@ -11,7 +12,11 @@ func (c Cubes) Type() consts.CoordType {
 	return consts.Cube
 }
 
-func (c Cubes) Coords() []Coord {
+func (c Cubes) Convert(typ consts.CoordType) Coords {
+	return convertCoords(c, typ)
+}
+
+func (c Cubes) ToSlice() []Coord {
 	return toCoords(c)
 }
 
@@ -52,7 +57,14 @@ func (c Cubes) Copy() Cubes {
 }
 
 func (c Cubes) Sort() Cubes {
-	return c.Axials().Sort().Cubes()
+	sorted := c.Copy()
+	sort.Slice(sorted, func(i, j int) bool {
+		if sorted[i].Q() == sorted[j].Q() {
+			return sorted[i].R() < sorted[j].R()
+		}
+		return sorted[i].Q() < sorted[j].Q()
+	})
+	return sorted
 }
 
 func (c Cubes) UnionWith(other Cubes) Cubes {

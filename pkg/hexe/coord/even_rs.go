@@ -11,7 +11,11 @@ func (e EvenRs) Type() consts.CoordType {
 	return consts.EvenR
 }
 
-func (e EvenRs) Coords() []Coord {
+func (e EvenRs) Convert(typ consts.CoordType) Coords {
+	return convertCoords(e, typ)
+}
+
+func (e EvenRs) ToSlice() []Coord {
 	return toCoords(e)
 }
 
@@ -52,7 +56,7 @@ func (e EvenRs) Copy() EvenRs {
 }
 
 func (e EvenRs) Sort() EvenRs {
-	return e.Axials().Sort().EvenRs()
+	return e.Cubes().Sort().EvenRs()
 }
 
 func (e EvenRs) UnionWith(other EvenRs) EvenRs {

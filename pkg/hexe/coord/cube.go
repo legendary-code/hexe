@@ -38,7 +38,7 @@ func (c Cube) Type() consts.CoordType {
 }
 
 func (c Cube) Convert(typ consts.CoordType) Coord {
-	return convert(c, typ)
+	return convertCoord(c, typ)
 }
 
 func (c Cube) Axial() Axial {

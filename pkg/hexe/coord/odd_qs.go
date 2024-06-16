@@ -11,7 +11,11 @@ func (o OddQs) Type() consts.CoordType {
 	return consts.OddQ
 }
 
-func (o OddQs) Coords() []Coord {
+func (o OddQs) Convert(typ consts.CoordType) Coords {
+	return convertCoords(o, typ)
+}
+
+func (o OddQs) ToSlice() []Coord {
 	return toCoords(o)
 }
 
@@ -52,7 +56,7 @@ func (o OddQs) Copy() OddQs {
 }
 
 func (o OddQs) Sort() OddQs {
-	return o.Axials().Sort().OddQs()
+	return o.Cubes().Sort().OddQs()
 }
 
 func (o OddQs) UnionWith(other OddQs) OddQs {
