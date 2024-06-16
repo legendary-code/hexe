@@ -6,6 +6,7 @@ import (
 )
 
 //go:generate go run ../../../internal/hexe/gen/coords
+//go:generate go fmt .
 
 type Coord interface {
 	Type() consts.CoordType
