@@ -29,7 +29,11 @@ func (g *grid[T, C, CS]) Encode(w io.Writer) error {
 		if err != nil {
 			return err
 		}
+
 		_, err = w.Write(encoded)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
