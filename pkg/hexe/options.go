@@ -22,6 +22,15 @@ func WithEncoder[T any](encoder Encoder[T]) Option[T] {
 	}
 }
 
+// WithDecoder returns an Option[T] for configuring a value decoder for grid persistence
+func WithDecoder[T any](decoder Decoder[T]) Option[T] {
+	return &option[T]{
+		applyFunc: func(grid *configurableGrid[T]) {
+			grid.decoder = decoder
+		},
+	}
+}
+
 // WithEncoderDecoder returns an Option[T] for configuring a value encoder and decoder for grid persistence
 func WithEncoderDecoder[T any](decoder EncoderDecoder[T]) Option[T] {
 	return &option[T]{

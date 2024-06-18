@@ -10,8 +10,7 @@ import (
 func TestGrid_EncodeDecode(t *testing.T) {
 	codec := &testCodec{}
 	g := NewAxialGrid[string](
-		WithEncoder[string](codec),
-		WithDecoder[string](codec),
+		WithEncoderDecoder[string](codec),
 	)
 
 	g.Set(coord.NewAxial(0, 1), "foo")
