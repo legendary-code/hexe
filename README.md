@@ -701,8 +701,7 @@ func (s *StringEncoderDecoder) Decode(bytes []byte) (string, error) {
 func gridPersistenceExample() {
 	codec := &StringEncoderDecoder{}
 	grid := hexe.NewAxialGrid[string](
-		hexe.WithEncoder[string](codec),
-		hexe.WithDecoder[string](codec),
+		hexe.WithEncoderDecoder[string](codec),
 	)
 
 	grid.Set(coord.NewAxial(0, 1), "foo")
