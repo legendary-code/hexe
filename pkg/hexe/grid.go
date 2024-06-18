@@ -12,6 +12,7 @@ import (
 
 var byteOrder = binary.BigEndian
 
+// Grid represents a grid indexed with a coordinate system, for storing, querying and persisting values
 type Grid[T any, C coord.CCoord, CS coord.CCoords] interface {
 	// Axial converts the grid to coord.Axial coordinates
 	Axial() AxialGrid[T]

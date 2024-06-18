@@ -14,6 +14,7 @@ import (
 //go:embed figure.svg.tmpl
 var svgTemplate string
 
+// RenderFile renders the figure to the specified SVG file
 func (f *Figure) RenderFile(name string) error {
 	if !filepath.IsAbs(name) {
 		wd, err := os.Getwd()
@@ -39,6 +40,7 @@ func (f *Figure) buildRenderVars() *renderVars {
 	return b.build()
 }
 
+// Render renders the figure as an SVG to the specified writer
 func (f *Figure) Render(writer io.Writer) error {
 	tmpl := template.New("").Funcs(
 		map[string]any{

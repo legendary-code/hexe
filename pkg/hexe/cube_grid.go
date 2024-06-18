@@ -2,12 +2,14 @@ package hexe
 
 import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
+// CubeGrid represents a grid in cube coordinates
 type CubeGrid[T any] Grid[T, coord.Cube, *coord.Cubes]
 
 type cubeGrid[T any] struct {
 	*grid[T, coord.Cube, *coord.Cubes]
 }
 
+// NewCubeGrid instantiates a new grid in cube coordinates
 func NewCubeGrid[T any](options ...Option[T]) CubeGrid[T] {
 	return &cubeGrid[T]{
 		grid: newGrid[T, coord.Cube, *coord.Cubes](options...),

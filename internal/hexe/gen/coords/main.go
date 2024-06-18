@@ -106,6 +106,17 @@ func processTemplate(templateFile string) {
 			return true
 		})
 
+		ast.Inspect(file, func(node ast.Node) bool {
+			cmt, ok := node.(*ast.Comment)
+			if !ok {
+				return true
+			}
+
+			cmt.Text = strings.ReplaceAll(cmt.Text, GCoord, coordTypeName)
+			cmt.Text = strings.ReplaceAll(cmt.Text, GCoordLower, coordLowerCaseTypeName)
+			return true
+		})
+
 		// Write func decls to file
 		ast.Inspect(file, func(node ast.Node) bool {
 			funcDecl, ok := node.(*ast.FuncDecl)

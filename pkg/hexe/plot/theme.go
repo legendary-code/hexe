@@ -5,6 +5,7 @@ import (
 	"image/color"
 )
 
+// DefaultTheme returns the default theme for styling figures
 func DefaultTheme() *Theme {
 	return &Theme{
 		BackgroundColor: colornames.White,
@@ -17,6 +18,7 @@ func DefaultTheme() *Theme {
 	}
 }
 
+// Theme represents a theme for coloring a figure and its cells
 type Theme struct {
 	BackgroundColor color.RGBA
 	BorderColor     color.RGBA

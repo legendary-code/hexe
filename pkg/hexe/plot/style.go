@@ -5,13 +5,16 @@ import (
 	"image/color"
 )
 
+// Style represents text and cell style
 type Style func(coord.Coord) (string, *CellStyle)
 
+// CellStyle represents style for a cell
 type CellStyle struct {
 	Color    color.RGBA
 	FontSize int
 }
 
+// Name sets the name of the cell style
 func (s Style) Name(name string) Style {
 	return func(c coord.Coord) (string, *CellStyle) {
 		_, style := s(c)
@@ -19,6 +22,7 @@ func (s Style) Name(name string) Style {
 	}
 }
 
+// Color sets the color of the cell style
 func (s Style) Color(color color.RGBA) Style {
 	return func(c coord.Coord) (string, *CellStyle) {
 		name, style := s(c)
@@ -31,6 +35,7 @@ func (s Style) Color(color color.RGBA) Style {
 	}
 }
 
+// FontSize sets the font size of the cell style
 func (s Style) FontSize(size int) Style {
 	return func(c coord.Coord) (string, *CellStyle) {
 		name, style := s(c)
