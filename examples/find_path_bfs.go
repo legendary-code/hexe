@@ -13,18 +13,7 @@ func findPathBfsExample() {
 
 	person := coord.NewAxial(-2, 0)
 	target := coord.NewAxial(-2, 2)
-
-	blocked := func(coord coord.Axial) bool {
-		for _, wall := range walls {
-			if wall == coord {
-				return true
-			}
-		}
-
-		return false
-	}
-
-	path := person.FindPathBFS(target, 20, blocked)
+	path := person.FindPathBFS(target, 20, walls.Contains)
 
 	wallStyle := style.Color(colornames.Bisque)
 	pathStyle := style.Color(colornames.Lightblue).FontSize(40)

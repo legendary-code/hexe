@@ -4,446 +4,358 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
-	"slices"
 )
 
-type Axials []Axial
+type Axials struct{ *orderedSet[Axial, *Axials] }
 
-func (a Axials) Type() consts.CoordType {
+func NewAxials(values ...Axial) *Axials {
+	return &Axials{orderedSet: newOrderedSet[Axial, *Axials](func() *Axials {
+		return NewAxials()
+	}, values...)}
+}
+func (a *Axials) Type() consts.CoordType {
 	return consts.Axial
 }
-func (a Axials) Convert(typ consts.CoordType) Coords {
+func (a *Axials) Convert(typ consts.CoordType) Coords {
 	return convertCoords(a, typ)
 }
-func (a Axials) ToSlice() []Coord {
-	return toCoords(a)
+func (a *Axials) Axials() *Axials {
+	return castAs[Axial, *Axials, Axial, *Axials](a, Axial.Axial, NewAxials)
 }
-func (a Axials) Axials() Axials {
-	return castAs(a, Axial.Axial)
+func (a *Axials) Cubes() *Cubes {
+	return castAs[Axial, *Axials, Cube, *Cubes](a, Axial.Cube, NewCubes)
 }
-func (a Axials) Cubes() Cubes {
-	return castAs(a, Axial.Cube)
+func (a *Axials) DoubleWidths() *DoubleWidths {
+	return castAs[Axial, *Axials, DoubleWidth, *DoubleWidths](a, Axial.DoubleWidth, NewDoubleWidths)
 }
-func (a Axials) DoubleWidths() DoubleWidths {
-	return castAs(a, Axial.DoubleWidth)
+func (a *Axials) DoubleHeights() *DoubleHeights {
+	return castAs[Axial, *Axials, DoubleHeight, *DoubleHeights](a, Axial.DoubleHeight, NewDoubleHeights)
 }
-func (a Axials) DoubleHeights() DoubleHeights {
-	return castAs(a, Axial.DoubleHeight)
+func (a *Axials) EvenQs() *EvenQs {
+	return castAs[Axial, *Axials, EvenQ, *EvenQs](a, Axial.EvenQ, NewEvenQs)
 }
-func (a Axials) EvenQs() EvenQs {
-	return castAs(a, Axial.EvenQ)
+func (a *Axials) EvenRs() *EvenRs {
+	return castAs[Axial, *Axials, EvenR, *EvenRs](a, Axial.EvenR, NewEvenRs)
 }
-func (a Axials) EvenRs() EvenRs {
-	return castAs(a, Axial.EvenR)
+func (a *Axials) OddQs() *OddQs {
+	return castAs[Axial, *Axials, OddQ, *OddQs](a, Axial.OddQ, NewOddQs)
 }
-func (a Axials) OddQs() OddQs {
-	return castAs(a, Axial.OddQ)
+func (a *Axials) OddRs() *OddRs {
+	return castAs[Axial, *Axials, OddR, *OddRs](a, Axial.OddR, NewOddRs)
 }
-func (a Axials) OddRs() OddRs {
-	return castAs(a, Axial.OddR)
-}
-func (a Axials) Copy() Axials {
-	return slices.Clone(a)
-}
-func (a Axials) Sort() Axials {
-	return a.Cubes().Sort().Axials()
-}
-func (a Axials) UnionWith(other Axials) Axials {
-	return a.Cubes().UnionWith(other.Cubes()).Axials()
-}
-func (a Axials) IntersectWith(other Axials) Axials {
-	return a.Cubes().IntersectWith(other.Cubes()).Axials()
-}
-func (a Axials) DifferenceWith(other Axials) Axials {
-	return a.Cubes().DifferenceWith(other.Cubes()).Axials()
-}
-func (a Axials) Rotate(center Axial, angle int) Axials {
+func (a *Axials) Rotate(center Axial, angle int) *Axials {
 	return a.Cubes().Rotate(center.Cube(), angle).Axials()
 }
-func (a Axials) ReflectQ() Axials {
+func (a *Axials) ReflectQ() *Axials {
 	return a.Cubes().ReflectQ().Axials()
 }
-func (a Axials) ReflectR() Axials {
+func (a *Axials) ReflectR() *Axials {
 	return a.Cubes().ReflectR().Axials()
 }
-func (a Axials) ReflectS() Axials {
+func (a *Axials) ReflectS() *Axials {
 	return a.Cubes().ReflectS().Axials()
 }
 
-type DoubleHeights []DoubleHeight
+type DoubleHeights struct {
+	*orderedSet[DoubleHeight, *DoubleHeights]
+}
 
-func (d DoubleHeights) Type() consts.CoordType {
+func NewDoubleHeights(values ...DoubleHeight) *DoubleHeights {
+	return &DoubleHeights{orderedSet: newOrderedSet[DoubleHeight, *DoubleHeights](func() *DoubleHeights {
+		return NewDoubleHeights()
+	}, values...)}
+}
+func (d *DoubleHeights) Type() consts.CoordType {
 	return consts.DoubleHeight
 }
-func (d DoubleHeights) Convert(typ consts.CoordType) Coords {
+func (d *DoubleHeights) Convert(typ consts.CoordType) Coords {
 	return convertCoords(d, typ)
 }
-func (d DoubleHeights) ToSlice() []Coord {
-	return toCoords(d)
+func (d *DoubleHeights) Axials() *Axials {
+	return castAs[DoubleHeight, *DoubleHeights, Axial, *Axials](d, DoubleHeight.Axial, NewAxials)
 }
-func (d DoubleHeights) Axials() Axials {
-	return castAs(d, DoubleHeight.Axial)
+func (d *DoubleHeights) Cubes() *Cubes {
+	return castAs[DoubleHeight, *DoubleHeights, Cube, *Cubes](d, DoubleHeight.Cube, NewCubes)
 }
-func (d DoubleHeights) Cubes() Cubes {
-	return castAs(d, DoubleHeight.Cube)
+func (d *DoubleHeights) DoubleWidths() *DoubleWidths {
+	return castAs[DoubleHeight, *DoubleHeights, DoubleWidth, *DoubleWidths](d, DoubleHeight.DoubleWidth, NewDoubleWidths)
 }
-func (d DoubleHeights) DoubleWidths() DoubleWidths {
-	return castAs(d, DoubleHeight.DoubleWidth)
+func (d *DoubleHeights) DoubleHeights() *DoubleHeights {
+	return castAs[DoubleHeight, *DoubleHeights, DoubleHeight, *DoubleHeights](d, DoubleHeight.DoubleHeight, NewDoubleHeights)
 }
-func (d DoubleHeights) DoubleHeights() DoubleHeights {
-	return castAs(d, DoubleHeight.DoubleHeight)
+func (d *DoubleHeights) EvenQs() *EvenQs {
+	return castAs[DoubleHeight, *DoubleHeights, EvenQ, *EvenQs](d, DoubleHeight.EvenQ, NewEvenQs)
 }
-func (d DoubleHeights) EvenQs() EvenQs {
-	return castAs(d, DoubleHeight.EvenQ)
+func (d *DoubleHeights) EvenRs() *EvenRs {
+	return castAs[DoubleHeight, *DoubleHeights, EvenR, *EvenRs](d, DoubleHeight.EvenR, NewEvenRs)
 }
-func (d DoubleHeights) EvenRs() EvenRs {
-	return castAs(d, DoubleHeight.EvenR)
+func (d *DoubleHeights) OddQs() *OddQs {
+	return castAs[DoubleHeight, *DoubleHeights, OddQ, *OddQs](d, DoubleHeight.OddQ, NewOddQs)
 }
-func (d DoubleHeights) OddQs() OddQs {
-	return castAs(d, DoubleHeight.OddQ)
+func (d *DoubleHeights) OddRs() *OddRs {
+	return castAs[DoubleHeight, *DoubleHeights, OddR, *OddRs](d, DoubleHeight.OddR, NewOddRs)
 }
-func (d DoubleHeights) OddRs() OddRs {
-	return castAs(d, DoubleHeight.OddR)
-}
-func (d DoubleHeights) Copy() DoubleHeights {
-	return slices.Clone(d)
-}
-func (d DoubleHeights) Sort() DoubleHeights {
-	return d.Cubes().Sort().DoubleHeights()
-}
-func (d DoubleHeights) UnionWith(other DoubleHeights) DoubleHeights {
-	return d.Cubes().UnionWith(other.Cubes()).DoubleHeights()
-}
-func (d DoubleHeights) IntersectWith(other DoubleHeights) DoubleHeights {
-	return d.Cubes().IntersectWith(other.Cubes()).DoubleHeights()
-}
-func (d DoubleHeights) DifferenceWith(other DoubleHeights) DoubleHeights {
-	return d.Cubes().DifferenceWith(other.Cubes()).DoubleHeights()
-}
-func (d DoubleHeights) Rotate(center DoubleHeight, angle int) DoubleHeights {
+func (d *DoubleHeights) Rotate(center DoubleHeight, angle int) *DoubleHeights {
 	return d.Cubes().Rotate(center.Cube(), angle).DoubleHeights()
 }
-func (d DoubleHeights) ReflectQ() DoubleHeights {
+func (d *DoubleHeights) ReflectQ() *DoubleHeights {
 	return d.Cubes().ReflectQ().DoubleHeights()
 }
-func (d DoubleHeights) ReflectR() DoubleHeights {
+func (d *DoubleHeights) ReflectR() *DoubleHeights {
 	return d.Cubes().ReflectR().DoubleHeights()
 }
-func (d DoubleHeights) ReflectS() DoubleHeights {
+func (d *DoubleHeights) ReflectS() *DoubleHeights {
 	return d.Cubes().ReflectS().DoubleHeights()
 }
 
-type DoubleWidths []DoubleWidth
+type DoubleWidths struct {
+	*orderedSet[DoubleWidth, *DoubleWidths]
+}
 
-func (d DoubleWidths) Type() consts.CoordType {
+func NewDoubleWidths(values ...DoubleWidth) *DoubleWidths {
+	return &DoubleWidths{orderedSet: newOrderedSet[DoubleWidth, *DoubleWidths](func() *DoubleWidths {
+		return NewDoubleWidths()
+	}, values...)}
+}
+func (d *DoubleWidths) Type() consts.CoordType {
 	return consts.DoubleWidth
 }
-func (d DoubleWidths) Convert(typ consts.CoordType) Coords {
+func (d *DoubleWidths) Convert(typ consts.CoordType) Coords {
 	return convertCoords(d, typ)
 }
-func (d DoubleWidths) ToSlice() []Coord {
-	return toCoords(d)
+func (d *DoubleWidths) Axials() *Axials {
+	return castAs[DoubleWidth, *DoubleWidths, Axial, *Axials](d, DoubleWidth.Axial, NewAxials)
 }
-func (d DoubleWidths) Axials() Axials {
-	return castAs(d, DoubleWidth.Axial)
+func (d *DoubleWidths) Cubes() *Cubes {
+	return castAs[DoubleWidth, *DoubleWidths, Cube, *Cubes](d, DoubleWidth.Cube, NewCubes)
 }
-func (d DoubleWidths) Cubes() Cubes {
-	return castAs(d, DoubleWidth.Cube)
+func (d *DoubleWidths) DoubleWidths() *DoubleWidths {
+	return castAs[DoubleWidth, *DoubleWidths, DoubleWidth, *DoubleWidths](d, DoubleWidth.DoubleWidth, NewDoubleWidths)
 }
-func (d DoubleWidths) DoubleWidths() DoubleWidths {
-	return castAs(d, DoubleWidth.DoubleWidth)
+func (d *DoubleWidths) DoubleHeights() *DoubleHeights {
+	return castAs[DoubleWidth, *DoubleWidths, DoubleHeight, *DoubleHeights](d, DoubleWidth.DoubleHeight, NewDoubleHeights)
 }
-func (d DoubleWidths) DoubleHeights() DoubleHeights {
-	return castAs(d, DoubleWidth.DoubleHeight)
+func (d *DoubleWidths) EvenQs() *EvenQs {
+	return castAs[DoubleWidth, *DoubleWidths, EvenQ, *EvenQs](d, DoubleWidth.EvenQ, NewEvenQs)
 }
-func (d DoubleWidths) EvenQs() EvenQs {
-	return castAs(d, DoubleWidth.EvenQ)
+func (d *DoubleWidths) EvenRs() *EvenRs {
+	return castAs[DoubleWidth, *DoubleWidths, EvenR, *EvenRs](d, DoubleWidth.EvenR, NewEvenRs)
 }
-func (d DoubleWidths) EvenRs() EvenRs {
-	return castAs(d, DoubleWidth.EvenR)
+func (d *DoubleWidths) OddQs() *OddQs {
+	return castAs[DoubleWidth, *DoubleWidths, OddQ, *OddQs](d, DoubleWidth.OddQ, NewOddQs)
 }
-func (d DoubleWidths) OddQs() OddQs {
-	return castAs(d, DoubleWidth.OddQ)
+func (d *DoubleWidths) OddRs() *OddRs {
+	return castAs[DoubleWidth, *DoubleWidths, OddR, *OddRs](d, DoubleWidth.OddR, NewOddRs)
 }
-func (d DoubleWidths) OddRs() OddRs {
-	return castAs(d, DoubleWidth.OddR)
-}
-func (d DoubleWidths) Copy() DoubleWidths {
-	return slices.Clone(d)
-}
-func (d DoubleWidths) Sort() DoubleWidths {
-	return d.Cubes().Sort().DoubleWidths()
-}
-func (d DoubleWidths) UnionWith(other DoubleWidths) DoubleWidths {
-	return d.Cubes().UnionWith(other.Cubes()).DoubleWidths()
-}
-func (d DoubleWidths) IntersectWith(other DoubleWidths) DoubleWidths {
-	return d.Cubes().IntersectWith(other.Cubes()).DoubleWidths()
-}
-func (d DoubleWidths) DifferenceWith(other DoubleWidths) DoubleWidths {
-	return d.Cubes().DifferenceWith(other.Cubes()).DoubleWidths()
-}
-func (d DoubleWidths) Rotate(center DoubleWidth, angle int) DoubleWidths {
+func (d *DoubleWidths) Rotate(center DoubleWidth, angle int) *DoubleWidths {
 	return d.Cubes().Rotate(center.Cube(), angle).DoubleWidths()
 }
-func (d DoubleWidths) ReflectQ() DoubleWidths {
+func (d *DoubleWidths) ReflectQ() *DoubleWidths {
 	return d.Cubes().ReflectQ().DoubleWidths()
 }
-func (d DoubleWidths) ReflectR() DoubleWidths {
+func (d *DoubleWidths) ReflectR() *DoubleWidths {
 	return d.Cubes().ReflectR().DoubleWidths()
 }
-func (d DoubleWidths) ReflectS() DoubleWidths {
+func (d *DoubleWidths) ReflectS() *DoubleWidths {
 	return d.Cubes().ReflectS().DoubleWidths()
 }
 
-type EvenQs []EvenQ
+type EvenQs struct{ *orderedSet[EvenQ, *EvenQs] }
 
-func (e EvenQs) Type() consts.CoordType {
+func NewEvenQs(values ...EvenQ) *EvenQs {
+	return &EvenQs{orderedSet: newOrderedSet[EvenQ, *EvenQs](func() *EvenQs {
+		return NewEvenQs()
+	}, values...)}
+}
+func (e *EvenQs) Type() consts.CoordType {
 	return consts.EvenQ
 }
-func (e EvenQs) Convert(typ consts.CoordType) Coords {
+func (e *EvenQs) Convert(typ consts.CoordType) Coords {
 	return convertCoords(e, typ)
 }
-func (e EvenQs) ToSlice() []Coord {
-	return toCoords(e)
+func (e *EvenQs) Axials() *Axials {
+	return castAs[EvenQ, *EvenQs, Axial, *Axials](e, EvenQ.Axial, NewAxials)
 }
-func (e EvenQs) Axials() Axials {
-	return castAs(e, EvenQ.Axial)
+func (e *EvenQs) Cubes() *Cubes {
+	return castAs[EvenQ, *EvenQs, Cube, *Cubes](e, EvenQ.Cube, NewCubes)
 }
-func (e EvenQs) Cubes() Cubes {
-	return castAs(e, EvenQ.Cube)
+func (e *EvenQs) DoubleWidths() *DoubleWidths {
+	return castAs[EvenQ, *EvenQs, DoubleWidth, *DoubleWidths](e, EvenQ.DoubleWidth, NewDoubleWidths)
 }
-func (e EvenQs) DoubleWidths() DoubleWidths {
-	return castAs(e, EvenQ.DoubleWidth)
+func (e *EvenQs) DoubleHeights() *DoubleHeights {
+	return castAs[EvenQ, *EvenQs, DoubleHeight, *DoubleHeights](e, EvenQ.DoubleHeight, NewDoubleHeights)
 }
-func (e EvenQs) DoubleHeights() DoubleHeights {
-	return castAs(e, EvenQ.DoubleHeight)
+func (e *EvenQs) EvenQs() *EvenQs {
+	return castAs[EvenQ, *EvenQs, EvenQ, *EvenQs](e, EvenQ.EvenQ, NewEvenQs)
 }
-func (e EvenQs) EvenQs() EvenQs {
-	return castAs(e, EvenQ.EvenQ)
+func (e *EvenQs) EvenRs() *EvenRs {
+	return castAs[EvenQ, *EvenQs, EvenR, *EvenRs](e, EvenQ.EvenR, NewEvenRs)
 }
-func (e EvenQs) EvenRs() EvenRs {
-	return castAs(e, EvenQ.EvenR)
+func (e *EvenQs) OddQs() *OddQs {
+	return castAs[EvenQ, *EvenQs, OddQ, *OddQs](e, EvenQ.OddQ, NewOddQs)
 }
-func (e EvenQs) OddQs() OddQs {
-	return castAs(e, EvenQ.OddQ)
+func (e *EvenQs) OddRs() *OddRs {
+	return castAs[EvenQ, *EvenQs, OddR, *OddRs](e, EvenQ.OddR, NewOddRs)
 }
-func (e EvenQs) OddRs() OddRs {
-	return castAs(e, EvenQ.OddR)
-}
-func (e EvenQs) Copy() EvenQs {
-	return slices.Clone(e)
-}
-func (e EvenQs) Sort() EvenQs {
-	return e.Cubes().Sort().EvenQs()
-}
-func (e EvenQs) UnionWith(other EvenQs) EvenQs {
-	return e.Cubes().UnionWith(other.Cubes()).EvenQs()
-}
-func (e EvenQs) IntersectWith(other EvenQs) EvenQs {
-	return e.Cubes().IntersectWith(other.Cubes()).EvenQs()
-}
-func (e EvenQs) DifferenceWith(other EvenQs) EvenQs {
-	return e.Cubes().DifferenceWith(other.Cubes()).EvenQs()
-}
-func (e EvenQs) Rotate(center EvenQ, angle int) EvenQs {
+func (e *EvenQs) Rotate(center EvenQ, angle int) *EvenQs {
 	return e.Cubes().Rotate(center.Cube(), angle).EvenQs()
 }
-func (e EvenQs) ReflectQ() EvenQs {
+func (e *EvenQs) ReflectQ() *EvenQs {
 	return e.Cubes().ReflectQ().EvenQs()
 }
-func (e EvenQs) ReflectR() EvenQs {
+func (e *EvenQs) ReflectR() *EvenQs {
 	return e.Cubes().ReflectR().EvenQs()
 }
-func (e EvenQs) ReflectS() EvenQs {
+func (e *EvenQs) ReflectS() *EvenQs {
 	return e.Cubes().ReflectS().EvenQs()
 }
 
-type EvenRs []EvenR
+type EvenRs struct{ *orderedSet[EvenR, *EvenRs] }
 
-func (e EvenRs) Type() consts.CoordType {
+func NewEvenRs(values ...EvenR) *EvenRs {
+	return &EvenRs{orderedSet: newOrderedSet[EvenR, *EvenRs](func() *EvenRs {
+		return NewEvenRs()
+	}, values...)}
+}
+func (e *EvenRs) Type() consts.CoordType {
 	return consts.EvenR
 }
-func (e EvenRs) Convert(typ consts.CoordType) Coords {
+func (e *EvenRs) Convert(typ consts.CoordType) Coords {
 	return convertCoords(e, typ)
 }
-func (e EvenRs) ToSlice() []Coord {
-	return toCoords(e)
+func (e *EvenRs) Axials() *Axials {
+	return castAs[EvenR, *EvenRs, Axial, *Axials](e, EvenR.Axial, NewAxials)
 }
-func (e EvenRs) Axials() Axials {
-	return castAs(e, EvenR.Axial)
+func (e *EvenRs) Cubes() *Cubes {
+	return castAs[EvenR, *EvenRs, Cube, *Cubes](e, EvenR.Cube, NewCubes)
 }
-func (e EvenRs) Cubes() Cubes {
-	return castAs(e, EvenR.Cube)
+func (e *EvenRs) DoubleWidths() *DoubleWidths {
+	return castAs[EvenR, *EvenRs, DoubleWidth, *DoubleWidths](e, EvenR.DoubleWidth, NewDoubleWidths)
 }
-func (e EvenRs) DoubleWidths() DoubleWidths {
-	return castAs(e, EvenR.DoubleWidth)
+func (e *EvenRs) DoubleHeights() *DoubleHeights {
+	return castAs[EvenR, *EvenRs, DoubleHeight, *DoubleHeights](e, EvenR.DoubleHeight, NewDoubleHeights)
 }
-func (e EvenRs) DoubleHeights() DoubleHeights {
-	return castAs(e, EvenR.DoubleHeight)
+func (e *EvenRs) EvenQs() *EvenQs {
+	return castAs[EvenR, *EvenRs, EvenQ, *EvenQs](e, EvenR.EvenQ, NewEvenQs)
 }
-func (e EvenRs) EvenQs() EvenQs {
-	return castAs(e, EvenR.EvenQ)
+func (e *EvenRs) EvenRs() *EvenRs {
+	return castAs[EvenR, *EvenRs, EvenR, *EvenRs](e, EvenR.EvenR, NewEvenRs)
 }
-func (e EvenRs) EvenRs() EvenRs {
-	return castAs(e, EvenR.EvenR)
+func (e *EvenRs) OddQs() *OddQs {
+	return castAs[EvenR, *EvenRs, OddQ, *OddQs](e, EvenR.OddQ, NewOddQs)
 }
-func (e EvenRs) OddQs() OddQs {
-	return castAs(e, EvenR.OddQ)
+func (e *EvenRs) OddRs() *OddRs {
+	return castAs[EvenR, *EvenRs, OddR, *OddRs](e, EvenR.OddR, NewOddRs)
 }
-func (e EvenRs) OddRs() OddRs {
-	return castAs(e, EvenR.OddR)
-}
-func (e EvenRs) Copy() EvenRs {
-	return slices.Clone(e)
-}
-func (e EvenRs) Sort() EvenRs {
-	return e.Cubes().Sort().EvenRs()
-}
-func (e EvenRs) UnionWith(other EvenRs) EvenRs {
-	return e.Cubes().UnionWith(other.Cubes()).EvenRs()
-}
-func (e EvenRs) IntersectWith(other EvenRs) EvenRs {
-	return e.Cubes().IntersectWith(other.Cubes()).EvenRs()
-}
-func (e EvenRs) DifferenceWith(other EvenRs) EvenRs {
-	return e.Cubes().DifferenceWith(other.Cubes()).EvenRs()
-}
-func (e EvenRs) Rotate(center EvenR, angle int) EvenRs {
+func (e *EvenRs) Rotate(center EvenR, angle int) *EvenRs {
 	return e.Cubes().Rotate(center.Cube(), angle).EvenRs()
 }
-func (e EvenRs) ReflectQ() EvenRs {
+func (e *EvenRs) ReflectQ() *EvenRs {
 	return e.Cubes().ReflectQ().EvenRs()
 }
-func (e EvenRs) ReflectR() EvenRs {
+func (e *EvenRs) ReflectR() *EvenRs {
 	return e.Cubes().ReflectR().EvenRs()
 }
-func (e EvenRs) ReflectS() EvenRs {
+func (e *EvenRs) ReflectS() *EvenRs {
 	return e.Cubes().ReflectS().EvenRs()
 }
 
-type OddQs []OddQ
+type OddQs struct{ *orderedSet[OddQ, *OddQs] }
 
-func (o OddQs) Type() consts.CoordType {
+func NewOddQs(values ...OddQ) *OddQs {
+	return &OddQs{orderedSet: newOrderedSet[OddQ, *OddQs](func() *OddQs {
+		return NewOddQs()
+	}, values...)}
+}
+func (o *OddQs) Type() consts.CoordType {
 	return consts.OddQ
 }
-func (o OddQs) Convert(typ consts.CoordType) Coords {
+func (o *OddQs) Convert(typ consts.CoordType) Coords {
 	return convertCoords(o, typ)
 }
-func (o OddQs) ToSlice() []Coord {
-	return toCoords(o)
+func (o *OddQs) Axials() *Axials {
+	return castAs[OddQ, *OddQs, Axial, *Axials](o, OddQ.Axial, NewAxials)
 }
-func (o OddQs) Axials() Axials {
-	return castAs(o, OddQ.Axial)
+func (o *OddQs) Cubes() *Cubes {
+	return castAs[OddQ, *OddQs, Cube, *Cubes](o, OddQ.Cube, NewCubes)
 }
-func (o OddQs) Cubes() Cubes {
-	return castAs(o, OddQ.Cube)
+func (o *OddQs) DoubleWidths() *DoubleWidths {
+	return castAs[OddQ, *OddQs, DoubleWidth, *DoubleWidths](o, OddQ.DoubleWidth, NewDoubleWidths)
 }
-func (o OddQs) DoubleWidths() DoubleWidths {
-	return castAs(o, OddQ.DoubleWidth)
+func (o *OddQs) DoubleHeights() *DoubleHeights {
+	return castAs[OddQ, *OddQs, DoubleHeight, *DoubleHeights](o, OddQ.DoubleHeight, NewDoubleHeights)
 }
-func (o OddQs) DoubleHeights() DoubleHeights {
-	return castAs(o, OddQ.DoubleHeight)
+func (o *OddQs) EvenQs() *EvenQs {
+	return castAs[OddQ, *OddQs, EvenQ, *EvenQs](o, OddQ.EvenQ, NewEvenQs)
 }
-func (o OddQs) EvenQs() EvenQs {
-	return castAs(o, OddQ.EvenQ)
+func (o *OddQs) EvenRs() *EvenRs {
+	return castAs[OddQ, *OddQs, EvenR, *EvenRs](o, OddQ.EvenR, NewEvenRs)
 }
-func (o OddQs) EvenRs() EvenRs {
-	return castAs(o, OddQ.EvenR)
+func (o *OddQs) OddQs() *OddQs {
+	return castAs[OddQ, *OddQs, OddQ, *OddQs](o, OddQ.OddQ, NewOddQs)
 }
-func (o OddQs) OddQs() OddQs {
-	return castAs(o, OddQ.OddQ)
+func (o *OddQs) OddRs() *OddRs {
+	return castAs[OddQ, *OddQs, OddR, *OddRs](o, OddQ.OddR, NewOddRs)
 }
-func (o OddQs) OddRs() OddRs {
-	return castAs(o, OddQ.OddR)
-}
-func (o OddQs) Copy() OddQs {
-	return slices.Clone(o)
-}
-func (o OddQs) Sort() OddQs {
-	return o.Cubes().Sort().OddQs()
-}
-func (o OddQs) UnionWith(other OddQs) OddQs {
-	return o.Cubes().UnionWith(other.Cubes()).OddQs()
-}
-func (o OddQs) IntersectWith(other OddQs) OddQs {
-	return o.Cubes().IntersectWith(other.Cubes()).OddQs()
-}
-func (o OddQs) DifferenceWith(other OddQs) OddQs {
-	return o.Cubes().DifferenceWith(other.Cubes()).OddQs()
-}
-func (o OddQs) Rotate(center OddQ, angle int) OddQs {
+func (o *OddQs) Rotate(center OddQ, angle int) *OddQs {
 	return o.Cubes().Rotate(center.Cube(), angle).OddQs()
 }
-func (o OddQs) ReflectQ() OddQs {
+func (o *OddQs) ReflectQ() *OddQs {
 	return o.Cubes().ReflectQ().OddQs()
 }
-func (o OddQs) ReflectR() OddQs {
+func (o *OddQs) ReflectR() *OddQs {
 	return o.Cubes().ReflectR().OddQs()
 }
-func (o OddQs) ReflectS() OddQs {
+func (o *OddQs) ReflectS() *OddQs {
 	return o.Cubes().ReflectS().OddQs()
 }
 
-type OddRs []OddR
+type OddRs struct{ *orderedSet[OddR, *OddRs] }
 
-func (o OddRs) Type() consts.CoordType {
+func NewOddRs(values ...OddR) *OddRs {
+	return &OddRs{orderedSet: newOrderedSet[OddR, *OddRs](func() *OddRs {
+		return NewOddRs()
+	}, values...)}
+}
+func (o *OddRs) Type() consts.CoordType {
 	return consts.OddR
 }
-func (o OddRs) Convert(typ consts.CoordType) Coords {
+func (o *OddRs) Convert(typ consts.CoordType) Coords {
 	return convertCoords(o, typ)
 }
-func (o OddRs) ToSlice() []Coord {
-	return toCoords(o)
+func (o *OddRs) Axials() *Axials {
+	return castAs[OddR, *OddRs, Axial, *Axials](o, OddR.Axial, NewAxials)
 }
-func (o OddRs) Axials() Axials {
-	return castAs(o, OddR.Axial)
+func (o *OddRs) Cubes() *Cubes {
+	return castAs[OddR, *OddRs, Cube, *Cubes](o, OddR.Cube, NewCubes)
 }
-func (o OddRs) Cubes() Cubes {
-	return castAs(o, OddR.Cube)
+func (o *OddRs) DoubleWidths() *DoubleWidths {
+	return castAs[OddR, *OddRs, DoubleWidth, *DoubleWidths](o, OddR.DoubleWidth, NewDoubleWidths)
 }
-func (o OddRs) DoubleWidths() DoubleWidths {
-	return castAs(o, OddR.DoubleWidth)
+func (o *OddRs) DoubleHeights() *DoubleHeights {
+	return castAs[OddR, *OddRs, DoubleHeight, *DoubleHeights](o, OddR.DoubleHeight, NewDoubleHeights)
 }
-func (o OddRs) DoubleHeights() DoubleHeights {
-	return castAs(o, OddR.DoubleHeight)
+func (o *OddRs) EvenQs() *EvenQs {
+	return castAs[OddR, *OddRs, EvenQ, *EvenQs](o, OddR.EvenQ, NewEvenQs)
 }
-func (o OddRs) EvenQs() EvenQs {
-	return castAs(o, OddR.EvenQ)
+func (o *OddRs) EvenRs() *EvenRs {
+	return castAs[OddR, *OddRs, EvenR, *EvenRs](o, OddR.EvenR, NewEvenRs)
 }
-func (o OddRs) EvenRs() EvenRs {
-	return castAs(o, OddR.EvenR)
+func (o *OddRs) OddQs() *OddQs {
+	return castAs[OddR, *OddRs, OddQ, *OddQs](o, OddR.OddQ, NewOddQs)
 }
-func (o OddRs) OddQs() OddQs {
-	return castAs(o, OddR.OddQ)
+func (o *OddRs) OddRs() *OddRs {
+	return castAs[OddR, *OddRs, OddR, *OddRs](o, OddR.OddR, NewOddRs)
 }
-func (o OddRs) OddRs() OddRs {
-	return castAs(o, OddR.OddR)
-}
-func (o OddRs) Copy() OddRs {
-	return slices.Clone(o)
-}
-func (o OddRs) Sort() OddRs {
-	return o.Cubes().Sort().OddRs()
-}
-func (o OddRs) UnionWith(other OddRs) OddRs {
-	return o.Cubes().UnionWith(other.Cubes()).OddRs()
-}
-func (o OddRs) IntersectWith(other OddRs) OddRs {
-	return o.Cubes().IntersectWith(other.Cubes()).OddRs()
-}
-func (o OddRs) DifferenceWith(other OddRs) OddRs {
-	return o.Cubes().DifferenceWith(other.Cubes()).OddRs()
-}
-func (o OddRs) Rotate(center OddR, angle int) OddRs {
+func (o *OddRs) Rotate(center OddR, angle int) *OddRs {
 	return o.Cubes().Rotate(center.Cube(), angle).OddRs()
 }
-func (o OddRs) ReflectQ() OddRs {
+func (o *OddRs) ReflectQ() *OddRs {
 	return o.Cubes().ReflectQ().OddRs()
 }
-func (o OddRs) ReflectR() OddRs {
+func (o *OddRs) ReflectR() *OddRs {
 	return o.Cubes().ReflectR().OddRs()
 }
-func (o OddRs) ReflectS() OddRs {
+func (o *OddRs) ReflectS() *OddRs {
 	return o.Cubes().ReflectS().OddRs()
 }

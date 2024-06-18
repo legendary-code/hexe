@@ -13,15 +13,7 @@ func traceToExample() {
 	grid, walls := createArena()
 	from := coord.NewAxial(-1, -1)
 	to := coord.NewAxial(0, 2)
-	trace := from.TraceTo(to, func(coord coord.Axial) bool {
-		for _, wall := range walls {
-			if coord == wall {
-				return true
-			}
-		}
-
-		return false
-	})
+	trace := from.TraceTo(to, walls.Contains)
 
 	fig.AddCoords(grid)
 	fig.AddStyledCoords(walls, style.Color(colornames.Bisque))

@@ -8,6 +8,7 @@ import (
 //go:generate go run ../../../internal/hexe/gen/coords
 //go:generate go fmt .
 
+// Coord represents an untyped hex coordinate
 type Coord interface {
 	Type() consts.CoordType
 	Convert(typ consts.CoordType) Coord
@@ -21,7 +22,14 @@ type Coord interface {
 	DoubleHeight() DoubleHeight
 }
 
-type TCoord[T Coord, TS TCoords[T, TS]] interface {
+type CCoord interface {
+	Coord
+	comparable
+	Axial | Cube | DoubleHeight | DoubleWidth | EvenQ | EvenR | OddQ | OddR
+}
+
+// TCoord represents a type hex coordinate
+type TCoord[T CCoord, TS CCoords] interface {
 	Coord
 	Neighbor(angle int) T
 	Add(other T) T
@@ -44,19 +52,19 @@ type TCoord[T Coord, TS TCoords[T, TS]] interface {
 
 type Predicate[T Coord] func(coord T) bool
 
-type QR interface {
+type QRCoord interface {
 	Coord
 	Q() int
 	R() int
 	Unpack() (int, int)
 }
 
-type QRCoord[T Coord, TS TCoords[T, TS]] interface {
-	QR
+type TQRCoord[T CCoord, TS CCoords] interface {
+	QRCoord
 	TCoord[T, TS]
 }
 
-type QRS interface {
+type QRSCoord interface {
 	Coord
 	Q() int
 	R() int
@@ -64,8 +72,8 @@ type QRS interface {
 	Unpack() (int, int, int)
 }
 
-type QRSCoord[T Coord, TS TCoords[T, TS]] interface {
-	QRS
+type TQRSCoord[T CCoord, TS CCoords] interface {
+	QRSCoord
 	TCoord[T, TS]
 }
 

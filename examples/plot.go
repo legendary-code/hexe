@@ -22,13 +22,13 @@ func plotExample() {
 	)
 
 	fig.AddStyledCoords(
-		coord.Axials{
+		coord.NewAxials(
 			coord.NewAxial(0, 0),
 			coord.NewAxial(1, 0),
 			coord.NewAxial(1, -1),
 			coord.NewAxial(0, -1),
 			coord.NewAxial(-1, 0),
-		},
+		),
 		landStyle,
 	)
 

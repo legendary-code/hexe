@@ -5,8 +5,20 @@ import (
 	"testing"
 )
 
+type Ints struct {
+	*orderedSet[int, *Ints]
+}
+
+func NewInts(values ...int) *Ints {
+	return &Ints{
+		orderedSet: newOrderedSet[int, *Ints](func() *Ints {
+			return NewInts()
+		}, values...),
+	}
+}
+
 func TestOrderedSet_Add(t *testing.T) {
-	s := newOrderedSet[int]()
+	s := NewInts()
 
 	assert.True(t, s.Add(0))
 	assert.True(t, s.Add(1))
@@ -17,7 +29,7 @@ func TestOrderedSet_Add(t *testing.T) {
 }
 
 func TestOrderedSet_Remove(t *testing.T) {
-	s := newOrderedSet[int](0, 1, 2)
+	s := NewInts(0, 1, 2)
 
 	assert.False(t, s.Remove(3))
 	assert.Equal(t, []int{0, 1, 2}, s.ToSlice())
@@ -33,7 +45,7 @@ func TestOrderedSet_Remove(t *testing.T) {
 }
 
 func TestOrderedSet_Contains(t *testing.T) {
-	s := newOrderedSet[int](0, 1, 2)
+	s := NewInts(0, 1, 2)
 
 	assert.True(t, s.Contains(0))
 	assert.True(t, s.Contains(1))
@@ -42,7 +54,7 @@ func TestOrderedSet_Contains(t *testing.T) {
 }
 
 func TestOrderedSet_IsEmpty(t *testing.T) {
-	s := newOrderedSet[int]()
+	s := NewInts()
 
 	assert.True(t, s.IsEmpty())
 
@@ -54,7 +66,7 @@ func TestOrderedSet_IsEmpty(t *testing.T) {
 }
 
 func TestOrderedSet_Clear(t *testing.T) {
-	s := newOrderedSet[int]()
+	s := NewInts()
 
 	assert.False(t, s.Clear())
 	assert.True(t, s.IsEmpty())
@@ -66,7 +78,7 @@ func TestOrderedSet_Clear(t *testing.T) {
 }
 
 func TestOrderedSet_Iterator(t *testing.T) {
-	s := newOrderedSet[int](0, 1, 2)
+	s := NewInts(0, 1, 2)
 
 	v := make([]int, 0)
 	for i := s.Iterator(); i.Next(); {
@@ -77,7 +89,7 @@ func TestOrderedSet_Iterator(t *testing.T) {
 }
 
 func TestOrderedSet_ForEach(t *testing.T) {
-	s := newOrderedSet[int](0, 2, 4, 5, 6)
+	s := NewInts(0, 2, 4, 5, 6)
 
 	v := make([]int, 0)
 	s.ForEach(func(i int) bool {
@@ -98,8 +110,8 @@ func TestOrderedSet_ForEach(t *testing.T) {
 }
 
 func TestOrderedSet_Union(t *testing.T) {
-	s1 := newOrderedSet[int](0, 1, 2, 3)
-	s2 := newOrderedSet[int](2, 3, 4, 5)
+	s1 := NewInts(0, 1, 2, 3)
+	s2 := NewInts(2, 3, 4, 5)
 	s3 := s1.Union(s2)
 
 	assert.Equal(t, []int{0, 1, 2, 3}, s1.ToSlice())
@@ -108,8 +120,8 @@ func TestOrderedSet_Union(t *testing.T) {
 }
 
 func TestOrderedSet_Intersect(t *testing.T) {
-	s1 := newOrderedSet[int](0, 1, 2, 3)
-	s2 := newOrderedSet[int](5, 4, 3, 2)
+	s1 := NewInts(0, 1, 2, 3)
+	s2 := NewInts(5, 4, 3, 2)
 	s3 := s1.Intersect(s2)
 
 	assert.Equal(t, []int{0, 1, 2, 3}, s1.ToSlice())
@@ -118,8 +130,8 @@ func TestOrderedSet_Intersect(t *testing.T) {
 }
 
 func TestOrderedSet_Difference(t *testing.T) {
-	s1 := newOrderedSet[int](0, 1, 2, 3)
-	s2 := newOrderedSet[int](5, 4, 3, 2)
+	s1 := NewInts(0, 1, 2, 3)
+	s2 := NewInts(5, 4, 3, 2)
 	s3 := s1.Difference(s2)
 
 	assert.Equal(t, []int{0, 1, 2, 3}, s1.ToSlice())
@@ -128,24 +140,24 @@ func TestOrderedSet_Difference(t *testing.T) {
 }
 
 func TestOrderedSet_Equal(t *testing.T) {
-	s1 := newOrderedSet[int](0, 1, 2)
-	s2 := newOrderedSet[int](0, 1, 3)
+	s1 := NewInts(0, 1, 2)
+	s2 := NewInts(0, 1, 3)
 
 	assert.Equal(t, s1, s1)
 	assert.NotEqual(t, s1, s2)
 
 	s2.Remove(3)
 	s2.Add(2)
-	assert.Equal(t, s1, s2)
+	assert.True(t, s1.Equal(s2))
 
-	s1 = newOrderedSet[int](0, 1, 2)
-	s2 = newOrderedSet[int](2, 1, 0)
+	s1 = NewInts(0, 1, 2)
+	s2 = NewInts(2, 1, 0)
 	assert.NotEqual(t, s1, s2)
 }
 
 func TestOrderedSet_SetEqual(t *testing.T) {
-	s1 := newOrderedSet[int](0, 1, 2)
-	s2 := newOrderedSet[int](0, 1, 3)
+	s1 := NewInts(0, 1, 2)
+	s2 := NewInts(0, 1, 3)
 
 	assert.True(t, s1.SetEqual(s1))
 	assert.False(t, s1.SetEqual(s2))
@@ -154,7 +166,7 @@ func TestOrderedSet_SetEqual(t *testing.T) {
 	s2.Add(2)
 	assert.True(t, s1.SetEqual(s2))
 
-	s1 = newOrderedSet[int](0, 1, 2)
-	s2 = newOrderedSet[int](2, 1, 0)
+	s1 = NewInts(0, 1, 2)
+	s2 = NewInts(2, 1, 0)
 	assert.True(t, s1.SetEqual(s2))
 }

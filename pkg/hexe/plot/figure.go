@@ -41,8 +41,8 @@ func (f *Figure) AddCoord(coord coord.Coord) {
 }
 
 func (f *Figure) AddCoords(coords coord.Coords) {
-	for _, c := range coords.ToSlice() {
-		f.AddCoord(c)
+	for _, c := range coords.Axials().ToSlice() {
+		f.AddCoord(c.Convert(coords.Type()))
 	}
 }
 
@@ -56,7 +56,7 @@ func (f *Figure) AddStyledCoord(coord coord.Coord, style Style) {
 }
 
 func (f *Figure) AddStyledCoords(coords coord.Coords, style Style) {
-	for _, c := range coords.ToSlice() {
-		f.AddStyledCoord(c, style)
+	for _, c := range coords.Axials().ToSlice() {
+		f.AddStyledCoord(c.Convert(coords.Type()), style)
 	}
 }

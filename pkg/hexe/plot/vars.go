@@ -148,7 +148,7 @@ func (r *renderVarsBuilder) build() *renderVars {
 		cv := cell.Coord.Convert(r.coordType)
 
 		switch ct := cv.(type) {
-		case coord.QRS:
+		case coord.QRSCoord:
 			if ct.Q() == 0 && ct.R() == 0 && ct.S() == 0 {
 				c.Q = "q"
 				c.R = "r"
@@ -158,7 +158,7 @@ func (r *renderVarsBuilder) build() *renderVars {
 				c.R = fmtInt(ct.R())
 				c.S = fmtInt(ct.S())
 			}
-		case coord.QR:
+		case coord.QRCoord:
 			if ct.Q() == 0 && ct.R() == 0 {
 				c.Q = "q"
 				c.R = "r"

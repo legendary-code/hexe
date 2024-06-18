@@ -14,10 +14,8 @@ import (
 )
 
 const GCoord = "GCoord"
-const GCoords = "GCoords"
 const GReceiver = "g"
-const GCoordCtor = "NewGCoord"
-const GCoordZero = "ZeroGCoord"
+const GCoordLower = "gCoord"
 
 func main() {
 	wd, err := os.Getwd()
@@ -75,10 +73,8 @@ func processTemplate(templateFile string) {
 
 		file = parseAst(templateFile)
 		coordTypeName := coordType.Name()
-		coordsTypeName := fmt.Sprintf("%ss", coordType.Name())
+		coordLowerCaseTypeName := strings.ToLower(coordTypeName[:1]) + coordTypeName[1:]
 		coordsTypeReceiver := strings.ToLower(string(coordType.Name()[0]))
-		coordTypeCtor := fmt.Sprintf("New%s", coordType.Name())
-		coordTypeZero := fmt.Sprintf("Zero%s", coordType.Name())
 
 		// Replace placeholder types/receivers
 		ast.Inspect(file, func(node ast.Node) bool {
@@ -87,17 +83,12 @@ func processTemplate(templateFile string) {
 				return true
 			}
 
-			switch ident.Name {
-			case GCoords:
-				ident.Name = coordsTypeName
-			case GCoord:
-				ident.Name = coordTypeName
-			case GReceiver:
+			if ident.Name == GReceiver {
 				ident.Name = coordsTypeReceiver
-			case GCoordCtor:
-				ident.Name = coordTypeCtor
-			case GCoordZero:
-				ident.Name = coordTypeZero
+			} else if strings.Contains(ident.Name, GCoord) {
+				ident.Name = strings.ReplaceAll(ident.Name, GCoord, coordTypeName)
+			} else if strings.Contains(ident.Name, GCoordLower) {
+				ident.Name = strings.ReplaceAll(ident.Name, GCoordLower, coordLowerCaseTypeName)
 			}
 
 			return true

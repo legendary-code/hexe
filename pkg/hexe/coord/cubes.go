@@ -2,143 +2,88 @@ package coord
 
 import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
-	"golang.org/x/exp/maps"
-	"slices"
-	"sort"
 )
 
-type Cubes []Cube
+type Cubes struct {
+	*orderedSet[Cube, *Cubes]
+}
 
-func (c Cubes) Type() consts.CoordType {
+func NewCubes(values ...Cube) *Cubes {
+	return &Cubes{
+		orderedSet: newOrderedSet[Cube, *Cubes](func() *Cubes {
+			return NewCubes()
+		}, values...),
+	}
+}
+
+func (c *Cubes) Type() consts.CoordType {
 	return consts.Cube
 }
 
-func (c Cubes) Convert(typ consts.CoordType) Coords {
+func (c *Cubes) Convert(typ consts.CoordType) Coords {
 	return convertCoords(c, typ)
 }
 
-func (c Cubes) ToSlice() []Coord {
-	return toCoords(c)
+func (c *Cubes) Axials() *Axials {
+	return castAs[Cube, *Cubes, Axial, *Axials](c, Cube.Axial, NewAxials)
 }
 
-func (c Cubes) Axials() Axials {
-	return castAs(c, Cube.Axial)
-}
-
-func (c Cubes) Cubes() Cubes {
+func (c *Cubes) Cubes() *Cubes {
 	return c
 }
 
-func (c Cubes) DoubleWidths() DoubleWidths {
-	return castAs(c, Cube.DoubleWidth)
+func (c *Cubes) DoubleWidths() *DoubleWidths {
+	return castAs[Cube, *Cubes, DoubleWidth, *DoubleWidths](c, Cube.DoubleWidth, NewDoubleWidths)
 }
 
-func (c Cubes) DoubleHeights() DoubleHeights {
-	return castAs(c, Cube.DoubleHeight)
+func (c *Cubes) DoubleHeights() *DoubleHeights {
+	return castAs[Cube, *Cubes, DoubleHeight, *DoubleHeights](c, Cube.DoubleHeight, NewDoubleHeights)
 }
 
-func (c Cubes) EvenQs() EvenQs {
-	return castAs(c, Cube.EvenQ)
+func (c *Cubes) EvenQs() *EvenQs {
+	return castAs[Cube, *Cubes, EvenQ, *EvenQs](c, Cube.EvenQ, NewEvenQs)
 }
 
-func (c Cubes) EvenRs() EvenRs {
-	return castAs(c, Cube.EvenR)
+func (c *Cubes) EvenRs() *EvenRs {
+	return castAs[Cube, *Cubes, EvenR, *EvenRs](c, Cube.EvenR, NewEvenRs)
 }
 
-func (c Cubes) OddQs() OddQs {
-	return castAs(c, Cube.OddQ)
+func (c *Cubes) OddQs() *OddQs {
+	return castAs[Cube, *Cubes, OddQ, *OddQs](c, Cube.OddQ, NewOddQs)
 }
 
-func (c Cubes) OddRs() OddRs {
-	return castAs(c, Cube.OddR)
+func (c *Cubes) OddRs() *OddRs {
+	return castAs[Cube, *Cubes, OddR, *OddRs](c, Cube.OddR, NewOddRs)
 }
 
-func (c Cubes) Copy() Cubes {
-	return slices.Clone(c)
-}
-
-func (c Cubes) Sort() Cubes {
-	sorted := c.Copy()
-	sort.Slice(sorted, func(i, j int) bool {
-		if sorted[i].Q() == sorted[j].Q() {
-			return sorted[i].R() < sorted[j].R()
-		}
-		return sorted[i].Q() < sorted[j].Q()
-	})
-	return sorted
-}
-
-func (c Cubes) UnionWith(other Cubes) Cubes {
-	coords := make(map[Cube]bool)
-	for _, i := range c {
-		coords[i] = true
+func (c *Cubes) Rotate(center Cube, angle int) *Cubes {
+	coords := make([]Cube, c.Size())
+	for i := c.Iterator(); i.Next(); {
+		coords[i.Index()] = i.Item().Rotate(center, angle)
 	}
-	for _, i := range other {
-		coords[i] = true
-	}
-	return maps.Keys(coords)
-
+	return NewCubes(coords...)
 }
 
-func (c Cubes) IntersectWith(other Cubes) Cubes {
-	coords := make(map[Cube]bool)
-	intersection := make(map[Cube]bool)
-
-	for _, i := range c {
-		coords[i] = true
+func (c *Cubes) ReflectQ() *Cubes {
+	coords := make([]Cube, c.Size())
+	for i := c.Iterator(); i.Next(); {
+		coords[i.Index()] = i.Item().ReflectQ()
 	}
-
-	for _, i := range other {
-		if _, ok := coords[i]; ok {
-			intersection[i] = true
-		}
-	}
-
-	return maps.Keys(intersection)
+	return NewCubes(coords...)
 }
 
-func (c Cubes) DifferenceWith(other Cubes) Cubes {
-	coords := make(map[Cube]bool)
-
-	for _, i := range c {
-		coords[i] = true
+func (c *Cubes) ReflectR() *Cubes {
+	coords := make([]Cube, c.Size())
+	for i := c.Iterator(); i.Next(); {
+		coords[i.Index()] = i.Item().ReflectR()
 	}
-
-	for _, i := range other {
-		delete(coords, i)
-	}
-
-	return maps.Keys(coords)
+	return NewCubes(coords...)
 }
 
-func (c Cubes) Rotate(center Cube, angle int) Cubes {
-	coords := make(Cubes, len(c))
-	for i, coord := range c {
-		coords[i] = coord.Rotate(center, angle)
+func (c *Cubes) ReflectS() *Cubes {
+	coords := make([]Cube, c.Size())
+	for i := c.Iterator(); i.Next(); {
+		coords[i.Index()] = i.Item().ReflectS()
 	}
-	return coords
-}
-
-func (c Cubes) ReflectQ() Cubes {
-	coords := make(Cubes, len(c))
-	for i, coord := range c {
-		coords[i] = coord.ReflectQ()
-	}
-	return coords
-}
-
-func (c Cubes) ReflectR() Cubes {
-	coords := make(Cubes, len(c))
-	for i, coord := range c {
-		coords[i] = coord.ReflectR()
-	}
-	return coords
-}
-
-func (c Cubes) ReflectS() Cubes {
-	coords := make(Cubes, len(c))
-	for i, coord := range c {
-		coords[i] = coord.ReflectS()
-	}
-	return coords
+	return NewCubes(coords...)
 }

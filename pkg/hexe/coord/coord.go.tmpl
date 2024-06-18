@@ -44,11 +44,11 @@ func (g GCoord) Scale(factor int) GCoord {
     return g.Cube().Scale(factor).GCoord()
 }
 
-func (g GCoord) Neighbors() GCoords {
+func (g GCoord) Neighbors() *GCoords {
     return g.Cube().Neighbors().GCoords()
 }
 
-func (g GCoord) DiagonalNeighbors() GCoords {
+func (g GCoord) DiagonalNeighbors() *GCoords {
     return g.Cube().DiagonalNeighbors().GCoords()
 }
 
@@ -56,21 +56,21 @@ func (g GCoord) DistanceTo(other GCoord) int {
     return g.Cube().DistanceTo(other.Cube())
 }
 
-func (g GCoord) LineTo(other GCoord) GCoords {
+func (g GCoord) LineTo(other GCoord) *GCoords {
     return g.Cube().LineTo(other.Cube()).GCoords()
 }
 
-func (g GCoord) TraceTo(other GCoord, blocked Predicate[GCoord]) GCoords {
+func (g GCoord) TraceTo(other GCoord, blocked Predicate[GCoord]) *GCoords {
 	return g.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
         return blocked(coord.GCoord())
     }).GCoords()
 }
 
-func (g GCoord) MovementRange(n int) GCoords {
+func (g GCoord) MovementRange(n int) *GCoords {
     return g.Cube().MovementRange(n).GCoords()
 }
 
-func (g GCoord) FloodFill(n int, blocked Predicate[GCoord]) GCoords {
+func (g GCoord) FloodFill(n int, blocked Predicate[GCoord]) *GCoords {
     return g.Cube().FloodFill(n, func(coord Cube) bool {
         return blocked(coord.GCoord())
     }).GCoords()
@@ -92,17 +92,17 @@ func (g GCoord) ReflectS() GCoord {
     return g.Cube().ReflectS().GCoord()
 }
 
-func (g GCoord) Ring(radius int) GCoords {
+func (g GCoord) Ring(radius int) *GCoords {
 	return g.Cube().Ring(radius).GCoords()
 }
 
-func (g GCoord) FieldOfView(radius int, blocked Predicate[GCoord]) GCoords {
+func (g GCoord) FieldOfView(radius int, blocked Predicate[GCoord]) *GCoords {
     return g.Cube().FieldOfView(radius, func(coord Cube) bool {
         return blocked(coord.GCoord())
     }).GCoords()
 }
 
-func (g GCoord) FindPathBFS(target GCoord, maxDistance int, blocked Predicate[GCoord]) GCoords {
+func (g GCoord) FindPathBFS(target GCoord, maxDistance int, blocked Predicate[GCoord]) *GCoords {
     return g.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
         return blocked(coord.GCoord())
     }).GCoords()

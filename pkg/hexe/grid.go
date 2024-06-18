@@ -1,8 +1,11 @@
 package hexe
 
-type index [2]int
+import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
-type Grid[T any] interface {
+//go:generate go run ../../internal/hexe/gen/coords
+//go:generate go fmt .
+
+type Grid[T any, C coord.CCoord, CS coord.CCoords] interface {
 	Axial() AxialGrid[T]
 	Cube() CubeGrid[T]
 	EvenQ() EvenQGrid[T]
@@ -11,72 +14,104 @@ type Grid[T any] interface {
 	OddR() OddRGrid[T]
 	DoubleWidth() DoubleWidthGrid[T]
 	DoubleHeight() DoubleHeightGrid[T]
+
+	// Get returns item at given coordinate
+	Get(index C) T
+
+	// GetAll returns items for given set of coordinates
+	GetAll(indices CS) Items[T, C]
+
+	// Index returns item at given coordinate and a bool of whether it exists, similar to indexing into a map
+	Index(index C) (T, bool)
+
+	// Set sets an item at the given coordinate
+	Set(index C, value T)
+
+	// Delete deletes an item at the given coordinate
+	Delete(index C)
 }
 
-type grid[T any] struct {
+type grid[T any, C coord.CCoord, CS coord.CCoords] struct {
+	*configurableGrid[T]
+}
+
+type configurableGrid[T any] struct {
 	encoder Encoder[T]
 	decoder Decoder[T]
-	items   map[index]T
+	items   map[coord.Axial]T
 }
 
-// NewGrid returns a new hexagonal grid
-func NewGrid[T any](options ...Option[T]) AxialGrid[T] {
-	g := &grid[T]{
-		items: make(map[index]T),
+func newGrid[T any, C coord.CCoord, CS coord.CCoords](options ...Option[T]) *grid[T, C, CS] {
+	g := &grid[T, C, CS]{
+		configurableGrid: &configurableGrid[T]{
+			items: make(map[coord.Axial]T),
+		},
 	}
 	for _, opt := range options {
-		opt.apply(g)
+		opt.apply(g.configurableGrid)
 	}
-	return newAxialGrid(g)
+	return g
 }
 
-func (g *grid[T]) get(q int, r int) T {
-	return g.items[index{q, r}]
+func convertGrid[T any, FC coord.CCoord, FCS coord.CCoords, TC coord.CCoord, TCS coord.CCoords](
+	g *grid[T, FC, FCS],
+) *grid[T, TC, TCS] {
+	return &grid[T, TC, TCS]{
+		configurableGrid: g.configurableGrid,
+	}
 }
 
-func (g *grid[T]) index(q int, r int) (T, bool) {
-	value, ok := g.items[index{q, r}]
+func (g *grid[T, C, CS]) get(index C) T {
+	return g.items[index.Axial()]
+}
+
+func (g *grid[T, C, CS]) getAll(indices CS) Items[T, C] {
+	return nil
+}
+
+func (g *grid[T, C, CS]) index(index C) (T, bool) {
+	value, ok := g.items[index.Axial()]
 	return value, ok
 }
 
-func (g *grid[T]) set(q int, r int, value T) {
-	g.items[index{q, r}] = value
+func (g *grid[T, C, CS]) set(index C, value T) {
+	g.items[index.Axial()] = value
 }
 
-func (g *grid[T]) delete(q int, r int) {
-	delete(g.items, index{q, r})
+func (g *grid[T, C, CS]) delete(index C) {
+	delete(g.items, index.Axial())
 }
 
 // Axial exposes grid access methods in axial coordinates
-func (g *grid[T]) Axial() AxialGrid[T] {
+func (g *grid[T, C, CS]) Axial() AxialGrid[T] {
 	return newAxialGrid(g)
 }
 
 // Cube exposes grid access methods in cube coordinates
-func (g *grid[T]) Cube() CubeGrid[T] {
+func (g *grid[T, C, CS]) Cube() CubeGrid[T] {
 	return newCubeGrid(g)
 }
 
-func (g *grid[T]) EvenQ() EvenQGrid[T] {
-	return newEvenQ(g)
+func (g *grid[T, C, CS]) DoubleHeight() DoubleHeightGrid[T] {
+	return newDoubleHeightGrid(g)
 }
 
-func (g *grid[T]) EvenR() EvenRGrid[T] {
-	return newEvenR(g)
+func (g *grid[T, C, CS]) DoubleWidth() DoubleWidthGrid[T] {
+	return newDoubleWidthGrid(g)
 }
 
-func (g *grid[T]) OddQ() OddQGrid[T] {
-	return newOddQ(g)
+func (g *grid[T, C, CS]) EvenQ() EvenQGrid[T] {
+	return newEvenQGrid(g)
 }
 
-func (g *grid[T]) OddR() OddRGrid[T] {
-	return newOddR(g)
+func (g *grid[T, C, CS]) EvenR() EvenRGrid[T] {
+	return newEvenRGrid(g)
 }
 
-func (g *grid[T]) DoubleWidth() DoubleWidthGrid[T] {
-	return newDoubleWidth(g)
+func (g *grid[T, C, CS]) OddQ() OddQGrid[T] {
+	return newOddQGrid(g)
 }
 
-func (g *grid[T]) DoubleHeight() DoubleHeightGrid[T] {
-	return newDoubleHeight(g)
+func (g *grid[T, C, CS]) OddR() OddRGrid[T] {
+	return newOddRGrid(g)
 }

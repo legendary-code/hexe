@@ -107,20 +107,20 @@ func (c Cube) Scale(factor int) Cube {
 	return NewCube(c[0]*factor, c[1]*factor, c[2]*factor)
 }
 
-func (c Cube) Neighbors() Cubes {
-	neighbors := make(Cubes, consts.Sides)
+func (c Cube) Neighbors() *Cubes {
+	neighbors := make([]Cube, consts.Sides)
 	for i, neighborCoord := range cubeNeighborCoords {
 		neighbors[i] = NewCube(c[0]+neighborCoord[0], c[1]+neighborCoord[1], c[2]+neighborCoord[2])
 	}
-	return neighbors
+	return NewCubes(neighbors...)
 }
 
-func (c Cube) DiagonalNeighbors() Cubes {
-	neighbors := make(Cubes, consts.Sides)
+func (c Cube) DiagonalNeighbors() *Cubes {
+	neighbors := make([]Cube, consts.Sides)
 	for i, neighborCoord := range cubeDiagonalNeighborCoords {
 		neighbors[i] = NewCube(c[0]+neighborCoord[0], c[1]+neighborCoord[1], c[2]+neighborCoord[2])
 	}
-	return neighbors
+	return NewCubes(neighbors...)
 }
 
 func (c Cube) DistanceTo(other Cube) int {
@@ -129,47 +129,48 @@ func (c Cube) DistanceTo(other Cube) int {
 	return math.CubeDistance(aq, ar, as, bq, br, bs)
 }
 
-func (c Cube) LineTo(other Cube) Cubes {
-	coords := make(Cubes, 0)
+func (c Cube) LineTo(other Cube) *Cubes {
+	coords := make([]Cube, 0)
 	for _, coord := range math.CubeLineDraw(c[0], c[1], c[2], other[0], other[1], other[2]) {
 		coords = append(coords, NewCube(coord[0], coord[1], coord[2]))
 	}
-	return coords
+	return NewCubes(coords...)
 }
 
-func (c Cube) TraceTo(other Cube, blocked Predicate[Cube]) Cubes {
-	coords := make(Cubes, 0)
-	for _, coord := range c.LineTo(other) {
-		if blocked(coord) {
+func (c Cube) TraceTo(other Cube, blocked Predicate[Cube]) *Cubes {
+	coords := make([]Cube, 0)
+	for i := c.LineTo(other).Iterator(); i.Next(); {
+		if blocked(i.Item()) {
 			break
 		}
-		coords = append(coords, coord)
+		coords = append(coords, i.Item())
 	}
-	return coords
+	return NewCubes(coords...)
 }
 
-func (c Cube) MovementRange(n int) Cubes {
-	results := make(Cubes, 0)
+func (c Cube) MovementRange(n int) *Cubes {
+	results := make([]Cube, 0)
 	for q := -n; q <= n; q++ {
 		for r := hm.Maxi(-n, -q-n); r <= hm.Mini(n, -q+n); r++ {
 			s := -q - r
 			results = append(results, NewCube(c.Q()+q, c.R()+r, c.S()+s))
 		}
 	}
-	return results
+	return NewCubes(results...)
 }
 
-func (c Cube) FloodFill(n int, blocked Predicate[Cube]) Cubes {
+func (c Cube) FloodFill(n int, blocked Predicate[Cube]) *Cubes {
 	visited := make(map[Cube]bool)
 	visited[c] = true
 
-	fringes := make([]Cubes, 0)
-	fringes = append(fringes, Cubes{c})
+	fringes := make([]*Cubes, 0)
+	fringes = append(fringes, NewCubes(c))
 
 	for k := 1; k <= n; k++ {
-		fringes = append(fringes, Cubes{})
-		for _, coord := range fringes[k-1] {
-			for _, neighbor := range coord.Neighbors() {
+		fringes = append(fringes, NewCubes())
+		for i := fringes[k-1].Iterator(); i.Next(); {
+			for j := i.Item().Neighbors().Iterator(); j.Next(); {
+				neighbor := j.Item()
 				if _, ok := visited[neighbor]; ok {
 					continue
 				}
@@ -179,12 +180,12 @@ func (c Cube) FloodFill(n int, blocked Predicate[Cube]) Cubes {
 				}
 
 				visited[neighbor] = true
-				fringes[k] = append(fringes[k], neighbor)
+				fringes[k].Add(neighbor)
 			}
 		}
 	}
 
-	return maps.Keys(visited)
+	return NewCubes(maps.Keys(visited)...)
 }
 
 func (c Cube) Rotate(center Cube, angle int) Cube {
@@ -212,12 +213,12 @@ func (c Cube) ReflectS() Cube {
 	return NewCube(c[1], c[0], c[2])
 }
 
-func (c Cube) Ring(radius int) Cubes {
+func (c Cube) Ring(radius int) *Cubes {
 	if radius < 1 {
-		return Cubes{c}
+		return NewCubes(c)
 	}
 
-	results := make(Cubes, 0)
+	results := make([]Cube, 0)
 	coord := c.Add(ZeroCube().Neighbor(4).Scale(radius))
 
 	for i := 0; i < consts.Sides; i++ {
@@ -227,31 +228,33 @@ func (c Cube) Ring(radius int) Cubes {
 		}
 	}
 
-	return results
+	return NewCubes(results...)
 }
 
-func (c Cube) FieldOfView(radius int, blocked Predicate[Cube]) Cubes {
+func (c Cube) FieldOfView(radius int, blocked Predicate[Cube]) *Cubes {
 	ring := c.Ring(radius)
 	results := make(map[Cube]bool)
-	for _, target := range ring {
+	for i := ring.Iterator(); i.Next(); {
+		target := i.Item()
 		trace := c.TraceTo(target, blocked)
-		for _, visible := range trace {
+		for j := trace.Iterator(); j.Next(); {
+			visible := j.Item()
 			results[visible] = true
 		}
 	}
-	return maps.Keys(results)
+	return NewCubes(maps.Keys(results)...)
 }
 
-func (c Cube) FindPathBFS(target Cube, maxDistance int, blocked Predicate[Cube]) Cubes {
+func (c Cube) FindPathBFS(target Cube, maxDistance int, blocked Predicate[Cube]) *Cubes {
 	visited := make(map[Cube]bool)
 	visited[c] = true
 
-	paths := make([]Cubes, 1)
-	paths[0] = Cubes{c}
+	paths := make([]*Cubes, 1)
+	paths[0] = NewCubes(c)
 
 	for len(paths) > 0 {
 		path := paths[0]
-		current := path[len(path)-1]
+		current := path.Tail()
 		paths = paths[1:]
 
 		if current == target {
@@ -266,13 +269,16 @@ func (c Cube) FindPathBFS(target Cube, maxDistance int, blocked Predicate[Cube])
 			continue
 		}
 
-		for _, neighbor := range current.Neighbors() {
+		for i := current.Neighbors().Iterator(); i.Next(); {
+			neighbor := i.Item()
 			if !visited[neighbor] {
-				paths = append(paths, append(path.Copy(), neighbor))
+				pc := path.Copy()
+				pc.Add(neighbor)
+				paths = append(paths, pc)
 				visited[neighbor] = true
 			}
 		}
 	}
 
-	return Cubes{}
+	return NewCubes()
 }

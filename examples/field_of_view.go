@@ -13,18 +13,7 @@ func fieldOfViewExample() {
 	grid, walls := createArena()
 
 	person := coord.NewAxial(-1, 2)
-
-	blocked := func(coord coord.Axial) bool {
-		for _, wall := range walls {
-			if wall == coord {
-				return true
-			}
-		}
-
-		return false
-	}
-
-	fov := person.FieldOfView(3, blocked)
+	fov := person.FieldOfView(3, walls.Contains)
 
 	wallStyle := style.Color(colornames.Bisque)
 	fovStyle := style.Color(color.RGBA{R: 0xdd, G: 0xff, B: 0xdd, A: 0xff})

@@ -112,7 +112,7 @@ func TestCoord_Type(t *testing.T) {
 
 func TestCoord_Neighbors(t *testing.T) {
 	cubeCoordinates := testCoordinates[consts.Cube]
-	expecteds := make([]Cubes, len(cubeCoordinates))
+	expecteds := make([]*Cubes, len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
 		expecteds[i] = cubeCoord.Cube().Neighbors()
 	}
@@ -124,7 +124,7 @@ func TestCoord_Neighbors(t *testing.T) {
 
 		t.Run(fmt.Sprintf("Test%s_Neighbors", coordType.Name()), func(t2 *testing.T) {
 			for i, coord := range testCoordinates[coordType] {
-				var actual Cubes
+				var actual *Cubes
 				expected := expecteds[i]
 
 				switch coordType {
@@ -146,7 +146,7 @@ func TestCoord_Neighbors(t *testing.T) {
 					assert.Fail(t2, "unexpected coord type")
 				}
 
-				assert.Equal(t2, expected, actual)
+				assert.True(t2, expected.Equal(actual))
 			}
 		})
 	}
@@ -154,7 +154,7 @@ func TestCoord_Neighbors(t *testing.T) {
 
 func TestCoord_DiagonalNeighbors(t *testing.T) {
 	cubeCoordinates := testCoordinates[consts.Cube]
-	expecteds := make([]Cubes, len(cubeCoordinates))
+	expecteds := make([]*Cubes, len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
 		expecteds[i] = cubeCoord.Cube().DiagonalNeighbors()
 	}
@@ -166,7 +166,7 @@ func TestCoord_DiagonalNeighbors(t *testing.T) {
 
 		t.Run(fmt.Sprintf("Test%s_DiagonalNeighbors", coordType.Name()), func(t2 *testing.T) {
 			for i, coord := range testCoordinates[coordType] {
-				var actual Cubes
+				var actual *Cubes
 				expected := expecteds[i]
 
 				switch coordType {
@@ -188,7 +188,7 @@ func TestCoord_DiagonalNeighbors(t *testing.T) {
 					assert.Fail(t2, "unexpected coord type")
 				}
 
-				assert.Equal(t2, expected, actual)
+				assert.True(t2, expected.Equal(actual))
 			}
 		})
 	}
@@ -242,7 +242,7 @@ func TestCoord_DistanceTo(t *testing.T) {
 
 func TestCoord_LineTo(t *testing.T) {
 	cubeCoordinates := testCoordinates[consts.Cube]
-	expecteds := make([]Cubes, len(cubeCoordinates)*len(cubeCoordinates))
+	expecteds := make([]*Cubes, len(cubeCoordinates)*len(cubeCoordinates))
 	for i, cubeCoord := range cubeCoordinates {
 		for j, otherCoord := range cubeCoordinates {
 			expecteds[i*len(cubeCoordinates)+j] = cubeCoord.Cube().LineTo(otherCoord.Cube())
@@ -257,7 +257,7 @@ func TestCoord_LineTo(t *testing.T) {
 		t.Run(fmt.Sprintf("Test%s_LineTo", coordType.Name()), func(t2 *testing.T) {
 			for i, coord := range testCoordinates[coordType] {
 				for j, otherCoord := range testCoordinates[coordType] {
-					var actual Cubes
+					var actual *Cubes
 					expected := expecteds[i*len(cubeCoordinates)+j]
 
 					switch coordType {
@@ -279,7 +279,7 @@ func TestCoord_LineTo(t *testing.T) {
 						assert.Fail(t2, "unexpected coord type")
 					}
 
-					assert.Equal(t2, expected, actual)
+					assert.True(t2, expected.Equal(actual))
 				}
 			}
 		})
@@ -289,7 +289,7 @@ func TestCoord_LineTo(t *testing.T) {
 func TestCoord_MovementRange(t *testing.T) {
 	n := 3
 	cubeCoordinates := testCoordinates[consts.Cube]
-	expecteds := make([]Cubes, len(cubeCoordinates)*n)
+	expecteds := make([]*Cubes, len(cubeCoordinates)*n)
 	for i, cubeCoord := range cubeCoordinates {
 		for j := 0; j < n; j++ {
 			expecteds[i*n+j] = cubeCoord.Cube().MovementRange(j)
@@ -304,7 +304,7 @@ func TestCoord_MovementRange(t *testing.T) {
 		t.Run(fmt.Sprintf("Test%s_MovementRange", coordType.Name()), func(t2 *testing.T) {
 			for i, coord := range testCoordinates[coordType] {
 				for j := 0; j < n; j++ {
-					var actual Cubes
+					var actual *Cubes
 					expected := expecteds[i*n+j]
 
 					switch coordType {
@@ -326,7 +326,7 @@ func TestCoord_MovementRange(t *testing.T) {
 						assert.Fail(t2, "unexpected coord type")
 					}
 
-					assert.Equal(t2, expected, actual)
+					assert.True(t2, expected.Equal(actual))
 				}
 			}
 		})
@@ -340,7 +340,7 @@ func TestCoord_FloodFill(t *testing.T) {
 	}
 
 	cubeCoordinates := testCoordinates[consts.Cube]
-	expecteds := make([]Cubes, len(cubeCoordinates)*n)
+	expecteds := make([]*Cubes, len(cubeCoordinates)*n)
 	for i, cubeCoord := range cubeCoordinates {
 		for j := 0; j < n; j++ {
 			expecteds[i*n+j] = cubeCoord.Cube().FloodFill(j, isBlocked)
@@ -355,7 +355,7 @@ func TestCoord_FloodFill(t *testing.T) {
 		t.Run(fmt.Sprintf("Test%s_FloodFill", coordType.Name()), func(t2 *testing.T) {
 			for i, coord := range testCoordinates[coordType] {
 				for j := 0; j < n; j++ {
-					var actual Cubes
+					var actual *Cubes
 					expected := expecteds[i*n+j]
 
 					switch coordType {
@@ -391,7 +391,7 @@ func TestCoord_FloodFill(t *testing.T) {
 						assert.Fail(t2, "unexpected coord type")
 					}
 
-					assert.Equal(t2, expected.Sort(), actual.Sort())
+					assert.True(t2, expected.SetEqual(actual))
 				}
 			}
 		})

@@ -36,27 +36,27 @@ func (a Axial) Add(other Axial) Axial {
 func (a Axial) Scale(factor int) Axial {
 	return a.Cube().Scale(factor).Axial()
 }
-func (a Axial) Neighbors() Axials {
+func (a Axial) Neighbors() *Axials {
 	return a.Cube().Neighbors().Axials()
 }
-func (a Axial) DiagonalNeighbors() Axials {
+func (a Axial) DiagonalNeighbors() *Axials {
 	return a.Cube().DiagonalNeighbors().Axials()
 }
 func (a Axial) DistanceTo(other Axial) int {
 	return a.Cube().DistanceTo(other.Cube())
 }
-func (a Axial) LineTo(other Axial) Axials {
+func (a Axial) LineTo(other Axial) *Axials {
 	return a.Cube().LineTo(other.Cube()).Axials()
 }
-func (a Axial) TraceTo(other Axial, blocked Predicate[Axial]) Axials {
+func (a Axial) TraceTo(other Axial, blocked Predicate[Axial]) *Axials {
 	return a.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
 		return blocked(coord.Axial())
 	}).Axials()
 }
-func (a Axial) MovementRange(n int) Axials {
+func (a Axial) MovementRange(n int) *Axials {
 	return a.Cube().MovementRange(n).Axials()
 }
-func (a Axial) FloodFill(n int, blocked Predicate[Axial]) Axials {
+func (a Axial) FloodFill(n int, blocked Predicate[Axial]) *Axials {
 	return a.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.Axial())
 	}).Axials()
@@ -73,15 +73,15 @@ func (a Axial) ReflectR() Axial {
 func (a Axial) ReflectS() Axial {
 	return a.Cube().ReflectS().Axial()
 }
-func (a Axial) Ring(radius int) Axials {
+func (a Axial) Ring(radius int) *Axials {
 	return a.Cube().Ring(radius).Axials()
 }
-func (a Axial) FieldOfView(radius int, blocked Predicate[Axial]) Axials {
+func (a Axial) FieldOfView(radius int, blocked Predicate[Axial]) *Axials {
 	return a.Cube().FieldOfView(radius, func(coord Cube) bool {
 		return blocked(coord.Axial())
 	}).Axials()
 }
-func (a Axial) FindPathBFS(target Axial, maxDistance int, blocked Predicate[Axial]) Axials {
+func (a Axial) FindPathBFS(target Axial, maxDistance int, blocked Predicate[Axial]) *Axials {
 	return a.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.Axial())
 	}).Axials()
@@ -119,27 +119,27 @@ func (d DoubleHeight) Add(other DoubleHeight) DoubleHeight {
 func (d DoubleHeight) Scale(factor int) DoubleHeight {
 	return d.Cube().Scale(factor).DoubleHeight()
 }
-func (d DoubleHeight) Neighbors() DoubleHeights {
+func (d DoubleHeight) Neighbors() *DoubleHeights {
 	return d.Cube().Neighbors().DoubleHeights()
 }
-func (d DoubleHeight) DiagonalNeighbors() DoubleHeights {
+func (d DoubleHeight) DiagonalNeighbors() *DoubleHeights {
 	return d.Cube().DiagonalNeighbors().DoubleHeights()
 }
 func (d DoubleHeight) DistanceTo(other DoubleHeight) int {
 	return d.Cube().DistanceTo(other.Cube())
 }
-func (d DoubleHeight) LineTo(other DoubleHeight) DoubleHeights {
+func (d DoubleHeight) LineTo(other DoubleHeight) *DoubleHeights {
 	return d.Cube().LineTo(other.Cube()).DoubleHeights()
 }
-func (d DoubleHeight) TraceTo(other DoubleHeight, blocked Predicate[DoubleHeight]) DoubleHeights {
+func (d DoubleHeight) TraceTo(other DoubleHeight, blocked Predicate[DoubleHeight]) *DoubleHeights {
 	return d.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
 		return blocked(coord.DoubleHeight())
 	}).DoubleHeights()
 }
-func (d DoubleHeight) MovementRange(n int) DoubleHeights {
+func (d DoubleHeight) MovementRange(n int) *DoubleHeights {
 	return d.Cube().MovementRange(n).DoubleHeights()
 }
-func (d DoubleHeight) FloodFill(n int, blocked Predicate[DoubleHeight]) DoubleHeights {
+func (d DoubleHeight) FloodFill(n int, blocked Predicate[DoubleHeight]) *DoubleHeights {
 	return d.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.DoubleHeight())
 	}).DoubleHeights()
@@ -156,15 +156,15 @@ func (d DoubleHeight) ReflectR() DoubleHeight {
 func (d DoubleHeight) ReflectS() DoubleHeight {
 	return d.Cube().ReflectS().DoubleHeight()
 }
-func (d DoubleHeight) Ring(radius int) DoubleHeights {
+func (d DoubleHeight) Ring(radius int) *DoubleHeights {
 	return d.Cube().Ring(radius).DoubleHeights()
 }
-func (d DoubleHeight) FieldOfView(radius int, blocked Predicate[DoubleHeight]) DoubleHeights {
+func (d DoubleHeight) FieldOfView(radius int, blocked Predicate[DoubleHeight]) *DoubleHeights {
 	return d.Cube().FieldOfView(radius, func(coord Cube) bool {
 		return blocked(coord.DoubleHeight())
 	}).DoubleHeights()
 }
-func (d DoubleHeight) FindPathBFS(target DoubleHeight, maxDistance int, blocked Predicate[DoubleHeight]) DoubleHeights {
+func (d DoubleHeight) FindPathBFS(target DoubleHeight, maxDistance int, blocked Predicate[DoubleHeight]) *DoubleHeights {
 	return d.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.DoubleHeight())
 	}).DoubleHeights()
@@ -202,27 +202,27 @@ func (d DoubleWidth) Add(other DoubleWidth) DoubleWidth {
 func (d DoubleWidth) Scale(factor int) DoubleWidth {
 	return d.Cube().Scale(factor).DoubleWidth()
 }
-func (d DoubleWidth) Neighbors() DoubleWidths {
+func (d DoubleWidth) Neighbors() *DoubleWidths {
 	return d.Cube().Neighbors().DoubleWidths()
 }
-func (d DoubleWidth) DiagonalNeighbors() DoubleWidths {
+func (d DoubleWidth) DiagonalNeighbors() *DoubleWidths {
 	return d.Cube().DiagonalNeighbors().DoubleWidths()
 }
 func (d DoubleWidth) DistanceTo(other DoubleWidth) int {
 	return d.Cube().DistanceTo(other.Cube())
 }
-func (d DoubleWidth) LineTo(other DoubleWidth) DoubleWidths {
+func (d DoubleWidth) LineTo(other DoubleWidth) *DoubleWidths {
 	return d.Cube().LineTo(other.Cube()).DoubleWidths()
 }
-func (d DoubleWidth) TraceTo(other DoubleWidth, blocked Predicate[DoubleWidth]) DoubleWidths {
+func (d DoubleWidth) TraceTo(other DoubleWidth, blocked Predicate[DoubleWidth]) *DoubleWidths {
 	return d.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
 		return blocked(coord.DoubleWidth())
 	}).DoubleWidths()
 }
-func (d DoubleWidth) MovementRange(n int) DoubleWidths {
+func (d DoubleWidth) MovementRange(n int) *DoubleWidths {
 	return d.Cube().MovementRange(n).DoubleWidths()
 }
-func (d DoubleWidth) FloodFill(n int, blocked Predicate[DoubleWidth]) DoubleWidths {
+func (d DoubleWidth) FloodFill(n int, blocked Predicate[DoubleWidth]) *DoubleWidths {
 	return d.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.DoubleWidth())
 	}).DoubleWidths()
@@ -239,15 +239,15 @@ func (d DoubleWidth) ReflectR() DoubleWidth {
 func (d DoubleWidth) ReflectS() DoubleWidth {
 	return d.Cube().ReflectS().DoubleWidth()
 }
-func (d DoubleWidth) Ring(radius int) DoubleWidths {
+func (d DoubleWidth) Ring(radius int) *DoubleWidths {
 	return d.Cube().Ring(radius).DoubleWidths()
 }
-func (d DoubleWidth) FieldOfView(radius int, blocked Predicate[DoubleWidth]) DoubleWidths {
+func (d DoubleWidth) FieldOfView(radius int, blocked Predicate[DoubleWidth]) *DoubleWidths {
 	return d.Cube().FieldOfView(radius, func(coord Cube) bool {
 		return blocked(coord.DoubleWidth())
 	}).DoubleWidths()
 }
-func (d DoubleWidth) FindPathBFS(target DoubleWidth, maxDistance int, blocked Predicate[DoubleWidth]) DoubleWidths {
+func (d DoubleWidth) FindPathBFS(target DoubleWidth, maxDistance int, blocked Predicate[DoubleWidth]) *DoubleWidths {
 	return d.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.DoubleWidth())
 	}).DoubleWidths()
@@ -285,27 +285,27 @@ func (e EvenQ) Add(other EvenQ) EvenQ {
 func (e EvenQ) Scale(factor int) EvenQ {
 	return e.Cube().Scale(factor).EvenQ()
 }
-func (e EvenQ) Neighbors() EvenQs {
+func (e EvenQ) Neighbors() *EvenQs {
 	return e.Cube().Neighbors().EvenQs()
 }
-func (e EvenQ) DiagonalNeighbors() EvenQs {
+func (e EvenQ) DiagonalNeighbors() *EvenQs {
 	return e.Cube().DiagonalNeighbors().EvenQs()
 }
 func (e EvenQ) DistanceTo(other EvenQ) int {
 	return e.Cube().DistanceTo(other.Cube())
 }
-func (e EvenQ) LineTo(other EvenQ) EvenQs {
+func (e EvenQ) LineTo(other EvenQ) *EvenQs {
 	return e.Cube().LineTo(other.Cube()).EvenQs()
 }
-func (e EvenQ) TraceTo(other EvenQ, blocked Predicate[EvenQ]) EvenQs {
+func (e EvenQ) TraceTo(other EvenQ, blocked Predicate[EvenQ]) *EvenQs {
 	return e.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
 		return blocked(coord.EvenQ())
 	}).EvenQs()
 }
-func (e EvenQ) MovementRange(n int) EvenQs {
+func (e EvenQ) MovementRange(n int) *EvenQs {
 	return e.Cube().MovementRange(n).EvenQs()
 }
-func (e EvenQ) FloodFill(n int, blocked Predicate[EvenQ]) EvenQs {
+func (e EvenQ) FloodFill(n int, blocked Predicate[EvenQ]) *EvenQs {
 	return e.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.EvenQ())
 	}).EvenQs()
@@ -322,15 +322,15 @@ func (e EvenQ) ReflectR() EvenQ {
 func (e EvenQ) ReflectS() EvenQ {
 	return e.Cube().ReflectS().EvenQ()
 }
-func (e EvenQ) Ring(radius int) EvenQs {
+func (e EvenQ) Ring(radius int) *EvenQs {
 	return e.Cube().Ring(radius).EvenQs()
 }
-func (e EvenQ) FieldOfView(radius int, blocked Predicate[EvenQ]) EvenQs {
+func (e EvenQ) FieldOfView(radius int, blocked Predicate[EvenQ]) *EvenQs {
 	return e.Cube().FieldOfView(radius, func(coord Cube) bool {
 		return blocked(coord.EvenQ())
 	}).EvenQs()
 }
-func (e EvenQ) FindPathBFS(target EvenQ, maxDistance int, blocked Predicate[EvenQ]) EvenQs {
+func (e EvenQ) FindPathBFS(target EvenQ, maxDistance int, blocked Predicate[EvenQ]) *EvenQs {
 	return e.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.EvenQ())
 	}).EvenQs()
@@ -368,27 +368,27 @@ func (e EvenR) Add(other EvenR) EvenR {
 func (e EvenR) Scale(factor int) EvenR {
 	return e.Cube().Scale(factor).EvenR()
 }
-func (e EvenR) Neighbors() EvenRs {
+func (e EvenR) Neighbors() *EvenRs {
 	return e.Cube().Neighbors().EvenRs()
 }
-func (e EvenR) DiagonalNeighbors() EvenRs {
+func (e EvenR) DiagonalNeighbors() *EvenRs {
 	return e.Cube().DiagonalNeighbors().EvenRs()
 }
 func (e EvenR) DistanceTo(other EvenR) int {
 	return e.Cube().DistanceTo(other.Cube())
 }
-func (e EvenR) LineTo(other EvenR) EvenRs {
+func (e EvenR) LineTo(other EvenR) *EvenRs {
 	return e.Cube().LineTo(other.Cube()).EvenRs()
 }
-func (e EvenR) TraceTo(other EvenR, blocked Predicate[EvenR]) EvenRs {
+func (e EvenR) TraceTo(other EvenR, blocked Predicate[EvenR]) *EvenRs {
 	return e.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
 		return blocked(coord.EvenR())
 	}).EvenRs()
 }
-func (e EvenR) MovementRange(n int) EvenRs {
+func (e EvenR) MovementRange(n int) *EvenRs {
 	return e.Cube().MovementRange(n).EvenRs()
 }
-func (e EvenR) FloodFill(n int, blocked Predicate[EvenR]) EvenRs {
+func (e EvenR) FloodFill(n int, blocked Predicate[EvenR]) *EvenRs {
 	return e.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.EvenR())
 	}).EvenRs()
@@ -405,15 +405,15 @@ func (e EvenR) ReflectR() EvenR {
 func (e EvenR) ReflectS() EvenR {
 	return e.Cube().ReflectS().EvenR()
 }
-func (e EvenR) Ring(radius int) EvenRs {
+func (e EvenR) Ring(radius int) *EvenRs {
 	return e.Cube().Ring(radius).EvenRs()
 }
-func (e EvenR) FieldOfView(radius int, blocked Predicate[EvenR]) EvenRs {
+func (e EvenR) FieldOfView(radius int, blocked Predicate[EvenR]) *EvenRs {
 	return e.Cube().FieldOfView(radius, func(coord Cube) bool {
 		return blocked(coord.EvenR())
 	}).EvenRs()
 }
-func (e EvenR) FindPathBFS(target EvenR, maxDistance int, blocked Predicate[EvenR]) EvenRs {
+func (e EvenR) FindPathBFS(target EvenR, maxDistance int, blocked Predicate[EvenR]) *EvenRs {
 	return e.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.EvenR())
 	}).EvenRs()
@@ -451,27 +451,27 @@ func (o OddQ) Add(other OddQ) OddQ {
 func (o OddQ) Scale(factor int) OddQ {
 	return o.Cube().Scale(factor).OddQ()
 }
-func (o OddQ) Neighbors() OddQs {
+func (o OddQ) Neighbors() *OddQs {
 	return o.Cube().Neighbors().OddQs()
 }
-func (o OddQ) DiagonalNeighbors() OddQs {
+func (o OddQ) DiagonalNeighbors() *OddQs {
 	return o.Cube().DiagonalNeighbors().OddQs()
 }
 func (o OddQ) DistanceTo(other OddQ) int {
 	return o.Cube().DistanceTo(other.Cube())
 }
-func (o OddQ) LineTo(other OddQ) OddQs {
+func (o OddQ) LineTo(other OddQ) *OddQs {
 	return o.Cube().LineTo(other.Cube()).OddQs()
 }
-func (o OddQ) TraceTo(other OddQ, blocked Predicate[OddQ]) OddQs {
+func (o OddQ) TraceTo(other OddQ, blocked Predicate[OddQ]) *OddQs {
 	return o.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
 		return blocked(coord.OddQ())
 	}).OddQs()
 }
-func (o OddQ) MovementRange(n int) OddQs {
+func (o OddQ) MovementRange(n int) *OddQs {
 	return o.Cube().MovementRange(n).OddQs()
 }
-func (o OddQ) FloodFill(n int, blocked Predicate[OddQ]) OddQs {
+func (o OddQ) FloodFill(n int, blocked Predicate[OddQ]) *OddQs {
 	return o.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.OddQ())
 	}).OddQs()
@@ -488,15 +488,15 @@ func (o OddQ) ReflectR() OddQ {
 func (o OddQ) ReflectS() OddQ {
 	return o.Cube().ReflectS().OddQ()
 }
-func (o OddQ) Ring(radius int) OddQs {
+func (o OddQ) Ring(radius int) *OddQs {
 	return o.Cube().Ring(radius).OddQs()
 }
-func (o OddQ) FieldOfView(radius int, blocked Predicate[OddQ]) OddQs {
+func (o OddQ) FieldOfView(radius int, blocked Predicate[OddQ]) *OddQs {
 	return o.Cube().FieldOfView(radius, func(coord Cube) bool {
 		return blocked(coord.OddQ())
 	}).OddQs()
 }
-func (o OddQ) FindPathBFS(target OddQ, maxDistance int, blocked Predicate[OddQ]) OddQs {
+func (o OddQ) FindPathBFS(target OddQ, maxDistance int, blocked Predicate[OddQ]) *OddQs {
 	return o.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.OddQ())
 	}).OddQs()
@@ -534,27 +534,27 @@ func (o OddR) Add(other OddR) OddR {
 func (o OddR) Scale(factor int) OddR {
 	return o.Cube().Scale(factor).OddR()
 }
-func (o OddR) Neighbors() OddRs {
+func (o OddR) Neighbors() *OddRs {
 	return o.Cube().Neighbors().OddRs()
 }
-func (o OddR) DiagonalNeighbors() OddRs {
+func (o OddR) DiagonalNeighbors() *OddRs {
 	return o.Cube().DiagonalNeighbors().OddRs()
 }
 func (o OddR) DistanceTo(other OddR) int {
 	return o.Cube().DistanceTo(other.Cube())
 }
-func (o OddR) LineTo(other OddR) OddRs {
+func (o OddR) LineTo(other OddR) *OddRs {
 	return o.Cube().LineTo(other.Cube()).OddRs()
 }
-func (o OddR) TraceTo(other OddR, blocked Predicate[OddR]) OddRs {
+func (o OddR) TraceTo(other OddR, blocked Predicate[OddR]) *OddRs {
 	return o.Cube().TraceTo(other.Cube(), func(coord Cube) bool {
 		return blocked(coord.OddR())
 	}).OddRs()
 }
-func (o OddR) MovementRange(n int) OddRs {
+func (o OddR) MovementRange(n int) *OddRs {
 	return o.Cube().MovementRange(n).OddRs()
 }
-func (o OddR) FloodFill(n int, blocked Predicate[OddR]) OddRs {
+func (o OddR) FloodFill(n int, blocked Predicate[OddR]) *OddRs {
 	return o.Cube().FloodFill(n, func(coord Cube) bool {
 		return blocked(coord.OddR())
 	}).OddRs()
@@ -571,15 +571,15 @@ func (o OddR) ReflectR() OddR {
 func (o OddR) ReflectS() OddR {
 	return o.Cube().ReflectS().OddR()
 }
-func (o OddR) Ring(radius int) OddRs {
+func (o OddR) Ring(radius int) *OddRs {
 	return o.Cube().Ring(radius).OddRs()
 }
-func (o OddR) FieldOfView(radius int, blocked Predicate[OddR]) OddRs {
+func (o OddR) FieldOfView(radius int, blocked Predicate[OddR]) *OddRs {
 	return o.Cube().FieldOfView(radius, func(coord Cube) bool {
 		return blocked(coord.OddR())
 	}).OddRs()
 }
-func (o OddR) FindPathBFS(target OddR, maxDistance int, blocked Predicate[OddR]) OddRs {
+func (o OddR) FindPathBFS(target OddR, maxDistance int, blocked Predicate[OddR]) *OddRs {
 	return o.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.OddR())
 	}).OddRs()

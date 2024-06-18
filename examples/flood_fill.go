@@ -12,15 +12,7 @@ func floodFillExample() {
 
 	grid, walls := createArena()
 	center := coord.NewAxial(-1, -1)
-	fill := center.FloodFill(3, func(coord coord.Axial) bool {
-		for _, wall := range walls {
-			if coord == wall {
-				return true
-			}
-		}
-
-		return false
-	})
+	fill := center.FloodFill(3, walls.Contains)
 
 	fig.AddCoords(grid)
 	fig.AddStyledCoords(walls, style.Color(colornames.Bisque))

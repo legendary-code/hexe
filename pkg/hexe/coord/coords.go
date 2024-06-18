@@ -5,51 +5,42 @@ import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 )
 
+// Coords represents an untyped set of coordinates
 type Coords interface {
 	Type() consts.CoordType
 	Convert(typ consts.CoordType) Coords
-	ToSlice() []Coord
-	Axials() Axials
-	Cubes() Cubes
-	OddRs() OddRs
-	EvenRs() EvenRs
-	OddQs() OddQs
-	EvenQs() EvenQs
-	DoubleWidths() DoubleWidths
-	DoubleHeights() DoubleHeights
+	Axials() *Axials
+	Cubes() *Cubes
+	OddRs() *OddRs
+	EvenRs() *EvenRs
+	OddQs() *OddQs
+	EvenQs() *EvenQs
+	DoubleWidths() *DoubleWidths
+	DoubleHeights() *DoubleHeights
 }
 
-type TCoordSlice[T Coord] interface {
-	~[]T
+type CCoords interface {
+	Coords
+	*Axials | *Cubes | *DoubleHeights | *DoubleWidths | *EvenQs | *EvenRs | *OddQs | *OddRs
 }
 
-type TCoords[T Coord, TS TCoordSlice[T]] interface {
-	~[]T
-	Copy() TS
-	Sort() TS
-	UnionWith(other TS) TS
-	IntersectWith(other TS) TS
-	DifferenceWith(other TS) TS
+type TCoords[T CCoord, TS CCoords] interface {
+	Coords
+	OrderedSet[T, TS]
 	Rotate(center T, angle int) TS
 	ReflectQ() TS
 	ReflectR() TS
 	ReflectS() TS
 }
 
-func castAs[F Coord, T Coord](values []F, convertFunc func(F) T) []T {
-	result := make([]T, len(values))
-	for i := 0; i < len(values); i++ {
-		result[i] = convertFunc(values[i])
+func castAs[F comparable, FS any, T comparable, TS any](
+	values OrderedSet[F, FS], convertFunc func(F) T, ctorFunc func(...T) TS,
+) TS {
+	result := make([]T, values.Size())
+	for i := values.Iterator(); i.Next(); {
+		result[i.Index()] = convertFunc(i.Item())
 	}
-	return result
-}
-
-func toCoords[T Coord, TS TCoords[T, TS]](coords TS) []Coord {
-	cs := make([]Coord, len(coords))
-	for i, c := range coords {
-		cs[i] = c
-	}
-	return cs
+	return ctorFunc(result...)
 }
 
 func convertCoords[F Coords](values F, typ consts.CoordType) Coords {
@@ -77,10 +68,10 @@ func convertCoords[F Coords](values F, typ consts.CoordType) Coords {
 
 func NewCoords(coords []Coord) Coords {
 	if len(coords) == 0 {
-		return Empty{}
+		return NewEmpty()
 	}
 
-	a := make(Axials, len(coords))
+	a := make([]Axial, len(coords))
 	typ := coords[0].Type()
 
 	for i, coord := range coords {
@@ -91,5 +82,5 @@ func NewCoords(coords []Coord) Coords {
 		typ = coord.Type()
 	}
 
-	return a.Convert(typ)
+	return NewAxials(a...).Convert(typ)
 }

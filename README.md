@@ -179,20 +179,26 @@ import (
 
 func setsExample() {
 	// Create a set of axial coordinates
-	a := coord.Axials{
+	a := coord.NewAxials(
 		coord.NewAxial(0, 0),
 		coord.NewAxial(0, 1),
 		coord.NewAxial(1, 0),
 		coord.NewAxial(1, 1),
-	}
+	)
 
 	// Convert them to cube coordinates
 	c := a.Cubes()
 
 	// You can iterate over them
-	for _, v := range c {
-		fmt.Println(v)
+	for iter := c.Iterator(); iter.Next(); {
+		fmt.Println(iter.Item())
 	}
+
+	// Another way to iterate
+	c.ForEach(func(v coord.Cube) bool {
+		fmt.Println(v)
+		return true
+	})
 }
 ```
 
@@ -229,13 +235,13 @@ func plotExample() {
 	)
 
 	fig.AddStyledCoords(
-		coord.Axials{
+		coord.NewAxials(
 			coord.NewAxial(0, 0),
 			coord.NewAxial(1, 0),
 			coord.NewAxial(1, -1),
 			coord.NewAxial(0, -1),
 			coord.NewAxial(-1, 0),
-		},
+		),
 		landStyle,
 	)
 
@@ -398,15 +404,7 @@ func traceToExample() {
 	grid, walls := createArena()
 	from := coord.NewAxial(-1, -1)
 	to := coord.NewAxial(0, 2)
-	trace := from.TraceTo(to, func(coord coord.Axial) bool {
-		for _, wall := range walls {
-			if coord == wall {
-				return true
-			}
-		}
-
-		return false
-	})
+	trace := from.TraceTo(to, walls.Contains)
 
 	fig.AddCoords(grid)
 	fig.AddStyledCoords(walls, style.Color(colornames.Bisque))
@@ -439,15 +437,7 @@ func floodFillExample() {
 
 	grid, walls := createArena()
 	center := coord.NewAxial(-1, -1)
-	fill := center.FloodFill(3, func(coord coord.Axial) bool {
-		for _, wall := range walls {
-			if coord == wall {
-				return true
-			}
-		}
-
-		return false
-	})
+	fill := center.FloodFill(3, walls.Contains)
 
 	fig.AddCoords(grid)
 	fig.AddStyledCoords(walls, style.Color(colornames.Bisque))
@@ -575,18 +565,7 @@ func fieldOfViewExample() {
 	grid, walls := createArena()
 
 	person := coord.NewAxial(-1, 2)
-
-	blocked := func(coord coord.Axial) bool {
-		for _, wall := range walls {
-			if wall == coord {
-				return true
-			}
-		}
-
-		return false
-	}
-
-	fov := person.FieldOfView(3, blocked)
+	fov := person.FieldOfView(3, walls.Contains)
 
 	wallStyle := style.Color(colornames.Bisque)
 	fovStyle := style.Color(color.RGBA{R: 0xdd, G: 0xff, B: 0xdd, A: 0xff})
@@ -625,18 +604,7 @@ func findPathBfsExample() {
 
 	person := coord.NewAxial(-2, 0)
 	target := coord.NewAxial(-2, 2)
-
-	blocked := func(coord coord.Axial) bool {
-		for _, wall := range walls {
-			if wall == coord {
-				return true
-			}
-		}
-
-		return false
-	}
-
-	path := person.FindPathBFS(target, 20, blocked)
+	path := person.FindPathBFS(target, 20, walls.Contains)
 
 	wallStyle := style.Color(colornames.Bisque)
 	pathStyle := style.Color(colornames.Lightblue).FontSize(40)

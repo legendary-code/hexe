@@ -1,0 +1,43 @@
+package hexe
+
+
+import "github.com/legendary-code/hexe/pkg/hexe/coord"
+
+type GCoordGrid[T any] Grid[T, coord.GCoord, *coord.GCoords]
+
+type gCoordGrid[T any] struct {
+    *grid[T, coord.GCoord, *coord.GCoords]
+}
+
+func NewGCoordGrid[T any](options ...Option[T]) GCoordGrid[T] {
+    return &gCoordGrid[T]{
+        grid: newGrid[T, coord.GCoord, *coord.GCoords](options...),
+    }
+}
+
+func newGCoordGrid[T any, C coord.CCoord, CS coord.CCoords](grid *grid[T, C, CS]) GCoordGrid[T] {
+    return &gCoordGrid[T]{
+        grid: convertGrid[T, C, CS, coord.GCoord, *coord.GCoords](grid),
+    }
+}
+
+func (g *gCoordGrid[T]) Get(index coord.GCoord) T {
+    return g.grid.get(index)
+}
+
+func (g *gCoordGrid[T]) GetAll(index *coord.GCoords) Items[T, coord.GCoord] {
+    return g.grid.getAll(index)
+}
+
+func (g *gCoordGrid[T]) Index(index coord.GCoord) (T, bool) {
+    return g.grid.index(index)
+}
+
+func (g *gCoordGrid[T]) Set(index coord.GCoord, value T) {
+    g.grid.set(index, value)
+}
+
+func (g *gCoordGrid[T]) Delete(index coord.GCoord) {
+    g.grid.delete(index)
+}
+

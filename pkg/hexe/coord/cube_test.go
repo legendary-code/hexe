@@ -18,18 +18,16 @@ func TestCube_Neighbor(t *testing.T) {
 }
 
 func TestCube_Neighbors(t *testing.T) {
-	assert.Equal(
-		t,
-		Cubes{
-			NewCube(2, 1, -3),
-			NewCube(1, 2, -3),
-			NewCube(0, 2, -2),
-			NewCube(0, 1, -1),
-			NewCube(1, 0, -1),
-			NewCube(2, 0, -2),
-		},
-		NewCube(1, 1, -2).Neighbors(),
+	expected := NewCubes(
+		NewCube(2, 1, -3),
+		NewCube(1, 2, -3),
+		NewCube(0, 2, -2),
+		NewCube(0, 1, -1),
+		NewCube(1, 0, -1),
+		NewCube(2, 0, -2),
 	)
+	actual := NewCube(1, 1, -2).Neighbors()
+	assert.True(t, expected.Equal(actual))
 }
 
 func TestCube_DistanceTo(t *testing.T) {
@@ -38,28 +36,28 @@ func TestCube_DistanceTo(t *testing.T) {
 }
 
 func TestCube_LineTo(t *testing.T) {
-	expected := Cubes{
+	expected := NewCubes(
 		NewCube(-1, -1, 2),
 		NewCube(-1, 0, 1),
 		NewCube(0, 0, 0),
 		NewCube(0, 1, -1),
 		NewCube(1, 1, -2),
 		NewCube(1, 2, -3),
-	}
+	)
 	actual := NewCube(-1, -1, 2).LineTo(NewCube(1, 2, -3))
-	assert.Equal(t, expected, actual)
+	assert.True(t, expected.Equal(actual))
 }
 
 func TestCube_TraceTo(t *testing.T) {
-	expected := Cubes{
+	expected := NewCubes(
 		NewCube(-1, -1, 2),
 		NewCube(-1, 0, 1),
 		NewCube(0, 0, 0),
-	}
+	)
 	actual := NewCube(-1, -1, 2).TraceTo(NewCube(1, 2, -3), func(coord Cube) bool {
 		return coord.Q() > 0 || coord.R() > 0
 	})
-	assert.Equal(t, expected, actual)
+	assert.True(t, expected.Equal(actual))
 }
 
 func TestCube_FloodFill(t *testing.T) {
@@ -68,8 +66,8 @@ func TestCube_FloodFill(t *testing.T) {
 		return coord.Q()+coord.R() == 0
 	}
 
-	actual := NewCube(1, 0, -1).FloodFill(n, blockedFunc).Sort()
-	expected := Cubes{
+	actual := NewCube(1, 0, -1).FloodFill(n, blockedFunc)
+	expected := NewCubes(
 		NewCube(-1, 2, -1),
 		NewCube(0, 1, -1),
 		NewCube(0, 2, -2),
@@ -82,8 +80,8 @@ func TestCube_FloodFill(t *testing.T) {
 		NewCube(3, -2, -1),
 		NewCube(3, -1, -2),
 		NewCube(3, 0, -3),
-	}
-	assert.Equal(t, expected, actual)
+	)
+	assert.True(t, expected.SetEqual(actual))
 }
 
 func TestCube_ReflectQ(t *testing.T) {
@@ -102,7 +100,7 @@ func TestCube_ReflectS(t *testing.T) {
 }
 
 func TestCube_Ring(t *testing.T) {
-	expected := Cubes{
+	expected := NewCubes(
 		NewCube(1, -1, 0),
 		NewCube(2, -1, -1),
 		NewCube(3, -1, -2),
@@ -121,13 +119,13 @@ func TestCube_Ring(t *testing.T) {
 		NewCube(-2, 2, 0),
 		NewCube(-1, 1, 0),
 		NewCube(0, 0, 0),
-	}
+	)
 	actual := NewCube(1, 2, -3).Ring(3)
-	assert.Equal(t, expected, actual)
+	assert.True(t, expected.Equal(actual))
 }
 
 func TestCube_FieldOfView(t *testing.T) {
-	expected := Cubes{
+	expected := NewCubes(
 		NewCube(0, 1, -1),
 		NewCube(0, 2, -2),
 		NewCube(0, 3, -3),
@@ -144,15 +142,15 @@ func TestCube_FieldOfView(t *testing.T) {
 		NewCube(3, 0, -3),
 		NewCube(3, 1, -4),
 		NewCube(3, 2, -5),
-	}
+	)
 	actual := NewCube(1, 2, -3).FieldOfView(2, func(coord Cube) bool {
 		return coord.Q() < 0 || coord.R() < 0
 	})
-	assert.Equal(t, expected, actual.Sort())
+	assert.True(t, expected.SetEqual(actual))
 }
 
 func TestCube_FindPathBFS(t *testing.T) {
-	expected := Cubes{
+	expected := NewCubes(
 		NewCube(1, 2, -3),
 		NewCube(2, 2, -4),
 		NewCube(3, 2, -5),
@@ -160,9 +158,9 @@ func TestCube_FindPathBFS(t *testing.T) {
 		NewCube(5, 2, -7),
 		NewCube(6, 2, -8),
 		NewCube(6, 3, -9),
-	}
+	)
 	actual := NewCube(1, 2, -3).FindPathBFS(NewCube(6, 3, -9), 10, func(coord Cube) bool {
 		return coord.Q() < 0 || coord.R() < 0
 	})
-	assert.Equal(t, expected, actual.Sort())
+	assert.True(t, expected.Equal(actual))
 }
