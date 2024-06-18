@@ -94,6 +94,18 @@ func processTemplate(templateFile string) {
 			return true
 		})
 
+		ast.Inspect(file, func(node ast.Node) bool {
+			lit, ok := node.(*ast.BasicLit)
+			if !ok {
+				return true
+			}
+
+			if lit.Kind == token.STRING {
+				lit.Value = strings.ReplaceAll(lit.Value, GCoord, coordTypeName)
+			}
+			return true
+		})
+
 		// Write func decls to file
 		ast.Inspect(file, func(node ast.Node) bool {
 			funcDecl, ok := node.(*ast.FuncDecl)

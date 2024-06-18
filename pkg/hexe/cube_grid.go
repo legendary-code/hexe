@@ -25,7 +25,7 @@ func (c *cubeGrid[T]) Get(index coord.Cube) T {
 }
 
 func (c *cubeGrid[T]) GetAll(indices *coord.Cubes) Items[T, coord.Cube] {
-	return c.grid.getAll(indices)
+	return c.grid.getAll(indices, coord.Axial.Cube)
 }
 
 func (c *cubeGrid[T]) Index(index coord.Cube) (T, bool) {

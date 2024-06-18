@@ -2,7 +2,10 @@
 
 package coord
 
-import "github.com/legendary-code/hexe/pkg/hexe/consts"
+import (
+	"fmt"
+	"github.com/legendary-code/hexe/pkg/hexe/consts"
+)
 
 type Axial [2]int
 
@@ -85,6 +88,9 @@ func (a Axial) FindPathBFS(target Axial, maxDistance int, blocked Predicate[Axia
 	return a.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.Axial())
 	}).Axials()
+}
+func (a Axial) String() string {
+	return fmt.Sprintf("Axial(%d,%d)", a[0], a[1])
 }
 
 type DoubleHeight [2]int
@@ -169,6 +175,9 @@ func (d DoubleHeight) FindPathBFS(target DoubleHeight, maxDistance int, blocked 
 		return blocked(coord.DoubleHeight())
 	}).DoubleHeights()
 }
+func (d DoubleHeight) String() string {
+	return fmt.Sprintf("DoubleHeight(%d,%d)", d[0], d[1])
+}
 
 type DoubleWidth [2]int
 
@@ -251,6 +260,9 @@ func (d DoubleWidth) FindPathBFS(target DoubleWidth, maxDistance int, blocked Pr
 	return d.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.DoubleWidth())
 	}).DoubleWidths()
+}
+func (d DoubleWidth) String() string {
+	return fmt.Sprintf("DoubleWidth(%d,%d)", d[0], d[1])
 }
 
 type EvenQ [2]int
@@ -335,6 +347,9 @@ func (e EvenQ) FindPathBFS(target EvenQ, maxDistance int, blocked Predicate[Even
 		return blocked(coord.EvenQ())
 	}).EvenQs()
 }
+func (e EvenQ) String() string {
+	return fmt.Sprintf("EvenQ(%d,%d)", e[0], e[1])
+}
 
 type EvenR [2]int
 
@@ -417,6 +432,9 @@ func (e EvenR) FindPathBFS(target EvenR, maxDistance int, blocked Predicate[Even
 	return e.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.EvenR())
 	}).EvenRs()
+}
+func (e EvenR) String() string {
+	return fmt.Sprintf("EvenR(%d,%d)", e[0], e[1])
 }
 
 type OddQ [2]int
@@ -501,6 +519,9 @@ func (o OddQ) FindPathBFS(target OddQ, maxDistance int, blocked Predicate[OddQ])
 		return blocked(coord.OddQ())
 	}).OddQs()
 }
+func (o OddQ) String() string {
+	return fmt.Sprintf("OddQ(%d,%d)", o[0], o[1])
+}
 
 type OddR [2]int
 
@@ -583,4 +604,7 @@ func (o OddR) FindPathBFS(target OddR, maxDistance int, blocked Predicate[OddR])
 	return o.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
 		return blocked(coord.OddR())
 	}).OddRs()
+}
+func (o OddR) String() string {
+	return fmt.Sprintf("OddR(%d,%d)", o[0], o[1])
 }

@@ -1,6 +1,7 @@
 package coord
 
 import (
+	"fmt"
 	"github.com/legendary-code/hexe/internal/hexe/check"
 	hm "github.com/legendary-code/hexe/internal/hexe/math"
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
@@ -281,4 +282,8 @@ func (c Cube) FindPathBFS(target Cube, maxDistance int, blocked Predicate[Cube])
 	}
 
 	return NewCubes()
+}
+
+func (c Cube) String() string {
+	return fmt.Sprintf("Cube(%d,%d,%d)", c[0], c[1], c[2])
 }

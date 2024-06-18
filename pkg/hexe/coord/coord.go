@@ -10,6 +10,7 @@ import (
 
 // Coord represents an untyped hex coordinate
 type Coord interface {
+	fmt.Stringer
 	Type() consts.CoordType
 	Convert(typ consts.CoordType) Coord
 	Axial() Axial

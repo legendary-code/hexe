@@ -19,7 +19,7 @@ func (a *axialGrid[T]) Get(index coord.Axial) T {
 	return a.grid.get(index)
 }
 func (a *axialGrid[T]) GetAll(index *coord.Axials) Items[T, coord.Axial] {
-	return a.grid.getAll(index)
+	return a.grid.getAll(index, coord.Axial.Axial)
 }
 func (a *axialGrid[T]) Index(index coord.Axial) (T, bool) {
 	return a.grid.index(index)
@@ -46,7 +46,7 @@ func (d *doubleHeightGrid[T]) Get(index coord.DoubleHeight) T {
 	return d.grid.get(index)
 }
 func (d *doubleHeightGrid[T]) GetAll(index *coord.DoubleHeights) Items[T, coord.DoubleHeight] {
-	return d.grid.getAll(index)
+	return d.grid.getAll(index, coord.Axial.DoubleHeight)
 }
 func (d *doubleHeightGrid[T]) Index(index coord.DoubleHeight) (T, bool) {
 	return d.grid.index(index)
@@ -73,7 +73,7 @@ func (d *doubleWidthGrid[T]) Get(index coord.DoubleWidth) T {
 	return d.grid.get(index)
 }
 func (d *doubleWidthGrid[T]) GetAll(index *coord.DoubleWidths) Items[T, coord.DoubleWidth] {
-	return d.grid.getAll(index)
+	return d.grid.getAll(index, coord.Axial.DoubleWidth)
 }
 func (d *doubleWidthGrid[T]) Index(index coord.DoubleWidth) (T, bool) {
 	return d.grid.index(index)
@@ -100,7 +100,7 @@ func (e *evenQGrid[T]) Get(index coord.EvenQ) T {
 	return e.grid.get(index)
 }
 func (e *evenQGrid[T]) GetAll(index *coord.EvenQs) Items[T, coord.EvenQ] {
-	return e.grid.getAll(index)
+	return e.grid.getAll(index, coord.Axial.EvenQ)
 }
 func (e *evenQGrid[T]) Index(index coord.EvenQ) (T, bool) {
 	return e.grid.index(index)
@@ -127,7 +127,7 @@ func (e *evenRGrid[T]) Get(index coord.EvenR) T {
 	return e.grid.get(index)
 }
 func (e *evenRGrid[T]) GetAll(index *coord.EvenRs) Items[T, coord.EvenR] {
-	return e.grid.getAll(index)
+	return e.grid.getAll(index, coord.Axial.EvenR)
 }
 func (e *evenRGrid[T]) Index(index coord.EvenR) (T, bool) {
 	return e.grid.index(index)
@@ -154,7 +154,7 @@ func (o *oddQGrid[T]) Get(index coord.OddQ) T {
 	return o.grid.get(index)
 }
 func (o *oddQGrid[T]) GetAll(index *coord.OddQs) Items[T, coord.OddQ] {
-	return o.grid.getAll(index)
+	return o.grid.getAll(index, coord.Axial.OddQ)
 }
 func (o *oddQGrid[T]) Index(index coord.OddQ) (T, bool) {
 	return o.grid.index(index)
@@ -181,7 +181,7 @@ func (o *oddRGrid[T]) Get(index coord.OddR) T {
 	return o.grid.get(index)
 }
 func (o *oddRGrid[T]) GetAll(index *coord.OddRs) Items[T, coord.OddR] {
-	return o.grid.getAll(index)
+	return o.grid.getAll(index, coord.Axial.OddR)
 }
 func (o *oddRGrid[T]) Index(index coord.OddR) (T, bool) {
 	return o.grid.index(index)

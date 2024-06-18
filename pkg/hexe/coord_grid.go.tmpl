@@ -26,7 +26,7 @@ func (g *gCoordGrid[T]) Get(index coord.GCoord) T {
 }
 
 func (g *gCoordGrid[T]) GetAll(index *coord.GCoords) Items[T, coord.GCoord] {
-    return g.grid.getAll(index)
+    return g.grid.getAll(index, coord.Axial.GCoord)
 }
 
 func (g *gCoordGrid[T]) Index(index coord.GCoord) (T, bool) {

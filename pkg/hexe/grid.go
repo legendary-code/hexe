@@ -6,13 +6,28 @@ import "github.com/legendary-code/hexe/pkg/hexe/coord"
 //go:generate go fmt .
 
 type Grid[T any, C coord.CCoord, CS coord.CCoords] interface {
+	// Axial converts the grid to coord.Axial coordinates
 	Axial() AxialGrid[T]
+
+	// Cube converts the grid to coord.Cube coordinates
 	Cube() CubeGrid[T]
+
+	// EvenQ converts the grid to coord.EvenQ coordinates
 	EvenQ() EvenQGrid[T]
+
+	// EvenR converts the grid to coord.EvenR coordinates
 	EvenR() EvenRGrid[T]
+
+	// OddQ converts the grid to coord.OddQ coordinates
 	OddQ() OddQGrid[T]
+
+	// OddR converts the grid to coord.OddR coordinates
 	OddR() OddRGrid[T]
+
+	// DoubleWidth converts the grid to coord.DoubleWidth coordinates
 	DoubleWidth() DoubleWidthGrid[T]
+
+	// DoubleHeight converts the grid to coord.DoubleHeight coordinates
 	DoubleHeight() DoubleHeightGrid[T]
 
 	// Get returns item at given coordinate
@@ -65,8 +80,15 @@ func (g *grid[T, C, CS]) get(index C) T {
 	return g.items[index.Axial()]
 }
 
-func (g *grid[T, C, CS]) getAll(indices CS) Items[T, C] {
-	return nil
+func (g *grid[T, C, CS]) getAll(indices CS, convertFunc func(axial coord.Axial) C) Items[T, C] {
+	m := make(Items[T, C])
+	for i := indices.Axials().Iterator(); i.Next(); {
+		item, ok := g.items[i.Item()]
+		if ok {
+			m[convertFunc(i.Item())] = item
+		}
+	}
+	return m
 }
 
 func (g *grid[T, C, CS]) index(index C) (T, bool) {

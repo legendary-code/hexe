@@ -1,6 +1,9 @@
 package coord
 
-import "github.com/legendary-code/hexe/pkg/hexe/consts"
+import (
+    "fmt"
+    "github.com/legendary-code/hexe/pkg/hexe/consts"
+)
 
 type GCoord [2]int
 
@@ -106,4 +109,8 @@ func (g GCoord) FindPathBFS(target GCoord, maxDistance int, blocked Predicate[GC
     return g.Cube().FindPathBFS(target.Cube(), maxDistance, func(coord Cube) bool {
         return blocked(coord.GCoord())
     }).GCoords()
+}
+
+func (g GCoord) String() string {
+    return fmt.Sprintf("GCoord(%d,%d)", g[0], g[1])
 }

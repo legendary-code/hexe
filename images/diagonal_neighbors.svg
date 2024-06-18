@@ -27,7 +27,13 @@
     .style-1 {
         fill: #add8e6ff;
     }
-</style><g class="style-1" transform="translate(0,300),rotate(-30)">
+</style><g class="style-1" transform="translate(259.8076211353316,150),rotate(-30)">
+    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
+    </polygon>
+    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
+    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
+    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
+</g><g class="style-1" transform="translate(0,300),rotate(-30)">
     <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
     </polygon>
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">-1</text>
@@ -63,11 +69,5 @@
     <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">q</text>
     <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">r</text>
     <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">s</text>
-</g><g class="style-1" transform="translate(259.8076211353316,150),rotate(-30)">
-    <polygon points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87">
-    </polygon>
-    <text transform="rotate(-90) translate(60, 0) rotate(90) rotate(30) translate(0,10)" class="q">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, 52) rotate(90) rotate(30) translate(0,10)" class="r">&#43;1</text>
-    <text transform="rotate(-90) translate(-30, -52) rotate(90) rotate(30) translate(0,10)" class="s">-2</text>
 </g>
 </svg>
