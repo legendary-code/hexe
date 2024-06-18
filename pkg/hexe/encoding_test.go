@@ -1,15 +1,12 @@
 package hexe
 
-type testEncoder struct {
+type testCodec struct {
 }
 
-func (e *testEncoder) Encode(value string) []byte {
-	return []byte(value)
+func (e *testCodec) Encode(value string) ([]byte, error) {
+	return []byte(value), nil
 }
 
-type testDecoder struct {
-}
-
-func (e *testDecoder) Decode(value []byte) string {
-	return string(value)
+func (e *testCodec) Decode(value []byte) (string, error) {
+	return string(value), nil
 }

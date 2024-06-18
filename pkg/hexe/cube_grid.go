@@ -39,3 +39,7 @@ func (c *cubeGrid[T]) Set(index coord.Cube, value T) {
 func (c *cubeGrid[T]) Delete(index coord.Cube) {
 	c.grid.delete(index)
 }
+
+func (c *cubeGrid[T]) Iterator() GridIterator[T, coord.Cube, *coord.Cubes] {
+	return c.iterator(coord.Axial.Cube)
+}

@@ -8,15 +8,14 @@ var examples = []func(){diagonalNeighborsExample, fieldOfViewExample, findPathBf
 
 	floodFillExample,
 
-	gridExample, instantiationExample, lineToExample,
+	gridExample, gridPersistenceExample, instantiationExample,
+
+	lineToExample,
 
 	mathFunctionsExample,
+	movementRangeExample, neighborsExample,
 
-	movementRangeExample,
-	neighborsExample, plotExample,
-	reflectExample,
-
-	ringExample, rotateExample, setsExample, traceToExample}
+	plotExample, reflectExample, ringExample, rotateExample, setsExample, traceToExample}
 
 func main() {
 	for _, example := range examples {

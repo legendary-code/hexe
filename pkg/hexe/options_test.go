@@ -7,8 +7,8 @@ import (
 
 func TestNewGridOptions(t *testing.T) {
 	ag := NewAxialGrid[string](
-		WithEncoder[string](&testEncoder{}),
-		WithDecoder[string](&testDecoder{}),
+		WithEncoder[string](&testCodec{}),
+		WithDecoder[string](&testCodec{}),
 	)
 	a, ok := ag.(*axialGrid[string])
 	if !ok {

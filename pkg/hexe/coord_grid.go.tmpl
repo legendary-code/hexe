@@ -41,3 +41,6 @@ func (g *gCoordGrid[T]) Delete(index coord.GCoord) {
     g.grid.delete(index)
 }
 
+func (g *gCoordGrid[T]) Iterator() GridIterator[T, coord.GCoord, *coord.GCoords] {
+    return g.iterator(coord.Axial.GCoord)
+}

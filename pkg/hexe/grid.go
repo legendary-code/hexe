@@ -1,9 +1,16 @@
 package hexe
 
-import "github.com/legendary-code/hexe/pkg/hexe/coord"
+import (
+	"encoding/binary"
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"golang.org/x/exp/maps"
+	"io"
+)
 
 //go:generate go run ../../internal/hexe/gen/coords
 //go:generate go fmt .
+
+var byteOrder = binary.BigEndian
 
 type Grid[T any, C coord.CCoord, CS coord.CCoords] interface {
 	// Axial converts the grid to coord.Axial coordinates
@@ -44,6 +51,18 @@ type Grid[T any, C coord.CCoord, CS coord.CCoords] interface {
 
 	// Delete deletes an item at the given coordinate
 	Delete(index C)
+
+	// Clear removes all items from the grid
+	Clear()
+
+	// Encode grid to given writer
+	Encode(w io.Writer) error
+
+	// Decode grid from reader, merging loaded values into current grid
+	Decode(r io.Reader) error
+
+	// Iterator returns an iterator for iterating over the grid coordinate and values
+	Iterator() GridIterator[T, C, CS]
 }
 
 type grid[T any, C coord.CCoord, CS coord.CCoords] struct {
@@ -136,4 +155,17 @@ func (g *grid[T, C, CS]) OddQ() OddQGrid[T] {
 
 func (g *grid[T, C, CS]) OddR() OddRGrid[T] {
 	return newOddRGrid(g)
+}
+
+func (g *grid[T, C, CS]) Clear() {
+	g.items = make(map[coord.Axial]T)
+}
+
+func (g *grid[T, C, CS]) iterator(convertFunc func(axial coord.Axial) C) GridIterator[T, C, CS] {
+	return &gridIterator[T, C, CS]{
+		grid:        g,
+		convertFunc: convertFunc,
+		indices:     maps.Keys(g.items),
+		index:       -1,
+	}
 }

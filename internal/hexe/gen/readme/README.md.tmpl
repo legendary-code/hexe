@@ -149,10 +149,23 @@ Field of view casts out rays in all directions from a given coordinate to genera
 
 {{ example "field_of_view" }}
 
-### Find Path (Breadth First Search)
+### Find Path - Breadth First Search
 You can perform basic pathfinding with the breadth first search functionality
 
 {{ example "find_path_bfs" }}
+
+{{ backToTop }}
+
+## Grid
+The library also provides a basic `Grid[C coords.Coord]` collection type for storing and querying values by coordinates.
+
+### Grid Operations
+{{ example "grid" }}
+
+### Grid Persistence
+You can also persist and load grids to any `io.Writer`/`io.Reader`
+
+{{ example "grid_persistence" }}
 
 {{ backToTop }}
 

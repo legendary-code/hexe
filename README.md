@@ -52,7 +52,14 @@
 				<li><a href="#reflect">Reflect</a></li>
 				<li><a href="#ring">Ring</a></li>
 				<li><a href="#field-of-view">Field Of View</a></li>
-				<li><a href="#find-path-(breadth-first-search)">Find Path (Breadth First Search)</a></li>
+				<li><a href="#find-path---breadth-first-search">Find Path - Breadth First Search</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#grid">Grid</a>
+			<ul>
+				<li><a href="#grid-operations">Grid Operations</a></li>
+				<li><a href="#grid-persistence">Grid Persistence</a></li>
 			</ul>
 		</li>
 		</li>
@@ -584,7 +591,7 @@ func fieldOfViewExample() {
 
 
 
-### Find Path (Breadth First Search)
+### Find Path - Breadth First Search
 You can perform basic pathfinding with the breadth first search functionality
 
 [find_path_bfs.go](https://github.com/legendary-code/hexe/blob/main/examples/find_path_bfs.go)
@@ -623,6 +630,104 @@ func findPathBfsExample() {
 #### Output:
 ![Example](images/find_path_bfs.svg)
 
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Grid
+The library also provides a basic `Grid[C coords.Coord]` collection type for storing and querying values by coordinates.
+
+### Grid Operations
+[grid.go](https://github.com/legendary-code/hexe/blob/main/examples/grid.go)
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/legendary-code/hexe/pkg/hexe"
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+)
+
+func gridExample() {
+	grid := hexe.NewAxialGrid[string]()
+
+	// set some values
+	coords := coord.ZeroAxial().MovementRange(2)
+	for i := coords.Iterator(); i.Next(); {
+		c := i.Item()
+		grid.Set(c, fmt.Sprintf("%d", c.Q()+c.R()))
+	}
+
+	// remove the center value
+	grid.Delete(coord.ZeroAxial())
+
+	// get values for a line
+	line := coord.NewAxial(1, 1).LineTo(coord.NewAxial(-1, -1))
+	values := grid.GetAll(line)
+
+	// print it out
+	for c, value := range values {
+		fmt.Printf("%v => %s\n", c, value)
+	}
+}
+```
+
+
+### Grid Persistence
+You can also persist and load grids to any `io.Writer`/`io.Reader`
+
+[grid_persistence.go](https://github.com/legendary-code/hexe/blob/main/examples/grid_persistence.go)
+```go
+package main
+
+import (
+	"fmt"
+	"github.com/legendary-code/hexe/pkg/hexe"
+	"github.com/legendary-code/hexe/pkg/hexe/coord"
+	"strings"
+)
+
+type StringEncoderDecoder struct {
+}
+
+func (s *StringEncoderDecoder) Encode(value string) ([]byte, error) {
+	return []byte(value), nil
+}
+
+func (s *StringEncoderDecoder) Decode(bytes []byte) (string, error) {
+	return string(bytes), nil
+}
+
+func gridPersistenceExample() {
+	codec := &StringEncoderDecoder{}
+	grid := hexe.NewAxialGrid[string](
+		hexe.WithEncoder[string](codec),
+		hexe.WithDecoder[string](codec),
+	)
+
+	grid.Set(coord.NewAxial(0, 1), "foo")
+	grid.Set(coord.NewAxial(1, 0), "bar")
+
+	sb := strings.Builder{}
+
+	err := grid.Encode(&sb)
+	if err != nil {
+		panic(err)
+	}
+
+	grid.Clear()
+
+	r := strings.NewReader(sb.String())
+	err = grid.Decode(r)
+	if err != nil {
+		panic(err)
+	}
+
+	for i := grid.Iterator(); i.Next(); {
+		fmt.Printf("%v => %s\n", i.Index(), i.Item())
+	}
+}
+```
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

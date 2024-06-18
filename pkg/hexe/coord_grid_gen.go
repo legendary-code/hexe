@@ -30,6 +30,9 @@ func (a *axialGrid[T]) Set(index coord.Axial, value T) {
 func (a *axialGrid[T]) Delete(index coord.Axial) {
 	a.grid.delete(index)
 }
+func (a *axialGrid[T]) Iterator() GridIterator[T, coord.Axial, *coord.Axials] {
+	return a.iterator(coord.Axial.Axial)
+}
 
 type DoubleHeightGrid[T any] Grid[T, coord.DoubleHeight, *coord.DoubleHeights]
 type doubleHeightGrid[T any] struct {
@@ -56,6 +59,9 @@ func (d *doubleHeightGrid[T]) Set(index coord.DoubleHeight, value T) {
 }
 func (d *doubleHeightGrid[T]) Delete(index coord.DoubleHeight) {
 	d.grid.delete(index)
+}
+func (d *doubleHeightGrid[T]) Iterator() GridIterator[T, coord.DoubleHeight, *coord.DoubleHeights] {
+	return d.iterator(coord.Axial.DoubleHeight)
 }
 
 type DoubleWidthGrid[T any] Grid[T, coord.DoubleWidth, *coord.DoubleWidths]
@@ -84,6 +90,9 @@ func (d *doubleWidthGrid[T]) Set(index coord.DoubleWidth, value T) {
 func (d *doubleWidthGrid[T]) Delete(index coord.DoubleWidth) {
 	d.grid.delete(index)
 }
+func (d *doubleWidthGrid[T]) Iterator() GridIterator[T, coord.DoubleWidth, *coord.DoubleWidths] {
+	return d.iterator(coord.Axial.DoubleWidth)
+}
 
 type EvenQGrid[T any] Grid[T, coord.EvenQ, *coord.EvenQs]
 type evenQGrid[T any] struct {
@@ -110,6 +119,9 @@ func (e *evenQGrid[T]) Set(index coord.EvenQ, value T) {
 }
 func (e *evenQGrid[T]) Delete(index coord.EvenQ) {
 	e.grid.delete(index)
+}
+func (e *evenQGrid[T]) Iterator() GridIterator[T, coord.EvenQ, *coord.EvenQs] {
+	return e.iterator(coord.Axial.EvenQ)
 }
 
 type EvenRGrid[T any] Grid[T, coord.EvenR, *coord.EvenRs]
@@ -138,6 +150,9 @@ func (e *evenRGrid[T]) Set(index coord.EvenR, value T) {
 func (e *evenRGrid[T]) Delete(index coord.EvenR) {
 	e.grid.delete(index)
 }
+func (e *evenRGrid[T]) Iterator() GridIterator[T, coord.EvenR, *coord.EvenRs] {
+	return e.iterator(coord.Axial.EvenR)
+}
 
 type OddQGrid[T any] Grid[T, coord.OddQ, *coord.OddQs]
 type oddQGrid[T any] struct {
@@ -165,6 +180,9 @@ func (o *oddQGrid[T]) Set(index coord.OddQ, value T) {
 func (o *oddQGrid[T]) Delete(index coord.OddQ) {
 	o.grid.delete(index)
 }
+func (o *oddQGrid[T]) Iterator() GridIterator[T, coord.OddQ, *coord.OddQs] {
+	return o.iterator(coord.Axial.OddQ)
+}
 
 type OddRGrid[T any] Grid[T, coord.OddR, *coord.OddRs]
 type oddRGrid[T any] struct {
@@ -191,4 +209,7 @@ func (o *oddRGrid[T]) Set(index coord.OddR, value T) {
 }
 func (o *oddRGrid[T]) Delete(index coord.OddR) {
 	o.grid.delete(index)
+}
+func (o *oddRGrid[T]) Iterator() GridIterator[T, coord.OddR, *coord.OddRs] {
+	return o.iterator(coord.Axial.OddR)
 }
