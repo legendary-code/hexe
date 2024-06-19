@@ -3,14 +3,14 @@ package hexe
 
 import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
-// GCoordGrid represents a grid in gCoordGrid coordinates
+// GCoordGrid represents a grid in gCoord coordinates
 type GCoordGrid[T any] Grid[T, coord.GCoord, *coord.GCoords]
 
 type gCoordGrid[T any] struct {
     *grid[T, coord.GCoord, *coord.GCoords]
 }
 
-// NewGCoordGrid instantiates a new grid in gCoordGrid coordinates
+// NewGCoordGrid instantiates a new grid in gCoord coordinates
 func NewGCoordGrid[T any](options ...Option[T]) GCoordGrid[T] {
     return &gCoordGrid[T]{
         grid: newGrid[T, coord.GCoord, *coord.GCoords](options...),

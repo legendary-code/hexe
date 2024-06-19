@@ -4,13 +4,13 @@ package hexe
 
 import "github.com/legendary-code/hexe/pkg/hexe/coord"
 
-// AxialGrid represents a grid in axialGrid coordinates
+// AxialGrid represents a grid in axial coordinates
 type AxialGrid[T any] Grid[T, coord.Axial, *coord.Axials]
 type axialGrid[T any] struct {
 	*grid[T, coord.Axial, *coord.Axials]
 }
 
-// NewAxialGrid instantiates a new grid in axialGrid coordinates
+// NewAxialGrid instantiates a new grid in axial coordinates
 func NewAxialGrid[T any](options ...Option[T]) AxialGrid[T] {
 	return &axialGrid[T]{grid: newGrid[T, coord.Axial, *coord.Axials](options...)}
 }
@@ -36,13 +36,13 @@ func (a *axialGrid[T]) Iterator() GridIterator[T, coord.Axial, *coord.Axials] {
 	return a.iterator(coord.Axial.Axial)
 }
 
-// DoubleHeightGrid represents a grid in doubleHeightGrid coordinates
+// DoubleHeightGrid represents a grid in doubleHeight coordinates
 type DoubleHeightGrid[T any] Grid[T, coord.DoubleHeight, *coord.DoubleHeights]
 type doubleHeightGrid[T any] struct {
 	*grid[T, coord.DoubleHeight, *coord.DoubleHeights]
 }
 
-// NewDoubleHeightGrid instantiates a new grid in doubleHeightGrid coordinates
+// NewDoubleHeightGrid instantiates a new grid in doubleHeight coordinates
 func NewDoubleHeightGrid[T any](options ...Option[T]) DoubleHeightGrid[T] {
 	return &doubleHeightGrid[T]{grid: newGrid[T, coord.DoubleHeight, *coord.DoubleHeights](options...)}
 }
@@ -68,13 +68,13 @@ func (d *doubleHeightGrid[T]) Iterator() GridIterator[T, coord.DoubleHeight, *co
 	return d.iterator(coord.Axial.DoubleHeight)
 }
 
-// DoubleWidthGrid represents a grid in doubleWidthGrid coordinates
+// DoubleWidthGrid represents a grid in doubleWidth coordinates
 type DoubleWidthGrid[T any] Grid[T, coord.DoubleWidth, *coord.DoubleWidths]
 type doubleWidthGrid[T any] struct {
 	*grid[T, coord.DoubleWidth, *coord.DoubleWidths]
 }
 
-// NewDoubleWidthGrid instantiates a new grid in doubleWidthGrid coordinates
+// NewDoubleWidthGrid instantiates a new grid in doubleWidth coordinates
 func NewDoubleWidthGrid[T any](options ...Option[T]) DoubleWidthGrid[T] {
 	return &doubleWidthGrid[T]{grid: newGrid[T, coord.DoubleWidth, *coord.DoubleWidths](options...)}
 }
@@ -100,13 +100,13 @@ func (d *doubleWidthGrid[T]) Iterator() GridIterator[T, coord.DoubleWidth, *coor
 	return d.iterator(coord.Axial.DoubleWidth)
 }
 
-// EvenQGrid represents a grid in evenQGrid coordinates
+// EvenQGrid represents a grid in evenQ coordinates
 type EvenQGrid[T any] Grid[T, coord.EvenQ, *coord.EvenQs]
 type evenQGrid[T any] struct {
 	*grid[T, coord.EvenQ, *coord.EvenQs]
 }
 
-// NewEvenQGrid instantiates a new grid in evenQGrid coordinates
+// NewEvenQGrid instantiates a new grid in evenQ coordinates
 func NewEvenQGrid[T any](options ...Option[T]) EvenQGrid[T] {
 	return &evenQGrid[T]{grid: newGrid[T, coord.EvenQ, *coord.EvenQs](options...)}
 }
@@ -132,13 +132,13 @@ func (e *evenQGrid[T]) Iterator() GridIterator[T, coord.EvenQ, *coord.EvenQs] {
 	return e.iterator(coord.Axial.EvenQ)
 }
 
-// EvenRGrid represents a grid in evenRGrid coordinates
+// EvenRGrid represents a grid in evenR coordinates
 type EvenRGrid[T any] Grid[T, coord.EvenR, *coord.EvenRs]
 type evenRGrid[T any] struct {
 	*grid[T, coord.EvenR, *coord.EvenRs]
 }
 
-// NewEvenRGrid instantiates a new grid in evenRGrid coordinates
+// NewEvenRGrid instantiates a new grid in evenR coordinates
 func NewEvenRGrid[T any](options ...Option[T]) EvenRGrid[T] {
 	return &evenRGrid[T]{grid: newGrid[T, coord.EvenR, *coord.EvenRs](options...)}
 }
@@ -164,13 +164,13 @@ func (e *evenRGrid[T]) Iterator() GridIterator[T, coord.EvenR, *coord.EvenRs] {
 	return e.iterator(coord.Axial.EvenR)
 }
 
-// OddQGrid represents a grid in oddQGrid coordinates
+// OddQGrid represents a grid in oddQ coordinates
 type OddQGrid[T any] Grid[T, coord.OddQ, *coord.OddQs]
 type oddQGrid[T any] struct {
 	*grid[T, coord.OddQ, *coord.OddQs]
 }
 
-// NewOddQGrid instantiates a new grid in oddQGrid coordinates
+// NewOddQGrid instantiates a new grid in oddQ coordinates
 func NewOddQGrid[T any](options ...Option[T]) OddQGrid[T] {
 	return &oddQGrid[T]{grid: newGrid[T, coord.OddQ, *coord.OddQs](options...)}
 }
@@ -196,13 +196,13 @@ func (o *oddQGrid[T]) Iterator() GridIterator[T, coord.OddQ, *coord.OddQs] {
 	return o.iterator(coord.Axial.OddQ)
 }
 
-// OddRGrid represents a grid in oddRGrid coordinates
+// OddRGrid represents a grid in oddR coordinates
 type OddRGrid[T any] Grid[T, coord.OddR, *coord.OddRs]
 type oddRGrid[T any] struct {
 	*grid[T, coord.OddR, *coord.OddRs]
 }
 
-// NewOddRGrid instantiates a new grid in oddRGrid coordinates
+// NewOddRGrid instantiates a new grid in oddR coordinates
 func NewOddRGrid[T any](options ...Option[T]) OddRGrid[T] {
 	return &oddRGrid[T]{grid: newGrid[T, coord.OddR, *coord.OddRs](options...)}
 }
