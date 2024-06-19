@@ -14,7 +14,7 @@
     <p>
     An easy-to-use golang library for working with hexagonal grids.
     <br/>
-    <a href="https://pkg.go.dev/legendary-code/hexe"><strong>Explore the docs »</strong></a>
+    <a href="https://pkg.go.dev/github.com/legendary-code/hexe"><strong>Explore the docs »</strong></a>
     </p>
 </div>
 
