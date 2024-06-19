@@ -62,6 +62,14 @@
 				<li><a href="#grid-persistence">Grid Persistence</a></li>
 			</ul>
 		</li>
+		<li>
+			<a href="#more-examples">More Examples</a>
+		</li>
+		<li>
+			<a href="#license">License</a>
+		</li>
+		<li>
+			<a href="#contributing">Contributing</a>
 		</li>
 	</ol>
 </details>
@@ -730,6 +738,15 @@ func gridPersistenceExample() {
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## More Examples
+For more examples of various features, check out [./examples](./examples)
+
+## License
+This library uses the [MIT License](./LICENSE)
+
+## Contributing
+Please see (./CONTRIBUTING) for guidlines.
 
 <!-- Links & Images -->
 [linkedin-shield]: https://img.shields.io/badge/LinkedIn-blue?style=social&logo=linkedin
