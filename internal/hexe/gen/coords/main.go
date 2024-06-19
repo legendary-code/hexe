@@ -42,6 +42,17 @@ func parseAst(templateFile string) *ast.File {
 	return file
 }
 
+func renderComments(sb *strings.Builder, doc *ast.CommentGroup) {
+	if doc == nil {
+		return
+	}
+
+	for _, comment := range doc.List {
+		sb.WriteString(comment.Text)
+		sb.WriteString("\n")
+	}
+}
+
 func processTemplate(templateFile string) {
 	fmt.Printf("Processing %s...\n", filepath.Base(templateFile))
 
@@ -119,8 +130,13 @@ func processTemplate(templateFile string) {
 
 		// Write to file
 		ast.Inspect(file, func(node ast.Node) bool {
+			// format.Node() outputs comments in the wrong location, so we have to do it ourselves
+
 			funcDecl, ok := node.(*ast.FuncDecl)
 			if ok {
+				renderComments(&sb, funcDecl.Doc)
+				funcDecl.Doc = nil
+
 				err := format.Node(&sb, fset, funcDecl)
 				check.Error(err)
 				sb.WriteString("\n")
@@ -129,6 +145,9 @@ func processTemplate(templateFile string) {
 
 			typeDecl, ok := node.(*ast.GenDecl)
 			if ok && typeDecl.Tok == token.TYPE {
+				renderComments(&sb, typeDecl.Doc)
+				typeDecl.Doc = nil
+
 				err := format.Node(&sb, fset, typeDecl)
 				check.Error(err)
 				sb.WriteString("\n")

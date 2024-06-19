@@ -7,16 +7,18 @@ import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 )
 
-type Axial [2]int // Axial represents a hex coordinate in the axial coordinate system
+// Axial represents a hex coordinate in the axial coordinate system
+type Axial [2]int
 
+// NewAxial creates a new axial coordinate with the given component values
 func NewAxial(q int, r int) Axial {
 	return Axial{q, r}
-} // NewAxial creates a new axial coordinate with the given component values
+}
 
+// ZeroAxial creates a new axial coordinate with the all zero component values
 func ZeroAxial() Axial {
 	return Axial{0, 0}
-} // ZeroAxial creates a new axial coordinate with the all zero component values
-
+}
 func (a Axial) Type() consts.CoordType {
 	return consts.Axial
 }
@@ -95,16 +97,18 @@ func (a Axial) String() string {
 	return fmt.Sprintf("Axial(%d,%d)", a[0], a[1])
 }
 
-type DoubleHeight [2]int // DoubleHeight represents a hex coordinate in the doubleHeight coordinate system
+// DoubleHeight represents a hex coordinate in the doubleHeight coordinate system
+type DoubleHeight [2]int
 
+// NewDoubleHeight creates a new doubleHeight coordinate with the given component values
 func NewDoubleHeight(q int, r int) DoubleHeight {
 	return DoubleHeight{q, r}
-} // NewDoubleHeight creates a new doubleHeight coordinate with the given component values
+}
 
+// ZeroDoubleHeight creates a new doubleHeight coordinate with the all zero component values
 func ZeroDoubleHeight() DoubleHeight {
 	return DoubleHeight{0, 0}
-} // ZeroDoubleHeight creates a new doubleHeight coordinate with the all zero component values
-
+}
 func (d DoubleHeight) Type() consts.CoordType {
 	return consts.DoubleHeight
 }
@@ -183,16 +187,18 @@ func (d DoubleHeight) String() string {
 	return fmt.Sprintf("DoubleHeight(%d,%d)", d[0], d[1])
 }
 
-type DoubleWidth [2]int // DoubleWidth represents a hex coordinate in the doubleWidth coordinate system
+// DoubleWidth represents a hex coordinate in the doubleWidth coordinate system
+type DoubleWidth [2]int
 
+// NewDoubleWidth creates a new doubleWidth coordinate with the given component values
 func NewDoubleWidth(q int, r int) DoubleWidth {
 	return DoubleWidth{q, r}
-} // NewDoubleWidth creates a new doubleWidth coordinate with the given component values
+}
 
+// ZeroDoubleWidth creates a new doubleWidth coordinate with the all zero component values
 func ZeroDoubleWidth() DoubleWidth {
 	return DoubleWidth{0, 0}
-} // ZeroDoubleWidth creates a new doubleWidth coordinate with the all zero component values
-
+}
 func (d DoubleWidth) Type() consts.CoordType {
 	return consts.DoubleWidth
 }
@@ -271,16 +277,18 @@ func (d DoubleWidth) String() string {
 	return fmt.Sprintf("DoubleWidth(%d,%d)", d[0], d[1])
 }
 
-type EvenQ [2]int // EvenQ represents a hex coordinate in the evenQ coordinate system
+// EvenQ represents a hex coordinate in the evenQ coordinate system
+type EvenQ [2]int
 
+// NewEvenQ creates a new evenQ coordinate with the given component values
 func NewEvenQ(q int, r int) EvenQ {
 	return EvenQ{q, r}
-} // NewEvenQ creates a new evenQ coordinate with the given component values
+}
 
+// ZeroEvenQ creates a new evenQ coordinate with the all zero component values
 func ZeroEvenQ() EvenQ {
 	return EvenQ{0, 0}
-} // ZeroEvenQ creates a new evenQ coordinate with the all zero component values
-
+}
 func (e EvenQ) Type() consts.CoordType {
 	return consts.EvenQ
 }
@@ -359,16 +367,18 @@ func (e EvenQ) String() string {
 	return fmt.Sprintf("EvenQ(%d,%d)", e[0], e[1])
 }
 
-type EvenR [2]int // EvenR represents a hex coordinate in the evenR coordinate system
+// EvenR represents a hex coordinate in the evenR coordinate system
+type EvenR [2]int
 
+// NewEvenR creates a new evenR coordinate with the given component values
 func NewEvenR(q int, r int) EvenR {
 	return EvenR{q, r}
-} // NewEvenR creates a new evenR coordinate with the given component values
+}
 
+// ZeroEvenR creates a new evenR coordinate with the all zero component values
 func ZeroEvenR() EvenR {
 	return EvenR{0, 0}
-} // ZeroEvenR creates a new evenR coordinate with the all zero component values
-
+}
 func (e EvenR) Type() consts.CoordType {
 	return consts.EvenR
 }
@@ -447,16 +457,18 @@ func (e EvenR) String() string {
 	return fmt.Sprintf("EvenR(%d,%d)", e[0], e[1])
 }
 
-type OddQ [2]int // OddQ represents a hex coordinate in the oddQ coordinate system
+// OddQ represents a hex coordinate in the oddQ coordinate system
+type OddQ [2]int
 
+// NewOddQ creates a new oddQ coordinate with the given component values
 func NewOddQ(q int, r int) OddQ {
 	return OddQ{q, r}
-} // NewOddQ creates a new oddQ coordinate with the given component values
+}
 
+// ZeroOddQ creates a new oddQ coordinate with the all zero component values
 func ZeroOddQ() OddQ {
 	return OddQ{0, 0}
-} // ZeroOddQ creates a new oddQ coordinate with the all zero component values
-
+}
 func (o OddQ) Type() consts.CoordType {
 	return consts.OddQ
 }
@@ -535,16 +547,18 @@ func (o OddQ) String() string {
 	return fmt.Sprintf("OddQ(%d,%d)", o[0], o[1])
 }
 
-type OddR [2]int // OddR represents a hex coordinate in the oddR coordinate system
+// OddR represents a hex coordinate in the oddR coordinate system
+type OddR [2]int
 
+// NewOddR creates a new oddR coordinate with the given component values
 func NewOddR(q int, r int) OddR {
 	return OddR{q, r}
-} // NewOddR creates a new oddR coordinate with the given component values
+}
 
+// ZeroOddR creates a new oddR coordinate with the all zero component values
 func ZeroOddR() OddR {
 	return OddR{0, 0}
-} // ZeroOddR creates a new oddR coordinate with the all zero component values
-
+}
 func (o OddR) Type() consts.CoordType {
 	return consts.OddR
 }

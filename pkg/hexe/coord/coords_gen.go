@@ -6,14 +6,15 @@ import (
 	"github.com/legendary-code/hexe/pkg/hexe/consts"
 )
 
-type Axials struct{ *orderedSet[Axial, *Axials] } // Axials represents an ordered set of coordinates in the axial coordinate system
+// Axials represents an ordered set of coordinates in the axial coordinate system
+type Axials struct{ *orderedSet[Axial, *Axials] }
 
+// NewAxials returns a new ordered set of coordinates with the given initial set of coordinates
 func NewAxials(values ...Axial) *Axials {
 	return &Axials{orderedSet: newOrderedSet[Axial, *Axials](func() *Axials {
 		return NewAxials()
 	}, values...)}
-} // NewAxials returns a new ordered set of coordinates with the given initial set of coordinates
-
+}
 func (a *Axials) Type() consts.CoordType {
 	return consts.Axial
 }
@@ -57,16 +58,17 @@ func (a *Axials) ReflectS() *Axials {
 	return a.Cubes().ReflectS().Axials()
 }
 
+// DoubleHeights represents an ordered set of coordinates in the doubleHeight coordinate system
 type DoubleHeights struct {
 	*orderedSet[DoubleHeight, *DoubleHeights]
-} // DoubleHeights represents an ordered set of coordinates in the doubleHeight coordinate system
+}
 
+// NewDoubleHeights returns a new ordered set of coordinates with the given initial set of coordinates
 func NewDoubleHeights(values ...DoubleHeight) *DoubleHeights {
 	return &DoubleHeights{orderedSet: newOrderedSet[DoubleHeight, *DoubleHeights](func() *DoubleHeights {
 		return NewDoubleHeights()
 	}, values...)}
-} // NewDoubleHeights returns a new ordered set of coordinates with the given initial set of coordinates
-
+}
 func (d *DoubleHeights) Type() consts.CoordType {
 	return consts.DoubleHeight
 }
@@ -110,16 +112,17 @@ func (d *DoubleHeights) ReflectS() *DoubleHeights {
 	return d.Cubes().ReflectS().DoubleHeights()
 }
 
+// DoubleWidths represents an ordered set of coordinates in the doubleWidth coordinate system
 type DoubleWidths struct {
 	*orderedSet[DoubleWidth, *DoubleWidths]
-} // DoubleWidths represents an ordered set of coordinates in the doubleWidth coordinate system
+}
 
+// NewDoubleWidths returns a new ordered set of coordinates with the given initial set of coordinates
 func NewDoubleWidths(values ...DoubleWidth) *DoubleWidths {
 	return &DoubleWidths{orderedSet: newOrderedSet[DoubleWidth, *DoubleWidths](func() *DoubleWidths {
 		return NewDoubleWidths()
 	}, values...)}
-} // NewDoubleWidths returns a new ordered set of coordinates with the given initial set of coordinates
-
+}
 func (d *DoubleWidths) Type() consts.CoordType {
 	return consts.DoubleWidth
 }
@@ -163,14 +166,15 @@ func (d *DoubleWidths) ReflectS() *DoubleWidths {
 	return d.Cubes().ReflectS().DoubleWidths()
 }
 
-type EvenQs struct{ *orderedSet[EvenQ, *EvenQs] } // EvenQs represents an ordered set of coordinates in the evenQ coordinate system
+// EvenQs represents an ordered set of coordinates in the evenQ coordinate system
+type EvenQs struct{ *orderedSet[EvenQ, *EvenQs] }
 
+// NewEvenQs returns a new ordered set of coordinates with the given initial set of coordinates
 func NewEvenQs(values ...EvenQ) *EvenQs {
 	return &EvenQs{orderedSet: newOrderedSet[EvenQ, *EvenQs](func() *EvenQs {
 		return NewEvenQs()
 	}, values...)}
-} // NewEvenQs returns a new ordered set of coordinates with the given initial set of coordinates
-
+}
 func (e *EvenQs) Type() consts.CoordType {
 	return consts.EvenQ
 }
@@ -214,14 +218,15 @@ func (e *EvenQs) ReflectS() *EvenQs {
 	return e.Cubes().ReflectS().EvenQs()
 }
 
-type EvenRs struct{ *orderedSet[EvenR, *EvenRs] } // EvenRs represents an ordered set of coordinates in the evenR coordinate system
+// EvenRs represents an ordered set of coordinates in the evenR coordinate system
+type EvenRs struct{ *orderedSet[EvenR, *EvenRs] }
 
+// NewEvenRs returns a new ordered set of coordinates with the given initial set of coordinates
 func NewEvenRs(values ...EvenR) *EvenRs {
 	return &EvenRs{orderedSet: newOrderedSet[EvenR, *EvenRs](func() *EvenRs {
 		return NewEvenRs()
 	}, values...)}
-} // NewEvenRs returns a new ordered set of coordinates with the given initial set of coordinates
-
+}
 func (e *EvenRs) Type() consts.CoordType {
 	return consts.EvenR
 }
@@ -265,14 +270,15 @@ func (e *EvenRs) ReflectS() *EvenRs {
 	return e.Cubes().ReflectS().EvenRs()
 }
 
-type OddQs struct{ *orderedSet[OddQ, *OddQs] } // OddQs represents an ordered set of coordinates in the oddQ coordinate system
+// OddQs represents an ordered set of coordinates in the oddQ coordinate system
+type OddQs struct{ *orderedSet[OddQ, *OddQs] }
 
+// NewOddQs returns a new ordered set of coordinates with the given initial set of coordinates
 func NewOddQs(values ...OddQ) *OddQs {
 	return &OddQs{orderedSet: newOrderedSet[OddQ, *OddQs](func() *OddQs {
 		return NewOddQs()
 	}, values...)}
-} // NewOddQs returns a new ordered set of coordinates with the given initial set of coordinates
-
+}
 func (o *OddQs) Type() consts.CoordType {
 	return consts.OddQ
 }
@@ -316,14 +322,15 @@ func (o *OddQs) ReflectS() *OddQs {
 	return o.Cubes().ReflectS().OddQs()
 }
 
-type OddRs struct{ *orderedSet[OddR, *OddRs] } // OddRs represents an ordered set of coordinates in the oddR coordinate system
+// OddRs represents an ordered set of coordinates in the oddR coordinate system
+type OddRs struct{ *orderedSet[OddR, *OddRs] }
 
+// NewOddRs returns a new ordered set of coordinates with the given initial set of coordinates
 func NewOddRs(values ...OddR) *OddRs {
 	return &OddRs{orderedSet: newOrderedSet[OddR, *OddRs](func() *OddRs {
 		return NewOddRs()
 	}, values...)}
-} // NewOddRs returns a new ordered set of coordinates with the given initial set of coordinates
-
+}
 func (o *OddRs) Type() consts.CoordType {
 	return consts.OddR
 }
