@@ -4,12 +4,14 @@ MAIN_PKG := ./pkg/hexe
 no-dirty:
 	git diff --exit-code
 
-.PHONY: tidy
-tidy:
+.PHONY: generate
+generate:
 	go generate ./...
 	go fmt ./...
-	go mod tidy -v
 
+.PHONY: tidy
+tidy: generate
+	go mod tidy -v
 
 .PHONY: audit
 audit: tidy no-dirty
@@ -18,7 +20,6 @@ audit: tidy no-dirty
 	go run honnef.co/go/tools/cmd/staticcheck@latest -checks=all,-ST1000,-U1000 ./...
 	go run golang.org/x/vuln/cmd/govulncheck@latest ./...
 	go test -buildvcs -vet=off ./...
-
 
 .PHONY: test
 test:

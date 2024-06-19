@@ -38,6 +38,11 @@ func (f *Figure) SetCoordType(coordType consts.CoordType) {
 	f.coordType = coordType
 }
 
+// SetOrientation sets the orientation of the hexagons rendered by the figure
+func (f *Figure) SetOrientation(orientation consts.Orientation) {
+	f.orientation = orientation
+}
+
 // AddCoord adds an un-styled hex cell at the given coordinate
 func (f *Figure) AddCoord(coord coord.Coord) {
 	f.cells[coord.Axial()] = &Cell{
