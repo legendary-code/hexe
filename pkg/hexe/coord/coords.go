@@ -7,15 +7,34 @@ import (
 
 // Coords represents an untyped set of coordinates
 type Coords interface {
+	// Type returns the coordinate system type for the set of coordinates
 	Type() consts.CoordType
+
+	// Convert converts the set of coordinates to another coordinate system
 	Convert(typ consts.CoordType) Coords
+
+	// Axials converts the set of coordinates to a set of axial coordinates
 	Axials() *Axials
+
+	// Cubes converts the set of coordinates to a set of cube coordinates
 	Cubes() *Cubes
+
+	// OddRs converts the set of coordinates to a set of odd-r coordinates
 	OddRs() *OddRs
+
+	// EvenRs converts the set of coordinates to a set of even-r coordinates
 	EvenRs() *EvenRs
+
+	// OddQs converts the set of coordinates to a set of odd-q coordinates
 	OddQs() *OddQs
+
+	// EvenQs converts the set of coordinates to a set of even-q coordinates
 	EvenQs() *EvenQs
+
+	// DoubleWidths converts the set of coordinates to a set of double-width coordinates
 	DoubleWidths() *DoubleWidths
+
+	// DoubleHeights converts the set of coordinates to a set of double-height coordinates
 	DoubleHeights() *DoubleHeights
 }
 
@@ -29,9 +48,18 @@ type CCoords interface {
 type TCoords[T CCoord, TS CCoords] interface {
 	Coords
 	OrderedSet[T, TS]
+
+	// Rotate rotates the set of coordinates around a given center by multiples of 60 degrees. A negative angle
+	// indicates counter-clockwise.
 	Rotate(center T, angle int) TS
+
+	// ReflectQ returns the mirror set of coordinates around the Q-axis
 	ReflectQ() TS
+
+	// ReflectR returns the mirror set of coordinates around the R-axis
 	ReflectR() TS
+
+	// ReflectS returns the mirror set of coordinates around the S-axis
 	ReflectS() TS
 }
 

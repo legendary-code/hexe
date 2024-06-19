@@ -43,6 +43,11 @@ func (f *Figure) SetOrientation(orientation consts.Orientation) {
 	f.orientation = orientation
 }
 
+// SetTheme sets the theme for the figure
+func (f *Figure) SetTheme(theme *Theme) {
+	f.theme = theme
+}
+
 // AddCoord adds an un-styled hex cell at the given coordinate
 func (f *Figure) AddCoord(coord coord.Coord) {
 	f.cells[coord.Axial()] = &Cell{
